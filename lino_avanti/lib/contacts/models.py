@@ -139,3 +139,7 @@ Companies.set_detail_layout(CompanyDetail())
 Partners.set_detail_layout(PartnerDetail())
 
 
+# Lino Avanti uses the `overview` field only in detail forms, and we
+# don't want it to have a label "Description":
+dd.update_field(Partner, 'overview', verbose_name=None)    
+

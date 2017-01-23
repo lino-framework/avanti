@@ -66,6 +66,9 @@ class Site(Site):
         yield 'lino_xl.lib.notes'
         yield 'lino_xl.lib.beid'
         yield 'lino_xl.lib.cv'
+        
+        # yield 'lino_avanti.lib.courses' # seems that course providers
+        #                                 # are not needed.
         yield 'lino_xl.lib.courses'
         # yield 'lino_xl.lib.rooms'
         
@@ -82,11 +85,11 @@ class Site(Site):
         # yield 'lino_noi.lib.tickets'
         
 
-    def setup_quicklinks(self, ar, tb):
-        super(Site, self).setup_quicklinks(ar, tb)
+    def setup_quicklinks(self, user, tb):
+        super(Site, self).setup_quicklinks(user, tb)
         a = self.actors.users.MySettings.default_action
         tb.add_instance_action(
-            ar.get_user(), action=a, label=_("My settings"))
+            user, action=a, label=_("My settings"))
         
         # tb.add_action(self.modules.tickets.MyTickets)
         # tb.add_action(self.modules.tickets.TicketsToTriage)

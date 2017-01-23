@@ -9,5 +9,6 @@
 
     avanti
     tickets
+    courses
 
 """

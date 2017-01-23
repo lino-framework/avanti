@@ -30,6 +30,8 @@ class Plugin(ad.Plugin):
         mg = site.plugins.contacts
         m = m.add_menu(mg.app_label, mg.verbose_name)
         m.add_action('avanti.Clients')
+        # m.add_action('avanti.Translators')
+        # m.add_action('courses.CourseProviders')
 
     # def setup_config_menu(self, site, profile, m):
     #     m = m.add_menu(self.app_label, self.verbose_name)
