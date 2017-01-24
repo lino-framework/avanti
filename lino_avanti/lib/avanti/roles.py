@@ -13,6 +13,7 @@ from django.utils.translation import ugettext_lazy as _
 from lino_xl.lib.contacts.roles import ContactsUser, ContactsStaff
 from lino_xl.lib.excerpts.roles import ExcerptsUser, ExcerptsStaff
 from lino_xl.lib.courses.roles import CoursesUser
+from lino_xl.lib.cv.roles import CareerUser, CareerStaff
 from lino.modlib.office.roles import OfficeUser, OfficeStaff
 
 UserTypes.clear()
@@ -20,11 +21,14 @@ add = UserTypes.add_item
 add('000', _("Anonymous"), UserRole, 'anonymous',
     readonly=True, authenticated=False)
 add('100', _("User"),
-    (SiteUser, CoursesUser, ContactsUser, OfficeUser, ExcerptsUser),
+    (SiteUser, CoursesUser, ContactsUser, OfficeUser, ExcerptsUser,
+     CareerUser),
     name='user')
 add('500', _("Staff"),
-    (SiteStaff, CoursesUser, ContactsStaff, OfficeStaff, ExcerptsStaff),
+    (SiteStaff, CoursesUser, ContactsStaff, OfficeStaff,
+     ExcerptsStaff, CareerStaff),
     name='staff')
 add('900', _("Administrator"),
-    (SiteAdmin, CoursesUser, ContactsStaff, OfficeStaff, ExcerptsStaff),
+    (SiteAdmin, CoursesUser, ContactsStaff, OfficeStaff, ExcerptsStaff,
+     CareerStaff),
     name='admin')

@@ -21,9 +21,42 @@ from lino.mixins.human import Human, Born
 from lino.mixins import ObservedPeriod
 from lino_xl.lib.countries.mixins import AddressLocation
 
-from .choicelists import Translators, ClientStates, ClientEvents
+from .choicelists import TranslatorTypes, ClientStates, ClientEvents, StartingReasons, EndingReasons
 
 contacts = dd.resolve_app('contacts')
+
+if False:
+    
+    class Translator(contacts.Company):
+
+        """A Translator is a person or company to contact for translating when
+        needed.
+
+        """
+        class Meta:
+            verbose_name = _("Translator")
+            verbose_name_plural = _("Translators")
+
+
+
+    class TranslatorDetail(contacts.CompanyDetail):
+        """Same as CompanyDetail, except that we add a tab 
+        ClientsByTranslator
+
+        """
+        box5 = "remarks"
+        main = "general ClientsByTranslator"
+
+
+    class Translators(contacts.Companies):
+        """Table of all course providers
+
+        """
+        model = 'avanti.Translator'
+        detail_layout = TranslatorDetail()
+
+
+
 
 
 @dd.python_2_unicode_compatible
@@ -76,7 +109,16 @@ class Client(contacts.Person, BeIdCardHolder, Notable):
     in_belgium_since = models.DateField(
         _("Lives in Belgium since"), blank=True, null=True)
     
-    translator = Translators.field(blank=True)
+    starting_reason = StartingReasons.field(blank=True)
+    ending_reason = EndingReasons.field(blank=True)
+    
+    translator_type = TranslatorTypes.field(blank=True)
+    translator_notes = models.CharField(_("Translator"),
+                                   max_length=200,
+                                   blank=True)
+    # translator = dd.ForeignKey(
+    #     "avanti.Translator",
+    #     blank=True, null=True)
 
     unemployed_since = models.DateField(
         _("Unemployed since"), blank=True, null=True,
@@ -92,7 +134,7 @@ class Client(contacts.Person, BeIdCardHolder, Notable):
 
     declared_name = models.BooleanField(_("Declared name"), default=False)
 
-    is_seeking = models.BooleanField(_("is seeking work"), default=False)
+    # is_seeking = models.BooleanField(_("is seeking work"), default=False)
     # removed in chatelet, maybe soon also in Eupen (replaced by seeking_since)
 
     unavailable_until = models.DateField(
@@ -101,10 +143,10 @@ class Client(contacts.Person, BeIdCardHolder, Notable):
         _("reason"), max_length=100,
         blank=True)
 
-    obstacles = models.TextField(
-        _("Other obstacles"), blank=True, null=True)
-    skills = models.TextField(
-        _("Other skills"), blank=True, null=True)
+    # obstacles = models.TextField(
+    #     _("Other obstacles"), blank=True, null=True)
+    # skills = models.TextField(
+    #     _("Other skills"), blank=True, null=True)
 
     client_state = ClientStates.field(
         default=ClientStates.newcomer.as_callable)
@@ -139,11 +181,6 @@ class Client(contacts.Person, BeIdCardHolder, Notable):
         if self.national_id:
             ssin.ssin_validator(self.national_id)
         super(Client, self).full_clean(*args, **kw)
-
-    def after_ui_save(self, ar, cw):
-        super(Client, self).after_ui_save(ar, cw)
-        self.update_reminders(ar)
-        #~ return kw
 
     def properties_list(self, *prop_ids):
         """Yields a list of the :class:`PersonProperty
@@ -190,52 +227,57 @@ class Client(contacts.Person, BeIdCardHolder, Notable):
 
 class ClientDetail(dd.DetailLayout):
 
-    main = "general contact \
+    main = "general contact humanlinks \
     papers career languages \
-    competences history tickets.TicketsByEndUser misc "
+    misc "
 
     general = dd.Panel("""
-    overview:30 general2:40 general3:20 image:15
+    overview:30 general2:40 image:15
+    tickets.TicketsByEndUser courses.EnrolmentsByPupil
     """, label=_("Person"))
 
     general2 = """
     gender:10 id:10
-    first_name middle_name last_name
     birth_date age:10 national_id:15
     nationality:15 declared_name
-    birth_country birth_place
-    in_belgium_since translator
     """
 
+    contact = dd.Panel("""
+    address general3
+    """, label=_("Contact"))
+
     general3 = """
-    language
     email
     phone
     fax
     gsm
     """
 
-    contact = dd.Panel("""
+    address = dd.Panel("""
+    first_name middle_name last_name
+    country region city zip_code:10
+    addr1
+    street_prefix street:25 street_no street_box
+    addr2
+    """, label=_("Address"))
+
+    humanlinks = dd.Panel("""
     workflow_buttons 
     humanlinks.LinksByHuman:30
     """, label=_("Human Links"))
 
     papers = dd.Panel("""
+    birth_country birth_place in_belgium_since 
     unemployed_since seeking_since work_permit_suspended_until
     needs_work_permit
     # uploads.UploadsByClient
+    notes.NotesByProject
     """,label = _("Papers"))
 
-    history = dd.Panel("""
-    notes.NotesByProject
-    excerpts.ExcerptsByProject
-    # lino.ChangesByMaster
-    """, label=_("History"))
-
     misc = dd.Panel("""
-    client_state \
-    unavailable_until:15 unavailable_why:30
-    plausibility.ProblemsByOwner:25 
+    starting_reason client_state ending_reason
+    # unavailable_until:15 unavailable_why:30
+    plausibility.ProblemsByOwner excerpts.ExcerptsByProject
     """, label=_("Miscellaneous"))
 
     career = dd.Panel("""
@@ -245,14 +287,14 @@ class ClientDetail(dd.DetailLayout):
     """, label=_("Career"))
 
     languages = dd.Panel("""
-    cv.LanguageKnowledgesByPerson
-    courses.EnrolmentsByPupil
+    language translator_type translator_notes
+    cv.LanguageKnowledgesByPerson 
     """, label=_("Languages"))
 
-    competences = dd.Panel("""
-    skills
-    obstacles
-    """, label=_("Competences"))
+    # competences = dd.Panel("""
+    # skills
+    # obstacles
+    # """, label=_("Competences"))
 
 
 class Clients(contacts.Persons):
@@ -378,15 +420,18 @@ class Clients(contacts.Persons):
             #~ return 'red'
 
 
-class ClientsByNationality(Clients):
-    master_key = 'nationality'
-    order_by = "city name".split()
-    column_names = "city street street_no street_box addr2 name_column country language *"
-
-
 class AllClients(Clients):
     column_names = "name_column:20 client_state national_id:10 \
     gsm:10 address_column age:10 email phone:10 id *"
     required_roles = dd.required(dd.SiteStaff)
 
 
+class ClientsByNationality(Clients):
+    master_key = 'nationality'
+    order_by = "city name".split()
+    column_names = "city street street_no street_box addr2 name_column country language *"
+
+
+# class ClientsByTranslator(Clients):
+#     master_key = 'translator'
+    
