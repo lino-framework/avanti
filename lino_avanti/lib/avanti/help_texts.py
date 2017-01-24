@@ -5,12 +5,6 @@ from django.utils.translation import ugettext_lazy as _
 help_texts = {
     'lino_avanti.lib.avanti.Plugin' : _("""See lino.core.plugin.Plugin."""),
     'lino_avanti.lib.avanti.choicelists.TranslatorTypes' : _("""Types of registries for the Belgian residence."""),
-    'lino_avanti.lib.avanti.choicelists.ClientEvents' : _("""A choicelist of observable client events."""),
-    'lino_avanti.lib.avanti.choicelists.ClientCreated' : _("""The choice for ClientEvents which
-selects clients whose record has been created during the observed
-period."""),
-    'lino_avanti.lib.avanti.choicelists.ClientModified' : _("""The choice for ClientEvents which selects clients whose
-main record has been modified during the observed period."""),
     'lino_avanti.lib.avanti.migrate.Migrator' : _("""The standard migrator for Lino Avanti."""),
     'lino_avanti.lib.avanti.models.Client' : _("""A client is a person using our services."""),
     'lino_avanti.lib.avanti.models.Client.overview' : _("""A panel with general information about this client."""),
