@@ -28,7 +28,7 @@ class Site(Site):
     verbose_name = "Lino Avanti!"
     version = '2017.1.0'
     url = "http://avanti.lino-framework.org/"
-    demo_fixtures = ['std', 'demo', 'demo2']
+    demo_fixtures = ['std', 'all_languages', 'demo', 'demo2']
     user_types_module = 'lino_avanti.lib.avanti.roles'
     # user_types_module = 'lino_noi.lib.noi.roles'
     workflows_module = 'lino_noi.lib.noi.workflows'

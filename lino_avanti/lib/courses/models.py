@@ -23,6 +23,7 @@ class CourseProvider(contacts.Company):
     A CourseProvider is a Company that offers Courses. 
     """
     class Meta:
+        app_label = 'courses'
         verbose_name = _("Course provider")
         verbose_name_plural = _("Course providers")
 
