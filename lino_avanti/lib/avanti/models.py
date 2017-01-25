@@ -17,46 +17,15 @@ from lino_xl.lib.beid.mixins import BeIdCardHolder
 # from lino_xl.lib.notes.choicelists import SpecialTypes
 from lino_xl.lib.notes.mixins import Notable
 
-from lino.mixins.human import Human, Born
+# from lino.mixins.human import Human, Born
 from lino.mixins import ObservedPeriod
-from lino_xl.lib.countries.mixins import AddressLocation
+# from lino_xl.lib.countries.mixins import AddressLocation
 
-from .choicelists import TranslatorTypes, ClientStates, ClientEvents, StartingReasons, EndingReasons
+from lino_xl.lib.coachings.choicelists import ClientEvents, ClientStates
+
+from .choicelists import TranslatorTypes, StartingReasons, EndingReasons
 
 contacts = dd.resolve_app('contacts')
-
-if False:
-    
-    class Translator(contacts.Company):
-
-        """A Translator is a person or company to contact for translating when
-        needed.
-
-        """
-        class Meta:
-            verbose_name = _("Translator")
-            verbose_name_plural = _("Translators")
-
-
-
-    class TranslatorDetail(contacts.CompanyDetail):
-        """Same as CompanyDetail, except that we add a tab 
-        ClientsByTranslator
-
-        """
-        box5 = "remarks"
-        main = "general ClientsByTranslator"
-
-
-    class Translators(contacts.Companies):
-        """Table of all course providers
-
-        """
-        model = 'avanti.Translator'
-        detail_layout = TranslatorDetail()
-
-
-
 
 
 @dd.python_2_unicode_compatible

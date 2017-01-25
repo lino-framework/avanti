@@ -49,6 +49,7 @@ class Site(Site):
             teacher_model='users.User',
             pupil_model='avanti.Client',
             pupil_name_fields='pupil__last_name pupil__first_name')
+        self.plugins.coachings.configure(client_model='avanti.Client')
 
     def get_installed_apps(self):
         """Implements :meth:`lino.core.site.Site.get_installed_apps`.
@@ -65,6 +66,7 @@ class Site(Site):
         yield 'lino_xl.lib.lists'
         yield 'lino_xl.lib.notes'
         yield 'lino_xl.lib.beid'
+        yield 'lino_xl.lib.coachings'
         yield 'lino_xl.lib.cv'
         
         # yield 'lino_avanti.lib.courses' # seems that course providers

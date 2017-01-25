@@ -32,6 +32,8 @@ class Plugin(ad.Plugin):
         m.add_action('avanti.Clients')
         # m.add_action('avanti.Translators')
         # m.add_action('courses.CourseProviders')
+        # m.add_action('coachings.CoachedClients')
+        m.add_action('coachings.MyCoachings')
 
     # def setup_config_menu(self, site, profile, m):
     #     m = m.add_menu(self.app_label, self.verbose_name)
