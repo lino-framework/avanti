@@ -39,8 +39,12 @@ class Site(Site):
 
     def setup_plugins(self):
         super(Site, self).setup_plugins()
-        self.plugins.cv.person_model = 'avanti.Client'
-        self.plugins.humanlinks.person_model = 'avanti.Client'
+        self.plugins.cv.configure(
+            person_model = 'avanti.Client')
+        self.plugins.humanlinks.configure(
+            person_model = 'avanti.Client')
+        self.plugins.households.configure(
+            person_model='avanti.Client')
         self.plugins.cal.configure(
             partner_model='avanti.Client')
         self.plugins.tickets.configure(
@@ -56,12 +60,12 @@ class Site(Site):
 
         """
         yield super(Site, self).get_installed_apps()
-        yield 'lino_avanti.lib.avanti'
         yield 'lino.modlib.users'
-        yield 'lino_avanti.lib.contacts'
-
         yield 'lino_xl.lib.countries'
-        # yield 'lino_xl.lib.households'
+        yield 'lino_avanti.lib.contacts'
+        yield 'lino_avanti.lib.avanti'
+        yield 'lino_xl.lib.households'
+        # yield 'lino_welfare.modlib.households'
         yield 'lino_xl.lib.humanlinks'
         yield 'lino_xl.lib.lists'
         yield 'lino_xl.lib.notes'
@@ -92,6 +96,12 @@ class Site(Site):
         a = self.actors.users.MySettings.default_action
         tb.add_instance_action(
             user, action=a, label=_("My settings"))
+        
+        tb.add_action(self.actors.avanti.Clients)
+        tb.add_action(
+            self.actors.avanti.Clients.insert_action,
+            label=_("New {}").format(
+                self.models.avanti.Client._meta.verbose_name))
         
         # tb.add_action(self.modules.tickets.MyTickets)
         # tb.add_action(self.modules.tickets.TicketsToTriage)

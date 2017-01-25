@@ -112,6 +112,18 @@ class Client(contacts.Person, BeIdCardHolder, Notable):
         _("reason"), max_length=100,
         blank=True)
 
+    family_notes = models.TextField(
+        _("Family situation"), blank=True, null=True)
+    
+    residence_notes = models.TextField(
+        _("Residential situation"), blank=True, null=True)
+    
+    health_notes = models.TextField(
+        _("Health situation"), blank=True, null=True)
+    
+    financial_notes = models.TextField(
+        _("Financial situation"), blank=True, null=True)
+    
     # obstacles = models.TextField(
     #     _("Other obstacles"), blank=True, null=True)
     # skills = models.TextField(
@@ -196,23 +208,24 @@ class Client(contacts.Person, BeIdCardHolder, Notable):
 
 class ClientDetail(dd.DetailLayout):
 
-    main = "general contact humanlinks \
-    papers career languages \
-    misc "
+    main = "general contact person humanlinks \
+    coaching career misc "
 
     general = dd.Panel("""
     overview:30 general2:40 image:15
-    tickets.TicketsByEndUser courses.EnrolmentsByPupil
-    """, label=_("Person"))
+    tickets.TicketsByEndUser coachings.CoachingsByClient
+    """, label=_("General"))
 
     general2 = """
-    gender:10 id:10
-    birth_date age:10 national_id:15
-    nationality:15 declared_name
+    id:10 birth_date age:10 gender:10
+    starting_reason client_state ending_reason
+    # workflow_buttons 
+    language translator_type translator_notes
     """
 
     contact = dd.Panel("""
     address general3
+    coachings.ContactsByClient
     """, label=_("Contact"))
 
     general3 = """
@@ -224,46 +237,49 @@ class ClientDetail(dd.DetailLayout):
 
     address = dd.Panel("""
     first_name middle_name last_name
-    country region city zip_code:10
+    nationality:15 declared_name national_id:15
+    country city zip_code:10
     addr1
-    street_prefix street:25 street_no street_box
-    addr2
+    street:25 street_no street_box
     """, label=_("Address"))
 
     humanlinks = dd.Panel("""
-    workflow_buttons 
-    humanlinks.LinksByHuman:30
+    family_notes humanlinks.LinksByHuman:30
+    households.MembersByPerson:20 households.SiblingsByPerson:50
     """, label=_("Human Links"))
 
-    papers = dd.Panel("""
+    person = dd.Panel("""
     birth_country birth_place in_belgium_since 
-    unemployed_since seeking_since work_permit_suspended_until
     needs_work_permit
     # uploads.UploadsByClient
+    ResidencesByPerson
+    """, label=_("Person"))
+
+    coaching = dd.Panel("""
     notes.NotesByProject
-    """,label = _("Papers"))
+    courses.EnrolmentsByPupil 
+    """,label = _("Coaching"))
 
     misc = dd.Panel("""
-    starting_reason client_state ending_reason
     # unavailable_until:15 unavailable_why:30
+    financial_notes residence_notes health_notes
     plausibility.ProblemsByOwner excerpts.ExcerptsByProject
     """, label=_("Miscellaneous"))
 
     career = dd.Panel("""
-    cv.StudiesByPerson
+    unemployed_since seeking_since work_permit_suspended_until
+    cv.StudiesByPerson cv.LanguageKnowledgesByPerson 
     # cv.TrainingsByPerson
     cv.ExperiencesByPerson:40
     """, label=_("Career"))
-
-    languages = dd.Panel("""
-    language translator_type translator_notes
-    cv.LanguageKnowledgesByPerson 
-    """, label=_("Languages"))
 
     # competences = dd.Panel("""
     # skills
     # obstacles
     # """, label=_("Competences"))
+
+
+Client.hide_elements('street_prefix', 'addr2')
 
 
 class Clients(contacts.Persons):
@@ -403,4 +419,25 @@ class ClientsByNationality(Clients):
 
 # class ClientsByTranslator(Clients):
 #     master_key = 'translator'
+
+from lino_xl.lib.countries.mixins import CountryCity
+from lino_xl.lib.cv.mixins import PersonHistoryEntry, HistoryByPerson
+
     
+class Residence(PersonHistoryEntry, CountryCity):
+
+    class Meta:
+        app_label = 'avanti'
+        verbose_name = _("Residence")
+        verbose_name_plural = _("Residences")
+
+    reason = models.CharField(_("Reason"), max_length=200, blank=True)
+
+
+
+class Residences(dd.Table):
+    model = 'avanti.Residence'
+    
+class ResidencesByPerson(HistoryByPerson, Residences):
+    column_names = 'country city start_date end_date reason *'
+    auto_fit_column_widths = True
