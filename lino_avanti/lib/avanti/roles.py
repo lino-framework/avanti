@@ -14,6 +14,7 @@ from lino_xl.lib.contacts.roles import ContactsUser, ContactsStaff
 from lino_xl.lib.excerpts.roles import ExcerptsUser, ExcerptsStaff
 from lino_xl.lib.courses.roles import CoursesUser
 from lino_xl.lib.cv.roles import CareerUser, CareerStaff
+from lino_xl.lib.beid.roles import BeIdUser
 from lino.modlib.office.roles import OfficeUser, OfficeStaff
 
 UserTypes.clear()
@@ -22,13 +23,13 @@ add('000', _("Anonymous"), UserRole, 'anonymous',
     readonly=True, authenticated=False)
 add('100', _("User"),
     (SiteUser, CoursesUser, ContactsUser, OfficeUser, ExcerptsUser,
-     CareerUser),
+     CareerUser, BeIdUser),
     name='user')
 add('500', _("Staff"),
     (SiteStaff, CoursesUser, ContactsStaff, OfficeStaff,
-     ExcerptsStaff, CareerStaff),
+     ExcerptsStaff, CareerStaff, BeIdUser),
     name='staff')
 add('900', _("Administrator"),
     (SiteAdmin, CoursesUser, ContactsStaff, OfficeStaff, ExcerptsStaff,
-     CareerStaff),
+     CareerStaff, BeIdUser),
     name='admin')
