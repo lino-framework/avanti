@@ -17,9 +17,7 @@ from lino_xl.lib.beid.mixins import BeIdCardHolder
 # from lino_xl.lib.notes.choicelists import SpecialTypes
 from lino_xl.lib.notes.mixins import Notable
 
-# from lino.mixins.human import Human, Born
 from lino.mixins import ObservedPeriod
-# from lino_xl.lib.countries.mixins import AddressLocation
 
 from lino_xl.lib.coachings.choicelists import ClientEvents, ClientStates
 
@@ -29,8 +27,6 @@ contacts = dd.resolve_app('contacts')
 
 
 @dd.python_2_unicode_compatible
-# class Client(Human, Born, Contactable, Phonable, AddressLocation,
-#              BeIdCardHolder, Notable):
 class Client(contacts.Person, BeIdCardHolder, Notable):
     """
     A **client** is a person using our services.
@@ -163,38 +159,6 @@ class Client(contacts.Person, BeIdCardHolder, Notable):
 
         """
         return rt.models.cv.properties_list(self, *prop_ids)
-
-    def get_beid_diffs(self, attrs):
-        """Overrides
-        :meth:`lino_xl.lib.beid.mixins.BeIdCardHolder.get_beid_diffs`.
-
-        """
-        Address = rt.modules.addresses.Address
-        DataSources = rt.modules.addresses.DataSources
-        diffs = []
-        objects = [self]
-        kw = dict(partner=self, data_source=DataSources.eid)
-        try:
-            addr = Address.objects.get(**kw)
-        except Address.DoesNotExist:
-            if Address.objects.filter(partner=self, primary=True).count() == 0:
-                kw.update(primary=True)
-            addr = Address(**kw)
-        objects.append(addr)
-        for fldname, new in attrs.items():
-            if fldname in Address.ADDRESS_FIELDS:
-                obj = addr
-            else:
-                obj = self
-            fld = get_field(obj, fldname)
-            old = getattr(obj, fldname)
-            if old != new:
-                diffs.append(
-                    "%s : %s -> %s" % (
-                        unicode(fld.verbose_name), dd.obj2str(old),
-                        dd.obj2str(new)))
-                setattr(obj, fld.name, new)
-        return objects, diffs
 
 
 class ClientDetail(dd.DetailLayout):
