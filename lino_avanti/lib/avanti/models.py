@@ -63,17 +63,8 @@ class Client(contacts.Person, BeIdCardHolder, Notable):
         abstract = dd.is_abstract_model(__name__, 'Client')
         #~ ordering = ['last_name','first_name']
 
+    validate_national_id = True
     workflow_state_field = 'client_state'
-
-    birth_place = models.CharField(_("Birth place"),
-                                   max_length=200,
-                                   blank=True,
-                                   #~ null=True
-                                   )
-    birth_country = dd.ForeignKey(
-        "countries.Country",
-        blank=True, null=True,
-        verbose_name=_("Birth country"), related_name='by_birth_place')
 
     in_belgium_since = models.DateField(
         _("Lives in Belgium since"), blank=True, null=True)
