@@ -96,12 +96,14 @@ class Site(Site):
         a = self.actors.users.MySettings.default_action
         tb.add_instance_action(
             user, action=a, label=_("My settings"))
-        
-        tb.add_action(self.actors.avanti.Clients)
+
+        Clients = self.actors.avanti.Clients
+        tb.add_action(Clients)
         tb.add_action(
-            self.actors.avanti.Clients.insert_action,
+            Clients.insert_action,
             label=_("New {}").format(
-                self.models.avanti.Client._meta.verbose_name))
+                Clients.model._meta.verbose_name))
+        tb.add_action(Clients, 'find_by_beid')
         
         # tb.add_action(self.modules.tickets.MyTickets)
         # tb.add_action(self.modules.tickets.TicketsToTriage)
