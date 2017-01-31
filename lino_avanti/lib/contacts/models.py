@@ -125,10 +125,10 @@ class PersonDetail(PersonDetail, PartnerDetail):
     last_name first_name:15 #title:10 gender
     street:25 #street_no street_box
     country zip_code:10 city
-    birth_date age:10 personal
+    birth_date age:10
     """
 
-    personal = 'national_id card_number'
+    # personal = 'national_id card_number'
    
     bottom_box = """
     remarks:50 plausibility.ProblemsByOwner:30
