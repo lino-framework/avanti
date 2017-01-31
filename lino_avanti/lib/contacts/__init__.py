@@ -19,5 +19,5 @@ from lino_xl.lib.contacts import Plugin
 
 
 class Plugin(Plugin):
-
-    extends_models = ['Person']
+    pass
+    # extends_models = ['Person']

@@ -12,16 +12,16 @@ from django.utils.translation import ugettext_lazy as _
 
 from lino_xl.lib.contacts.models import *
 
-from lino_xl.lib.beid.mixins import BeIdCardHolder
+#from lino_xl.lib.beid.mixins import BeIdCardHolder
 
 
-class Person(Person, BeIdCardHolder):
+# class Person(Person, BeIdCardHolder):
 
-    class Meta(Person.Meta):
-        app_label = 'contacts'
-        abstract = dd.is_abstract_model(__name__, 'Person')
+#     class Meta(Person.Meta):
+#         app_label = 'contacts'
+#         abstract = dd.is_abstract_model(__name__, 'Person')
 
-    validate_national_id = True        
+#     validate_national_id = True        
 
 
 class PartnerDetail(PartnerDetail):
@@ -125,10 +125,10 @@ class PersonDetail(PersonDetail, PartnerDetail):
     last_name first_name:15 #title:10 gender
     street:25 #street_no street_box
     country zip_code:10 city
-    birth_date age:10 personal
+    birth_date age:10
     """
 
-    personal = 'national_id card_number'
+    # personal = 'national_id card_number'
    
     bottom_box = """
     remarks:50 plausibility.ProblemsByOwner:30

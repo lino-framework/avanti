@@ -17,9 +17,6 @@ The goal of Lino Avanti is
     >>> from lino.api.doctest import *
 
 
-Lino Noi uses both :mod:`lino_noi.lib.tickets` (Ticket management) and
-:mod:`lino_noi.lib.clocking` (Worktime tracking).
-
 .. contents::
   :local:
 
@@ -37,3 +34,5 @@ List of demo users:
 <BLANKLINE>
 
 
+>>> dd.plugins.beid.holder_model
+<class 'lino_avanti.lib.avanti.models.Client'>
