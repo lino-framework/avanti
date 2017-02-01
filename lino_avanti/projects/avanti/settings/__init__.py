@@ -29,8 +29,7 @@ class Site(Site):
     version = '2017.1.0'
     url = "http://avanti.lino-framework.org/"
     demo_fixtures = ['std', 'all_languages', 'demo', 'demo2']
-    user_types_module = 'lino_avanti.lib.avanti.roles'
-    # user_types_module = 'lino_noi.lib.noi.roles'
+    user_types_module = 'lino_avanti.lib.avanti.user_types'
     workflows_module = 'lino_noi.lib.noi.workflows'
     migration_class = 'lino_avanti.lib.avanti.migrate.Migrator'
 
