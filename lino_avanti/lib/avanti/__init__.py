@@ -10,7 +10,7 @@ The main plugin for Lino Avanti.
 
     models
     migrate
-    roles
+    user_types
     choicelists
 
 """
