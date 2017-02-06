@@ -28,9 +28,11 @@ class Site(Site):
     verbose_name = "Lino Avanti!"
     version = '2017.1.0'
     url = "http://avanti.lino-framework.org/"
-    demo_fixtures = ['std', 'all_languages', 'demo', 'demo2']
+    demo_fixtures = ['std',
+                     # 'all_countries', 'all_languages',
+                     'demo', 'demo2']
     user_types_module = 'lino_avanti.lib.avanti.user_types'
-    workflows_module = 'lino_noi.lib.noi.workflows'
+    workflows_module = 'lino_avanti.lib.avanti.workflows'
     migration_class = 'lino_avanti.lib.avanti.migrate.Migrator'
 
     project_model = 'avanti.Client'
@@ -40,16 +42,18 @@ class Site(Site):
         super(Site, self).setup_plugins()
         self.plugins.cv.configure(
             person_model = 'avanti.Client')
-        self.plugins.humanlinks.configure(
-            person_model = 'avanti.Client')
-        self.plugins.households.configure(
-            person_model='avanti.Client')
+        # self.plugins.humanlinks.configure(
+        #     person_model = 'contacts.Person')
+            # person_model = 'avanti.Client')
+        # self.plugins.households.configure(
+        #     person_model = 'contacts.Person')
+            # person_model='avanti.Client')
         self.plugins.cal.configure(
             partner_model='avanti.Client')
         self.plugins.tickets.configure(
             end_user_model='avanti.Client')
         self.plugins.courses.configure(
-            teacher_model='users.User',
+            # teacher_model='users.User',
             pupil_model='avanti.Client',
             pupil_name_fields='pupil__last_name pupil__first_name')
         self.plugins.coachings.configure(client_model='avanti.Client')
@@ -63,9 +67,10 @@ class Site(Site):
         yield 'lino_xl.lib.countries'
         yield 'lino_avanti.lib.contacts'
         yield 'lino_avanti.lib.avanti'
-        yield 'lino_xl.lib.households'
+        # yield 'lino_xl.lib.households'
+        yield 'lino_avanti.lib.households'
         # yield 'lino_welfare.modlib.households'
-        yield 'lino_xl.lib.humanlinks'
+        # yield 'lino_xl.lib.humanlinks'
         yield 'lino_xl.lib.lists'
         yield 'lino_xl.lib.notes'
         yield 'lino_xl.lib.beid'

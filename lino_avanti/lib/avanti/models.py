@@ -16,6 +16,7 @@ from lino_xl.lib.beid.mixins import BeIdCardHolder
 # from lino.modlib.notify.mixins import ChangeObservable
 # from lino_xl.lib.notes.choicelists import SpecialTypes
 from lino_xl.lib.notes.mixins import Notable
+from lino_xl.lib.coachings.mixins import Coachable
 
 from lino.mixins import ObservedPeriod
 
@@ -27,7 +28,7 @@ contacts = dd.resolve_app('contacts')
 
 
 @dd.python_2_unicode_compatible
-class Client(contacts.Person, BeIdCardHolder, Notable):
+class Client(contacts.Person, BeIdCardHolder, Coachable, Notable):
     """
     A **client** is a person using our services.
 
@@ -60,7 +61,7 @@ class Client(contacts.Person, BeIdCardHolder, Notable):
         #~ ordering = ['last_name','first_name']
 
     validate_national_id = True
-    workflow_state_field = 'client_state'
+    # workflow_state_field = 'client_state'
 
     in_belgium_since = models.DateField(
         _("Lives in Belgium since"), blank=True, null=True)
@@ -69,9 +70,8 @@ class Client(contacts.Person, BeIdCardHolder, Notable):
     ending_reason = EndingReasons.field(blank=True)
     
     translator_type = TranslatorTypes.field(blank=True)
-    translator_notes = models.CharField(_("Translator"),
-                                   max_length=200,
-                                   blank=True)
+    translator_notes = dd.RichTextField(
+        _("Translator"), blank=True, format='plain')
     # translator = dd.ForeignKey(
     #     "avanti.Translator",
     #     blank=True, null=True)
@@ -111,13 +111,16 @@ class Client(contacts.Person, BeIdCardHolder, Notable):
     financial_notes = models.TextField(
         _("Financial situation"), blank=True, null=True)
     
+    integration_notes = models.TextField(
+        _("Integration notes"), blank=True, null=True)
+    
     # obstacles = models.TextField(
     #     _("Other obstacles"), blank=True, null=True)
     # skills = models.TextField(
     #     _("Other skills"), blank=True, null=True)
 
-    client_state = ClientStates.field(
-        default=ClientStates.newcomer.as_callable)
+    # client_state = ClientStates.field(
+    #     default=ClientStates.newcomer.as_callable)
 
 
     def __str__(self):
@@ -145,10 +148,10 @@ class Client(contacts.Person, BeIdCardHolder, Notable):
         owned.project = self
         super(Client, self).update_owned_instance(owned)
 
-    def full_clean(self, *args, **kw):
-        if self.national_id:
-            ssin.ssin_validator(self.national_id)
-        super(Client, self).full_clean(*args, **kw)
+    # def full_clean(self, *args, **kw):
+    #     if self.national_id:
+    #         ssin.ssin_validator(self.national_id)
+    #     super(Client, self).full_clean(*args, **kw)
 
     def properties_list(self, *prop_ids):
         """Yields a list of the :class:`PersonProperty
@@ -163,22 +166,31 @@ class Client(contacts.Person, BeIdCardHolder, Notable):
 
 class ClientDetail(dd.DetailLayout):
 
-    main = "general contact person humanlinks \
-    coaching career misc "
+    main = "general contact person family \
+    coaching career courses misc "
 
     general = dd.Panel("""
     overview:30 general2:40 image:15
-    tickets.TicketsByEndUser coachings.CoachingsByClient
+    
+    tickets.TicketsByEndUser cal.EventsByProject
     """, label=_("General"))
 
     general2 = """
-    id:10 birth_date age:10 gender:10
-    starting_reason client_state ending_reason
+    id:10 gender:10  age:10
+    national_id:15 birth_date 
+    starting_reason 
+    client_state primary_coach
+    ending_reason
     # workflow_buttons 
-    language translator_type translator_notes
+    """
+
+    translator_left = """
+    language 
+    translator_type
     """
 
     contact = dd.Panel("""
+    translator_left translator_notes
     address general3
     coachings.ContactsByClient
     """, label=_("Contact"))
@@ -190,34 +202,39 @@ class ClientDetail(dd.DetailLayout):
     gsm
     """
 
-    address = dd.Panel("""
-    first_name middle_name last_name
-    nationality:15 declared_name national_id:15
+    address = """
     country city zip_code:10
     addr1
-    street:25 street_no street_box
-    """, label=_("Address"))
+    street:25 street_no #street_box
+    addr2
+    """
 
-    humanlinks = dd.Panel("""
-    family_notes humanlinks.LinksByHuman:30
-    households.MembersByPerson:20 households.SiblingsByPerson:50
-    """, label=_("Human Links"))
+    family = dd.Panel("""
+    family_notes:50 households.MembersByPerson:20
+    #humanlinks.LinksByHuman:30
+    households.SiblingsByPerson
+    """, label=_("Family"))
 
     person = dd.Panel("""
-    birth_country birth_place in_belgium_since 
-    needs_work_permit
+    first_name middle_name last_name declared_name 
+    nationality:15 birth_country birth_place 
+    in_belgium_since needs_work_permit
     # uploads.UploadsByClient
-    ResidencesByPerson
+    ResidencesByPerson residence_notes
     """, label=_("Person"))
 
     coaching = dd.Panel("""
     notes.NotesByProject
-    courses.EnrolmentsByPupil 
+    coachings.CoachingsByClient
     """,label = _("Coaching"))
+
+    courses = dd.Panel("""
+    courses.EnrolmentsByPupil
+    """,label = _("Courses"))
 
     misc = dd.Panel("""
     # unavailable_until:15 unavailable_why:30
-    financial_notes residence_notes health_notes
+    financial_notes health_notes integration_notes
     plausibility.ProblemsByOwner excerpts.ExcerptsByProject
     """, label=_("Miscellaneous"))
 
@@ -234,7 +251,7 @@ class ClientDetail(dd.DetailLayout):
     # """, label=_("Competences"))
 
 
-Client.hide_elements('street_prefix', 'addr2')
+# Client.hide_elements('street_prefix', 'addr2')
 
 
 class Clients(contacts.Persons):
