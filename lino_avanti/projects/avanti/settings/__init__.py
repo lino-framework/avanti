@@ -36,7 +36,7 @@ class Site(Site):
     migration_class = 'lino_avanti.lib.avanti.migrate.Migrator'
 
     project_model = 'avanti.Client'
-    textfield_format = 'html'
+    textfield_format = 'plain'
 
     def setup_plugins(self):
         super(Site, self).setup_plugins()
@@ -84,7 +84,7 @@ class Site(Site):
         
         yield 'lino.modlib.plausibility'
         yield 'lino.modlib.export_excel'
-        yield 'lino.modlib.tinymce'
+        # yield 'lino.modlib.tinymce'
         yield 'lino.modlib.weasyprint'
         yield 'lino_xl.lib.excerpts'
         yield 'lino_xl.lib.appypod'

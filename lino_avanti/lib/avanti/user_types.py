@@ -20,18 +20,19 @@ from lino_xl.lib.courses.roles import CoursesTeacher, CoursesUser
 from lino_xl.lib.cv.roles import CareerUser, CareerStaff
 from lino_xl.lib.beid.roles import BeIdUser
 from lino.modlib.office.roles import OfficeUser, OfficeStaff
+from lino_noi.lib.tickets.roles import TicketsUser, TicketsStaff
 
 
 class Teacher(CoursesTeacher, ExcerptsUser, OfficeUser):
     pass
 
 class SocialWorker(CoachingsUser, CoursesUser, ContactsUser, OfficeUser,
-                   ExcerptsUser, CareerUser, BeIdUser):
+                   ExcerptsUser, CareerUser, BeIdUser, TicketsUser):
     pass
 
 class SiteStaff(SocialWorker, CoachingsStaff, CoursesUser,
                 ContactsStaff, OfficeStaff, ExcerptsStaff,
-                CareerStaff, BeIdUser):
+                CareerStaff, BeIdUser, TicketsStaff):
     pass
 
 class Administrator(SiteAdmin, SiteStaff):

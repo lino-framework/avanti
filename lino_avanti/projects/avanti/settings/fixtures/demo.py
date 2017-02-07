@@ -17,9 +17,11 @@ from lino.api import rt, dd, _
 from lino.modlib.users.choicelists import UserTypes
 from lino_xl.lib.cal.choicelists import Recurrencies
 from lino_xl.lib.courses.choicelists import EnrolmentStates
+
 def objects():
 
     Line = rt.models.courses.Line
+    Teacher = dd.plugins.courses.teacher_model
     Course = rt.models.courses.Course
     Enrolment = rt.models.courses.Enrolment
     ClientContactType = rt.models.coachings.ClientContactType
@@ -55,11 +57,12 @@ def objects():
     yield named(ClientContactType, _("School"))
     yield named(ClientContactType, _("Pharmacy"))
     
-    martha = Person(first_name="Martha", last_name="Martens")
-    yield martha
+    laura = Teacher(first_name="Laura", last_name="Lang")
+    yield laura
     
+    yield User(username="laura", profile=UserTypes.teacher,
+               partner=laura)
     yield User(username="nathalie", profile=UserTypes.user)
-    yield User(username="martha", profile=UserTypes.teacher)
 
     USERS = Cycler(User.objects.all())
     
@@ -68,11 +71,11 @@ def objects():
         line=alpha,
         start_date=dd.demo_date(-20),
         start_time="9:00", end_time="12:00",
-        max_date=dd.demo_date(100),
+        max_date=dd.demo_date(10),
         every_unit=Recurrencies.daily,
         user=USERS.pop(),
-        teacher=martha,
-        max_places=10)
+        teacher=laura,
+        max_places=5)
     
     yield Course(**kw)
 
@@ -90,7 +93,7 @@ def objects():
         if Enrolment.objects.filter(course=course, pupil=pupil).count():
             return False
         return True
-    for i in range(30):
+    for i in range(10):
         course = COURSES.pop()
         pupil = PUPILS.pop()
         while not fits(course, pupil):
