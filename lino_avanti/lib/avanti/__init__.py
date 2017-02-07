@@ -11,6 +11,7 @@ The main plugin for Lino Avanti.
     models
     migrate
     user_types
+    layouts
     choicelists
 
 """

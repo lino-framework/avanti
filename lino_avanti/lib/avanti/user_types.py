@@ -12,6 +12,7 @@ from lino.core.roles import UserRole, SiteAdmin
 from lino.modlib.users.choicelists import UserTypes
 from django.utils.translation import ugettext_lazy as _
 
+from lino.modlib.office.roles import OfficeUser, OfficeStaff
 from lino_xl.lib.contacts.roles import ContactsUser, ContactsStaff
 # from lino_xl.lib.cal.roles import CalendarUser, CalendarStaff
 from lino_xl.lib.coachings.roles import CoachingsUser, CoachingsStaff
@@ -19,7 +20,6 @@ from lino_xl.lib.excerpts.roles import ExcerptsUser, ExcerptsStaff
 from lino_xl.lib.courses.roles import CoursesTeacher, CoursesUser
 from lino_xl.lib.cv.roles import CareerUser, CareerStaff
 from lino_xl.lib.beid.roles import BeIdUser
-from lino.modlib.office.roles import OfficeUser, OfficeStaff
 from lino_noi.lib.tickets.roles import TicketsUser, TicketsStaff
 
 
