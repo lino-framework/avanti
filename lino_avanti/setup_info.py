@@ -63,6 +63,8 @@ SETUP_INFO.update(packages=[
     'lino_avanti.lib.contacts.fixtures',
     'lino_avanti.lib.contacts.management',
     'lino_avanti.lib.contacts.management.commands',
+    'lino_avanti.lib.households',
+    'lino_avanti.lib.households.fixtures',
     'lino_avanti.lib.tickets',
     'lino_avanti.lib.courses',
     'lino_avanti.projects',

@@ -37,9 +37,10 @@ class EndingReasons(dd.ChoiceList):
     verbose_name = _("Ending reason")
 
 add = EndingReasons.add_item
-add('100', _("Return to home country"))
-add('200', _("Illness"))
+add('100', _("Successfully ended"))
+add('200', _("Health problems"))
 add('300', _("Familiar reasons"))
 add('400', _("Missing motivation"))
+add('500', _("Return to home country"))
 add('900', _("Other"))
 

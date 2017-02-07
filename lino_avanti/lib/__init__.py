@@ -10,5 +10,6 @@
     avanti
     tickets
     courses
+    households
 
 """

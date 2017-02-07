@@ -41,7 +41,7 @@ class PartnerDetail(PartnerDetail):
     """, label=_("Address"))
 
     more = dd.Panel("""
-    id language
+    id language client_contact_type
     addr1 url
     #courses.CoursesByCompany
     excerpts.ExcerptsByOwner cal.GuestsByPartner

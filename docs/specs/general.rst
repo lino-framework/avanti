@@ -27,6 +27,8 @@ List of demo users:
 ========== =============== ============ ===========
  Username   User type       First name   Last name
 ---------- --------------- ------------ -----------
+ martha     Teacher
+ nathalie   Social worker
  robin      Administrator   Robin        Rood
  rolf       Administrator   Rolf         Rompen
  romain     Administrator   Romain       Raffault
