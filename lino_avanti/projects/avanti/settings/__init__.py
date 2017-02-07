@@ -33,6 +33,7 @@ class Site(Site):
                      'demo', 'demo2']
     user_types_module = 'lino_avanti.lib.avanti.user_types'
     workflows_module = 'lino_avanti.lib.avanti.workflows'
+    custom_layouts_module = 'lino_avanti.lib.avanti.layouts'
     migration_class = 'lino_avanti.lib.avanti.migrate.Migrator'
 
     project_model = 'avanti.Client'
@@ -63,7 +64,8 @@ class Site(Site):
 
         """
         yield super(Site, self).get_installed_apps()
-        yield 'lino.modlib.users'
+        yield 'lino_avanti.lib.users'
+        # yield 'lino.modlib.users'
         yield 'lino_xl.lib.countries'
         yield 'lino_avanti.lib.contacts'
         yield 'lino_avanti.lib.avanti'
