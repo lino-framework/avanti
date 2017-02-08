@@ -17,4 +17,4 @@ from lino_xl.lib.courses import Plugin
 
 class Plugin(Plugin):
 
-    extends_models = ['Course', 'Line']
+    extends_models = ['Course']

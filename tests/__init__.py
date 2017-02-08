@@ -35,6 +35,9 @@ class PackagesTests(TestCase):
 
 class SpecsTests(TestCase):
 
+    def test_courses(self):
+        self.run_simple_doctests('docs/specs/courses.rst')
+
     def test_general(self):
         self.run_simple_doctests('docs/specs/general.rst')
 
