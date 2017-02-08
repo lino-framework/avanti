@@ -15,3 +15,4 @@ specifications. One of their goal is to get tested.
    general
    db
    roles
+   courses

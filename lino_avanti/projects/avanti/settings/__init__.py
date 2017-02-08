@@ -79,9 +79,8 @@ class Site(Site):
         yield 'lino_xl.lib.coachings'
         yield 'lino_xl.lib.cv'
         
-        # yield 'lino_avanti.lib.courses' # seems that course providers
-        #                                 # are not needed.
-        yield 'lino_xl.lib.courses'
+        yield 'lino_avanti.lib.courses' # override gen_event_user()
+        # yield 'lino_xl.lib.courses'
         # yield 'lino_xl.lib.rooms'
         
         yield 'lino.modlib.plausibility'

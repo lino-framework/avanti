@@ -103,4 +103,7 @@ def objects():
         kw.update(state=STATES.pop())
         yield Enrolment(**kw)
 
-    
+
+    ar = rt.login('robin')
+    for obj in Course.objects.all():
+        obj.update_reminders(ar)
