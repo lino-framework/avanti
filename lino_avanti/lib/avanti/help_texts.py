@@ -17,8 +17,4 @@ to look for a new job."""),
     'lino_avanti.lib.avanti.models.Clients.client_state' : _("""If not empty, show only Clients whose client_state equals
 the specified value."""),
     'lino_avanti.lib.avanti.models.Clients.model' : _("""alias of Client"""),
-    'lino_avanti.lib.courses.models.CourseProvider' : _("""A CourseProvider is a Company that offers Courses."""),
-    'lino_avanti.lib.courses.models.CourseProviderDetail' : _("""Same as CompanyDetail, except that we add a tab
-Courses."""),
-    'lino_avanti.lib.courses.models.CourseProviders' : _("""Table of all course providers"""),
 }
