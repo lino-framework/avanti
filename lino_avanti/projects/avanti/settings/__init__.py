@@ -58,6 +58,9 @@ class Site(Site):
             pupil_model='avanti.Client',
             pupil_name_fields='pupil__last_name pupil__first_name')
         self.plugins.coachings.configure(client_model='avanti.Client')
+        self.plugins.comments.configure(
+            commentable_model='tickets.Ticket')
+
 
     def get_installed_apps(self):
         """Implements :meth:`lino.core.site.Site.get_installed_apps`.
