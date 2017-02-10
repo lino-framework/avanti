@@ -45,7 +45,7 @@ from lino_xl.lib.courses.roles import CoursesUser
 #     """Table of all course providers
 
 #     """
-#     required_roles = dd.required(CoursesUser)
+#     required_roles = dd.login_required(CoursesUser)
 #     model = 'courses.CourseProvider'
 #     detail_layout = CourseProviderDetail()
 
