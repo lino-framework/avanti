@@ -32,7 +32,7 @@ class UserDetail(UserDetail):
 
     calendar = dd.Panel("""
     cal_left:30 cal.TasksByUser:60
-    """, label=dd.plugins.cal.verbose_name, required_roles=dd.required(OfficeUser))
+    """, label=dd.plugins.cal.verbose_name, required_roles=dd.login_required(OfficeUser))
 
     cal_left = """
     event_type access_class
