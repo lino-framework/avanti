@@ -10,7 +10,7 @@ from ..settings import *
 
 class Site(Site):
 
-    the_demo_date = datetime.date(2015, 5, 23)
+    the_demo_date = datetime.date(2017, 2, 15)
 
     languages = "en de fr"
 
