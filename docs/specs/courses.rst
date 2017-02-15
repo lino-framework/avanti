@@ -27,8 +27,8 @@ author.  while the morning course is managed by Nathalie.
 ========================================================== =========== ============= ====== ==========================================
  overview                                                   When        Times         Room   Actions
 ---------------------------------------------------------- ----------- ------------- ------ ------------------------------------------
- `Alphabetisation (03/05/2015) <Detail>`__ / *Laura Lang*   Every day   14:00-17:00          **Draft** → [Active] [Inactive] [Closed]
- `Alphabetisation (03/05/2015) <Detail>`__ / *Laura Lang*   Every day   09:00-12:00          **Draft**
+ `Alphabetisation (26/01/2017) <Detail>`__ / *Laura Lang*   Every day   14:00-17:00          **Draft** → [Active] [Inactive] [Closed]
+ `Alphabetisation (26/01/2017) <Detail>`__ / *Laura Lang*   Every day   09:00-12:00          **Draft**
 ========================================================== =========== ============= ====== ==========================================
 <BLANKLINE>
 
@@ -42,15 +42,17 @@ Laura (the teacher) who is responsible for the individual events.
 =========================================== ======== =================================
  overview                                    Client   Actions
 ------------------------------------------- -------- ---------------------------------
- `Lesson 12 (26.05.2015 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 12 (26.05.2015 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 13 (28.05.2015 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 13 (28.05.2015 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 14 (29.05.2015 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 14 (29.05.2015 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 15 (01.06.2015 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 15 (01.06.2015 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 16 (02.06.2015 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 16 (02.06.2015 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
+ `Lesson 13 (16.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
+ `Lesson 13 (16.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
+ `Lesson 14 (17.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
+ `Lesson 14 (17.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
+ `Lesson 15 (20.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
+ `Lesson 15 (20.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
+ `Lesson 16 (21.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
+ `Lesson 16 (21.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
+ `Lesson 17 (23.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
+ `Lesson 17 (23.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
+ `Lesson 18 (24.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
+ `Lesson 18 (24.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
 =========================================== ======== =================================
 <BLANKLINE>
