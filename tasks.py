@@ -6,6 +6,6 @@ ns.setup_from_tasks(
     locale_dir='lino_avanti/lib/avanti/locale',
     revision_control_system='git',
     cleanable_files=['docs/api/lino_avanti.*'],
-    demo_projects=['lino_avanti.projects.avanti.settings.demo'])
+    demo_projects=['lino_avanti.projects.adg.settings.demo'])
 
 

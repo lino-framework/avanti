@@ -6,12 +6,13 @@
 """Defines the standard user roles for Lino Avanti."""
 
 
+from django.utils.translation import ugettext_lazy as _
+
 # from lino.core.roles import UserRole, SiteAdmin, SiteUser, SiteStaff
 # from lino.core.roles import UserRole, SiteAdmin, SiteStaff
 from lino.core.roles import UserRole, SiteAdmin
 from lino.modlib.users.choicelists import UserTypes
-from django.utils.translation import ugettext_lazy as _
-
+from lino.modlib.comments.roles import CommentsUser, CommentsStaff
 from lino.modlib.office.roles import OfficeUser, OfficeStaff
 from lino_xl.lib.contacts.roles import ContactsUser, ContactsStaff
 # from lino_xl.lib.cal.roles import CalendarUser, CalendarStaff
@@ -23,16 +24,20 @@ from lino_xl.lib.beid.roles import BeIdUser
 from lino_noi.lib.tickets.roles import TicketsUser, TicketsStaff
 
 
-class Teacher(CoursesTeacher, ExcerptsUser, OfficeUser):
+class Teacher(CoursesTeacher, OfficeUser):
     pass
 
-class SocialWorker(CoachingsUser, CoursesUser, ContactsUser, OfficeUser,
-                   ExcerptsUser, CareerUser, BeIdUser, TicketsUser):
+class Auditor(UserRole):
+    pass
+
+class SocialWorker(CoachingsUser, CoursesUser, ContactsUser,
+                   OfficeUser, ExcerptsUser, CareerUser, BeIdUser,
+                   TicketsUser, CommentsUser):
     pass
 
 class SiteStaff(SocialWorker, CoachingsStaff, CoursesUser,
                 ContactsStaff, OfficeStaff, ExcerptsStaff,
-                CareerStaff, BeIdUser, TicketsStaff):
+                CareerStaff, BeIdUser, TicketsStaff, CommentsStaff):
     pass
 
 class Administrator(SiteAdmin, SiteStaff):
@@ -44,5 +49,6 @@ add('000', _("Anonymous"), UserRole, 'anonymous',
     readonly=True, authenticated=False)
 add('100', _("Teacher"), Teacher, name='teacher')
 add('200', _("Social worker"), SocialWorker, name='user')
+add('300', _("Auditor"), Auditor, name='auditor', readonly=True)
 add('800', _("Staff"), SiteStaff, name='staff')
 add('900', _("Administrator"), Administrator, name='admin')

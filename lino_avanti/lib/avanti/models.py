@@ -12,11 +12,13 @@ from django.conf import settings
 from lino.utils import ssin
 from lino.mixins import Phonable, Contactable
 from lino_xl.lib.beid.mixins import BeIdCardHolder
+from lino.modlib.comments.mixins import Commentable
 
 # from lino.modlib.notify.mixins import ChangeObservable
 # from lino_xl.lib.notes.choicelists import SpecialTypes
 from lino_xl.lib.notes.mixins import Notable
 from lino_xl.lib.coachings.mixins import Coachable
+from lino_xl.lib.cal.mixins import EventGenerator
 
 from lino.mixins import ObservedPeriod
 
@@ -28,7 +30,10 @@ contacts = dd.resolve_app('contacts')
 
 
 @dd.python_2_unicode_compatible
-class Client(contacts.Person, BeIdCardHolder, Coachable, Notable):
+class Client(contacts.Person, BeIdCardHolder, Coachable,
+             # Notable,
+             Commentable,
+             EventGenerator):
     """
     A **client** is a person using our services.
 
@@ -163,6 +168,9 @@ class Client(contacts.Person, BeIdCardHolder, Coachable, Notable):
         """
         return rt.models.cv.properties_list(self, *prop_ids)
 
+    def gen_event_user(self):
+        return self.get_primary_coach()
+        
 
 class ClientDetail(dd.DetailLayout):
 
@@ -224,7 +232,8 @@ class ClientDetail(dd.DetailLayout):
     """, label=_("Person"))
 
     coaching = dd.Panel("""
-    notes.NotesByProject
+    #notes.NotesByProject
+    comments.CommentsByRFC
     coachings.CoachingsByClient
     """,label = _("Coaching"))
 

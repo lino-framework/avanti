@@ -7,7 +7,8 @@
 
 """
 
-# from __future__ import unicode_literals
+from __future__ import unicode_literals
+
 # from django.conf import settings
 # from lino.utils import mti
 from lino.utils import Cycler  # join_words
@@ -25,10 +26,12 @@ def objects():
     Course = rt.models.courses.Course
     Enrolment = rt.models.courses.Enrolment
     ClientContactType = rt.models.coachings.ClientContactType
+    CoachingType = rt.models.coachings.CoachingType
     User = rt.models.users.User
     EventType = rt.modules.cal.EventType
     GuestRole = rt.modules.cal.GuestRole
     Person = rt.models.contacts.Person
+    CommentType = rt.models.comments.CommentType
     
     def named(model, name, **kwargs):
         kwargs = dd.str2kw('name', name, **kwargs)
@@ -57,12 +60,23 @@ def objects():
     yield named(ClientContactType, _("School"))
     yield named(ClientContactType, _("Pharmacy"))
     
-    laura = Teacher(first_name="Laura", last_name="Lang")
-    yield laura
+    yield named(CoachingType, _("Parcours"))
+    yield named(CoachingType, _("GSS"))
+    yield named(CoachingType, _("ISS"))
     
-    yield User(username="laura", profile=UserTypes.teacher,
-               partner=laura)
+    yield named(CommentType, _("Phone call"))
+    yield named(CommentType, _("Visit"))
+    yield named(CommentType, _("Individual consultation"))
+    yield named(CommentType, _("Internal meeting"))
+    yield named(CommentType, _("Meeting with partners"))
+    
+    tom = Teacher(first_name="Tom", last_name="Thess-Thönnes")
+    yield tom
+    
+    yield User(username="tom", profile=UserTypes.teacher,
+               partner=tom)
     yield User(username="nathalie", profile=UserTypes.user)
+    yield User(username="janina", profile=UserTypes.auditor)
 
     USERS = Cycler(User.objects.all())
     
@@ -74,7 +88,7 @@ def objects():
         max_date=dd.demo_date(10),
         every_unit=Recurrencies.daily,
         user=USERS.pop(),
-        teacher=laura,
+        teacher=tom,
         max_places=5)
     
     yield Course(**kw)
@@ -82,8 +96,9 @@ def objects():
     kw.update(start_time="14:00", end_time="17:00", user=USERS.pop())
     yield Course(**kw)
 
+    
     PUPILS = Cycler(dd.plugins.courses.pupil_model.objects.all())
-    #~ print 20130712, Pupil.objects.all()
+    # print(20170302, dd.plugins.courses.pupil_model.objects.all())
     COURSES = Cycler(Course.objects.all())
     STATES = Cycler(EnrolmentStates.objects())
 

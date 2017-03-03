@@ -57,9 +57,10 @@ class Site(Site):
             # teacher_model='users.User',
             pupil_model='avanti.Client',
             pupil_name_fields='pupil__last_name pupil__first_name')
-        self.plugins.coachings.configure(client_model='avanti.Client')
+        self.plugins.coachings.configure(
+            client_model='avanti.Client')
         self.plugins.comments.configure(
-            commentable_model='tickets.Ticket')
+            commentable_model='avanti.Client')
 
 
     def get_installed_apps(self):
@@ -72,12 +73,14 @@ class Site(Site):
         yield 'lino_xl.lib.countries'
         yield 'lino_avanti.lib.contacts'
         yield 'lino_avanti.lib.avanti'
+        yield 'lino.modlib.comments'
+        yield 'lino.modlib.notify'
         # yield 'lino_xl.lib.households'
         yield 'lino_avanti.lib.households'
         # yield 'lino_welfare.modlib.households'
         # yield 'lino_xl.lib.humanlinks'
         yield 'lino_xl.lib.lists'
-        yield 'lino_xl.lib.notes'
+        # yield 'lino_xl.lib.notes'
         yield 'lino_xl.lib.beid'
         yield 'lino_xl.lib.coachings'
         yield 'lino_xl.lib.cv'
@@ -117,10 +120,10 @@ class Site(Site):
         # tb.add_action(self.modules.tickets.TicketsToTriage)
         # tb.add_action(self.modules.tickets.TicketsToTalk)
         # tb.add_action(self.modules.tickets.TicketsToDo)
-        tb.add_action(self.modules.tickets.AllTickets)
-        tb.add_action(
-            self.modules.tickets.MyTickets.insert_action,
-            label=_("Submit a ticket"))
+        # tb.add_action(self.modules.tickets.AllTickets)
+        # tb.add_action(
+        #     self.modules.tickets.MyTickets.insert_action,
+        #     label=_("Submit a ticket"))
 
 
 # the following line should not be active in a checked-in version
