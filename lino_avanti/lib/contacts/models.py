@@ -78,7 +78,7 @@ class CompanyDetail(CompanyDetail, PartnerDetail):
     more = dd.Panel("""
     id language type
     addr1 url
-    notes.NotesByCompany
+    # notes.NotesByCompany
     """, label=_("More"))
 
     address_box = """
@@ -118,7 +118,7 @@ class PersonDetail(PersonDetail, PartnerDetail):
     more = dd.Panel("""
     id language url
     addr1 addr2
-    notes.NotesByPerson
+    # notes.NotesByPerson
     """, label=_("More"))
 
     address_box = """
