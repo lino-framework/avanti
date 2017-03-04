@@ -51,6 +51,7 @@ def objects():
     TranslatorTypes = rt.actors.avanti.TranslatorTypes
     ClientStates = rt.actors.avanti.ClientStates
     TRTYPES = Cycler(TranslatorTypes.objects())
+    POLICIES = Cycler(rt.models.cal.EventPolicy.objects.all())
     
     count = 0
     for person in Person.objects.all():
@@ -70,6 +71,7 @@ def objects():
 
             if count % 2:
                 client.client_state = ClientStates.coached
+                client.event_policy = POLICIES.pop()
             elif count % 5:
                 client.client_state = ClientStates.newcomer
             else:

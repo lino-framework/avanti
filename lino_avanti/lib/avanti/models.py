@@ -127,6 +127,9 @@ class Client(contacts.Person, BeIdCardHolder, Coachable,
     # client_state = ClientStates.field(
     #     default=ClientStates.newcomer.as_callable)
 
+    event_policy = dd.ForeignKey(
+        'cal.EventPolicy', blank=True, null=True)
+
 
     def __str__(self):
         return "%s %s (%s)" % (
@@ -168,9 +171,25 @@ class Client(contacts.Person, BeIdCardHolder, Coachable,
         """
         return rt.models.cv.properties_list(self, *prop_ids)
 
-    def gen_event_user(self):
+    def get_events_user(self):
         return self.get_primary_coach()
         
+    def update_cal_rset(self):
+        return self.event_policy
+    
+    def update_cal_event_type(self):
+        return self.event_policy.event_type
+        
+    def update_cal_from(self, ar):
+        pc = self.get_primary_coaching()
+        if pc:
+            return pc.start_date
+    
+    def update_cal_until(self):
+        pc = self.get_primary_coaching()
+        if pc:
+            return pc.end_date
+    
 
 class ClientDetail(dd.DetailLayout):
 
@@ -180,7 +199,7 @@ class ClientDetail(dd.DetailLayout):
     general = dd.Panel("""
     overview:30 general2:40 image:15
     
-    tickets.TicketsByEndUser cal.EventsByProject
+    #tickets.TicketsByEndUser cal.EventsByProject
     """, label=_("General"))
 
     general2 = """
@@ -188,7 +207,7 @@ class ClientDetail(dd.DetailLayout):
     national_id:15 birth_date 
     starting_reason 
     client_state primary_coach
-    ending_reason
+    event_policy ending_reason 
     # workflow_buttons 
     """
 
@@ -233,8 +252,8 @@ class ClientDetail(dd.DetailLayout):
 
     coaching = dd.Panel("""
     #notes.NotesByProject
-    comments.CommentsByRFC
-    coachings.CoachingsByClient
+    comments.CommentsByRFC cal.TasksByProject
+    coachings.CoachingsByClient 
     """,label = _("Coaching"))
 
     courses = dd.Panel("""
@@ -273,7 +292,7 @@ class Clients(contacts.Persons):
 
     """
     model = 'avanti.Client'
-    # params_panel_hidden = True
+    params_panel_hidden = True
 
     # insert_layout = dd.InsertLayout("""
     # first_name last_name

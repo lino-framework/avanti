@@ -72,11 +72,12 @@ def objects():
     
     tom = Teacher(first_name="Tom", last_name="Thess-Thönnes")
     yield tom
-    
     yield User(username="tom", profile=UserTypes.teacher,
                partner=tom)
+    
     yield User(username="nathalie", profile=UserTypes.user)
     yield User(username="janina", profile=UserTypes.auditor)
+    yield User(username="martina", profile=UserTypes.coordinator)
 
     USERS = Cycler(User.objects.all())
     
