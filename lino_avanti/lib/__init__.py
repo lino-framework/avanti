@@ -8,7 +8,6 @@
    :toctree:
 
     avanti
-    tickets
     courses
     households
 

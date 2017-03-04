@@ -13,7 +13,7 @@ The goal of Lino Avanti is
     doctest init:
 
     >>> import lino
-    >>> lino.startup('lino_avanti.projects.avanti.settings.doctests')
+    >>> lino.startup('lino_avanti.projects.adg.settings.doctests')
     >>> from lino.api.doctest import *
 
 
@@ -24,15 +24,17 @@ List of demo users:
 
 >>> rt.show(rt.actors.users.Users)
 ... #doctest: +NORMALIZE_WHITESPACE -REPORT_UDIFF
-========== =============== ============ ===========
+========== =============== ============ ===============
  Username   User type       First name   Last name
----------- --------------- ------------ -----------
- laura      Teacher         Laura        Lang
+---------- --------------- ------------ ---------------
+ janina     Auditor
+ martina    Coordinator
  nathalie   Social worker
  robin      Administrator   Robin        Rood
  rolf       Administrator   Rolf         Rompen
  romain     Administrator   Romain       Raffault
-========== =============== ============ ===========
+ tom        Teacher         Tom          Thess-Thönnes
+========== =============== ============ ===============
 <BLANKLINE>
 
 

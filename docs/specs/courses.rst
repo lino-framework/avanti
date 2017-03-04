@@ -11,33 +11,33 @@ Courses in Lino Avanti
     doctest init:
 
     >>> import lino
-    >>> lino.startup('lino_avanti.projects.avanti.settings.doctests')
+    >>> lino.startup('lino_avanti.projects.adg.settings.doctests')
     >>> from lino.api.doctest import *
 
 
 .. contents::
   :local:
 
-Note that Laura can modify the afternoon course, but not the morning
-course.  That's because for the afternoon course she is also the
+Note that Tom can modify the afternoon course, but not the morning
+course.  That's because for the afternoon course he is also the
 author.  while the morning course is managed by Nathalie.
 
->>> rt.login('laura').show('courses.MyCoursesGiven')
+>>> rt.login('tom').show('courses.MyCoursesGiven')
 ... #doctest: +NORMALIZE_WHITESPACE -REPORT_UDIFF
-========================================================== =========== ============= ====== ==========================================
- overview                                                   When        Times         Room   Actions
----------------------------------------------------------- ----------- ------------- ------ ------------------------------------------
- `Alphabetisation (26/01/2017) <Detail>`__ / *Laura Lang*   Every day   14:00-17:00          **Draft** → [Active] [Inactive] [Closed]
- `Alphabetisation (26/01/2017) <Detail>`__ / *Laura Lang*   Every day   09:00-12:00          **Draft**
-========================================================== =========== ============= ====== ==========================================
+================================================================= =========== ============= ====== ===========
+ overview                                                          When        Times         Room   Actions
+----------------------------------------------------------------- ----------- ------------- ------ -----------
+ `Alphabetisation (26/01/2017) <Detail>`__ / *Tom Thess-Thönnes*   Every day   14:00-17:00          **Draft**
+ `Alphabetisation (26/01/2017) <Detail>`__ / *Tom Thess-Thönnes*   Every day   09:00-12:00          **Draft**
+================================================================= =========== ============= ====== ===========
 <BLANKLINE>
 
 
 Note that even though Nathalie is author of the morning course, it is
-Laura (the teacher) who is responsible for the individual events.
+Tom (the teacher) who is responsible for the individual events.
 
 
->>> rt.login('laura').show('cal.MyEvents')
+>>> rt.login('tom').show('cal.MyEvents')
 ... #doctest: +NORMALIZE_WHITESPACE -REPORT_UDIFF
 =========================================== ======== =================================
  overview                                    Client   Actions

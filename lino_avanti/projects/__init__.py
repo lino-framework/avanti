@@ -7,6 +7,6 @@
 .. autosummary::
    :toctree:
 
-   avanti
+   adg
 
 """
