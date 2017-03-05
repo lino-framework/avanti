@@ -38,6 +38,7 @@ class Site(Site):
 
     project_model = 'avanti.Client'
     textfield_format = 'plain'
+    use_silk_icons = False
 
     def setup_plugins(self):
         super(Site, self).setup_plugins()
