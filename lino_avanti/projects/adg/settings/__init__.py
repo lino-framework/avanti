@@ -38,6 +38,7 @@ class Site(Site):
 
     project_model = 'avanti.Client'
     textfield_format = 'plain'
+    use_silk_icons = False
 
     def setup_plugins(self):
         super(Site, self).setup_plugins()
@@ -51,8 +52,8 @@ class Site(Site):
             # person_model='avanti.Client')
         self.plugins.cal.configure(
             partner_model='avanti.Client')
-        self.plugins.tickets.configure(
-            end_user_model='avanti.Client')
+        # self.plugins.tickets.configure(
+        #     end_user_model='avanti.Client')
         self.plugins.courses.configure(
             # teacher_model='users.User',
             pupil_model='avanti.Client',
@@ -85,8 +86,8 @@ class Site(Site):
         yield 'lino_xl.lib.coachings'
         yield 'lino_xl.lib.cv'
         
-        yield 'lino_avanti.lib.courses' # override gen_event_user()
-        # yield 'lino_xl.lib.courses'
+        # yield 'lino_avanti.lib.courses' # override get_events_user()
+        yield 'lino_xl.lib.courses'
         # yield 'lino_xl.lib.rooms'
         
         yield 'lino.modlib.plausibility'
@@ -96,10 +97,10 @@ class Site(Site):
         yield 'lino_xl.lib.excerpts'
         yield 'lino_xl.lib.appypod'
         
-        yield 'lino_noi.lib.votes'
-        yield 'lino_avanti.lib.tickets'
+        # yield 'lino_noi.lib.votes'
+        # yield 'lino_avanti.lib.tickets'
         # yield 'lino_noi.lib.tickets'
-        yield 'lino_noi.lib.faculties'
+        # yield 'lino_noi.lib.faculties'
         
 
     def setup_quicklinks(self, user, tb):

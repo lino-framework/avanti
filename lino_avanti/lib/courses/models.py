@@ -59,15 +59,6 @@ class Course(Course):
         # verbose_name = _("Course")
         # verbose_name_plural = _('Courses')
 
-    def gen_event_user(self):
-        """The user of generated events is not the course manager (author) but
-        the teacher.
-
-        """
-        if self.teacher:
-            return rt.models.users.User.objects.get(partner=self.teacher)
-        return self.user
-
 # class Line(Line):
     
 #     class Meta(Line.Meta):

@@ -3,6 +3,6 @@ if __name__ == "__main__":
     import sys
     import os
     os.environ['DJANGO_SETTINGS_MODULE'] = \
-        'lino_avanti.projects.avanti.settings.demo'
+        'lino_avanti.projects.adg.settings.demo'
     from django.core.management import execute_from_command_line
     execute_from_command_line(sys.argv)

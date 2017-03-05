@@ -70,10 +70,10 @@ SETUP_INFO.update(packages=[
     'lino_avanti.lib.users',
     'lino_avanti.lib.users.fixtures',
     'lino_avanti.projects',
-    'lino_avanti.projects.avanti',
-    'lino_avanti.projects.avanti.tests',
-    'lino_avanti.projects.avanti.settings',
-    'lino_avanti.projects.avanti.settings.fixtures',
+    'lino_avanti.projects.adg',
+    'lino_avanti.projects.adg.tests',
+    'lino_avanti.projects.adg.settings',
+    'lino_avanti.projects.adg.settings.fixtures',
 ])
 
 SETUP_INFO.update(message_extractors={

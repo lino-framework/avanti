@@ -28,8 +28,6 @@ class PartnerDetail(PartnerDetail):
 
     main = 'general address more'
 
-    # general = dd.Panel(PartnerDetail.main,label=_("General"))
-
     general = dd.Panel("""
     overview:30 contact_box:30 lists.MembersByPartner:20
     bottom_box
@@ -70,15 +68,25 @@ class PartnerDetail(PartnerDetail):
 
 class CompanyDetail(CompanyDetail, PartnerDetail):
 
+
+    main = 'general address more'
+
+    general = dd.Panel("""
+    overview:30 contact_box:30 lists.MembersByPartner:20
+    bottom_box
+    """, label=_("General"))
+
     address = dd.Panel("""
     address_box
     contacts.RolesByCompany
     """, label=_("Address"))
 
     more = dd.Panel("""
-    id language type
+    id language type client_contact_type
     addr1 url
     # notes.NotesByCompany
+    coachings.ClientContactsByCompany
+    plausibility.ProblemsByOwner 
     """, label=_("More"))
 
     address_box = """
@@ -97,7 +105,7 @@ class CompanyDetail(CompanyDetail, PartnerDetail):
     """)  # ,label = _("Contact"))
 
     bottom_box = """
-    remarks:50 plausibility.ProblemsByOwner:30
+    remarks:50
     """
 
 

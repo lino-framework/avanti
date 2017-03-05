@@ -12,7 +12,7 @@ extensions = []
 extlinks = {}
 
 from lino.sphinxcontrib import configure
-configure(globals(), 'lino_avanti.projects.avanti.settings.doctests')
+configure(globals(), 'lino_avanti.projects.adg.settings.doctests')
 
 # extensions += ['lino.sphinxcontrib.logo']
 

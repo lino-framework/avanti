@@ -53,5 +53,5 @@ class DemoTests(TestCase):
     """
 
     def test_avanti(self):
-        self.run_django_manage_test('lino_avanti/projects/avanti')
+        self.run_django_manage_test('lino_avanti/projects/adg')
 

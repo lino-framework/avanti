@@ -24,6 +24,7 @@ def objects():
     Line = rt.models.courses.Line
     Teacher = dd.plugins.courses.teacher_model
     Course = rt.models.courses.Course
+    Topic = rt.models.courses.Topic
     Enrolment = rt.models.courses.Enrolment
     ClientContactType = rt.models.coachings.ClientContactType
     CoachingType = rt.models.coachings.CoachingType
@@ -46,9 +47,17 @@ def objects():
     yield pupil
     yield named(GuestRole, _("Assistant"))
 
+    topic_citizen = named(Topic, _("Citizen course"))
+    yield topic_citizen
+    
+    topic_lang = named(Topic, _("Language courses"))
+    yield topic_lang
+    
+    kw.update(topic=topic_citizen)
     kw = dict(event_type=event_type, guest_role=pupil)
-
-    yield named(Line, _("Citizen"), **kw)
+    yield named(Line, _("Citizen course"), **kw)
+    
+    kw.update(topic=topic_lang)
     alpha = named(Line, _("Alphabetisation"), **kw)
     yield alpha
     yield named(Line, _("German for beginners"), **kw)
@@ -72,11 +81,12 @@ def objects():
     
     tom = Teacher(first_name="Tom", last_name="Thess-Thönnes")
     yield tom
-    
     yield User(username="tom", profile=UserTypes.teacher,
                partner=tom)
+    
     yield User(username="nathalie", profile=UserTypes.user)
-    yield User(username="janina", profile=UserTypes.auditor)
+    yield User(username="audrey", profile=UserTypes.auditor)
+    yield User(username="martina", profile=UserTypes.coordinator)
 
     USERS = Cycler(User.objects.all())
     

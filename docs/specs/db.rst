@@ -11,7 +11,7 @@ Database structure of Lino Avanti
     doctest init:
 
     >>> import lino
-    >>> lino.startup('lino_avanti.projects.avanti.settings.doctests')
+    >>> lino.startup('lino_avanti.projects.adg.settings.doctests')
     >>> from lino.api.doctest import *
 
 This document describes the database structure.

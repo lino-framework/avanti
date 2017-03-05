@@ -27,7 +27,10 @@ from lino_noi.lib.tickets.roles import TicketsUser, TicketsStaff
 class Teacher(CoursesTeacher, OfficeUser):
     pass
 
-class Auditor(UserRole):
+class Coordinator(CoursesUser, OfficeUser):
+    pass
+
+class Auditor(CoursesUser, OfficeUser):
     pass
 
 class SocialWorker(CoachingsUser, CoursesUser, ContactsUser,
@@ -50,5 +53,6 @@ add('000', _("Anonymous"), UserRole, 'anonymous',
 add('100', _("Teacher"), Teacher, name='teacher')
 add('200', _("Social worker"), SocialWorker, name='user')
 add('300', _("Auditor"), Auditor, name='auditor', readonly=True)
+add('400', _("Coordinator"), Coordinator, name='coordinator')
 add('800', _("Staff"), SiteStaff, name='staff')
 add('900', _("Administrator"), Administrator, name='admin')
