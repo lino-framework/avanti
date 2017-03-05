@@ -99,7 +99,7 @@ class Site(Site):
         # yield 'lino_noi.lib.votes'
         # yield 'lino_avanti.lib.tickets'
         # yield 'lino_noi.lib.tickets'
-        yield 'lino_noi.lib.faculties'
+        # yield 'lino_noi.lib.faculties'
         
 
     def setup_quicklinks(self, user, tb):
