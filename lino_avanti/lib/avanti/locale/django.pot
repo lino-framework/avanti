@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lino-avanti 2017.1.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-03 15:55+0200\n"
+"POT-Creation-Date: 2017-03-05 06:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -286,7 +286,7 @@ msgid "More"
 msgstr ""
 
 #: lino_avanti/lib/households/models.py:24
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:60
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:69
 msgid "School"
 msgstr ""
 
@@ -302,80 +302,85 @@ msgstr ""
 msgid "New {}"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:40
 #: lino_avanti/projects/adg/settings/fixtures/demo.py:41
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:42
 msgid "Lesson"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:45
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:46
 msgid "Pupil"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:47
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:48
 msgid "Assistant"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:51
-msgid "Citizen"
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:50
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:58
+msgid "Citizen course"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:52
-msgid "Alphabetisation"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:54
-msgid "German for beginners"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:55
-msgid "German A1+"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:56
-msgid "German A2"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:57
-msgid "German A2 (women)"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:59
-msgid "Health insurance"
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:53
+msgid "Language courses"
 msgstr ""
 
 #: lino_avanti/projects/adg/settings/fixtures/demo.py:61
-msgid "Pharmacy"
+msgid "Alphabetisation"
 msgstr ""
 
 #: lino_avanti/projects/adg/settings/fixtures/demo.py:63
-msgid "Parcours"
+msgid "German for beginners"
 msgstr ""
 
 #: lino_avanti/projects/adg/settings/fixtures/demo.py:64
-msgid "GSS"
+msgid "German A1+"
 msgstr ""
 
 #: lino_avanti/projects/adg/settings/fixtures/demo.py:65
-msgid "ISS"
+msgid "German A2"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:67
-msgid "Phone call"
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:66
+msgid "German A2 (women)"
 msgstr ""
 
 #: lino_avanti/projects/adg/settings/fixtures/demo.py:68
-msgid "Visit"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:69
-msgid "Individual consultation"
+msgid "Health insurance"
 msgstr ""
 
 #: lino_avanti/projects/adg/settings/fixtures/demo.py:70
+msgid "Pharmacy"
+msgstr ""
+
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:72
+msgid "Parcours"
+msgstr ""
+
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:73
+msgid "GSS"
+msgstr ""
+
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:74
+msgid "ISS"
+msgstr ""
+
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:76
+msgid "Phone call"
+msgstr ""
+
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:77
+msgid "Visit"
+msgstr ""
+
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:78
+msgid "Individual consultation"
+msgstr ""
+
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:79
 msgid "Internal meeting"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:71
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:80
 msgid "Meeting with partners"
 msgstr ""
 
