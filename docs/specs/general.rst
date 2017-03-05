@@ -27,7 +27,7 @@ List of demo users:
 ========== =============== ============ ===============
  Username   User type       First name   Last name
 ---------- --------------- ------------ ---------------
- janina     Auditor
+ audrey     Auditor
  martina    Coordinator
  nathalie   Social worker
  robin      Administrator   Robin        Rood

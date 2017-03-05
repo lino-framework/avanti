@@ -76,7 +76,7 @@ def objects():
                partner=tom)
     
     yield User(username="nathalie", profile=UserTypes.user)
-    yield User(username="janina", profile=UserTypes.auditor)
+    yield User(username="audrey", profile=UserTypes.auditor)
     yield User(username="martina", profile=UserTypes.coordinator)
 
     USERS = Cycler(User.objects.all())
