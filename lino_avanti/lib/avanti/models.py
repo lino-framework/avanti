@@ -13,6 +13,7 @@ from lino.utils import ssin
 from lino.mixins import Phonable, Contactable
 from lino_xl.lib.beid.mixins import BeIdCardHolder
 from lino.modlib.comments.mixins import Commentable
+from lino.modlib.users.mixins import UserAuthored, My
 
 # from lino.modlib.notify.mixins import ChangeObservable
 # from lino_xl.lib.notes.choicelists import SpecialTypes
@@ -26,11 +27,14 @@ from lino_xl.lib.coachings.choicelists import ClientEvents, ClientStates
 
 from .choicelists import TranslatorTypes, StartingReasons, EndingReasons
 
+from .roles import ClientsUser, ClientsStaff
+
 contacts = dd.resolve_app('contacts')
 
 
 @dd.python_2_unicode_compatible
-class Client(contacts.Person, BeIdCardHolder, Coachable,
+class Client(contacts.Person, BeIdCardHolder, UserAuthored,
+             Coachable,
              # Notable,
              Commentable,
              EventGenerator):
@@ -181,20 +185,24 @@ class Client(contacts.Person, BeIdCardHolder, Coachable,
         return self.event_policy.event_type
         
     def update_cal_from(self, ar):
-        pc = self.get_primary_coaching()
-        if pc:
-            return pc.start_date
+        return dd.today()
+        # pc = self.get_primary_coaching()
+        # if pc:
+        #     return pc.start_date
     
     def update_cal_until(self):
-        pc = self.get_primary_coaching()
-        if pc:
-            return pc.end_date
+        return dd.today(365)
+        # pc = self.get_primary_coaching()
+        # if pc:
+        #     return pc.end_date
+
+dd.update_field(Client, 'user', verbose_name=_("Primary coach"))
     
 
 class ClientDetail(dd.DetailLayout):
 
     main = "general contact person family \
-    coaching career courses misc "
+    notes career trends courses misc "
 
     general = dd.Panel("""
     overview:30 general2:40 image:15
@@ -206,7 +214,7 @@ class ClientDetail(dd.DetailLayout):
     id:10 gender:10  age:10
     national_id:15 birth_date 
     starting_reason 
-    client_state primary_coach
+    client_state user #primary_coach
     event_policy ending_reason 
     # workflow_buttons 
     """
@@ -217,17 +225,9 @@ class ClientDetail(dd.DetailLayout):
     """
 
     contact = dd.Panel("""
-    translator_left translator_notes
     address general3
-    coachings.ContactsByClient
-    """, label=_("Contact"))
-
-    general3 = """
-    email
-    phone
-    fax
-    gsm
-    """
+    ResidencesByPerson residence_notes
+    """, label=_("Residence"))
 
     address = """
     country city zip_code:10
@@ -236,29 +236,40 @@ class ClientDetail(dd.DetailLayout):
     addr2
     """
 
+    general3 = """
+    email
+    phone
+    fax
+    gsm
+    """
+
+    person = dd.Panel("""
+    first_name middle_name last_name #declared_name
+    nationality:15 birth_country birth_place in_belgium_since needs_work_permit:18
+    # uploads.UploadsByClient
+    translator_left translator_notes
+    coachings.ContactsByClient
+    """, label=_("Person"))
+
     family = dd.Panel("""
     family_notes:50 households.MembersByPerson:20
     #humanlinks.LinksByHuman:30
     households.SiblingsByPerson
     """, label=_("Family"))
 
-    person = dd.Panel("""
-    first_name middle_name last_name declared_name 
-    nationality:15 birth_country birth_place 
-    in_belgium_since needs_work_permit
-    # uploads.UploadsByClient
-    ResidencesByPerson residence_notes
-    """, label=_("Person"))
-
-    coaching = dd.Panel("""
+    notes = dd.Panel("""
     #notes.NotesByProject
     comments.CommentsByRFC cal.TasksByProject
-    coachings.CoachingsByClient 
-    """,label = _("Coaching"))
+    #coachings.CoachingsByClient 
+    """, label = _("Notes"))
 
     courses = dd.Panel("""
     courses.EnrolmentsByPupil
-    """,label = _("Courses"))
+    """, label = _("Courses"))
+
+    trends = dd.Panel("""
+    trends.EventsBySubject
+    """, label = _("Trends"))
 
     misc = dd.Panel("""
     # unavailable_until:15 unavailable_why:30
@@ -293,6 +304,7 @@ class Clients(contacts.Persons):
     """
     model = 'avanti.Client'
     params_panel_hidden = True
+    required_roles = dd.login_required(ClientsUser)
 
     # insert_layout = dd.InsertLayout("""
     # first_name last_name
@@ -408,13 +420,17 @@ class Clients(contacts.Persons):
 class AllClients(Clients):
     column_names = "name_column:20 client_state national_id:10 \
     gsm:10 address_column age:10 email phone:10 id *"
-    required_roles = dd.login_required(dd.SiteStaff)
+    required_roles = dd.login_required(ClientsStaff)
 
 
 class ClientsByNationality(Clients):
     master_key = 'nationality'
     order_by = "city name".split()
     column_names = "city street street_no street_box addr2 name_column country language *"
+
+
+class MyClients(My, Clients):
+    pass
 
 
 # class ClientsByTranslator(Clients):

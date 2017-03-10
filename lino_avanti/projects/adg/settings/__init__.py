@@ -60,6 +60,8 @@ class Site(Site):
             pupil_name_fields='pupil__last_name pupil__first_name')
         self.plugins.coachings.configure(
             client_model='avanti.Client')
+        self.plugins.trends.configure(
+            subject_model='avanti.Client')
         self.plugins.comments.configure(
             commentable_model='avanti.Client')
 
@@ -85,6 +87,7 @@ class Site(Site):
         yield 'lino_xl.lib.beid'
         yield 'lino_xl.lib.coachings'
         yield 'lino_xl.lib.cv'
+        yield 'lino_xl.lib.trends'
         
         # yield 'lino_avanti.lib.courses' # override get_events_user()
         yield 'lino_xl.lib.courses'
@@ -95,6 +98,7 @@ class Site(Site):
         # yield 'lino.modlib.tinymce'
         yield 'lino.modlib.weasyprint'
         yield 'lino_xl.lib.excerpts'
+        yield 'lino.modlib.dashboard'
         yield 'lino_xl.lib.appypod'
         
         # yield 'lino_noi.lib.votes'
