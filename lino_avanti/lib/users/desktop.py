@@ -16,7 +16,7 @@ from lino.api import dd, _
 class UserDetail(UserDetail):
     """Layout of User Detail in Lino Avanti."""
 
-    main = "general calendar coaching"
+    main = "general calendar dashboard.WidgetsByUser #coaching"
 
     general = dd.Panel("""
     box1:40 #MembershipsByUser:20 AuthoritiesGiven:20

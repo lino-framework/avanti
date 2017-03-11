@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  lino.apps.dsbe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-05 06:39+0200\n"
+"POT-Creation-Date: 2017-03-11 08:19+0200\n"
 "PO-Revision-Date: 2016-11-20 19:48+0100\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: fr\n"
@@ -24,7 +24,7 @@ msgstr ""
 msgid "Master"
 msgstr "Refuser"
 
-#: lino_avanti/lib/avanti/choicelists.py:18 lino_avanti/lib/avanti/models.py:79
+#: lino_avanti/lib/avanti/choicelists.py:18 lino_avanti/lib/avanti/models.py:83
 #, fuzzy
 msgid "Translator"
 msgstr "Traduction"
@@ -134,157 +134,164 @@ msgstr ""
 msgid "alias of Client"
 msgstr "à faire par bénéficiaire"
 
-#: lino_avanti/lib/avanti/models.py:63
+#: lino_avanti/lib/avanti/models.py:67
 msgid "Client"
 msgstr "Bénéficiaire"
 
-#: lino_avanti/lib/avanti/models.py:64
+#: lino_avanti/lib/avanti/models.py:68
 msgid "Clients"
 msgstr "Bénéficiaires"
 
-#: lino_avanti/lib/avanti/models.py:72
+#: lino_avanti/lib/avanti/models.py:76
 msgid "Lives in Belgium since"
 msgstr "en Belgique depuis"
 
-#: lino_avanti/lib/avanti/models.py:85
+#: lino_avanti/lib/avanti/models.py:89
 msgid "Unemployed since"
 msgstr "Inoccupé depuis"
 
-#: lino_avanti/lib/avanti/models.py:86
+#: lino_avanti/lib/avanti/models.py:90
 msgid "Since when the client has not been employed in any regular job."
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:89
+#: lino_avanti/lib/avanti/models.py:93
 msgid "Seeking work since"
 msgstr "Cherche du travail depuis"
 
-#: lino_avanti/lib/avanti/models.py:90
+#: lino_avanti/lib/avanti/models.py:94
 msgid "Since when the client is seeking for a job."
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:92
+#: lino_avanti/lib/avanti/models.py:96
 msgid "Needs work permit"
 msgstr "besoin permis de travail"
 
-#: lino_avanti/lib/avanti/models.py:94
+#: lino_avanti/lib/avanti/models.py:98
 msgid "suspended until"
 msgstr "Suspendu jusque"
 
-#: lino_avanti/lib/avanti/models.py:96
+#: lino_avanti/lib/avanti/models.py:100
 msgid "Declared name"
 msgstr "Nom déclaré"
 
-#: lino_avanti/lib/avanti/models.py:102
+#: lino_avanti/lib/avanti/models.py:106
 msgid "Unavailable until"
 msgstr "Indisponible jusque"
 
-#: lino_avanti/lib/avanti/models.py:104
+#: lino_avanti/lib/avanti/models.py:108
 msgid "reason"
 msgstr "raison"
 
-#: lino_avanti/lib/avanti/models.py:108
+#: lino_avanti/lib/avanti/models.py:112
 msgid "Family situation"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:111
+#: lino_avanti/lib/avanti/models.py:115
 msgid "Residential situation"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:114
+#: lino_avanti/lib/avanti/models.py:118
 msgid "Health situation"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:117
+#: lino_avanti/lib/avanti/models.py:121
 msgid "Financial situation"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:120
+#: lino_avanti/lib/avanti/models.py:124
 msgid "Integration notes"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:138
+#: lino_avanti/lib/avanti/models.py:146
+msgid "{} ({}) from {}"
+msgstr ""
+
+#: lino_avanti/lib/avanti/models.py:150
 msgid "Name"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:203 lino_avanti/lib/contacts/models.py:34
+#: lino_avanti/lib/avanti/models.py:207
+msgid "Primary coach"
+msgstr ""
+
+#: lino_avanti/lib/avanti/models.py:219 lino_avanti/lib/contacts/models.py:34
 #: lino_avanti/lib/contacts/models.py:77 lino_avanti/lib/contacts/models.py:119
 #: lino_avanti/lib/tickets/models.py:32 lino_avanti/lib/users/desktop.py:24
 msgid "General"
 msgstr "Général"
 
-#: lino_avanti/lib/avanti/models.py:223
-#, fuzzy
-msgid "Contact"
-msgstr "Contact client"
-
-#: lino_avanti/lib/avanti/models.py:243
-msgid "Family"
-msgstr ""
-
-#: lino_avanti/lib/avanti/models.py:251
-msgid "Person"
-msgstr "Personne"
-
-#: lino_avanti/lib/avanti/models.py:257 lino_avanti/lib/users/desktop.py:46
-msgid "Coaching"
-msgstr "Intervention"
-
-#: lino_avanti/lib/avanti/models.py:261
-msgid "Courses"
-msgstr ""
-
-#: lino_avanti/lib/avanti/models.py:267
-msgid "Miscellaneous"
-msgstr "Divers"
-
-#: lino_avanti/lib/avanti/models.py:274
-msgid "Career"
-msgstr "Parcours"
-
-#: lino_avanti/lib/avanti/models.py:311 lino_avanti/lib/households/models.py:23
-msgid "Nationality"
-msgstr "Nationalité"
-
-#: lino_avanti/lib/avanti/models.py:431
+#: lino_avanti/lib/avanti/models.py:238 lino_avanti/lib/avanti/models.py:455
 msgid "Residence"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:432
+#: lino_avanti/lib/avanti/models.py:260
+msgid "Person"
+msgstr "Personne"
+
+#: lino_avanti/lib/avanti/models.py:266
+msgid "Family"
+msgstr ""
+
+#: lino_avanti/lib/avanti/models.py:272
+msgid "Notes"
+msgstr ""
+
+#: lino_avanti/lib/avanti/models.py:276
+msgid "Courses"
+msgstr ""
+
+#: lino_avanti/lib/avanti/models.py:280
+msgid "Trends"
+msgstr ""
+
+#: lino_avanti/lib/avanti/models.py:286
+msgid "Miscellaneous"
+msgstr "Divers"
+
+#: lino_avanti/lib/avanti/models.py:293
+msgid "Career"
+msgstr "Parcours"
+
+#: lino_avanti/lib/avanti/models.py:331 lino_avanti/lib/households/models.py:23
+msgid "Nationality"
+msgstr "Nationalité"
+
+#: lino_avanti/lib/avanti/models.py:456
 msgid "Residences"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:434
+#: lino_avanti/lib/avanti/models.py:458
 #, fuzzy
 msgid "Reason"
 msgstr "raison"
 
-#: lino_avanti/lib/avanti/user_types.py:51
+#: lino_avanti/lib/avanti/user_types.py:54
 msgid "Anonymous"
 msgstr "Anonyme"
 
-#: lino_avanti/lib/avanti/user_types.py:53
+#: lino_avanti/lib/avanti/user_types.py:56
 #, fuzzy
 msgid "Teacher"
 msgstr "Autre"
 
-#: lino_avanti/lib/avanti/user_types.py:54
+#: lino_avanti/lib/avanti/user_types.py:57
 msgid "Social worker"
 msgstr ""
 
-#: lino_avanti/lib/avanti/user_types.py:55
+#: lino_avanti/lib/avanti/user_types.py:58
 #, fuzzy
 msgid "Auditor"
 msgstr "Traduction"
 
-#: lino_avanti/lib/avanti/user_types.py:56
+#: lino_avanti/lib/avanti/user_types.py:59
 msgid "Coordinator"
 msgstr ""
 
-#: lino_avanti/lib/avanti/user_types.py:57
+#: lino_avanti/lib/avanti/user_types.py:60
 msgid "Staff"
 msgstr ""
 
-#: lino_avanti/lib/avanti/user_types.py:58
+#: lino_avanti/lib/avanti/user_types.py:61
 msgid "Administrator"
 msgstr "Administrateur"
 
@@ -299,7 +306,7 @@ msgid "More"
 msgstr "Plus"
 
 #: lino_avanti/lib/households/models.py:24
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:69
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:103
 msgid "School"
 msgstr ""
 
@@ -308,94 +315,132 @@ msgstr ""
 msgid "Solution"
 msgstr "Évaluation"
 
-#: lino_avanti/projects/adg/settings/__init__.py:109
+#: lino_avanti/lib/users/desktop.py:46
+msgid "Coaching"
+msgstr "Intervention"
+
+#: lino_avanti/projects/adg/settings/__init__.py:114
 msgid "My settings"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/__init__.py:115
+#: lino_avanti/projects/adg/settings/__init__.py:120
 msgid "New {}"
 msgstr ""
 
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:27
+msgid "Dispens"
+msgstr ""
+
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:28
+msgid "Eingeschrieben"
+msgstr ""
+
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:29
+msgid "Abgeschlossen"
+msgstr ""
+
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:30
+msgid "Abgebrochen"
+msgstr ""
+
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:31
+msgid "Ausgeschlossen"
+msgstr ""
+
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:35
+msgid "Info Integration"
+msgstr ""
+
 #: lino_avanti/projects/adg/settings/fixtures/demo.py:41
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:95
+msgid "Alphabetisation"
+msgstr ""
+
 #: lino_avanti/projects/adg/settings/fixtures/demo.py:42
+msgid "A1"
+msgstr ""
+
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:43
+msgid "A2"
+msgstr ""
+
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:44
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:84
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:92
+msgid "Citizen course"
+msgstr ""
+
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:45
+msgid "Professional integration"
+msgstr ""
+
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:75
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:76
 #, fuzzy
 msgid "Lesson"
 msgstr "raison"
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:46
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:80
 msgid "Pupil"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:48
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:82
 msgid "Assistant"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:50
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:58
-msgid "Citizen course"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:53
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:87
 msgid "Language courses"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:61
-msgid "Alphabetisation"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:63
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:97
 msgid "German for beginners"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:64
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:98
 msgid "German A1+"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:65
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:99
 msgid "German A2"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:66
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:100
 msgid "German A2 (women)"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:68
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:102
 msgid "Health insurance"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:70
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:104
 msgid "Pharmacy"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:72
-msgid "Parcours"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:73
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:105
 msgid "GSS"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:74
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:106
 msgid "ISS"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:76
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:112
 msgid "Phone call"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:77
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:113
 msgid "Visit"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:78
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:114
 msgid "Individual consultation"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:79
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:115
 msgid "Internal meeting"
 msgstr ""
 
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:80
+#: lino_avanti/projects/adg/settings/fixtures/demo.py:116
 msgid "Meeting with partners"
 msgstr ""
 
@@ -1878,7 +1923,7 @@ msgstr ""
 #~ msgstr "On ne peut effacer les sociétés et les personnes importées de TIM"
 
 #~ msgid "Contact"
-#~ msgstr "Contact"
+#~ msgstr "Contact client"
 
 #~ msgid "Persons"
 #~ msgstr "Personnes"
@@ -2422,97 +2467,97 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Immersion trainings"
-#~ msgstr "%(count)d adultes"
+#~ msgstr ""
 
 #~ msgid "Immersion training"
-#~ msgstr "%(count)d enfant"
+#~ msgstr "%(count)d adultes"
 
 #~ msgid "Immersion training type"
-#~ msgstr "%(count)d enfants"
+#~ msgstr "%(count)d enfant"
 
 #~ msgid "Immersion training types"
-#~ msgstr " et "
+#~ msgstr "%(count)d enfants"
 
 #~ msgid "Immersion training goal"
-#~ msgstr "Stages d'immersion"
+#~ msgstr " et "
 
 #~ msgid "Immersion training goals"
-#~ msgstr "Stage d'immersion"
+#~ msgstr "Stages d'immersion"
 
 #~ msgid "reference person"
-#~ msgstr "Type de stage d'immersion"
+#~ msgstr "Stage d'immersion"
 
 #~ msgid "responsibilities"
-#~ msgstr "Types de stage d'immersion"
+#~ msgstr "Type de stage d'immersion"
 
 #~ msgid "Only immersion trainings of type"
-#~ msgstr "Objectif"
+#~ msgstr "Types de stage d'immersion"
 
 #~ msgid "Discover a job"
-#~ msgstr "Objectifs"
+#~ msgstr "Objectif"
 
 #~ msgid "Confirm a professional project"
-#~ msgstr "persone de référence"
+#~ msgstr "Objectifs"
 
 #~ msgid "Gain work experience"
-#~ msgstr "responsabilités"
+#~ msgstr "persone de référence"
 
 #~ msgid "Show competences"
-#~ msgstr "Seulement stages d'immersion de ce type"
+#~ msgstr "responsabilités"
 
 #~ msgid "Internal engagement"
-#~ msgstr "Découvrir un métier"
+#~ msgstr "Seulement stages d'immersion de ce type"
 
 #~ msgid "MISIP"
-#~ msgstr "Confirmer un projet professionel"
+#~ msgstr "Découvrir un métier"
 
 #~ msgid "Integration"
-#~ msgstr "Avoir une expérience de travail"
+#~ msgstr "Confirmer un projet professionel"
 
 #~ msgid "Available"
-#~ msgstr "Démontrer des compétences"
+#~ msgstr "Avoir une expérience de travail"
 
 #~ msgid "Integration Clients"
-#~ msgstr "Mise en situation interne"
+#~ msgstr "Démontrer des compétences"
 
 #~ msgid "Integration phase"
-#~ msgstr "Visite"
+#~ msgstr "Mise en situation interne"
 
 #~ msgid "Language knowledge"
-#~ msgstr "Intégration"
+#~ msgstr "Visite"
 
 #~ msgid "Wanted skill"
-#~ msgstr "Indisponible jusque"
+#~ msgstr "Intégration"
 
 #~ msgid "Only active clients"
-#~ msgstr "Bénéficiares (SI)"
+#~ msgstr "Indisponible jusque"
 
 #~ msgid "Show only clients in 'active' integration phases"
-#~ msgstr "Phase d'insertion"
+#~ msgstr "Bénéficiares (SI)"
 
 #~ msgid "Users with their Clients"
-#~ msgstr "Connaissance de langue"
+#~ msgstr "Phase d'insertion"
 
 #~ msgid "Primary clients"
-#~ msgstr "Compétence requise"
+#~ msgstr "Connaissance de langue"
 
 #~ msgid "Active clients"
-#~ msgstr "Bénéficiaires actifs seulement"
+#~ msgstr "Compétence requise"
 
 #~ msgid "Evolution générale"
-#~ msgstr ""
+#~ msgstr "Bénéficiaires actifs seulement"
 
 #~ msgid "Initial value"
-#~ msgstr "Agents et leurs clients"
+#~ msgstr ""
 
 #~ msgid "Final value"
-#~ msgstr "Dossiers complèts"
+#~ msgstr "Agents et leurs clients"
 
 #~ msgid "Indicateurs d'activité"
-#~ msgstr "Bénéficiaires actifs"
+#~ msgstr "Dossiers complèts"
 
 #~ msgid "Number"
-#~ msgstr ""
+#~ msgstr "Bénéficiaires actifs"
 
 #~ msgid "Coaching endings by user"
 #~ msgstr ""
@@ -2524,19 +2569,19 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "PIIS par agent et type"
-#~ msgstr "n°"
+#~ msgstr ""
 
 #~ msgid "Art60§7 par agent et type"
-#~ msgstr "Fins d'intervention par agent"
+#~ msgstr "n°"
 
 #~ msgid "PIIS et types de formation"
-#~ msgstr "Fins d'intervention par service"
+#~ msgstr "Fins d'intervention par agent"
 
 #~ msgid "Organisations externes et contrats"
-#~ msgstr "Uniquement contrats de type"
+#~ msgstr "Fins d'intervention par service"
 
 #~ msgid "Job providers and contrats"
-#~ msgstr ""
+#~ msgstr "Uniquement contrats de type"
 
 #~ msgid "Activity Report"
 #~ msgstr ""
@@ -2551,13 +2596,13 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Internal meetings with client"
-#~ msgstr "Rapport d'activité"
+#~ msgstr ""
 
 #~ msgid "Every month"
-#~ msgstr "PIIS"
+#~ msgstr "Rapport d'activité"
 
 #~ msgid "Every 2 months"
-#~ msgstr ""
+#~ msgstr "PIIS"
 
 #~ msgid "Every 3 months"
 #~ msgstr ""
@@ -2566,258 +2611,258 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Once after 10 days"
-#~ msgstr "Mensuel"
+#~ msgstr ""
 
 #~ msgid "Started"
-#~ msgstr "Bimensuel"
+#~ msgstr "Mensuel"
 
 #~ msgid "Decided"
-#~ msgstr "Tous les 3 mois"
+#~ msgstr "Bimensuel"
 
 #~ msgid "Issued"
-#~ msgstr "Tous les 14 jours"
+#~ msgstr "Tous les 3 mois"
 
 #~ msgid "Overlap group"
-#~ msgstr "Une fois après 10 jours"
+#~ msgstr "Tous les 14 jours"
 
 #~ msgid "Overlap groups"
-#~ msgstr "Commencé"
+#~ msgstr "Une fois après 10 jours"
 
 #~ msgid "Conventions"
-#~ msgstr "Décidé le"
+#~ msgstr "Commencé"
 
 #~ msgid "Trainings"
-#~ msgstr "délivré par "
+#~ msgstr "Décidé le"
 
 #~ msgid "Full name"
-#~ msgstr "Groupe de chevauchement"
+#~ msgstr "délivré par "
 
 #~ msgid "Date range %(p1)s lies outside of coached period %(p2)s."
-#~ msgstr "Groupes de chevauchement"
+#~ msgstr "Groupe de chevauchement"
 
 #~ msgid "Date range overlaps with {ctype} #{id}."
-#~ msgstr "Antécédents judiciaires"
+#~ msgstr "Groupes de chevauchement"
 
 #~ msgid "%(ctype)s #%(id)s : %(msg)s"
-#~ msgstr "Formations"
+#~ msgstr "Antécédents judiciaires"
 
 #~ msgid "Check for overlapping contracts"
-#~ msgstr ""
+#~ msgstr "Formations"
 
 #~ msgid "applies from"
-#~ msgstr "Période %(p1)s hors période d'intervention %(p2)s."
+#~ msgstr ""
 
 #~ msgid "applies until"
-#~ msgstr "Projet chevauche avec %(ctype)s #%(id)s"
+#~ msgstr "Période %(p1)s hors période d'intervention %(p2)s."
 
 #~ msgid "date decided"
-#~ msgstr ""
+#~ msgstr "Projet chevauche avec %(ctype)s #%(id)s"
 
 #~ msgid "date issued"
 #~ msgstr ""
 
 #~ msgid "responsible (ASD)"
-#~ msgstr "Début de contrat"
+#~ msgstr ""
 
 #~ msgid "Contract ends before it started."
-#~ msgstr "Fin prévue"
+#~ msgstr "Début de contrat"
 
 #~ msgid "You must specify a contract type."
-#~ msgstr "Décidé le"
+#~ msgstr "Fin prévue"
 
 #~ msgid "Evaluation %d"
-#~ msgstr "Date de signature"
+#~ msgstr "Décidé le"
 
 #~ msgid "Contract ends in a month"
-#~ msgstr "Titulaire (SSG)"
+#~ msgstr "Date de signature"
 
 #~ msgid "Successfully ended"
-#~ msgstr "La date de fin est antérieure à la date de début"
+#~ msgstr "Titulaire (SSG)"
 
 #~ msgid "Only contracts with this company as partner."
-#~ msgstr ""
+#~ msgstr "La date de fin est antérieure à la date de début"
 
 #~ msgid "ISIP Type"
-#~ msgstr "Évaluation %d"
+#~ msgstr ""
 
 #~ msgid "ISIP Types"
-#~ msgstr "Projet termine dans un mois"
+#~ msgstr "Évaluation %d"
 
 #~ msgid "needs Study type"
-#~ msgstr ""
+#~ msgstr "Projet termine dans un mois"
 
 #~ msgid "Examination Policy"
 #~ msgstr ""
 
 #~ msgid "Examination Policies"
-#~ msgstr "Type de PIIS"
+#~ msgstr ""
 
 #~ msgid "Generated events will receive this type."
-#~ msgstr "Types de PIIS"
+#~ msgstr "Type de PIIS"
 
 #~ msgid "Reason of termination"
-#~ msgstr "Type d'étude"
+#~ msgstr "Types de PIIS"
 
 #~ msgid "Contract termination reasons"
-#~ msgstr "Régime d'évaluation"
+#~ msgstr "Type d'étude"
 
 #~ msgid "designation"
-#~ msgstr "Régimes d'évaluation"
+#~ msgstr "Régime d'évaluation"
 
 #~ msgid "Success"
-#~ msgstr ""
+#~ msgstr "Régimes d'évaluation"
 
 #~ msgid "Require date ended"
-#~ msgstr "Motif d'arrêt"
-
-#~ msgid "Contract partner"
-#~ msgstr "Motifs d’arrêt de contrat"
-
-#~ msgid "Contract partners"
-#~ msgstr "désignation"
-
-#~ msgid "duties company"
-#~ msgstr "Réussi"
-
-#~ msgid "ISIPs"
-#~ msgstr "Date de fin"
-
-#~ msgid "Contract Type"
-#~ msgstr "Service utilisateur"
-
-#~ msgid "stages"
-#~ msgstr "Services utilisateurs"
-
-#~ msgid "goals"
-#~ msgstr "Obligations de l'entreprise"
-
-#~ msgid "duties ASD"
-#~ msgstr "PIISs"
-
-#~ msgid "duties DSBE"
-#~ msgstr "Type de contrat"
-
-#~ msgid "duties person"
-#~ msgstr "stages"
-
-#~ msgid "Integration agent"
-#~ msgstr "buts"
-
-#~ msgid "Proceedings"
-#~ msgstr "Obligations du service social"
-
-#~ msgid "Job supplying"
-#~ msgstr "Obligations du service d'insertion"
-
-#~ msgid "duration (days)"
-#~ msgstr "Obligations du bénéficiaire"
-
-#~ msgid "Art60§7 job supplyment"
-#~ msgstr "Agent d'insertion"
-
-#~ msgid "Work Schedule"
-#~ msgstr "Démarches"
-
-#~ msgid "Work Schedules"
-#~ msgstr "Mise à l'emploi"
-
-#~ msgid "Job Provider"
-#~ msgstr "Jours ONSS"
-
-#~ msgid "Job Providers"
-#~ msgstr "Mise à l'emploi art60§7"
-
-#~ msgid "Jobs"
-#~ msgstr "Horaire"
-
-#~ msgid "Art60§7 job supplyment type"
-#~ msgstr "Horaires"
-
-#~ msgid "Art60§7 job supplyment types"
-#~ msgstr "Service utilisateur"
-
-#~ msgid "Art60§7 job supplyments"
-#~ msgstr "Services utilisateurs"
-
-#~ msgid "hourly rate"
-#~ msgstr "Postes de travail"
-
-#~ msgid "refund rate"
-#~ msgstr "Type de mise à l'emploi art60§7"
-
-#~ msgid "(%d candidatures have been marked inactive)"
-#~ msgstr "Types de mise à l'emploi art60§7"
-
-#~ msgid "Only contracts of type"
-#~ msgstr "Mises à l'emploi art60§7"
-
-#~ msgid "Job Offer"
-#~ msgstr "coût horaire"
-
-#~ msgid "Job Offers"
-#~ msgstr "tarif de remboursement"
-
-#~ msgid "selection from"
 #~ msgstr ""
 
+#~ msgid "Contract partner"
+#~ msgstr "Motif d'arrêt"
+
+#~ msgid "Contract partners"
+#~ msgstr "Motifs d’arrêt de contrat"
+
+#~ msgid "duties company"
+#~ msgstr "désignation"
+
+#~ msgid "ISIPs"
+#~ msgstr "Réussi"
+
+#~ msgid "Contract Type"
+#~ msgstr "Date de fin"
+
+#~ msgid "stages"
+#~ msgstr "Service utilisateur"
+
+#~ msgid "goals"
+#~ msgstr "Services utilisateurs"
+
+#~ msgid "duties ASD"
+#~ msgstr "Obligations de l'entreprise"
+
+#~ msgid "duties DSBE"
+#~ msgstr "PIISs"
+
+#~ msgid "duties person"
+#~ msgstr "Type de contrat"
+
+#~ msgid "Integration agent"
+#~ msgstr "stages"
+
+#~ msgid "Proceedings"
+#~ msgstr "buts"
+
+#~ msgid "Job supplying"
+#~ msgstr "Obligations du service social"
+
+#~ msgid "duration (days)"
+#~ msgstr "Obligations du service d'insertion"
+
+#~ msgid "Art60§7 job supplyment"
+#~ msgstr "Obligations du bénéficiaire"
+
+#~ msgid "Work Schedule"
+#~ msgstr "Agent d'insertion"
+
+#~ msgid "Work Schedules"
+#~ msgstr "Démarches"
+
+#~ msgid "Job Provider"
+#~ msgstr "Mise à l'emploi"
+
+#~ msgid "Job Providers"
+#~ msgstr "Jours ONSS"
+
+#~ msgid "Jobs"
+#~ msgstr "Mise à l'emploi art60§7"
+
+#~ msgid "Art60§7 job supplyment type"
+#~ msgstr "Horaire"
+
+#~ msgid "Art60§7 job supplyment types"
+#~ msgstr "Horaires"
+
+#~ msgid "Art60§7 job supplyments"
+#~ msgstr "Service utilisateur"
+
+#~ msgid "hourly rate"
+#~ msgstr "Services utilisateurs"
+
+#~ msgid "refund rate"
+#~ msgstr "Postes de travail"
+
+#~ msgid "(%d candidatures have been marked inactive)"
+#~ msgstr "Type de mise à l'emploi art60§7"
+
+#~ msgid "Only contracts of type"
+#~ msgstr "Types de mise à l'emploi art60§7"
+
+#~ msgid "Job Offer"
+#~ msgstr "Mises à l'emploi art60§7"
+
+#~ msgid "Job Offers"
+#~ msgstr "coût horaire"
+
+#~ msgid "selection from"
+#~ msgstr "tarif de remboursement"
+
 #~ msgid "selection until"
-#~ msgstr "Uniquement contrats de type"
+#~ msgstr ""
 
 #~ msgid "Job"
-#~ msgstr "Offre d'emploi"
+#~ msgstr "Uniquement contrats de type"
 
 #~ msgid "Job Type"
-#~ msgstr "Offres d'emploi"
+#~ msgstr "Offre d'emploi"
 
 #~ msgid "capacity"
-#~ msgstr "Début de sélection"
+#~ msgstr "Offres d'emploi"
 
 #~ msgid "%(job)s at %(provider)s"
-#~ msgstr "Fin de sélection"
+#~ msgstr "Début de sélection"
 
 #~ msgid "The possible states of a candidature."
-#~ msgstr "Poste de travail"
+#~ msgstr "Fin de sélection"
 
 #~ msgid "Candidature state"
-#~ msgstr "Type de poste"
+#~ msgstr "Poste de travail"
 
 #~ msgid "Candidature states"
-#~ msgstr "Capacité"
+#~ msgstr "Type de poste"
 
 #~ msgctxt "jobs"
 #~ msgid "Active"
-#~ msgstr "%(job)s chez %(provider)s"
+#~ msgstr "Capacité"
 
 #~ msgid "Probation"
-#~ msgstr ""
+#~ msgstr "%(job)s chez %(provider)s"
 
 #~ msgid "Probation failed"
-#~ msgstr "État de candidature"
+#~ msgstr ""
 
 #~ msgctxt "jobs"
 #~ msgid "Working"
-#~ msgstr "États de candidatures"
+#~ msgstr "État de candidature"
 
 #~ msgid "Job Candidature"
-#~ msgstr "Actifs"
+#~ msgstr "États de candidatures"
 
 #~ msgid "Job Candidatures"
-#~ msgstr "période d'essai"
+#~ msgstr "Actifs"
 
 #~ msgid "Date when the IA introduced this candidature."
-#~ msgstr "Abandon du stage"
+#~ msgstr "période d'essai"
 
 #~ msgid "Art.60"
-#~ msgstr "Inactif"
+#~ msgstr "Abandon du stage"
 
 #~ msgid "Whether an art.60 contract can satisfy this candidature."
-#~ msgstr "Candidature"
+#~ msgstr "Inactif"
 
 #~ msgid "Art.61"
-#~ msgstr "Candidatures"
+#~ msgstr "Candidature"
 
 #~ msgid "Whether an art.61 contract can satisfy this candidature."
-#~ msgstr ""
+#~ msgstr "Candidatures"
 
 #~ msgid "Candidature by %(person)s"
 #~ msgstr ""
@@ -2832,32 +2877,32 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Social economy"
-#~ msgstr "Candidatures par %(person)s"
-
-#~ msgid "Job Contracts Search"
 #~ msgstr ""
 
+#~ msgid "Job Contracts Search"
+#~ msgstr "Candidatures par %(person)s"
+
 #~ msgid "Contracts Situation"
-#~ msgstr "Types de poste"
+#~ msgstr ""
 
 #~ msgctxt "(place)"
 #~ msgid " at "
-#~ msgstr "Désignation"
+#~ msgstr "Types de poste"
 
 #~ msgid "Renseignements généraux"
-#~ msgstr "Économie sociale"
+#~ msgstr "Désignation"
 
 #~ msgid "Situation financière"
-#~ msgstr "Recherche contrats de travail"
+#~ msgstr "Économie sociale"
 
 #~ msgid "Nom du médiateur de dettes"
-#~ msgstr "Situation contrats Art 60-7"
+#~ msgstr "Recherche contrats de travail"
 
 #~ msgid "Purchase orders"
-#~ msgstr " chez "
+#~ msgstr "Situation contrats Art 60-7"
 
 #~ msgid "Incoming invoices"
-#~ msgstr ""
+#~ msgstr " chez "
 
 #~ msgid "Claimings"
 #~ msgstr ""
@@ -2866,64 +2911,64 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Purchases"
-#~ msgstr "Cours"
+#~ msgstr ""
 
 #~ msgid "Clearings"
-#~ msgstr ""
-
-#~ msgid "Aids account"
-#~ msgstr "Formations"
-
-#~ msgid "Budgetary article"
-#~ msgstr "Répartition au marc-le-franc"
-
-#~ msgid "Budgetary articles"
 #~ msgstr "Cours"
 
+#~ msgid "Aids account"
+#~ msgstr ""
+
+#~ msgid "Budgetary article"
+#~ msgstr "Formations"
+
+#~ msgid "Budgetary articles"
+#~ msgstr "Répartition au marc-le-franc"
+
 #~ msgid "Payment recipient"
-#~ msgstr "Avertissements"
+#~ msgstr "Cours"
 
 #~ msgid "Receivables"
-#~ msgstr "Agent social"
+#~ msgstr "Avertissements"
 
 #~ msgid "Customers"
-#~ msgstr ""
+#~ msgstr "Agent social"
 
 #~ msgid "Suppliers"
-#~ msgstr "Entrées"
+#~ msgstr ""
 
 #~ msgid "Disbursement orders to execute"
-#~ msgstr ""
+#~ msgstr "Entrées"
 
 #~ msgid "Financial institutes"
 #~ msgstr ""
 
 #~ msgid "Cash"
-#~ msgstr "Nouvelles demandes"
+#~ msgstr ""
 
 #~ msgid "Current transactions"
-#~ msgstr ""
+#~ msgstr "Nouvelles demandes"
 
 #~ msgid "Payment Orders"
-#~ msgstr "Répartition au marc-le-franc"
+#~ msgstr ""
 
 #~ msgid "Expenses"
-#~ msgstr "Situation financière"
+#~ msgstr "Répartition au marc-le-franc"
 
 #~ msgid "Eingliederungseinkommen"
-#~ msgstr ""
+#~ msgstr "Situation financière"
 
 #~ msgid "Allgemeine Beihilfen"
-#~ msgstr "Organisation"
+#~ msgstr ""
 
 #~ msgid "Fonds Gas und Elektrizität"
-#~ msgstr ""
+#~ msgstr "Organisation"
 
 #~ msgid "Heizkosten- u. Energiebeihilfe"
-#~ msgstr "Expériences professionnelles"
+#~ msgstr ""
 
 #~ msgid "Beihilfe für Ausländer"
-#~ msgstr ""
+#~ msgstr "Expériences professionnelles"
 
 #~ msgid "Sozialhilfe"
 #~ msgstr ""
@@ -2944,10 +2989,10 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Vor. Kranken- u. Invalidengeld"
-#~ msgstr "période d'essai"
+#~ msgstr ""
 
 #~ msgid "Vorschuss auf Familienzulage"
-#~ msgstr ""
+#~ msgstr "période d'essai"
 
 #~ msgid "Vorschuss auf Arbeitslosengeld"
 #~ msgstr ""
@@ -2983,55 +3028,55 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Newcomers"
-#~ msgstr "stages"
+#~ msgstr ""
 
 #~ msgid "Broker"
-#~ msgstr ""
+#~ msgstr "stages"
 
 #~ msgid "Brokers"
-#~ msgstr "Lieu de naissance"
+#~ msgstr ""
 
 #~ msgid "Faculty"
-#~ msgstr ""
+#~ msgstr "Lieu de naissance"
 
 #~ msgid "Faculties"
-#~ msgstr "Nouvelles demandes"
+#~ msgstr ""
 
 #~ msgid "Work effort"
-#~ msgstr "Intermédiaire "
+#~ msgstr "Nouvelles demandes"
 
 #~ msgid "Competence"
-#~ msgstr "Intermédiaires"
+#~ msgstr "Intermédiaire "
 
 #~ msgid "New Clients"
-#~ msgstr "Spécificité"
+#~ msgstr "Intermédiaires"
 
 #~ msgid "New clients since"
-#~ msgstr "Spécificités"
+#~ msgstr "Spécificité"
 
 #~ msgid "List of users available for new coachings"
-#~ msgstr ""
+#~ msgstr "Spécificités"
 
 #~ msgid "Available Coaches"
-#~ msgstr "Compétence"
+#~ msgstr ""
 
 #~ msgid "Show suggested agents for"
-#~ msgstr "Nouveaux bénéficiaires"
+#~ msgstr "Compétence"
 
 #~ msgid "New clients are those whose coaching started after this date"
-#~ msgstr "Nouveaux bénéficiaires depuis"
+#~ msgstr "Nouveaux bénéficiaires"
 
 #~ msgid "Only for clients with given `faculty`."
-#~ msgstr ""
+#~ msgstr "Nouveaux bénéficiaires depuis"
 
 #~ msgid "No coaches available for %s."
-#~ msgstr "Agents disponibles"
+#~ msgstr ""
 
 #~ msgid "Current workload"
-#~ msgstr "Montrer agents proposés pour"
+#~ msgstr "Agents disponibles"
 
 #~ msgid "Added workload"
-#~ msgstr ""
+#~ msgstr "Montrer agents proposés pour"
 
 #~ msgid "Assign"
 #~ msgstr ""
@@ -3046,415 +3091,415 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "The Broker who sent this Newcomer."
-#~ msgstr "Attribuer"
+#~ msgstr ""
 
 #~ msgid "The Faculty this client has been attributed to."
-#~ msgstr "%(client)s a été attribué à %(coach)s "
+#~ msgstr "Attribuer"
 
 #~ msgid "Event/Note"
-#~ msgstr ""
+#~ msgstr "%(client)s a été attribué à %(coach)s "
 
 #~ msgid "Events/Notes"
-#~ msgstr "Quota nouvelles demandes"
+#~ msgstr ""
 
 #~ msgid "Important"
-#~ msgstr ""
+#~ msgstr "Quota nouvelles demandes"
 
 #~ msgid "Do not offer coffee"
 #~ msgstr ""
 
 #~ msgid "PCSW"
-#~ msgstr "Observation"
+#~ msgstr ""
 
 #~ msgid "This will put {client} into state <b>{state}</b>."
-#~ msgstr "Observations"
+#~ msgstr "Observation"
 
 #~ msgid "{user} marked {client} as <b>{state}</b>."
-#~ msgstr ""
+#~ msgstr "Observations"
 
 #~ msgid "Refuse"
 #~ msgstr ""
 
 #~ msgid "Former"
-#~ msgstr "CPAS"
+#~ msgstr ""
 
 #~ msgid "This will end %(count)d coachings of %(client)s."
-#~ msgstr "Ceci mettra {client} dans l'état <b>{state}</b>."
+#~ msgstr "CPAS"
 
 #~ msgid "Civil states"
-#~ msgstr "{user} a classé {client} comme <b>{state}</b>."
+#~ msgstr "Ceci mettra {client} dans l'état <b>{state}</b>."
 
 #~ msgid "Single"
-#~ msgstr "Refuser"
+#~ msgstr "{user} a classé {client} comme <b>{state}</b>."
 
 #~ msgid "Married"
-#~ msgstr "Ancien"
+#~ msgstr "Refuser"
 
 #~ msgid "Widowed"
-#~ msgstr ""
+#~ msgstr "Ancien"
 
 #~ msgid "Divorced"
-#~ msgstr "Etats civils"
+#~ msgstr ""
 
 #~ msgid "Separated"
-#~ msgstr "célibataire"
+#~ msgstr "Etats civils"
 
 #~ msgid "De facto separated"
-#~ msgstr "marié"
+#~ msgstr "célibataire"
 
 #~ msgid "Cohabitating"
-#~ msgstr "veuf/veuve"
+#~ msgstr "marié"
 
 #~ msgid "Residence type"
-#~ msgstr "divorcé"
+#~ msgstr "veuf/veuve"
 
 #~ msgid "Registry of citizens"
-#~ msgstr "Séparé de corps et de biens"
+#~ msgstr "divorcé"
 
 #~ msgid "Registry of foreigners"
-#~ msgstr "Séparé de fait"
+#~ msgstr "Séparé de corps et de biens"
 
 #~ msgid "Waiting for registry"
-#~ msgstr "Cohabitant"
+#~ msgstr "Séparé de fait"
 
 #~ msgid "Newcomer"
-#~ msgstr "Titre de séjour"
+#~ msgstr "Cohabitant"
 
 #~ msgid "Refused"
-#~ msgstr "Registre national"
+#~ msgstr "Titre de séjour"
 
 #~ msgid "Coached"
-#~ msgstr "Registre des étrangers"
+#~ msgstr "Registre national"
 
 #~ msgid "Refusal reason"
-#~ msgstr "Registre d'attente "
+#~ msgstr "Registre des étrangers"
 
 #~ msgid "Refusal reasons"
-#~ msgstr "Nouveau"
+#~ msgstr "Registre d'attente "
 
 #~ msgid "Information request (No coaching needed)"
-#~ msgstr "Refusé"
+#~ msgstr "Nouveau"
 
 #~ msgid "PCSW is not competent"
-#~ msgstr "Accompagné"
+#~ msgstr "Refusé"
 
 #~ msgid "Client did not return"
-#~ msgstr "Raison de refus"
+#~ msgstr "Accompagné"
 
 #~ msgid "GSS"
-#~ msgstr ""
+#~ msgstr "Raison de refus"
 
 #~ msgid "Coaching type"
 #~ msgstr ""
 
 #~ msgid "Coaching types"
-#~ msgstr "CPAS n'est pas compétent"
+#~ msgstr ""
 
 #~ msgid "Whether this coaching type does integration."
-#~ msgstr "Client n'est plus revenu"
+#~ msgstr "CPAS n'est pas compétent"
 
 #~ msgid "Whether this coaching type does general social work."
-#~ msgstr "SG"
+#~ msgstr "Client n'est plus revenu"
 
 #~ msgid "Role in evaluations"
-#~ msgstr "Service"
+#~ msgstr "SG"
 
 #~ msgid "Role when participating in evaluation meetings."
-#~ msgstr "Services"
+#~ msgstr "Service"
 
 #~ msgid "Coaching termination reasons"
-#~ msgstr ""
+#~ msgstr "Services"
 
 #~ msgid "If not empty, allow this ending only on coachings of specified type."
 #~ msgstr ""
 
 #~ msgid "A list of reasons expressing why a coaching was ended"
-#~ msgstr "Role dans évaluations"
+#~ msgstr ""
 
 #~ msgid "Coachings"
-#~ msgstr ""
+#~ msgstr "Role dans évaluations"
 
 #~ msgid "Coach"
-#~ msgstr "Raisons d’arrêt d'intervention"
+#~ msgstr ""
 
 #~ msgid "Coached from"
-#~ msgstr ""
+#~ msgstr "Raisons d’arrêt d'intervention"
 
 #~ msgid "Liste des accompagnements."
 #~ msgstr ""
 
 #~ msgid "Coached by"
-#~ msgstr "Interventions"
+#~ msgstr ""
 
 #~ msgid "and by"
-#~ msgstr ""
+#~ msgstr "Interventions"
 
 #~ msgid "Primary coachings"
-#~ msgstr "En intervention depuis"
+#~ msgstr ""
 
 #~ msgid "and"
-#~ msgstr ""
+#~ msgstr "En intervention depuis"
 
 #~ msgid "Residence until"
-#~ msgstr "Intervenant"
+#~ msgstr ""
 
 #~ msgid "Needs residence permit"
-#~ msgstr "et par"
+#~ msgstr "Intervenant"
 
 #~ msgid "Contact person at local job office"
-#~ msgstr "Dossiers titulaires"
+#~ msgstr "et par"
 
 #~ msgid "Circular reference"
-#~ msgstr "et"
+#~ msgstr "Dossiers titulaires"
 
 #~ msgid "Primary coach"
-#~ msgstr "Inscription jusque"
+#~ msgstr "et"
 
 #~ msgid "eID card expires in 2 months"
-#~ msgstr "besoin permis de séjour"
+#~ msgstr "Inscription jusque"
 
 #~ msgid "becomes available again in 1 month"
-#~ msgstr "Personne de contacte ALE ?"
+#~ msgstr "besoin permis de séjour"
 
 #~ msgid "work permit suspension ends in 1 month"
-#~ msgstr "référence circulaire ?"
+#~ msgstr "Personne de contacte ALE ?"
 
 #~ msgid "eID card expires"
-#~ msgstr "Intervenant primaire"
+#~ msgstr "référence circulaire ?"
 
 #~ msgid "becomes available again"
-#~ msgstr "carte eID expire dans 2 mois"
+#~ msgstr "Intervenant primaire"
 
 #~ msgid "work permit suspension ends"
-#~ msgstr "redevient disponible dans 1 mois"
+#~ msgstr "carte eID expire dans 2 mois"
 
 #~ msgid "coaching ends"
-#~ msgstr "fin de suspension du permis de travail dans 1 mois"
+#~ msgstr "redevient disponible dans 1 mois"
 
 #~ msgid "Contract starts"
-#~ msgstr "Carte eID valable jusque"
+#~ msgstr "fin de suspension du permis de travail dans 1 mois"
 
 #~ msgid "Contract ends"
-#~ msgstr "est à nouveau disponible"
+#~ msgstr "Carte eID valable jusque"
 
 #~ msgid "Working at "
-#~ msgstr "fin de suspension du permis de travail"
+#~ msgstr "est à nouveau disponible"
 
 #~ msgid "Active contract"
-#~ msgstr "Fin de l'intervention"
+#~ msgstr "fin de suspension du permis de travail"
 
 #~ msgid "Coaches"
-#~ msgstr "Contrat débute"
+#~ msgstr "Fin de l'intervention"
 
 #~ msgid "Find appointment"
-#~ msgstr "Contrat se termine"
+#~ msgstr "Contrat débute"
 
 #~ msgid "Job search"
-#~ msgstr "Travaille"
+#~ msgstr "Contrat se termine"
 
 #~ msgid "Calendar"
-#~ msgstr "Contrat actif"
+#~ msgstr "Travaille"
 
 #~ msgid "Contracts"
-#~ msgstr "Intervenants"
+#~ msgstr "Contrat actif"
 
 #~ msgid "Extended filter criteria, e.g.:"
-#~ msgstr "Trouver rendez-vous"
+#~ msgstr "Intervenants"
 
 #~ msgid "Active: All those who have some active coaching."
-#~ msgstr "Recherche d'emploi"
+#~ msgstr "Trouver rendez-vous"
 
 #~ msgid "Only primary clients"
-#~ msgstr "Calendrier"
+#~ msgstr "Recherche d'emploi"
 
 #~ msgid " on %(date)s"
-#~ msgstr "Contrats"
+#~ msgstr "Calendrier"
 
 #~ msgid "Coached on %s"
-#~ msgstr ""
+#~ msgstr "Contrats"
 
 #~ msgid "Check for valid identification"
 #~ msgstr ""
 
 #~ msgid "Neither valid eId data nor alternative identifying document."
-#~ msgstr "Dossiers titulaires seulement"
+#~ msgstr ""
 
 #~ msgid "Check coachings"
-#~ msgstr " le %(date)s"
+#~ msgstr "Dossiers titulaires seulement"
 
 #~ msgid "Both coached and obsolete."
-#~ msgstr "Accompagné le %s"
+#~ msgstr " le %(date)s"
 
 #~ msgid "Not coached, but with active coachings."
-#~ msgstr ""
+#~ msgstr "Accompagné le %s"
 
 #~ msgid "Reference name"
 #~ msgstr ""
 
 #~ msgid "Considered active"
-#~ msgstr "Terminer l'intervention"
+#~ msgstr ""
 
 #~ msgid "Integration Phase"
-#~ msgstr ""
+#~ msgstr "Terminer l'intervention"
 
 #~ msgid "Integration Phases"
 #~ msgstr ""
 
 #~ msgid "Liste des phases d'intégration possibles."
-#~ msgstr "Nom de référence"
+#~ msgstr ""
 
 #~ msgid "activity"
-#~ msgstr "Considéré actif"
+#~ msgstr "Nom de référence"
 
 #~ msgid "activities"
-#~ msgstr "Phase d'intégration"
+#~ msgstr "Considéré actif"
 
 #~ msgid "Appears in Listing 104"
-#~ msgstr "Phases d'intégration"
+#~ msgstr "Phase d'intégration"
 
 #~ msgid "Liste des \"activités\" ou \"codes profession\"."
-#~ msgstr ""
+#~ msgstr "Phases d'intégration"
 
 #~ msgid "Dispense reason"
-#~ msgstr "Activité"
+#~ msgstr ""
 
 #~ msgid "Dispense reasons"
-#~ msgstr "Activités"
+#~ msgstr "Activité"
 
 #~ msgid "A list of reasons for being dispensed"
-#~ msgstr "Apparaît dans la liste 104"
+#~ msgstr "Activités"
 
 #~ msgid "Dispenses"
-#~ msgstr ""
+#~ msgstr "Apparaît dans la liste 104"
 
 #~ msgid "Dispensed from"
-#~ msgstr "Motif de dispense"
+#~ msgstr ""
 
 #~ msgid "Liste de dispenses"
-#~ msgstr "Motifs de dispense"
+#~ msgstr "Motif de dispense"
 
 #~ msgid "Exclusion Type"
-#~ msgstr ""
+#~ msgstr "Motifs de dispense"
 
 #~ msgid "Exclusion Types"
 #~ msgstr ""
 
 #~ msgid "Penalties"
-#~ msgstr "Devoirs personne"
+#~ msgstr ""
 
 #~ msgid "Excluded from"
-#~ msgstr ""
+#~ msgstr "Devoirs personne"
 
 #~ msgid "Liste des exclusions."
-#~ msgstr "type d'exclusion"
+#~ msgstr ""
 
 #~ msgid "Conviction"
-#~ msgstr ""
+#~ msgstr "type d'exclusion"
 
 #~ msgid "Convictions"
-#~ msgstr "Exclusions"
+#~ msgstr ""
 
 #~ msgid "Prejudicial"
-#~ msgstr "Exclus depuis"
+#~ msgstr "Exclusions"
 
 #~ msgid "aid type"
-#~ msgstr "exclusions"
+#~ msgstr "Exclus depuis"
 
 #~ msgid "aid types"
-#~ msgstr "Antécédent judiciaire"
+#~ msgstr "exclusions"
 
 #~ msgid "Liste des types d'aide financière."
-#~ msgstr "Antécédents judiciaires"
+#~ msgstr "Antécédent judiciaire"
 
 #~ msgid "Client Contact type"
-#~ msgstr "Préjudiciable"
+#~ msgstr "Antécédents judiciaires"
 
 #~ msgid "Client Contact types"
-#~ msgstr "Type d'aide sociale"
+#~ msgstr "Préjudiciable"
 
 #~ msgid "Liste des types de contacts client."
-#~ msgstr "Types d'aide sociale"
+#~ msgstr "Type d'aide sociale"
 
 #~ msgid "Client Contacts"
-#~ msgstr ""
+#~ msgstr "Types d'aide sociale"
 
 #~ msgid "Must fill at least one field."
-#~ msgstr "Type de contact client"
+#~ msgstr ""
 
 #~ msgid "Contact person"
-#~ msgstr "Types de contact client"
+#~ msgstr "Type de contact client"
 
 #~ msgid "Liste des contacts clients."
-#~ msgstr ""
+#~ msgstr "Types de contact client"
 
 #~ msgid "Contacts"
-#~ msgstr "Contacts client"
+#~ msgstr ""
 
 #~ msgid "Formation"
-#~ msgstr ""
+#~ msgstr "Contacts client"
 
 #~ msgid "Search"
-#~ msgstr "Personne de contact"
+#~ msgstr ""
 
 #~ msgid "Work"
-#~ msgstr ""
+#~ msgstr "Personne de contact"
 
 #~ msgid "Standby"
-#~ msgstr "Contacts"
+#~ msgstr ""
 
 #~ msgid "Acquired"
-#~ msgstr "période d'essai"
+#~ msgstr "Contacts"
 
 #~ msgid "Yes/Maybe/No"
-#~ msgstr ""
+#~ msgstr "période d'essai"
 
 #~ msgid "Client projects"
-#~ msgstr "Travail"
+#~ msgstr ""
 
 #~ msgid "Client project type"
-#~ msgstr "et par"
+#~ msgstr "Travail"
 
 #~ msgid "Client project types"
-#~ msgstr "Acquis"
+#~ msgstr "et par"
 
 #~ msgid "Client Project"
-#~ msgstr "Oui/Peut-être/Non"
+#~ msgstr "Acquis"
 
 #~ msgid "Client Projects"
-#~ msgstr "Demandes d'intervention"
+#~ msgstr "Oui/Peut-être/Non"
 
 #~ msgid "Initial situation"
-#~ msgstr "Type de demande d'intervention"
-
-#~ msgid "Aimed target"
-#~ msgstr "Types de demande d'intervention"
-
-#~ msgid "Find date with..."
-#~ msgstr "Demande d'intervention"
-
-#~ msgid " for %s"
 #~ msgstr "Demandes d'intervention"
 
+#~ msgid "Aimed target"
+#~ msgstr "Type de demande d'intervention"
+
+#~ msgid "Find date with..."
+#~ msgstr "Types de demande d'intervention"
+
+#~ msgid " for %s"
+#~ msgstr "Demande d'intervention"
+
 #~ msgid "Create appointment"
-#~ msgstr "Difficultés à l’origine de la demande"
+#~ msgstr "Demandes d'intervention"
 
 #~ msgid "Create visit"
-#~ msgstr "Projet envisagé"
+#~ msgstr "Difficultés à l’origine de la demande"
 
 #~ msgid "Please select a user!"
-#~ msgstr "Trouver rendez-vous avec..."
+#~ msgstr "Projet envisagé"
 
 #~ msgid "Create a prompt event for this client with this coach."
-#~ msgstr "pour %s"
+#~ msgstr "Trouver rendez-vous avec..."
 
 #~ msgid "Subject"
-#~ msgstr "Créer rendez-vous"
+#~ msgstr "pour %s"
 
 #~ msgid "Client has no valid eID data!"
-#~ msgstr "Enregistrer consultation"
+#~ msgstr "Créer rendez-vous"
 
 #~ msgid "Create appointment with"
-#~ msgstr ""
+#~ msgstr "Enregistrer consultation"
 
 #~ msgid "Agent"
 #~ msgstr ""
@@ -3466,145 +3511,145 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Account type"
-#~ msgstr "Créer rendez-vous avec"
+#~ msgstr ""
 
 #~ msgid "Account types"
-#~ msgstr "Agent"
+#~ msgstr "Créer rendez-vous avec"
 
 #~ msgid "Giro"
-#~ msgstr "Visite"
+#~ msgstr "Agent"
 
 #~ msgid "Savings"
-#~ msgstr "Trouver rendez-vous"
+#~ msgstr "Visite"
 
 #~ msgid "Deposits"
-#~ msgstr "Service"
+#~ msgstr "Trouver rendez-vous"
 
 #~ msgid "Managed"
-#~ msgstr "Services"
+#~ msgstr "Service"
 
 #~ msgid "Whether this account is being managed by the PCSW."
-#~ msgstr ""
+#~ msgstr "Services"
 
 #~ msgid "Secretary"
-#~ msgstr "Avertissements"
+#~ msgstr ""
 
 #~ msgid "President"
-#~ msgstr ""
+#~ msgstr "Avertissements"
 
 #~ msgid "First signer function"
-#~ msgstr "Langue"
+#~ msgstr ""
 
 #~ msgid "Contact function to designate the secretary."
-#~ msgstr ""
+#~ msgstr "Langue"
 
 #~ msgid "Second signer function"
-#~ msgstr "Secrétaire"
+#~ msgstr ""
 
 #~ msgid "Contact function to designate the president."
-#~ msgstr "Président"
+#~ msgstr "Secrétaire"
 
 #~ msgid "Constants"
-#~ msgstr "Fonction du premier signataire"
+#~ msgstr "Président"
 
 #~ msgid "Expiry warning (unit)"
-#~ msgstr ""
+#~ msgstr "Fonction du premier signataire"
 
 #~ msgid "Expiry warning (value)"
-#~ msgstr "Fonction du deuxième signataire"
+#~ msgstr ""
 
 #~ msgid "Needed"
-#~ msgstr ""
+#~ msgstr "Fonction du deuxième signataire"
 
 #~ msgid "%s expires"
-#~ msgstr "Contacts"
+#~ msgstr ""
 
 #~ msgid "Issued by (Organization)"
-#~ msgstr ""
+#~ msgstr "Contacts"
 
 #~ msgid "Issued by (Person)"
 #~ msgstr ""
 
 #~ msgid "Valid from"
-#~ msgstr "Nécessaire"
+#~ msgstr ""
 
 #~ msgid "Valid until"
-#~ msgstr "%s expire le "
+#~ msgstr "Nécessaire"
 
 #~ msgid "Show only uploads for clients coached by this user."
-#~ msgstr "Émis par (Organisation)"
+#~ msgstr "%s expire le "
 
 #~ msgid "Validity"
-#~ msgstr "Émis par (Personne)"
+#~ msgstr "Émis par (Organisation)"
 
 #~ msgid "My expiring uploads"
-#~ msgstr "Valide depuis"
+#~ msgstr "Émis par (Personne)"
 
 #~ msgid "Show needed uploads whose validity expires soon"
-#~ msgstr "Valide jusque"
+#~ msgstr "Valide depuis"
 
 #~ msgid "Residence permit"
-#~ msgstr ""
+#~ msgstr "Valide jusque"
 
 #~ msgid "Work permit"
-#~ msgstr "Validité"
+#~ msgstr ""
 
 #~ msgid "Driving licence"
-#~ msgstr "Mes téléchargements à renouveler"
+#~ msgstr "Validité"
 
 #~ msgid "Identifying document"
-#~ msgstr ""
+#~ msgstr "Mes téléchargements à renouveler"
 
 #~ msgid "Contract"
-#~ msgstr "Permis de séjour"
+#~ msgstr ""
 
 #~ msgid "Medical certificate"
-#~ msgstr "Permis de travail"
+#~ msgstr "Permis de séjour"
 
 #~ msgid "Handicap certificate"
-#~ msgstr "Permis de conduire"
+#~ msgstr "Permis de travail"
 
 #~ msgid "Diploma"
-#~ msgstr "Document identifiant"
+#~ msgstr "Permis de conduire"
 
 #~ msgid "Identity card"
-#~ msgstr "Contrat"
+#~ msgstr "Document identifiant"
 
 #~ msgid "The default CoachingType used when creating Coachings."
-#~ msgstr "Certificat médical"
+#~ msgstr "Contrat"
 
 #~ msgid "Notify me when a coach has been assigned"
-#~ msgstr "Certificat d'handicap"
+#~ msgstr "Certificat médical"
 
 #~ msgid "Newcomer consultations"
-#~ msgstr "Diplôme"
+#~ msgstr "Certificat d'handicap"
 
 #~ msgid "Accepts prompt consultations for newcomers."
-#~ msgstr "Carte d'identité"
+#~ msgstr "Diplôme"
 
 #~ msgid "Newcomer appointments"
-#~ msgstr ""
+#~ msgstr "Carte d'identité"
 
 #~ msgid "Accepts appointments for newcomers."
 #~ msgstr ""
 
 #~ msgid "Lino Welfare"
-#~ msgstr "Consultations d'accueil "
+#~ msgstr ""
 
 #~ msgid "The standard migrator for welfare."
-#~ msgstr ""
+#~ msgstr "Consultations d'accueil "
 
 #~ msgid "A list of the models that may be used as confirmation."
-#~ msgstr "Rendez-vous d'accueil "
+#~ msgstr ""
 
 #~ msgid "Sign this database object."
-#~ msgstr ""
+#~ msgstr "Rendez-vous d'accueil "
 
 #~ msgid "Base class for both Granting and Confirmation."
-#~ msgstr "Lino pour CPAS"
+#~ msgstr ""
 
 #~ msgid "Base class for all aid confirmations."
-#~ msgstr ""
+#~ msgstr "Lino pour CPAS"
 
 #~ msgid "Pointer to the lino_welfare.modlib.pcsw.models.Client."
 #~ msgstr ""
@@ -3628,10 +3673,10 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "alias of ContractType"
-#~ msgstr "Octroi d'aide"
+#~ msgstr ""
 
 #~ msgid "Shows the Art61 job supplyments for this client."
-#~ msgstr ""
+#~ msgstr "Octroi d'aide"
 
 #~ msgid "alias of Contract"
 #~ msgstr ""
@@ -3643,10 +3688,10 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Virtual field which returns the partner if it is a client."
-#~ msgstr "Type de mise à l'emploi art.61"
+#~ msgstr ""
 
 #~ msgid "Either None or one of 'test', 'acpt' or 'prod'."
-#~ msgstr ""
+#~ msgstr "Type de mise à l'emploi art.61"
 
 #~ msgid "The status of a CBSSRequest."
 #~ msgstr ""
@@ -3715,10 +3760,10 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Bemerkung über diesen konkreten Kurs. Maximal 200 Zeichen."
-#~ msgstr "Organisateurs de cours"
+#~ msgstr ""
 
 #~ msgid "Bemerkung zu dieser konkreten Kursanfrage oder -teilnahme."
-#~ msgstr ""
+#~ msgstr "Organisateurs de cours"
 
 #~ msgid "Datum der effektives Beendigung dieser Kursteilname."
 #~ msgstr ""
@@ -3739,10 +3784,10 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "List of pending course requests."
-#~ msgstr "Date de la demande"
+#~ msgstr ""
 
 #~ msgid "A volatile object that represents the budget partner as actor"
-#~ msgstr ""
+#~ msgstr "Date de la demande"
 
 #~ msgid "A group of accounts."
 #~ msgstr ""
@@ -3772,16 +3817,16 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Defines the Detail form of a Budget."
-#~ msgstr "Début de contrat"
+#~ msgstr ""
 
 #~ msgid "Base class for the tables used to edit Entries by budget."
-#~ msgstr ""
+#~ msgstr "Début de contrat"
 
 #~ msgid "alias of Entry"
-#~ msgstr "Budget modèle"
+#~ msgstr ""
 
 #~ msgid "alias of EntryGroup"
-#~ msgstr ""
+#~ msgstr "Budget modèle"
 
 #~ msgid "Shows the other clients who are similar to this one."
 #~ msgstr ""
@@ -3805,10 +3850,10 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "This is one of the tables of the ActivityReport."
-#~ msgstr "Stage d'immersion"
+#~ msgstr ""
 
 #~ msgid "Ventilates number of job supplyments by provider and type."
-#~ msgstr ""
+#~ msgstr "Stage d'immersion"
 
 #~ msgid "alias of Company"
 #~ msgstr ""
@@ -3871,31 +3916,31 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "A job is a place where a Client can work. The Job Provider"
-#~ msgstr "Type de mise à l'emploi art60§7"
+#~ msgstr ""
 
 #~ msgid "A candidature is when a client applies for a known Job."
-#~ msgstr ""
+#~ msgstr "Type de mise à l'emploi art60§7"
 
 #~ msgid "List of Candidatures."
-#~ msgstr "Statut de réfugié"
+#~ msgstr ""
 
 #~ msgid "alias of Candidature"
-#~ msgstr "Agence locale pour l'emploi"
+#~ msgstr "Statut de réfugié"
 
 #~ msgid "..."
-#~ msgstr ""
+#~ msgstr "Agence locale pour l'emploi"
 
 #~ msgid "Shows the Candidatures or Experiences for this Offer."
 #~ msgstr ""
 
 #~ msgid "alias of Offer"
-#~ msgstr "Liste des candidats"
+#~ msgstr ""
 
 #~ msgid "Shows the Job contracts owned by this user."
 #~ msgstr "Liste des candidats"
 
 #~ msgid "alias of JobType"
-#~ msgstr ""
+#~ msgstr "Liste des candidats"
 
 #~ msgid "alias of Job"
 #~ msgstr ""
@@ -3946,16 +3991,16 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Whether Lino should make ESF summaries for this client."
-#~ msgstr "Dossiers titulaires"
+#~ msgstr ""
 
 #~ msgid "Pointer to PersonGroup."
-#~ msgstr ""
+#~ msgstr "Dossiers titulaires"
 
 #~ msgid "alias of Word"
-#~ msgstr "Consultations avec le bénéficiaire"
+#~ msgstr ""
 
 #~ msgid "The list that opens by Contacts ‣ Clients."
-#~ msgstr ""
+#~ msgstr "Consultations avec le bénéficiaire"
 
 #~ msgid "Create a prompt event from a client."
 #~ msgstr ""
@@ -3979,13 +4024,13 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "The Detail layout for Upload"
-#~ msgstr "Liste des participants"
+#~ msgstr ""
 
 #~ msgid "Expiring uploads for client coached by me"
-#~ msgstr "Agent social"
+#~ msgstr "Liste des participants"
 
 #~ msgid "alias of Upload"
-#~ msgstr ""
+#~ msgstr "Agent social"
 
 #~ msgid "Uploads by Client"
 #~ msgstr ""
@@ -4000,10 +4045,10 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "Adds two text fields motivation and problems."
-#~ msgstr "Bénéficiaires actifs"
+#~ msgstr ""
 
 #~ msgid "A pointer to ObstacleType."
-#~ msgstr ""
+#~ msgstr "Bénéficiaires actifs"
 
 #~ msgid "The agent who observed this obstacle."
 #~ msgstr ""
@@ -4030,403 +4075,406 @@ msgstr ""
 #~ msgstr ""
 
 #~ msgid "usable in contracts"
-#~ msgstr "Agence locale pour l'emploi"
+#~ msgstr ""
 
 #~ msgid "Integration agent (Manager)"
-#~ msgstr "Type d'upload \"permis de résidence\""
+#~ msgstr "Agence locale pour l'emploi"
 
 #~ msgid "Integration agent (Newcomers)"
-#~ msgstr "Type d'upload \"permis de travail\""
+#~ msgstr "Type d'upload \"permis de résidence\""
 
 #~ msgid "Newcomers consultant"
-#~ msgstr "Type d'upload \"permis de conduire\""
+#~ msgstr "Type d'upload \"permis de travail\""
 
 #~ msgid "Reception clerk"
-#~ msgstr ""
+#~ msgstr "Type d'upload \"permis de conduire\""
 
 #~ msgid "Newcomers reception clerk"
-#~ msgstr "Agent d'insertion (chef de service)"
+#~ msgstr ""
 
 #~ msgid "Debts consultant"
-#~ msgstr "Agent d'insertion (nouveaux bénéficiaires)"
+#~ msgstr "Agent d'insertion (chef de service)"
 
 #~ msgid "Social agent"
-#~ msgstr "Consultant nouveaux bénéficiaires"
+#~ msgstr "Agent d'insertion (nouveaux bénéficiaires)"
 
 #~ msgid "Social agent (Manager)"
-#~ msgstr "Agent d'accueil"
+#~ msgstr "Consultant nouveaux bénéficiaires"
 
 #~ msgid "Accountant"
-#~ msgstr "Agent d'accueil (nouveaux bénéficiaires)"
+#~ msgstr "Agent d'accueil"
 
 #~ msgid "Accountant (Manager)"
-#~ msgstr "Médiateur de dettes"
+#~ msgstr "Agent d'accueil (nouveaux bénéficiaires)"
 
 #~ msgid "Supervisor"
-#~ msgstr "Agent social"
+#~ msgstr "Médiateur de dettes"
 
 #~ msgid "Security advisor"
-#~ msgstr "Agent social (Chef de service)"
+#~ msgstr "Agent social"
 
 #~ msgid "Colleague"
-#~ msgstr "Comptable"
-
-#~ msgid "Consultations with client"
 #~ msgstr "Agent social (Chef de service)"
 
+#~ msgid "Consultations with client"
+#~ msgstr "Comptable"
+
 #~ msgid "Consultation"
-#~ msgstr ""
+#~ msgstr "Agent social (Chef de service)"
 
 #~ msgid "External meetings with client"
 #~ msgstr ""
 
 #~ msgid "External meeting"
-#~ msgstr "Collègue"
+#~ msgstr ""
 
 #~ msgid "Informational meetings"
-#~ msgstr "Consultations avec le bénéficiaire"
+#~ msgstr "Collègue"
 
 #~ msgid "Informational meeting"
-#~ msgstr "Consultation"
+#~ msgstr "Consultations avec le bénéficiaire"
 
 #~ msgid "Internal meetings"
-#~ msgstr "Réunions externes avec le bénéficiaire"
+#~ msgstr "Consultation"
 
 #~ msgid "Internal meeting"
-#~ msgstr "Réunion externe"
+#~ msgstr "Réunions externes avec le bénéficiaire"
 
 #~ msgid "External meetings"
-#~ msgstr "Réunions interne"
+#~ msgstr "Réunion externe"
 
 #~ msgid "Health insurance"
-#~ msgstr "Réunion interne"
-
-#~ msgid "Advocate"
 #~ msgstr "Réunions interne"
 
-#~ msgid "Bailiff"
+#~ msgid "Advocate"
 #~ msgstr "Réunion interne"
 
+#~ msgid "Bailiff"
+#~ msgstr "Réunions interne"
+
 #~ msgid "Debt collecting company"
-#~ msgstr "Réunions externe"
+#~ msgstr "Réunion interne"
 
 #~ msgid "Employment office"
-#~ msgstr "Caisse d'assurance maladie"
+#~ msgstr "Réunions externe"
 
 #~ msgid "Physician"
-#~ msgstr "Avocat"
+#~ msgstr "Caisse d'assurance maladie"
 
 #~ msgid "Family doctor"
-#~ msgstr "Huissier"
+#~ msgstr "Avocat"
 
 #~ msgid "Dentist"
-#~ msgstr ""
+#~ msgstr "Huissier"
 
 #~ msgid "Pediatrician"
-#~ msgstr "Bureau de chômage"
+#~ msgstr ""
 
 #~ msgid "A very hard job."
-#~ msgstr "Médecin"
+#~ msgstr "Bureau de chômage"
 
 #~ msgid "No supervisor. Only for independent people."
-#~ msgstr "Médecin traitant"
+#~ msgstr "Médecin"
 
 #~ msgid "Urgent problem"
-#~ msgstr "Dentiste"
+#~ msgstr "Médecin traitant"
 
 #~ msgid "Complain"
-#~ msgstr "Pédiatre"
+#~ msgstr "Dentiste"
 
 #~ msgid "Information"
-#~ msgstr ""
+#~ msgstr "Pédiatre"
 
 #~ msgid "First meeting"
 #~ msgstr ""
 
 #~ msgid "Normal"
-#~ msgstr "Problème urgent"
+#~ msgstr ""
 
 #~ msgid "Alcohol"
-#~ msgstr "Société"
+#~ msgstr "Problème urgent"
 
 #~ msgid "Health"
-#~ msgstr "période d'essai"
+#~ msgstr "Société"
 
 #~ msgid "Force majeure"
-#~ msgstr "Réunion interne"
+#~ msgstr "période d'essai"
 
 #~ msgid "File sheet"
-#~ msgstr "Général"
+#~ msgstr "Réunion interne"
 
 #~ msgid "eID sheet"
-#~ msgstr "Ecole"
+#~ msgstr "Général"
 
 #~ msgid "Action plan"
-#~ msgstr "Santé"
+#~ msgstr "Ecole"
 
 #~ msgid "Coaching sheet"
-#~ msgstr ""
+#~ msgstr "Santé"
 
 #~ msgid "Workshops"
-#~ msgstr "Fiche client"
+#~ msgstr ""
 
 #~ msgid "IO"
-#~ msgstr "Contenu carte eID"
+#~ msgstr "Fiche client"
 
 #~ msgid "Active workshops"
-#~ msgstr "Plan d'action"
+#~ msgstr "Contenu carte eID"
 
 #~ msgid "Draft workshops"
-#~ msgstr "Fiche d'intervention"
+#~ msgstr "Plan d'action"
 
 #~ msgid "Inactive workshops"
-#~ msgstr "Ateliers"
+#~ msgstr "Fiche d'intervention"
 
 #~ msgid "Closed workshops"
-#~ msgstr "O.I."
+#~ msgstr "Ateliers"
 
 #~ msgid "Integration workshops"
-#~ msgstr "Ateliers actifs"
+#~ msgstr "O.I."
 
 #~ msgid "Job search workshops"
-#~ msgstr "Ateliers en préparation"
+#~ msgstr "Ateliers actifs"
 
 #~ msgid "Finished"
-#~ msgstr "Ateliers inactifs"
+#~ msgstr "Ateliers en préparation"
 
 #~ msgid "Workshop"
-#~ msgstr "Ateliers terminés"
+#~ msgstr "Ateliers inactifs"
 
 #~ msgid "Motif de l'orientation"
-#~ msgstr "Ateliers d'insertion sociale"
+#~ msgstr "Ateliers terminés"
 
 #~ msgid "Difficultés à l'origine de la demande / Problématiques repérées"
-#~ msgstr "Ateliers d'Insertion socioprofessionnelle"
+#~ msgstr "Ateliers d'insertion sociale"
 
 #~ msgid "Workshop series"
-#~ msgstr "Terminé"
+#~ msgstr "Ateliers d'Insertion socioprofessionnelle"
 
 #~ msgid "Workshop lines"
-#~ msgstr "Atelier"
+#~ msgstr "Terminé"
 
 #~ msgid "Phone"
-#~ msgstr ""
+#~ msgstr "Atelier"
 
 #~ msgid "GSM"
 #~ msgstr ""
 
 #~ msgid "Introduction to basic kitchen technologies."
-#~ msgstr "Série d'ateliers"
+#~ msgstr ""
 
 #~ msgid "Request for enrolment"
-#~ msgstr "Séries d'ateliers"
+#~ msgstr "Série d'ateliers"
 
 #~ msgid "Kitchen"
-#~ msgstr "Réponse"
+#~ msgstr "Séries d'ateliers"
 
 #~ msgid "Creativity"
-#~ msgstr ""
+#~ msgstr "Réponse"
 
 #~ msgid "Our first baby"
-#~ msgstr "Introduction aux techniques de cuisine élémentaires."
-
-#~ msgid "Mathematics"
-#~ msgstr "Demande d'inscription"
-
-#~ msgid "Get active!"
-#~ msgstr "Cuisine"
-
-#~ msgid "Request for intervention"
-#~ msgstr "Créativité"
-
-#~ msgid "Psycho-social intervention"
-#~ msgstr "Notre premier bébé"
-
-#~ msgid "Enrolment"
-#~ msgstr "Mathématiques"
-
-#~ msgid "Learning"
-#~ msgstr "Activons-nous!"
-
-#~ msgid "Skill proof"
-#~ msgstr "Information requête"
-
-#~ msgid "Skill proofs"
 #~ msgstr ""
 
+#~ msgid "Mathematics"
+#~ msgstr "Introduction aux techniques de cuisine élémentaires."
+
+#~ msgid "Get active!"
+#~ msgstr "Demande d'inscription"
+
+#~ msgid "Request for intervention"
+#~ msgstr "Cuisine"
+
+#~ msgid "Psycho-social intervention"
+#~ msgstr "Créativité"
+
+#~ msgid "Enrolment"
+#~ msgstr "Notre premier bébé"
+
+#~ msgid "Learning"
+#~ msgstr "Mathématiques"
+
+#~ msgid "Skill proof"
+#~ msgstr "Activons-nous!"
+
+#~ msgid "Skill proofs"
+#~ msgstr "Information requête"
+
 #~ msgid "Skill"
-#~ msgstr "Inscription"
+#~ msgstr ""
 
 #~ msgid "Skills"
-#~ msgstr "Avertissements"
+#~ msgstr "Inscription"
 
 #~ msgid "Soft skill type"
-#~ msgstr "Preuve de qualification"
+#~ msgstr "Avertissements"
 
 #~ msgid "Soft skill types"
-#~ msgstr "Preuves de qualification"
+#~ msgstr "Preuve de qualification"
 
 #~ msgid "Soft skill"
-#~ msgstr "Compétence professionnelle"
+#~ msgstr "Preuves de qualification"
 
 #~ msgid "Soft skills"
-#~ msgstr "Compétences professionnelles"
+#~ msgstr "Compétence professionnelle"
 
 #~ msgid "Obstacle type"
-#~ msgstr "Type de compétence sociale"
+#~ msgstr "Compétences professionnelles"
 
 #~ msgid "Obstacle types"
-#~ msgstr "Types de compétence sociale"
+#~ msgstr "Type de compétence sociale"
 
 #~ msgid "Obstacle"
-#~ msgstr "Compétence sociale"
+#~ msgstr "Types de compétence sociale"
 
 #~ msgid "Obstacles"
-#~ msgstr "Compétences sociales"
+#~ msgstr "Compétence sociale"
 
 #~ msgid "Detected by"
-#~ msgstr "Type de frein"
+#~ msgstr "Compétences sociales"
 
 #~ msgid "Declarative"
-#~ msgstr "Types de freins"
+#~ msgstr "Type de frein"
 
 #~ msgid "Certificate"
-#~ msgstr "Freins"
+#~ msgstr "Types de freins"
 
 #~ msgid "Debts"
 #~ msgstr "Freins"
 
 #~ msgid "Family problems"
-#~ msgstr "Détecté par"
+#~ msgstr "Freins"
 
 #~ msgid "Evaluations"
-#~ msgstr "séparé"
+#~ msgstr "Détecté par"
 
 #~ msgid "Duties"
-#~ msgstr "Certificat médical"
-
-#~ msgid "Family situation"
-#~ msgstr "Dettes"
-
-#~ msgid "Contact details"
-#~ msgstr "Membres de famille"
-
-#~ msgid "Remarks (Social Office)"
-#~ msgstr "Évaluations"
-
-#~ msgid "Gesdos ID"
-#~ msgstr "Obligations"
-
-#~ msgid "TIM ID"
-#~ msgstr "Situation familiale"
-
-#~ msgid "receives social help"
-#~ msgstr "Coordonnées"
-
-#~ msgid "is senior"
-#~ msgstr "Remarque (Bureau Social)"
-
-#~ msgid "unemployment benefit"
-#~ msgstr "N° GesDos"
-
-#~ msgid "waiting pay"
-#~ msgstr ""
-
-#~ msgid "sickness benefit"
-#~ msgstr "client CPAS"
-
-#~ msgid "retirement pension"
-#~ msgstr "retraité"
-
-#~ msgid "other incomes"
-#~ msgstr "allocation de chômage"
-
-#~ msgid "Job agents"
-#~ msgstr ""
-
-#~ msgid "CVs emitted"
-#~ msgstr "indemnisation maladie"
-
-#~ msgid "Observed event"
-#~ msgstr "persone de retraite"
-
-#~ msgid "Observed events"
-#~ msgstr "autres revenus"
-
-#~ msgid "Created"
-#~ msgstr "Agences de travail"
-
-#~ msgid "Modified"
-#~ msgstr ""
-
-#~ msgid "Dispense"
-#~ msgstr "Critère"
-
-#~ msgid "Penalty"
 #~ msgstr "séparé"
 
-#~ msgid "Note"
+#~ msgid "Family situation"
+#~ msgstr "Certificat médical"
+
+#~ msgid "Contact details"
+#~ msgstr "Dettes"
+
+#~ msgid "Remarks (Social Office)"
+#~ msgstr "Membres de famille"
+
+#~ msgid "Gesdos ID"
+#~ msgstr "Évaluations"
+
+#~ msgid "TIM ID"
+#~ msgstr "Obligations"
+
+#~ msgid "receives social help"
+#~ msgstr "Situation familiale"
+
+#~ msgid "is senior"
+#~ msgstr "Coordonnées"
+
+#~ msgid "unemployment benefit"
+#~ msgstr "Remarque (Bureau Social)"
+
+#~ msgid "waiting pay"
+#~ msgstr "N° GesDos"
+
+#~ msgid "sickness benefit"
 #~ msgstr ""
+
+#~ msgid "retirement pension"
+#~ msgstr "client CPAS"
+
+#~ msgid "other incomes"
+#~ msgstr "retraité"
+
+#~ msgid "Job agents"
+#~ msgstr "allocation de chômage"
+
+#~ msgid "CVs emitted"
+#~ msgstr ""
+
+#~ msgid "Observed event"
+#~ msgstr "indemnisation maladie"
+
+#~ msgid "Observed events"
+#~ msgstr "persone de retraite"
+
+#~ msgid "Created"
+#~ msgstr "autres revenus"
+
+#~ msgid "Modified"
+#~ msgstr "Agences de travail"
+
+#~ msgid "Dispense"
+#~ msgstr ""
+
+#~ msgid "Penalty"
+#~ msgstr "Critère"
+
+#~ msgid "Note"
+#~ msgstr "séparé"
 
 #~ msgid "Client states"
-#~ msgstr "Réponse"
+#~ msgstr ""
 
 #~ msgid "New"
-#~ msgstr ""
+#~ msgstr "Réponse"
 
 #~ msgid "Ended"
 #~ msgstr ""
 
 #~ msgid "A choicelist of observable client events."
-#~ msgstr "Etats bénéficiaires"
+#~ msgstr ""
 
 #~ msgid "is seeking work"
-#~ msgstr "Nouveau"
+#~ msgstr "Etats bénéficiaires"
 
 #~ msgid "Other obstacles"
-#~ msgstr "Fin"
+#~ msgstr "Nouveau"
 
 #~ msgid "Other skills"
-#~ msgstr ""
+#~ msgstr "Fin"
 
 #~ msgid "Papers"
-#~ msgstr "cherche du travail"
+#~ msgstr ""
 
 #~ msgid "History"
-#~ msgstr "Autres freins"
+#~ msgstr "cherche du travail"
 
 #~ msgid "Languages"
-#~ msgstr "Autres atouts"
+#~ msgstr "Autres freins"
 
 #~ msgid "Competences"
-#~ msgstr ""
+#~ msgstr "Autres atouts"
 
 #~ msgid "Illness"
-#~ msgstr "Historique"
-
-#~ msgid "Birth place"
-#~ msgstr "Langues"
-
-#~ msgid "Birth country"
 #~ msgstr ""
 
+#~ msgid "Birth place"
+#~ msgstr "Historique"
+
+#~ msgid "Birth country"
+#~ msgstr "Langues"
+
 #~ msgid "Human Links"
-#~ msgstr "Lieu de naissance"
+#~ msgstr ""
 
 #~ msgid "User"
-#~ msgstr "Pays de naissance"
+#~ msgstr "Lieu de naissance"
 
 #~ msgctxt "singular form"
 #~ msgid "Course line"
-#~ msgstr ""
+#~ msgstr "Pays de naissance"
 
 #~ msgctxt "plural form"
 #~ msgid "Course lines"
-#~ msgstr "Refuser"
-
-#~ msgid "Submit a ticket"
 #~ msgstr ""
 
+#~ msgid "Submit a ticket"
+#~ msgstr "Refuser"
+
 #~ msgid "Citizen"
-#~ msgstr "Actif"
+#~ msgstr ""
+
+#~ msgid "Parcours"
+#~ msgstr ""
 

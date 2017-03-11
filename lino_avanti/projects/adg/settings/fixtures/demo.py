@@ -19,6 +19,36 @@ from lino.modlib.users.choicelists import UserTypes
 from lino_xl.lib.cal.choicelists import Recurrencies
 from lino_xl.lib.courses.choicelists import EnrolmentStates
 
+def named(model, name, **kwargs):
+    kwargs = dd.str2kw('name', name, **kwargs)
+    return model(**kwargs)
+
+course_stages = [
+    _("Dispens"),
+    _("Eingeschrieben"),
+    _("Abgeschlossen"),
+    _("Abgebrochen"),
+    _("Ausgeschlossen")]
+
+trends_config = []
+trends_config.append((
+    _("Info Integration"),
+    [ "Erstgespräch",
+      "Sprachtest",
+      "Einschreibung in Sprachkurs",
+      "Einschreibung in Integrationskurs",
+      "Bilanzgespräch"]))
+trends_config.append((_("Alphabetisation"), course_stages))
+trends_config.append((_("A1"), course_stages))
+trends_config.append((_("A2"), course_stages))
+trends_config.append((_("Citizen course"), course_stages))
+trends_config.append((_("Professional integration"), [
+    "Begleitet vom DSBE",
+    "Begleitet vom ADG",
+    "Erwerbstätigkeit",
+]))
+
+
 def objects():
 
     Line = rt.models.courses.Line
@@ -33,11 +63,15 @@ def objects():
     GuestRole = rt.modules.cal.GuestRole
     Person = rt.models.contacts.Person
     CommentType = rt.models.comments.CommentType
-    
-    def named(model, name, **kwargs):
-        kwargs = dd.str2kw('name', name, **kwargs)
-        return model(**kwargs)
+    TrendStage = rt.models.trends.TrendStage
+    TrendArea = rt.models.trends.TrendArea
 
+    for area, stages in trends_config:
+        ta = named(TrendArea, area)
+        yield ta
+        for stage in stages:
+            yield named(TrendStage, stage, trend_area=ta)
+    
     kw = dd.str2kw('name', _("Lesson"))
     kw.update(dd.str2kw('event_label', _("Lesson")))
     event_type = EventType(**kw)
@@ -68,10 +102,12 @@ def objects():
     yield named(ClientContactType, _("Health insurance"))
     yield named(ClientContactType, _("School"))
     yield named(ClientContactType, _("Pharmacy"))
+    yield named(ClientContactType, _("GSS"))
+    yield named(ClientContactType, _("ISS"))
     
-    yield named(CoachingType, _("Parcours"))
-    yield named(CoachingType, _("GSS"))
-    yield named(CoachingType, _("ISS"))
+    # yield named(CoachingType, _("Parcours"))
+    # yield named(CoachingType, _("GSS"))
+    # yield named(CoachingType, _("ISS"))
     
     yield named(CommentType, _("Phone call"))
     yield named(CommentType, _("Visit"))
@@ -79,16 +115,17 @@ def objects():
     yield named(CommentType, _("Internal meeting"))
     yield named(CommentType, _("Meeting with partners"))
     
-    tom = Teacher(first_name="Tom", last_name="Thess-Thönnes")
-    yield tom
-    yield User(username="tom", profile=UserTypes.teacher,
-               partner=tom)
+    laura = Teacher(first_name="Laura", last_name="Lieblig")
+    yield laura
+    yield User(username="laura", profile=UserTypes.teacher,
+               partner=laura)
     
     yield User(username="nathalie", profile=UserTypes.user)
     yield User(username="audrey", profile=UserTypes.auditor)
     yield User(username="martina", profile=UserTypes.coordinator)
 
-    USERS = Cycler(User.objects.all())
+    USERS = Cycler(User.objects.exclude(
+        profile__in=(UserTypes.auditor, UserTypes.admin)))
     
     kw = dict(monday=True, tuesday=True, thursday=True, friday=True)
     kw.update(
@@ -98,7 +135,7 @@ def objects():
         max_date=dd.demo_date(10),
         every_unit=Recurrencies.daily,
         user=USERS.pop(),
-        teacher=tom,
+        teacher=laura,
         max_places=5)
     
     yield Course(**kw)
