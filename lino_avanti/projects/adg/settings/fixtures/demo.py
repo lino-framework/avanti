@@ -115,16 +115,17 @@ def objects():
     yield named(CommentType, _("Internal meeting"))
     yield named(CommentType, _("Meeting with partners"))
     
-    tom = Teacher(first_name="Tom", last_name="Thess-Thönnes")
-    yield tom
-    yield User(username="tom", profile=UserTypes.teacher,
-               partner=tom)
+    laura = Teacher(first_name="Laura", last_name="Lieblig")
+    yield laura
+    yield User(username="laura", profile=UserTypes.teacher,
+               partner=laura)
     
     yield User(username="nathalie", profile=UserTypes.user)
     yield User(username="audrey", profile=UserTypes.auditor)
     yield User(username="martina", profile=UserTypes.coordinator)
 
-    USERS = Cycler(User.objects.all())
+    USERS = Cycler(User.objects.exclude(
+        profile__in=(UserTypes.auditor, UserTypes.admin)))
     
     kw = dict(monday=True, tuesday=True, thursday=True, friday=True)
     kw.update(
@@ -134,7 +135,7 @@ def objects():
         max_date=dd.demo_date(10),
         every_unit=Recurrencies.daily,
         user=USERS.pop(),
-        teacher=tom,
+        teacher=laura,
         max_places=5)
     
     yield Course(**kw)

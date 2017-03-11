@@ -143,7 +143,8 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
         if ar is None or ar.get_user().profile.has_required_roles(
                 [ClientsNameUser]):
             return str(self)
-        return "{} ({})".format(self.first_name, self.pk)
+        return _("{} ({}) from {}").format(
+            self.first_name, self.pk, self.city)
         # return "{} {}".format(self._meta.verbose_name, self.pk)
 
     @dd.displayfield(_("Name"))
