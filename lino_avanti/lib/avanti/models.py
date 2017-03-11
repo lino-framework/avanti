@@ -27,7 +27,7 @@ from lino_xl.lib.coachings.choicelists import ClientEvents, ClientStates
 
 from .choicelists import TranslatorTypes, StartingReasons, EndingReasons
 
-from .roles import ClientsUser, ClientsStaff
+from .roles import ClientsNameUser, ClientsUser, ClientsStaff
 
 contacts = dd.resolve_app('contacts')
 
@@ -139,8 +139,15 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
         return "%s %s (%s)" % (
             self.last_name.upper(), self.first_name, self.pk)
 
+    def get_choices_text(self, ar, actor, field):
+        if ar is None or ar.get_user().profile.has_required_roles(
+                [ClientsNameUser]):
+            return str(self)
+        return "{} ({})".format(self.first_name, self.pk)
+        # return "{} {}".format(self._meta.verbose_name, self.pk)
+
     @dd.displayfield(_("Name"))
-    def name_column(self, request):
+    def name_column(self, ar):
         return str(self)
 
     def get_overview_elems(self, ar):

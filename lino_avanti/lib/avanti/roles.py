@@ -5,7 +5,13 @@
 from lino.core.roles import UserRole
 
    
-class ClientsUser(UserRole):
+class ClientsNameUser(UserRole):
+    """A user who can see the full name of clients but has no other access
+    to client functionality.
+
+    """
+
+class ClientsUser(ClientsNameUser):
     """A user who has access to clients functionality.
 
     """

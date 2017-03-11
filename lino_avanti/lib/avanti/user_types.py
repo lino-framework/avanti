@@ -19,20 +19,20 @@ from lino_xl.lib.contacts.roles import ContactsUser, ContactsStaff
 from lino_xl.lib.coachings.roles import CoachingsUser, CoachingsStaff
 from lino_xl.lib.excerpts.roles import ExcerptsUser, ExcerptsStaff
 from lino_xl.lib.courses.roles import CoursesTeacher, CoursesUser
-from .roles import ClientsUser, ClientsStaff
+from .roles import ClientsNameUser, ClientsUser, ClientsStaff
 from lino_xl.lib.cv.roles import CareerUser, CareerStaff
 from lino_xl.lib.beid.roles import BeIdUser
 from lino_noi.lib.tickets.roles import TicketsUser, TicketsStaff
 from lino_xl.lib.trends.roles import TrendsStaff, TrendsUser
 
 
-class Teacher(CoursesTeacher, OfficeUser):
+class Auditor(CoursesUser, OfficeUser):
+    pass
+
+class Teacher(CoursesTeacher, OfficeUser, ClientsNameUser):
     pass
 
 class Coordinator(CoursesUser, OfficeUser):
-    pass
-
-class Auditor(CoursesUser, OfficeUser):
     pass
 
 class SocialWorker(CoachingsUser, CoursesUser, ContactsUser,

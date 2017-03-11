@@ -56,3 +56,61 @@ Tom (the teacher) who is responsible for the individual events.
  `Lesson 18 (24.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
 =========================================== ======== =================================
 <BLANKLINE>
+
+
+Names of participants
+=====================
+
+The names of the participants are confidential data in :ref:`avanti`.
+
+System admins can see the full names:
+
+>>> obj = courses.Course.objects.get(pk=1)
+>>> rt.login('rolf').show('courses.EnrolmentsByCourse', obj)
+... #doctest: +NORMALIZE_WHITESPACE -REPORT_UDIFF
+==================== ======================= ============= ======== ==================================================
+ Date of request      Client                  Places used   Remark   Actions
+-------------------- ----------------------- ------------- -------- --------------------------------------------------
+ 07/02/2017           ABDI Aatifa (136)       1                      **Requested** → [Confirm] [Cancelled] [Trying]
+ 09/02/2017           ABDELNOUR Aamir (125)   1                      **Confirmed** → [Cancelled] [Requested] [Trying]
+ 11/02/2017           ABDALLAH Aaish (127)    1                      **Requested** → [Confirm] [Cancelled] [Trying]
+ 13/02/2017           ABBASI Aaisha (118)     1                      **Confirmed** → [Cancelled] [Requested] [Trying]
+ 15/02/2017           ABAD Aabdeen (114)      1                      **Requested** → [Confirm] [Cancelled] [Trying]
+ **Total (5 rows)**                           **5**
+==================== ======================= ============= ======== ==================================================
+<BLANKLINE>
+
+But auditors and coordinators see only the first name and number:
+
+>>> rt.login('martina').show('courses.EnrolmentsByCourse', obj)
+... #doctest: +NORMALIZE_WHITESPACE -REPORT_UDIFF
+==================== =============== ============= ======== ==================================================
+ Date of request      Client          Places used   Remark   Actions
+-------------------- --------------- ------------- -------- --------------------------------------------------
+ 07/02/2017           Aatifa (136)    1                      **Requested**
+ 09/02/2017           Aamir (125)     1                      **Confirmed** → [Cancelled] [Requested] [Trying]
+ 11/02/2017           Aaish (127)     1                      **Requested**
+ 13/02/2017           Aaisha (118)    1                      **Confirmed**
+ 15/02/2017           Aabdeen (114)   1                      **Requested**
+ **Total (5 rows)**                   **5**
+==================== =============== ============= ======== ==================================================
+<BLANKLINE>
+
+
+Note that teachers *can* see the full names because they must register
+presences and absences:
+
+>>> rt.login('tom').show('courses.EnrolmentsByCourse', obj)
+... #doctest: +NORMALIZE_WHITESPACE -REPORT_UDIFF
+==================== ======================= ============= ======== ================================================
+ Date of request      Client                  Places used   Remark   Actions
+-------------------- ----------------------- ------------- -------- ------------------------------------------------
+ 07/02/2017           ABDI Aatifa (136)       1                      **Requested**
+ 09/02/2017           ABDELNOUR Aamir (125)   1                      **Confirmed**
+ 11/02/2017           ABDALLAH Aaish (127)    1                      **Requested** → [Confirm] [Cancelled] [Trying]
+ 13/02/2017           ABBASI Aaisha (118)     1                      **Confirmed**
+ 15/02/2017           ABAD Aabdeen (114)      1                      **Requested**
+ **Total (5 rows)**                           **5**
+==================== ======================= ============= ======== ================================================
+<BLANKLINE>
+
