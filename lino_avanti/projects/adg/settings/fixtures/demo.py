@@ -12,16 +12,12 @@ from __future__ import unicode_literals
 # from django.conf import settings
 # from lino.utils import mti
 from lino.utils import Cycler  # join_words
-# from lino.utils.instantiator import create_row
+from lino.utils.mldbc import babel_named as named
 from lino.api import rt, dd, _
 
 from lino.modlib.users.choicelists import UserTypes
 from lino_xl.lib.cal.choicelists import Recurrencies
 from lino_xl.lib.courses.choicelists import EnrolmentStates
-
-def named(model, name, **kwargs):
-    kwargs = dd.str2kw('name', name, **kwargs)
-    return model(**kwargs)
 
 course_stages = [
     _("Dispens"),
