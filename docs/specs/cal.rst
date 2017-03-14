@@ -28,6 +28,7 @@ ABDALLA Aadil (120)
 ...
 
 >>> show_choices("audrey", base + '?query=') #doctest: +ELLIPSIS
+<br/>
 Aabdeen (114) from Eupen
 Aabid (115) from Eupen
 Aaisha (118) from Eupen
@@ -37,6 +38,7 @@ Aakif (128) from Eupen
 ...
 
 >>> show_choices("martina", base + '?query=') #doctest: +ELLIPSIS
+<br/>
 Aabdeen (114) from Eupen
 Aabid (115) from Eupen
 Aaisha (118) from Eupen
