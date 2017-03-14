@@ -12,7 +12,11 @@ This can be used as :attr:`workflows_module
 
 from __future__ import unicode_literals
 
+# calendar events and presences:
 from lino_xl.lib.cal.workflows.voga import *
 # from lino_xl.lib.cal.workflows import feedback
+
+
+# courses and enrolments:
 from lino_xl.lib.courses.workflows import *
 from lino_noi.lib.noi.workflows import *

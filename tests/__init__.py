@@ -44,6 +44,9 @@ class SpecsTests(TestCase):
     def test_db(self):
         self.run_simple_doctests('docs/specs/db.rst')
 
+    def test_cal(self):
+        self.run_simple_doctests('docs/specs/cal.rst')
+
     def test_roles(self):
         self.run_simple_doctests('docs/specs/roles.rst')
 

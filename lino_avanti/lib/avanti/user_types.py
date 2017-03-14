@@ -10,7 +10,7 @@ from django.utils.translation import ugettext_lazy as _
 
 # from lino.core.roles import UserRole, SiteAdmin, SiteUser, SiteStaff
 # from lino.core.roles import UserRole, SiteAdmin, SiteStaff
-from lino.core.roles import UserRole, SiteAdmin
+from lino.core.roles import UserRole, Explorer, SiteAdmin
 from lino.modlib.users.choicelists import UserTypes
 from lino.modlib.comments.roles import CommentsUser, CommentsStaff
 from lino.modlib.office.roles import OfficeUser, OfficeStaff
@@ -26,7 +26,7 @@ from lino_noi.lib.tickets.roles import TicketsUser, TicketsStaff
 from lino_xl.lib.trends.roles import TrendsStaff, TrendsUser
 
 
-class Auditor(CoursesUser, OfficeUser):
+class Auditor(CoursesUser, OfficeUser, Explorer):
     pass
 
 class Teacher(CoursesTeacher, OfficeUser, ClientsNameUser):
@@ -37,13 +37,14 @@ class Coordinator(CoursesUser, OfficeUser):
 
 class SocialWorker(CoachingsUser, CoursesUser, ContactsUser,
                    OfficeUser, ExcerptsUser, CareerUser, BeIdUser,
-                   TicketsUser, CommentsUser, TrendsUser, ClientsUser):
+                   TicketsUser, CommentsUser, TrendsUser, ClientsUser,
+                   Explorer):
     pass
 
 class SiteStaff(SocialWorker, CoachingsStaff, CoursesUser,
                 ContactsStaff, OfficeStaff, ExcerptsStaff,
-                CareerStaff, BeIdUser, TicketsStaff,
-                CommentsStaff, TrendsStaff, ClientsStaff):
+                CareerStaff, BeIdUser, TicketsStaff, CommentsStaff,
+                TrendsStaff, ClientsStaff, Explorer):
     pass
 
 class Administrator(SiteAdmin, SiteStaff):
