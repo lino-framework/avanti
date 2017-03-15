@@ -58,21 +58,20 @@ Laura (the teacher) who is responsible for the individual events.
 =========================================== ======== =================================
  overview                                    Client   Actions
 ------------------------------------------- -------- ---------------------------------
- `Lesson 13 (16.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 13 (16.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 14 (17.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 14 (17.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 15 (20.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 15 (20.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 16 (21.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 16 (21.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 17 (23.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 17 (23.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 18 (24.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
- `Lesson 18 (24.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [☐] [☑] [☒]
+ `Lesson 13 (16.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [?] [☑] [☒]
+ `Lesson 13 (16.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [?] [☑] [☒]
+ `Lesson 14 (17.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [?] [☑] [☒]
+ `Lesson 14 (17.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [?] [☑] [☒]
+ `Lesson 15 (20.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [?] [☑] [☒]
+ `Lesson 15 (20.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [?] [☑] [☒]
+ `Lesson 16 (21.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [?] [☑] [☒]
+ `Lesson 16 (21.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [?] [☑] [☒]
+ `Lesson 17 (23.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [?] [☑] [☒]
+ `Lesson 17 (23.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [?] [☑] [☒]
+ `Lesson 18 (24.02.2017 09:00) <Detail>`__            [▽] **Suggested** → [?] [☑] [☒]
+ `Lesson 18 (24.02.2017 14:00) <Detail>`__            [▽] **Suggested** → [?] [☑] [☒]
 =========================================== ======== =================================
 <BLANKLINE>
-
 
 Names of participants
 =====================

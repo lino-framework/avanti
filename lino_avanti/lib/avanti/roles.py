@@ -11,6 +11,12 @@ class ClientsNameUser(UserRole):
 
     """
 
+# class StatisticsUser(UserRole):
+#     """A user who can see global lists of all clients, but without seeing
+#     their names and other confidential data.
+
+#     """
+
 class ClientsUser(ClientsNameUser):
     """A user who has access to clients functionality.
 
