@@ -101,10 +101,10 @@ class Site(Site):
         yield 'lino.modlib.dashboard'
         yield 'lino_xl.lib.appypod'
         
-        # yield 'lino_noi.lib.votes'
+        # yield 'lino_xl.lib.votes'
         # yield 'lino_avanti.lib.tickets'
-        # yield 'lino_noi.lib.tickets'
-        # yield 'lino_noi.lib.faculties'
+        # yield 'lino_xl.lib.tickets'
+        # yield 'lino_xl.lib.faculties'
         
 
     def setup_quicklinks(self, user, tb):

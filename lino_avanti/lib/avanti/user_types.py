@@ -22,7 +22,7 @@ from lino_xl.lib.courses.roles import CoursesTeacher, CoursesUser
 from .roles import ClientsNameUser, ClientsUser, ClientsStaff
 from lino_xl.lib.cv.roles import CareerUser, CareerStaff
 from lino_xl.lib.beid.roles import BeIdUser
-from lino_noi.lib.tickets.roles import TicketsUser, TicketsStaff
+from lino_xl.lib.tickets.roles import TicketsUser, TicketsStaff
 from lino_xl.lib.trends.roles import TrendsStaff, TrendsUser
 
 
