@@ -52,7 +52,7 @@ class Site(Site):
             # person_model='avanti.Client')
         self.plugins.cal.configure(
             partner_model='avanti.Client')
-        # self.plugins.tickets.configure(
+        # self.plugins.faculties.configure(
         #     end_user_model='avanti.Client')
         self.plugins.courses.configure(
             # teacher_model='users.User',
