@@ -15,7 +15,7 @@ class TranslatorTypes(dd.ChoiceList):
     Types of registries for the Belgian residence.
     
     """
-    verbose_name = _("Translator")
+    verbose_name = _("Translator type")
 
 add = TranslatorTypes.add_item
 add('10', _("SETIS"))
@@ -43,4 +43,16 @@ add('300', _("Familiar reasons"))
 add('400', _("Missing motivation"))
 add('500', _("Return to home country"))
 add('900', _("Other"))
+
+
+class ProfessionalStates(dd.ChoiceList):
+
+    verbose_name = _("Professional situation")
+
+add = ProfessionalStates.add_item
+add('100', _("Student"))
+add('200', _("Workless"))
+add('300', _("Seeking"))
+add('400', _("Employed"))
+add('500', _("Independent"))
 

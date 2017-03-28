@@ -4,12 +4,15 @@
 
 """The :xfile:`models.py` module for this plugin.
 
+See :doc:`/specs/avanti`.
+
 """
 from lino.api import dd, rt, _
 from django.db import models
 from django.conf import settings
 
 from lino.utils import ssin
+from lino.utils.xmlgen.html import E, join_elems
 from lino.mixins import Phonable, Contactable
 from lino_xl.lib.beid.mixins import BeIdCardHolder
 from lino.modlib.comments.mixins import Commentable
@@ -20,18 +23,29 @@ from lino.modlib.users.mixins import UserAuthored, My
 from lino_xl.lib.notes.mixins import Notable
 from lino_xl.lib.coachings.mixins import Coachable
 from lino_xl.lib.cal.mixins import EventGenerator
+from lino_xl.lib.cv.mixins import CefLevel
+# from lino.utils.mldbc.fields import BabelVirtualField
 
 from lino.mixins import ObservedPeriod
 
 from lino_xl.lib.coachings.choicelists import ClientEvents, ClientStates
 
-from .choicelists import TranslatorTypes, StartingReasons, EndingReasons
+from .choicelists import TranslatorTypes, StartingReasons, EndingReasons, ProfessionalStates
 
 from lino.core.roles import Explorer
 from .roles import ClientsNameUser, ClientsUser
 
 contacts = dd.resolve_app('contacts')
 
+# def cef_level_getter(lng):
+#     def f(obj):
+#         LanguageKnowledge = rt.models.cv.LanguageKnowledge
+#         if obj._cef_levels is None:
+#             obj._cef_levels = dict()
+#             for lk in LanguageKnowledge.objects.filter(person=obj):
+#                 obj._cef_levels[lk.language.iso2] = lk.obj._cef_levels
+#         return obj._cef_levels.get(lng.django_code)
+#     return f
 
 @dd.python_2_unicode_compatible
 class Client(contacts.Person, BeIdCardHolder, UserAuthored,
@@ -39,30 +53,6 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
              # Notable,
              Commentable,
              EventGenerator):
-    """
-    A **client** is a person using our services.
-
-    .. attribute:: overview
-
-        A panel with general information about this client.
-
-    .. attribute:: client_state
-    
-        Pointer to :class:`ClientStates`.
-
-    .. attribute:: unemployed_since
-
-       The date when this client got unemployed and stopped to have a
-       regular work.
-
-    .. attribute:: seeking_since
-
-       The date when this client registered as unemployed and started
-       to look for a new job.
-
-    .. attribute:: work_permit_suspended_until
-
-    """
     class Meta:
         app_label = 'avanti'
         verbose_name = _("Client")
@@ -72,12 +62,15 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
 
     validate_national_id = True
     # workflow_state_field = 'client_state'
+    _cef_levels = None
+    _mother_tongues = None
 
     in_belgium_since = models.DateField(
         _("Lives in Belgium since"), blank=True, null=True)
     
     starting_reason = StartingReasons.field(blank=True)
     ending_reason = EndingReasons.field(blank=True)
+    professional_state = ProfessionalStates.field(blank=True)
     
     translator_type = TranslatorTypes.field(blank=True)
     translator_notes = dd.RichTextField(
@@ -134,7 +127,8 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
 
     event_policy = dd.ForeignKey(
         'cal.EventPolicy', blank=True, null=True)
-
+    
+    # cef_level = BabelVirtualField(CefLevel.field(), cef_level_getter)
 
     def __str__(self):
         return "%s %s (%s)" % (
@@ -151,6 +145,54 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
     @dd.displayfield(_("Name"))
     def name_column(self, ar):
         return str(self)
+
+    @dd.htmlbox(_("Language knowledge"))
+    def language_knowledge(self, ar):
+        lst = []
+        for lng in settings.SITE.languages:
+            cl = self.get_cef_level(lng.django_code)
+            if cl is None:
+                lst.append("{}: {}".format(lng.name, "-"))
+            else:
+                lst.append("{}: {}".format(lng.name, cl.value))
+        lst.append("{}: {}".format(
+            _("Mother tongues"), self.mother_tongues))
+        lst = join_elems(lst, E.br)
+        return E.p(*lst)
+                
+    
+    @dd.displayfield(_("Mother tongues"))
+    def mother_tongues(self, ar):
+        LanguageKnowledge = rt.models.cv.LanguageKnowledge
+        if self._mother_tongues is None:
+            self._mother_tongues = ' '.join([
+                lk.language.id for lk
+                in LanguageKnowledge.objects.filter(
+                    person=self, native=True).order_by('id')])
+        return self._mother_tongues
+
+    # @dd.virtualfield(CefLevel.field(_("CEF level")))
+    @dd.displayfield(_("CEF level"))
+    def cef_level_de(self, ar):
+        return self.get_cef_level('de')
+
+    # @dd.virtualfield(CefLevel.field(_("CEF level (fr)")))
+    @dd.displayfield(_("CEF level (fr)"))
+    def cef_level_fr(self, ar):
+        return self.get_cef_level('fr')
+
+    # @dd.virtualfield(CefLevel.field(_("CEF level (en)")))
+    @dd.displayfield(_("CEF level (en)"))
+    def cef_level_en(self, ar):
+        return self.get_cef_level('en')
+
+    def get_cef_level(self, lang):
+        LanguageKnowledge = rt.models.cv.LanguageKnowledge
+        if self._cef_levels is None:
+            self._cef_levels = dict()
+            for lk in LanguageKnowledge.objects.filter(person=self):
+                self._cef_levels[lk.language.iso2] = lk.cef_level
+        return self._cef_levels.get(lang)
 
     def get_overview_elems(self, ar):
         elems = super(Client, self).get_overview_elems(ar)
@@ -210,7 +252,7 @@ dd.update_field(Client, 'user', verbose_name=_("Primary coach"))
 
 class ClientDetail(dd.DetailLayout):
 
-    main = "general contact person family \
+    main = "general languages person contact family \
     notes career trends courses misc "
 
     general = dd.Panel("""
@@ -222,15 +264,10 @@ class ClientDetail(dd.DetailLayout):
     general2 = """
     id:10 gender:10  age:10
     national_id:15 birth_date 
-    starting_reason 
+    starting_reason professional_state
     client_state user #primary_coach
     event_policy ending_reason 
     # workflow_buttons 
-    """
-
-    translator_left = """
-    language 
-    translator_type
     """
 
     contact = dd.Panel("""
@@ -256,9 +293,25 @@ class ClientDetail(dd.DetailLayout):
     first_name middle_name last_name #declared_name
     nationality:15 birth_country birth_place in_belgium_since needs_work_permit:18
     # uploads.UploadsByClient
-    translator_left translator_notes
     coachings.ContactsByClient
     """, label=_("Person"))
+
+    languages = dd.Panel("""
+    translator_left translator_right translator_notes 
+    cv.LanguageKnowledgesByPerson
+    """, label=_("Languages"))
+
+    translator_left = """
+    language 
+    translator_type
+    # mother_tongues
+    """
+    translator_right = """
+    language_knowledge
+    # cef_level_de
+    # cef_level_fr
+    # cef_level_en 
+    """
 
     family = dd.Panel("""
     family_notes:50 households.MembersByPerson:20
@@ -287,8 +340,8 @@ class ClientDetail(dd.DetailLayout):
     """, label=_("Miscellaneous"))
 
     career = dd.Panel("""
-    unemployed_since seeking_since work_permit_suspended_until
-    cv.StudiesByPerson cv.LanguageKnowledgesByPerson 
+    # unemployed_since seeking_since work_permit_suspended_until
+    cv.StudiesByPerson
     # cv.TrainingsByPerson
     cv.ExperiencesByPerson:40
     """, label=_("Career"))
@@ -303,14 +356,6 @@ class ClientDetail(dd.DetailLayout):
 
 
 class Clients(contacts.Persons):
-    """Base class for most lists of clients.
-
-    .. attribute:: client_state
-
-        If not empty, show only Clients whose `client_state` equals
-        the specified value.
-
-    """
     model = 'avanti.Client'
     params_panel_hidden = True
     required_roles = dd.login_required(ClientsUser)
@@ -427,9 +472,14 @@ class Clients(contacts.Persons):
 
 
 class AllClients(Clients):
-    column_names = "id client_state national_id:10 \
-    city age:10 birth_date starting_reason \
-    ending_reason translator_type"
+    auto_fit_column_widths = False
+    column_names = "id client_state \
+    starting_reason ending_reason \
+    city country zip_code nationality \
+    birth_date age:10 gender \
+    birth_country birth_place \
+    in_belgium_since needs_work_permit \
+    translator_type user event_policy "
     detail_layout = None
     required_roles = dd.login_required(Explorer)
 
@@ -469,3 +519,22 @@ class Residences(dd.Table):
 class ResidencesByPerson(HistoryByPerson, Residences):
     column_names = 'country city start_date end_date reason *'
     auto_fit_column_widths = True
+
+
+
+
+# @dd.receiver(dd.pre_analyze)
+# def inject_cef_level_fields(sender, **kw):
+#     for lng in settings.SITE.languages:
+#         fld = dd.VirtualField(
+#             CefLevel.field(
+#                 verbose_name=lng.name, blank=True), cef_level_getter(lng))
+#         dd.inject_field(
+#             'avanti.Client', 'cef_level_'+lng.prefix, fld)
+
+#     def fc(**kwargs):
+#         return (**kwargs)
+    
+
+
+    
