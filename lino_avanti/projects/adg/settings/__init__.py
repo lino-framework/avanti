@@ -29,6 +29,7 @@ class Site(Site):
     version = '2017.1.0'
     url = "http://avanti.lino-framework.org/"
     demo_fixtures = ['std',
+                     'few_languages',
                      # 'all_countries', 'all_languages',
                      'demo', 'demo2']
     user_types_module = 'lino_avanti.lib.avanti.user_types'

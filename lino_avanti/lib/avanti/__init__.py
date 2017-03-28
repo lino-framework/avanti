@@ -5,6 +5,8 @@
 """
 The main plugin for Lino Avanti.
 
+See :doc:`/specs/avanti`.
+
 .. autosummary::
    :toctree:
 
@@ -42,7 +44,8 @@ class Plugin(ad.Plugin):
     #     m.add_action('contacts.CompanyTypes')
 
     def setup_explorer_menu(self, site, profile, m):
-        m = m.add_menu(self.app_label, self.verbose_name)
+        mg = site.plugins.contacts
+        m = m.add_menu(mg.app_label, mg.verbose_name)
         m.add_action('avanti.AllClients')
 
 

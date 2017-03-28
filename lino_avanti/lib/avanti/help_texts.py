@@ -6,15 +6,13 @@ help_texts = {
     'lino_avanti.lib.avanti.Plugin' : _("""See lino.core.plugin.Plugin."""),
     'lino_avanti.lib.avanti.choicelists.TranslatorTypes' : _("""Types of registries for the Belgian residence."""),
     'lino_avanti.lib.avanti.migrate.Migrator' : _("""The standard migrator for Lino Avanti."""),
-    'lino_avanti.lib.avanti.models.Client' : _("""A client is a person using our services."""),
-    'lino_avanti.lib.avanti.models.Client.overview' : _("""A panel with general information about this client."""),
-    'lino_avanti.lib.avanti.models.Client.client_state' : _("""Pointer to ClientStates."""),
-    'lino_avanti.lib.avanti.models.Client.unemployed_since' : _("""The date when this client got unemployed and stopped to have a
+    'lino_avanti.lib.avanti.Client' : _("""A client is a person using our services."""),
+    'lino_avanti.lib.avanti.Client.overview' : _("""A panel with general information about this client."""),
+    'lino_avanti.lib.avanti.Client.client_state' : _("""Pointer to ClientStates."""),
+    'lino_avanti.lib.avanti.Client.unemployed_since' : _("""The date when this client got unemployed and stopped to have a
 regular work."""),
-    'lino_avanti.lib.avanti.models.Client.seeking_since' : _("""The date when this client registered as unemployed and started
+    'lino_avanti.lib.avanti.Client.seeking_since' : _("""The date when this client registered as unemployed and started
 to look for a new job."""),
-    'lino_avanti.lib.avanti.models.Clients' : _("""Base class for most lists of clients."""),
-    'lino_avanti.lib.avanti.models.Clients.client_state' : _("""If not empty, show only Clients whose client_state equals
+    'lino_avanti.lib.avanti.Clients.client_state' : _("""If not empty, show only Clients whose client_state equals
 the specified value."""),
-    'lino_avanti.lib.avanti.models.Clients.model' : _("""alias of Client"""),
 }

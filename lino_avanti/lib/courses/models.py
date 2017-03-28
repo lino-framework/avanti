@@ -70,3 +70,7 @@ class Course(Course):
 #     provider = dd.ForeignKey(
 #         'courses.CourseProvider', blank=True, null=True)
     
+AllEnrolments.column_names = "id request_date start_date end_date \
+user course pupil pupil__birth_date pupil__age pupil__country \
+pupil__city pupil__gender"
+

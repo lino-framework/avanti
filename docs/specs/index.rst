@@ -13,6 +13,7 @@ specifications. One of their goal is to get tested.
    :glob:
   
    general
+   avanti
    db
    roles
    courses
