@@ -24,4 +24,4 @@ dd.update_field(
     rt.models.contacts.Partner, 'language',
     verbose_name=_("Contact language"))
 
-rt.actors.cv.LanguageKnowledgesByPerson.slave_grid_format = 'grid'
+# rt.actors.cv.LanguageKnowledgesByPerson.slave_grid_format = 'grid'

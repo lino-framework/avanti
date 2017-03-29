@@ -11,9 +11,10 @@ from lino.api import dd, rt, _
 from django.db import models
 from django.conf import settings
 
-from lino.utils import ssin
-from lino.utils.xmlgen.html import E, join_elems
-from lino.mixins import Phonable, Contactable
+from lino.utils import join_elems
+from lino.utils.xmlgen.html import E
+# from lino.utils import ssin
+from lino.mixins import Referrable
 from lino_xl.lib.beid.mixins import BeIdCardHolder
 from lino.modlib.comments.mixins import Commentable
 from lino.modlib.users.mixins import UserAuthored, My
@@ -23,7 +24,8 @@ from lino.modlib.users.mixins import UserAuthored, My
 from lino_xl.lib.notes.mixins import Notable
 from lino_xl.lib.coachings.mixins import Coachable
 from lino_xl.lib.cal.mixins import EventGenerator
-from lino_xl.lib.cv.mixins import CefLevel
+from lino_xl.lib.cal.workflows import TaskStates
+from lino_xl.lib.cv.mixins import CefLevel, BiographyOwner
 # from lino.utils.mldbc.fields import BabelVirtualField
 
 from lino.mixins import ObservedPeriod
@@ -49,10 +51,9 @@ contacts = dd.resolve_app('contacts')
 
 @dd.python_2_unicode_compatible
 class Client(contacts.Person, BeIdCardHolder, UserAuthored,
-             Coachable,
+             Coachable, BiographyOwner, Referrable,
              # Notable,
-             Commentable,
-             EventGenerator):
+             Commentable, EventGenerator):
     class Meta:
         app_label = 'avanti'
         verbose_name = _("Client")
@@ -117,6 +118,13 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
     integration_notes = models.TextField(
         _("Integration notes"), blank=True, null=True)
     
+    availability = models.TextField(
+        _("Availability"), blank=True, null=True)
+
+    needed_course = dd.ForeignKey(
+        'courses.Line', verbose_name=_("Needed course"),
+        blank=True, null=True)
+    
     # obstacles = models.TextField(
     #     _("Other obstacles"), blank=True, null=True)
     # skills = models.TextField(
@@ -128,8 +136,6 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
     event_policy = dd.ForeignKey(
         'cal.EventPolicy', blank=True, null=True)
     
-    # cef_level = BabelVirtualField(CefLevel.field(), cef_level_getter)
-
     def __str__(self):
         return "%s %s (%s)" % (
             self.last_name.upper(), self.first_name, self.pk)
@@ -146,65 +152,17 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
     def name_column(self, ar):
         return str(self)
 
-    @dd.htmlbox(_("Language knowledge"))
-    def language_knowledge(self, ar):
-        lst = []
-        for lng in settings.SITE.languages:
-            cl = self.get_cef_level(lng.django_code)
-            if cl is None:
-                lst.append("{}: {}".format(lng.name, "-"))
-            else:
-                lst.append("{}: {}".format(lng.name, cl.value))
-        lst.append("{}: {}".format(
-            _("Mother tongues"), self.mother_tongues))
-        lst = join_elems(lst, E.br)
-        return E.p(*lst)
-                
-    
-    @dd.displayfield(_("Mother tongues"))
-    def mother_tongues(self, ar):
-        LanguageKnowledge = rt.models.cv.LanguageKnowledge
-        if self._mother_tongues is None:
-            self._mother_tongues = ' '.join([
-                lk.language.id for lk
-                in LanguageKnowledge.objects.filter(
-                    person=self, native=True).order_by('id')])
-        return self._mother_tongues
-
-    # @dd.virtualfield(CefLevel.field(_("CEF level")))
-    @dd.displayfield(_("CEF level"))
-    def cef_level_de(self, ar):
-        return self.get_cef_level('de')
-
-    # @dd.virtualfield(CefLevel.field(_("CEF level (fr)")))
-    @dd.displayfield(_("CEF level (fr)"))
-    def cef_level_fr(self, ar):
-        return self.get_cef_level('fr')
-
-    # @dd.virtualfield(CefLevel.field(_("CEF level (en)")))
-    @dd.displayfield(_("CEF level (en)"))
-    def cef_level_en(self, ar):
-        return self.get_cef_level('en')
-
-    def get_cef_level(self, lang):
-        LanguageKnowledge = rt.models.cv.LanguageKnowledge
-        if self._cef_levels is None:
-            self._cef_levels = dict()
-            for lk in LanguageKnowledge.objects.filter(person=self):
-                self._cef_levels[lk.language.iso2] = lk.cef_level
-        return self._cef_levels.get(lang)
-
     def get_overview_elems(self, ar):
         elems = super(Client, self).get_overview_elems(ar)
         # elems.append(E.br())
         elems.append(ar.get_data_value(self, 'eid_info'))
-        # notes = []
-        # for note in rt.modules.notes.Note.objects.filter(
-        #         project=self, important=True):
-        #     notes.append(E.b(ar.obj2html(note, note.subject)))
-        # if len(notes):
-        #     notes = join_elems(notes, " / ")
-        #     elems += E.p(*notes, class_="lino-info-red")
+        notes = []
+        for obj in rt.modules.cal.Task.objects.filter(
+                project=self, state=TaskStates.important):
+            notes.append(E.b(ar.obj2html(obj, obj.summary)))
+        if len(notes):
+            notes = join_elems(notes, " / ")
+            elems.append(E.p(*notes, class_="lino-info-yellow"))
         return elems
 
     def update_owned_instance(self, owned):
@@ -248,12 +206,13 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
         #     return pc.end_date
 
 dd.update_field(Client, 'user', verbose_name=_("Primary coach"))
+dd.update_field(Client, 'ref', verbose_name=_("Legacy file number"))
     
 
 class ClientDetail(dd.DetailLayout):
 
-    main = "general languages person contact family \
-    notes career trends courses misc "
+    main = "general person contact languages family \
+    notes career trends #courses misc "
 
     general = dd.Panel("""
     overview:30 general2:40 image:15
@@ -262,8 +221,8 @@ class ClientDetail(dd.DetailLayout):
     """, label=_("General"))
 
     general2 = """
-    id:10 gender:10  age:10
-    national_id:15 birth_date 
+    id:10 national_id:15 ref
+    birth_date age:10 gender:10
     starting_reason professional_state
     client_state user #primary_coach
     event_policy ending_reason 
@@ -292,13 +251,14 @@ class ClientDetail(dd.DetailLayout):
     person = dd.Panel("""
     first_name middle_name last_name #declared_name
     nationality:15 birth_country birth_place in_belgium_since needs_work_permit:18
+    card_type card_number card_issuer card_valid_from card_valid_until
     # uploads.UploadsByClient
     coachings.ContactsByClient
     """, label=_("Person"))
 
     languages = dd.Panel("""
-    translator_left translator_right translator_notes 
-    cv.LanguageKnowledgesByPerson
+    translator_left:15 translator_notes:20 cv.LanguageKnowledgesByPerson:20
+    courses.EnrolmentsByPupil:60 courses_right:20
     """, label=_("Languages"))
 
     translator_left = """
@@ -306,15 +266,19 @@ class ClientDetail(dd.DetailLayout):
     translator_type
     # mother_tongues
     """
-    translator_right = """
-    language_knowledge
-    # cef_level_de
-    # cef_level_fr
-    # cef_level_en 
+    courses_right = """
+    needed_course
+    availability:20
     """
+    # translator_right = """
+    # language_knowledge
+    # # cef_level_de
+    # # cef_level_fr
+    # # cef_level_en 
+    # """
 
     family = dd.Panel("""
-    family_notes:50 households.MembersByPerson:20
+    family_notes:40 households.MembersByPerson:20
     #humanlinks.LinksByHuman:30
     households.SiblingsByPerson
     """, label=_("Family"))
@@ -325,9 +289,9 @@ class ClientDetail(dd.DetailLayout):
     #coachings.CoachingsByClient 
     """, label = _("Notes"))
 
-    courses = dd.Panel("""
-    courses.EnrolmentsByPupil
-    """, label = _("Courses"))
+    # courses = dd.Panel("""
+    # courses.EnrolmentsByPupil
+    # """, label = _("Courses"))
 
     trends = dd.Panel("""
     trends.EventsBySubject
@@ -473,13 +437,15 @@ class Clients(contacts.Persons):
 
 class AllClients(Clients):
     auto_fit_column_widths = False
-    column_names = "id client_state \
+    column_names = "client_state \
     starting_reason ending_reason \
     city country zip_code nationality \
     birth_date age:10 gender \
     birth_country birth_place \
     in_belgium_since needs_work_permit \
-    translator_type user event_policy "
+    translator_type \
+    mother_tongues cef_level_de cef_level_fr cef_level_en \
+    user event_policy"
     detail_layout = None
     required_roles = dd.login_required(Explorer)
 
