@@ -15,4 +15,5 @@ regular work."""),
 to look for a new job."""),
     'lino_avanti.lib.avanti.Clients.client_state' : _("""If not empty, show only Clients whose client_state equals
 the specified value."""),
+    'lino_avanti.lib.avanti.AllClients' : _("""This table is visible for Explorer who can export it."""),
 }

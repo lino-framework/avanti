@@ -12,3 +12,8 @@ from lino_xl.lib.courses.desktop import *
 
 # class LinesByProvider(Lines):
 #     master_key = 'provider'
+
+AllEnrolments.column_names = "id request_date start_date end_date \
+user course pupil pupil__birth_date pupil__age pupil__country \
+pupil__city pupil__gender"
+
