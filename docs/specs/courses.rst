@@ -53,7 +53,7 @@ Note that even though Nathalie is author of the morning course, it is
 Laura (the teacher) who is responsible for the individual events.
 
 
->>> rt.login('laura').show('cal.MyEvents')
+>>> rt.login('laura').show('cal.MyEntries')
 ... #doctest: +NORMALIZE_WHITESPACE -REPORT_UDIFF
 =========================================== ======== =================================
  overview                                    Client   Actions
