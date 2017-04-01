@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lino-avanti 2017.1.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-03-29 11:21+0300\n"
+"POT-Creation-Date: 2017-04-01 11:44+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -139,6 +139,10 @@ msgstr ""
 msgid ""
 "If not empty, show only Clients whose client_state equals\n"
 "the specified value."
+msgstr ""
+
+#: lino_avanti/lib/avanti/help_texts.py:18
+msgid "This table is visible for Explorer who can export it."
 msgstr ""
 
 #: lino_avanti/lib/avanti/layouts.py:25
