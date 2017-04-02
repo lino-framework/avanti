@@ -217,7 +217,7 @@ class ClientDetail(dd.DetailLayout):
     general = dd.Panel("""
     overview:30 general2:40 image:15
     
-    #tickets.TicketsByEndUser cal.EventsByProject
+    #tickets.TicketsByEndUser cal.EntriesByProject
     """, label=_("General"))
 
     general2 = """

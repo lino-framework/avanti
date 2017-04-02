@@ -6,19 +6,18 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Lino-DSBE\n"
+"Project-Id-Version:  Lino-DSBE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-03-29 11:21+0300\n"
+"POT-Creation-Date: 2017-04-01 11:44+0300\n"
 "PO-Revision-Date: 2017-03-29 11:27+0300\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: de\n"
 "Language-Team: de <luc.saffre@gmail.com>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Plural-Forms: nplurals=2; plural=(n != 1)\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
-"X-Generator: Poedit 1.8.7.1\n"
 
 #: lino_avanti/lib/avanti/__init__.py:28
 #, fuzzy
@@ -145,6 +144,10 @@ msgstr ""
 msgid ""
 "If not empty, show only Clients whose client_state equals\n"
 "the specified value."
+msgstr ""
+
+#: lino_avanti/lib/avanti/help_texts.py:18
+msgid "This table is visible for Explorer who can export it."
 msgstr ""
 
 #: lino_avanti/lib/avanti/layouts.py:25
@@ -498,3 +501,4 @@ msgstr "Treffen mit Partnern"
 
 #~ msgid "alias of Client"
 #~ msgstr "Ähnliche Klienten"
+
