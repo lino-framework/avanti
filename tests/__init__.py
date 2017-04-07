@@ -33,28 +33,3 @@ class PackagesTests(TestCase):
         self.run_packages_test(SETUP_INFO['packages'])
 
 
-class SpecsTests(TestCase):
-
-    def test_courses(self):
-        self.run_simple_doctests('docs/specs/courses.rst')
-
-    def test_general(self):
-        self.run_simple_doctests('docs/specs/general.rst')
-
-    def test_db(self):
-        self.run_simple_doctests('docs/specs/db.rst')
-
-    def test_cal(self):
-        self.run_simple_doctests('docs/specs/cal.rst')
-
-    def test_roles(self):
-        self.run_simple_doctests('docs/specs/roles.rst')
-
-
-class DemoTests(TestCase):
-    """Run tests on the demo projects.
-    """
-
-    def test_avanti(self):
-        self.run_django_manage_test('lino_avanti/projects/adg')
-

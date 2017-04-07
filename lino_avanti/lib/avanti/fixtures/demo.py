@@ -72,8 +72,8 @@ def objects():
             if count % 2:
                 client.client_state = ClientStates.coached
                 client.event_policy = POLICIES.pop()
-            elif count % 5:
-                client.client_state = ClientStates.newcomer
+            # elif count % 5:
+            #     client.client_state = ClientStates.newcomer
             else:
                 client.client_state = ClientStates.former
 
