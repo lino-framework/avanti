@@ -21,10 +21,11 @@ from lino.modlib.users.mixins import UserAuthored, My
 
 # from lino.modlib.notify.mixins import ChangeObservable
 # from lino_xl.lib.notes.choicelists import SpecialTypes
+from lino_xl.lib.coachings.mixins import Coachable
 from lino_xl.lib.notes.mixins import Notable
 from lino_xl.lib.cal.mixins import EventGenerator
 from lino_xl.lib.cal.workflows import TaskStates
-from lino_xl.lib.cv.mixins import CefLevel, BiographyOwner
+from lino_xl.lib.cv.mixins import BiographyOwner
 # from lino.utils.mldbc.fields import BabelVirtualField
 
 from lino.mixins import ObservedPeriod
@@ -48,21 +49,6 @@ contacts = dd.resolve_app('contacts')
 #         return obj._cef_levels.get(lng.django_code)
 #     return f
 
-
-from lino.api import _, pgettext
-from lino_xl.lib.coachings.choicelists import ClientStates
-ClientStates.default_value = 'coached'
-ClientStates.clear()
-add = ClientStates.add_item
-# add('10', _("Newcomer"), 'newcomer')  # "first contact" in Avanti
-add('20', pgettext("client state", "Registered"), 'coached')
-add('30', _("Ended"), 'former')
-add('40', _("Abandoned"), 'refused')
-
-# alias
-# ClientStates.coached = ClientStates.newcomer
-
-from lino_xl.lib.coachings.mixins import Coachable
 
 @dd.python_2_unicode_compatible
 class Client(contacts.Person, BeIdCardHolder, UserAuthored,
@@ -516,4 +502,18 @@ class ResidencesByPerson(HistoryByPerson, Residences):
 #     def fc(**kwargs):
 #         return (**kwargs)
     
-    
+
+from lino.api import _, pgettext
+from lino_xl.lib.coachings.choicelists import ClientStates
+ClientStates.default_value = 'coached'
+ClientStates.clear()
+add = ClientStates.add_item
+# add('10', _("Newcomer"), 'newcomer')  # "first contact" in Avanti
+add('20', pgettext("client state", "Registered"), 'coached')
+add('30', _("Ended"), 'former')
+add('40', _("Abandoned"), 'refused')
+
+# alias
+# ClientStates.coached = ClientStates.newcomer
+
+
