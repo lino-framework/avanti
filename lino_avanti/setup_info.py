@@ -16,7 +16,7 @@ SETUP_INFO = dict(
 
 
 SETUP_INFO.update(long_description=u"""
-Lino Avanti is a free `Lino <http://www.lino-framework.org/>`_
+Lino Avanti is a free `Lino <http://www.lino-framework.org/>`__
 application used by social workers in East Belgium for helping
 immigrants with their *integration course*.
 
@@ -68,12 +68,7 @@ SETUP_INFO.update(packages=[
     'lino_avanti.lib.households.fixtures',
     'lino_avanti.lib.tickets',
     'lino_avanti.lib.users',
-    'lino_avanti.lib.users.fixtures',
-    'lino_avanti.projects',
-    'lino_avanti.projects.adg',
-    'lino_avanti.projects.adg.tests',
-    'lino_avanti.projects.adg.settings',
-    'lino_avanti.projects.adg.settings.fixtures',
+    'lino_avanti.lib.users.fixtures'
 ])
 
 SETUP_INFO.update(message_extractors={

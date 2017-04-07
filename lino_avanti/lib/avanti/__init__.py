@@ -5,7 +5,7 @@
 """
 The main plugin for Lino Avanti.
 
-See :doc:`/specs/avanti`.
+See :doc:`/specs/avanti/avanti`.
 
 .. autosummary::
    :toctree:

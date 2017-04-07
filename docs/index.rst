@@ -21,7 +21,5 @@ Content
 
    install/index
    guide/index
-   specs/index
-   api/index
    changes
    
