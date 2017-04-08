@@ -41,6 +41,48 @@ class Site(Site):
     textfield_format = 'plain'
     use_silk_icons = False
 
+    def get_installed_apps(self):
+        """Implements :meth:`lino.core.site.Site.get_installed_apps`.
+
+        """
+        yield super(Site, self).get_installed_apps()
+        yield 'lino_avanti.lib.users'
+        # yield 'lino.modlib.users'
+        yield 'lino_xl.lib.countries'
+        yield 'lino_avanti.lib.contacts'
+        yield 'lino_avanti.lib.avanti'
+        yield 'lino.modlib.comments'
+        yield 'lino.modlib.notify'
+        # yield 'lino_xl.lib.households'
+        yield 'lino_avanti.lib.households'
+        # yield 'lino_welfare.modlib.households'
+        # yield 'lino_xl.lib.humanlinks'
+        yield 'lino_xl.lib.lists'
+        # yield 'lino_xl.lib.notes'
+        yield 'lino_xl.lib.beid'
+        yield 'lino_xl.lib.coachings'
+        yield 'lino_xl.lib.cv'
+        yield 'lino_xl.lib.trends'
+        yield 'lino_xl.lib.polls'
+        
+        # yield 'lino_avanti.lib.courses' # override get_events_user()
+        yield 'lino_xl.lib.courses'
+        # yield 'lino_xl.lib.rooms'
+        
+        yield 'lino.modlib.plausibility'
+        yield 'lino.modlib.export_excel'
+        # yield 'lino.modlib.tinymce'
+        yield 'lino.modlib.weasyprint'
+        yield 'lino_xl.lib.excerpts'
+        yield 'lino.modlib.dashboard'
+        yield 'lino_xl.lib.appypod'
+        
+        # yield 'lino_xl.lib.votes'
+        # yield 'lino_avanti.lib.tickets'
+        # yield 'lino_xl.lib.tickets'
+        # yield 'lino_xl.lib.faculties'
+        
+
     def setup_plugins(self):
         super(Site, self).setup_plugins()
         self.plugins.cv.configure(
@@ -66,47 +108,6 @@ class Site(Site):
         self.plugins.comments.configure(
             commentable_model='avanti.Client')
 
-
-    def get_installed_apps(self):
-        """Implements :meth:`lino.core.site.Site.get_installed_apps`.
-
-        """
-        yield super(Site, self).get_installed_apps()
-        yield 'lino_avanti.lib.users'
-        # yield 'lino.modlib.users'
-        yield 'lino_xl.lib.countries'
-        yield 'lino_avanti.lib.contacts'
-        yield 'lino_avanti.lib.avanti'
-        yield 'lino.modlib.comments'
-        yield 'lino.modlib.notify'
-        # yield 'lino_xl.lib.households'
-        yield 'lino_avanti.lib.households'
-        # yield 'lino_welfare.modlib.households'
-        # yield 'lino_xl.lib.humanlinks'
-        yield 'lino_xl.lib.lists'
-        # yield 'lino_xl.lib.notes'
-        yield 'lino_xl.lib.beid'
-        yield 'lino_xl.lib.coachings'
-        yield 'lino_xl.lib.cv'
-        yield 'lino_xl.lib.trends'
-        
-        # yield 'lino_avanti.lib.courses' # override get_events_user()
-        yield 'lino_xl.lib.courses'
-        # yield 'lino_xl.lib.rooms'
-        
-        yield 'lino.modlib.plausibility'
-        yield 'lino.modlib.export_excel'
-        # yield 'lino.modlib.tinymce'
-        yield 'lino.modlib.weasyprint'
-        yield 'lino_xl.lib.excerpts'
-        yield 'lino.modlib.dashboard'
-        yield 'lino_xl.lib.appypod'
-        
-        # yield 'lino_xl.lib.votes'
-        # yield 'lino_avanti.lib.tickets'
-        # yield 'lino_xl.lib.tickets'
-        # yield 'lino_xl.lib.faculties'
-        
 
     def setup_quicklinks(self, user, tb):
         super(Site, self).setup_quicklinks(user, tb)

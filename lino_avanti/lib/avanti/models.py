@@ -213,7 +213,7 @@ dd.update_field(Client, 'ref', verbose_name=_("Legacy file number"))
 class ClientDetail(dd.DetailLayout):
 
     main = "general person contact languages family \
-    notes career trends #courses misc "
+    notes career trends polls #courses misc "
 
     general = dd.Panel("""
     overview:30 general2:40 image:15
@@ -298,6 +298,10 @@ class ClientDetail(dd.DetailLayout):
     trends.EventsBySubject
     """, label = _("Trends"))
 
+    polls = dd.Panel("""
+    polls.ResponsesByPartner
+    """, label = _("Polls"))
+
     misc = dd.Panel("""
     # unavailable_until:15 unavailable_why:30
     financial_notes health_notes integration_notes
@@ -332,7 +336,7 @@ class Clients(contacts.Persons):
     # """, window_size=(60, 'auto'))
 
     column_names = "name_column:20 client_state national_id:10 \
-    gsm:10 address_column age:10 email phone:10 id language:10"
+    gsm:10 address_column age:10 email phone:10 id language:10 *"
 
     detail_layout = ClientDetail()
 
@@ -421,16 +425,16 @@ class Clients(contacts.Persons):
             period = daterange_text(
                 pv.start_date, pv.end_date)
 
-    @classmethod
-    def apply_cell_format(self, ar, row, col, recno, td):
-        if row.client_state == ClientStates.newcomer:
-            td.attrib.update(bgcolor="green")
+    # @classmethod
+    # def apply_cell_format(self, ar, row, col, recno, td):
+    #     if row.client_state == ClientStates.newcomer:
+    #         td.attrib.update(bgcolor="green")
 
     @classmethod
     def get_row_classes(cls, obj, ar):
-        if obj.client_state == ClientStates.newcomer:
-            yield 'green'
-        elif obj.client_state in (ClientStates.refused, ClientStates.former):
+        # if obj.client_state == ClientStates.newcomer:
+        #     yield 'green'
+        if obj.client_state in (ClientStates.refused, ClientStates.former):
             yield 'yellow'
         #~ if not obj.has_valid_card_data():
             #~ return 'red'

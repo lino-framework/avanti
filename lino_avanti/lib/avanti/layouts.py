@@ -25,3 +25,8 @@ dd.update_field(
     verbose_name=_("Contact language"))
 
 # rt.actors.cv.LanguageKnowledgesByPerson.slave_grid_format = 'grid'
+
+
+rt.actors.cv.StudiesByPerson.column_names = 'type content duration_text school country state education_level remarks *'
+
+rt.actors.cv.ExperiencesByPerson.column_names = "company country duration_text function status termination_reason remarks *"
