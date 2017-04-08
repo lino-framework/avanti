@@ -421,16 +421,16 @@ class Clients(contacts.Persons):
             period = daterange_text(
                 pv.start_date, pv.end_date)
 
-    @classmethod
-    def apply_cell_format(self, ar, row, col, recno, td):
-        if row.client_state == ClientStates.newcomer:
-            td.attrib.update(bgcolor="green")
+    # @classmethod
+    # def apply_cell_format(self, ar, row, col, recno, td):
+    #     if row.client_state == ClientStates.newcomer:
+    #         td.attrib.update(bgcolor="green")
 
     @classmethod
     def get_row_classes(cls, obj, ar):
-        if obj.client_state == ClientStates.newcomer:
-            yield 'green'
-        elif obj.client_state in (ClientStates.refused, ClientStates.former):
+        # if obj.client_state == ClientStates.newcomer:
+        #     yield 'green'
+        if obj.client_state in (ClientStates.refused, ClientStates.former):
             yield 'yellow'
         #~ if not obj.has_valid_card_data():
             #~ return 'red'
