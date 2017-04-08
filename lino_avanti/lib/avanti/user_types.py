@@ -16,6 +16,7 @@ from lino.modlib.comments.roles import CommentsUser, CommentsStaff
 from lino.modlib.office.roles import OfficeUser, OfficeStaff
 from lino_xl.lib.contacts.roles import ContactsUser, ContactsStaff
 # from lino_xl.lib.cal.roles import CalendarUser, CalendarStaff
+from lino_xl.lib.polls.roles import PollsUser, PollsStaff
 from lino_xl.lib.coachings.roles import CoachingsUser, CoachingsStaff
 from lino_xl.lib.excerpts.roles import ExcerptsUser, ExcerptsStaff
 from lino_xl.lib.courses.roles import CoursesTeacher, CoursesUser
@@ -38,13 +39,13 @@ class Coordinator(CoursesUser, OfficeUser):
 class SocialWorker(CoachingsUser, CoursesUser, ContactsUser,
                    OfficeUser, ExcerptsUser, CareerUser, BeIdUser,
                    TicketsUser, CommentsUser, TrendsUser, ClientsUser,
-                   Explorer):
+                   Explorer, PollsUser):
     pass
 
 class SiteStaff(SocialWorker, CoachingsStaff, CoursesUser,
                 ContactsStaff, OfficeStaff, ExcerptsStaff,
                 CareerStaff, BeIdUser, TicketsStaff, CommentsStaff,
-                TrendsStaff, ClientsStaff, Explorer):
+                TrendsStaff, ClientsStaff, Explorer, PollsStaff):
     pass
 
 class Administrator(SiteAdmin, SiteStaff):
