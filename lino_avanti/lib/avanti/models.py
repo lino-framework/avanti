@@ -18,6 +18,7 @@ from lino.mixins import Referrable
 from lino_xl.lib.beid.mixins import BeIdCardHolder
 from lino.modlib.comments.mixins import Commentable
 from lino.modlib.users.mixins import UserAuthored, My
+from lino_xl.lib.courses.mixins import Enrollable
 
 # from lino.modlib.notify.mixins import ChangeObservable
 # from lino_xl.lib.notes.choicelists import SpecialTypes
@@ -54,7 +55,7 @@ contacts = dd.resolve_app('contacts')
 class Client(contacts.Person, BeIdCardHolder, UserAuthored,
              Coachable, BiographyOwner, Referrable,
              # Notable,
-             Commentable, EventGenerator):
+             Commentable, EventGenerator, Enrollable):
     class Meta:
         app_label = 'avanti'
         verbose_name = _("Client")
@@ -67,7 +68,10 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
     _cef_levels = None
     _mother_tongues = None
 
-    in_belgium_since = models.DateField(
+    # in_belgium_since = models.DateField(
+    #     _("Lives in Belgium since"), blank=True, null=True)
+    
+    in_belgium_since = dd.IncompleteDateField(
         _("Lives in Belgium since"), blank=True, null=True)
     
     starting_reason = StartingReasons.field(blank=True)
@@ -252,7 +256,7 @@ class ClientDetail(dd.DetailLayout):
     person = dd.Panel("""
     first_name middle_name last_name #declared_name
     nationality:15 birth_country birth_place in_belgium_since needs_work_permit:18
-    card_type card_number card_issuer card_valid_from card_valid_until
+    card_type #card_number card_issuer card_valid_from card_valid_until
     # uploads.UploadsByClient
     coachings.ContactsByClient
     """, label=_("Person"))
@@ -347,8 +351,8 @@ class Clients(contacts.Persons):
         observed_event=ClientEvents.field(blank=True),
         client_state=ClientStates.field(blank=True, default=''))
     params_layout = """
-    aged_from aged_to gender nationality 
-    client_state start_date end_date observed_event 
+    aged_from aged_to gender nationality client_state
+    start_date end_date observed_event course enrolment_state
     """
 
     @classmethod
