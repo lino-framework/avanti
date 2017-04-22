@@ -63,6 +63,8 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
         abstract = dd.is_abstract_model(__name__, 'Client')
         #~ ordering = ['last_name','first_name']
 
+    beid_readonly_fields = set()
+    manager_roles_required = dd.login_required(ClientsUser)
     validate_national_id = True
     # workflow_state_field = 'client_state'
     _cef_levels = None
@@ -141,6 +143,9 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
     event_policy = dd.ForeignKey(
         'cal.EventPolicy', blank=True, null=True)
     
+    language_notes = dd.RichTextField(
+        _("Language notes"), blank=True, format='plain')
+    
     def __str__(self):
         return "%s %s (%s)" % (
             self.last_name.upper(), self.first_name, self.pk)
@@ -216,8 +221,8 @@ dd.update_field(Client, 'ref', verbose_name=_("Legacy file number"))
 
 class ClientDetail(dd.DetailLayout):
 
-    main = "general person contact languages family \
-    notes career trends polls #courses misc "
+    main = "general person contact courses_tab family \
+    notes career trends #polls #courses misc "
 
     general = dd.Panel("""
     overview:30 general2:40 image:15
@@ -257,14 +262,13 @@ class ClientDetail(dd.DetailLayout):
     first_name middle_name last_name #declared_name
     nationality:15 birth_country birth_place in_belgium_since needs_work_permit:18
     card_type #card_number card_issuer card_valid_from card_valid_until
-    # uploads.UploadsByClient
-    coachings.ContactsByClient
+    coachings.ContactsByClient uploads.UploadsByClient
     """, label=_("Person"))
 
-    languages = dd.Panel("""
+    courses_tab = dd.Panel("""
     translator_left:15 translator_notes:20 cv.LanguageKnowledgesByPerson:20
-    courses.EnrolmentsByPupil:60 courses_right:20
-    """, label=_("Languages"))
+    language_notes:20 courses.EnrolmentsByPupil:60 #courses_right:20
+    """, label=_("Courses"))
 
     translator_left = """
     language 
@@ -299,12 +303,12 @@ class ClientDetail(dd.DetailLayout):
     # """, label = _("Courses"))
 
     trends = dd.Panel("""
-    trends.EventsBySubject
+    trends.EventsBySubject polls.ResponsesByPartner
     """, label = _("Trends"))
 
-    polls = dd.Panel("""
-    polls.ResponsesByPartner
-    """, label = _("Polls"))
+    # polls = dd.Panel("""
+    # polls.ResponsesByPartner
+    # """, label = _("Polls"))
 
     misc = dd.Panel("""
     # unavailable_until:15 unavailable_why:30
@@ -492,10 +496,9 @@ class Residences(dd.Table):
     model = 'avanti.Residence'
     
 class ResidencesByPerson(HistoryByPerson, Residences):
-    column_names = 'country city start_date end_date reason *'
+    label = _("Former residences")
+    column_names = 'country city duration_text reason *'
     auto_fit_column_widths = True
-
-
 
 
 # @dd.receiver(dd.pre_analyze)
@@ -516,7 +519,8 @@ from lino_xl.lib.coachings.choicelists import ClientStates
 ClientStates.default_value = 'coached'
 ClientStates.clear()
 add = ClientStates.add_item
-# add('10', _("Newcomer"), 'newcomer')  # "first contact" in Avanti
+add('10', _("Newcomer"), 'newcomer')
+# add('10', _("Testing"), 'testing')
 add('20', pgettext("client state", "Registered"), 'coached')
 add('30', _("Ended"), 'former')
 add('40', _("Abandoned"), 'refused')
