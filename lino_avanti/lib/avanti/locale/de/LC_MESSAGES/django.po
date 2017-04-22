@@ -6,18 +6,19 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version:  Lino-DSBE\n"
+"Project-Id-Version: Lino-DSBE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-04-01 11:44+0300\n"
-"PO-Revision-Date: 2017-03-29 11:27+0300\n"
+"POT-Creation-Date: 2017-04-22 07:20+0300\n"
+"PO-Revision-Date: 2017-04-22 07:23+0300\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: de\n"
 "Language-Team: de <luc.saffre@gmail.com>\n"
-"Plural-Forms: nplurals=2; plural=(n != 1)\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Generated-By: Babel 2.3.4\n"
+"X-Generator: Poedit 1.8.7.1\n"
 
 #: lino_avanti/lib/avanti/__init__.py:28
 #, fuzzy
@@ -154,197 +155,212 @@ msgstr ""
 msgid "Contact language"
 msgstr "Kontaktsprache"
 
-#: lino_avanti/lib/avanti/models.py:59
+#: lino_avanti/lib/avanti/models.py:61
 msgid "Client"
 msgstr "Klient"
 
-#: lino_avanti/lib/avanti/models.py:60
+#: lino_avanti/lib/avanti/models.py:62
 msgid "Clients"
 msgstr "Klienten"
 
-#: lino_avanti/lib/avanti/models.py:70
+#: lino_avanti/lib/avanti/models.py:77
 msgid "Lives in Belgium since"
 msgstr "Lebt in Belgien seit"
 
-#: lino_avanti/lib/avanti/models.py:78
+#: lino_avanti/lib/avanti/models.py:85
 msgid "Translator"
 msgstr "Übersetzer"
 
-#: lino_avanti/lib/avanti/models.py:84
+#: lino_avanti/lib/avanti/models.py:91
 msgid "Unemployed since"
 msgstr "Arbeitslos seit"
 
-#: lino_avanti/lib/avanti/models.py:85
+#: lino_avanti/lib/avanti/models.py:92
 msgid "Since when the client has not been employed in any regular job."
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:88
+#: lino_avanti/lib/avanti/models.py:95
 msgid "Seeking work since"
 msgstr "Sucht Arbeit seit"
 
-#: lino_avanti/lib/avanti/models.py:89
+#: lino_avanti/lib/avanti/models.py:96
 msgid "Since when the client is seeking for a job."
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:91
+#: lino_avanti/lib/avanti/models.py:98
 msgid "Needs work permit"
 msgstr "Braucht Arb.Erl."
 
-#: lino_avanti/lib/avanti/models.py:93
+#: lino_avanti/lib/avanti/models.py:100
 msgid "suspended until"
 msgstr "Wartezeit bis"
 
-#: lino_avanti/lib/avanti/models.py:95
+#: lino_avanti/lib/avanti/models.py:102
 msgid "Declared name"
 msgstr "Deklarierter Name"
 
-#: lino_avanti/lib/avanti/models.py:101
+#: lino_avanti/lib/avanti/models.py:108
 msgid "Unavailable until"
 msgstr "Nicht verfügbar bis"
 
-#: lino_avanti/lib/avanti/models.py:103
+#: lino_avanti/lib/avanti/models.py:110
 msgid "reason"
 msgstr "Grund"
 
-#: lino_avanti/lib/avanti/models.py:107
+#: lino_avanti/lib/avanti/models.py:114
 msgid "Family situation"
 msgstr "Familiäre Situation"
 
-#: lino_avanti/lib/avanti/models.py:110
+#: lino_avanti/lib/avanti/models.py:117
 msgid "Residential situation"
 msgstr "Wohnsituation"
 
-#: lino_avanti/lib/avanti/models.py:113
+#: lino_avanti/lib/avanti/models.py:120
 msgid "Health situation"
 msgstr "Gesundheitliche Situation"
 
-#: lino_avanti/lib/avanti/models.py:116
+#: lino_avanti/lib/avanti/models.py:123
 msgid "Financial situation"
 msgstr "Finanzielle Situation"
 
-#: lino_avanti/lib/avanti/models.py:119
+#: lino_avanti/lib/avanti/models.py:126
 msgid "Integration notes"
 msgstr "Soziale Situation"
 
-#: lino_avanti/lib/avanti/models.py:122
+#: lino_avanti/lib/avanti/models.py:129
 msgid "Availability"
 msgstr "Verfügbarkeit"
 
-#: lino_avanti/lib/avanti/models.py:125
+#: lino_avanti/lib/avanti/models.py:132
 msgid "Needed course"
 msgstr "Kursbedarf"
 
 #: lino_avanti/lib/avanti/models.py:147
+msgid "Language notes"
+msgstr "Bericht Sprachtests"
+
+#: lino_avanti/lib/avanti/models.py:157
 msgid "{} ({}) from {}"
 msgstr "{} ({}) aus {}"
 
-#: lino_avanti/lib/avanti/models.py:151
+#: lino_avanti/lib/avanti/models.py:161
 msgid "Name"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:208
+#: lino_avanti/lib/avanti/models.py:218
 msgid "Primary coach"
 msgstr "Primärbegleiter"
 
-#: lino_avanti/lib/avanti/models.py:209
+#: lino_avanti/lib/avanti/models.py:219
 msgid "Legacy file number"
 msgstr "Dossiernummer"
 
-#: lino_avanti/lib/avanti/models.py:221 lino_avanti/lib/contacts/models.py:34
+#: lino_avanti/lib/avanti/models.py:231 lino_avanti/lib/contacts/models.py:34
 #: lino_avanti/lib/contacts/models.py:77 lino_avanti/lib/contacts/models.py:119
 #: lino_avanti/lib/tickets/models.py:32 lino_avanti/lib/users/desktop.py:24
 msgid "General"
 msgstr "Allgemein"
 
-#: lino_avanti/lib/avanti/models.py:235 lino_avanti/lib/avanti/models.py:475
+#: lino_avanti/lib/avanti/models.py:245 lino_avanti/lib/avanti/models.py:488
 msgid "Residence"
 msgstr "Wohnsitz"
 
-#: lino_avanti/lib/avanti/models.py:257
+#: lino_avanti/lib/avanti/models.py:266
 msgid "Person"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:262
-#, fuzzy
-msgid "Languages"
-msgstr "Sprachkurse"
+#: lino_avanti/lib/avanti/models.py:271
+msgid "Courses"
+msgstr "Kurse"
 
-#: lino_avanti/lib/avanti/models.py:284
+#: lino_avanti/lib/avanti/models.py:293
 msgid "Family"
 msgstr "Familie"
 
-#: lino_avanti/lib/avanti/models.py:290
+#: lino_avanti/lib/avanti/models.py:299
 msgid "Notes"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:298
+#: lino_avanti/lib/avanti/models.py:307
 msgid "Trends"
 msgstr "Entwicklungsschritte"
 
-#: lino_avanti/lib/avanti/models.py:304
+#: lino_avanti/lib/avanti/models.py:317
 msgid "Miscellaneous"
 msgstr "Sonstiges"
 
-#: lino_avanti/lib/avanti/models.py:311
+#: lino_avanti/lib/avanti/models.py:324
 msgid "Career"
 msgstr "Lebenslauf"
 
-#: lino_avanti/lib/avanti/models.py:341 lino_avanti/lib/households/models.py:23
+#: lino_avanti/lib/avanti/models.py:354 lino_avanti/lib/households/models.py:23
 msgid "Nationality"
 msgstr "Staatsangehörigkeit"
 
-#: lino_avanti/lib/avanti/models.py:476
+#: lino_avanti/lib/avanti/models.py:489
 msgid "Residences"
 msgstr "Wohnsitze"
 
-#: lino_avanti/lib/avanti/models.py:478
+#: lino_avanti/lib/avanti/models.py:491
 msgid "Reason"
 msgstr "Grund"
 
-#: lino_avanti/lib/avanti/user_types.py:55
-msgid "Anonymous"
-msgstr "Anonym"
+#: lino_avanti/lib/avanti/models.py:499
+msgid "Former residences"
+msgstr "Frühere Wohnsitze"
 
-#: lino_avanti/lib/avanti/user_types.py:57
-msgid "Teacher"
-msgstr "Kursleiter"
-
-#: lino_avanti/lib/avanti/user_types.py:58
-msgid "Social worker"
-msgstr "Sozialarbeiter"
-
-#: lino_avanti/lib/avanti/user_types.py:59
-msgid "Auditor"
-msgstr "Auditor"
-
-#: lino_avanti/lib/avanti/user_types.py:60
-msgid "Coordinator"
-msgstr "Koordinator"
-
-#: lino_avanti/lib/avanti/user_types.py:61
-msgid "Staff"
-msgstr ""
-
-#: lino_avanti/lib/avanti/user_types.py:62
-msgid "Administrator"
-msgstr "Verwalter"
-
-#: lino_avanti/lib/avanti/workflows.py:28
+#: lino_avanti/lib/avanti/models.py:522
 msgid "Newcomer"
 msgstr "Neuantrag"
 
-#: lino_avanti/lib/avanti/workflows.py:29
+#: lino_avanti/lib/avanti/models.py:524
 msgctxt "client state"
 msgid "Registered"
 msgstr "Eingeschrieben"
 
-#: lino_avanti/lib/avanti/workflows.py:30
+#: lino_avanti/lib/avanti/models.py:525
 msgid "Ended"
 msgstr "Beendet"
 
-#: lino_avanti/lib/avanti/workflows.py:31
+#: lino_avanti/lib/avanti/models.py:526
 msgid "Abandoned"
 msgstr "Abgebrochen"
+
+#: lino_avanti/lib/avanti/settings.py:117
+msgid "My settings"
+msgstr "Meine Einstellungen"
+
+#: lino_avanti/lib/avanti/settings.py:123
+msgid "New {}"
+msgstr "{} erstellen"
+
+#: lino_avanti/lib/avanti/user_types.py:56
+msgid "Anonymous"
+msgstr "Anonym"
+
+#: lino_avanti/lib/avanti/user_types.py:58
+msgid "Teacher"
+msgstr "Kursleiter"
+
+#: lino_avanti/lib/avanti/user_types.py:59
+msgid "Social worker"
+msgstr "Sozialarbeiter"
+
+#: lino_avanti/lib/avanti/user_types.py:60
+msgid "Auditor"
+msgstr "Auditor"
+
+#: lino_avanti/lib/avanti/user_types.py:61
+msgid "Coordinator"
+msgstr "Koordinator"
+
+#: lino_avanti/lib/avanti/user_types.py:62
+msgid "Staff"
+msgstr ""
+
+#: lino_avanti/lib/avanti/user_types.py:63
+msgid "Administrator"
+msgstr "Verwalter"
 
 #: lino_avanti/lib/contacts/models.py:39 lino_avanti/lib/contacts/models.py:82
 #: lino_avanti/lib/contacts/models.py:124
@@ -357,7 +373,6 @@ msgid "More"
 msgstr "Mehr"
 
 #: lino_avanti/lib/households/models.py:24
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:99
 msgid "School"
 msgstr "Schule"
 
@@ -369,130 +384,6 @@ msgstr "Lösung"
 msgid "Coaching"
 msgstr "Begleitung"
 
-#: lino_avanti/projects/adg/settings/__init__.py:115
-msgid "My settings"
-msgstr "Meine Einstellungen"
-
-#: lino_avanti/projects/adg/settings/__init__.py:121
-msgid "New {}"
-msgstr "{} erstellen"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:23
-msgid "Dispens"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:24
-msgid "Eingeschrieben"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:25
-msgid "Abgeschlossen"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:26
-msgid "Abgebrochen"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:27
-msgid "Ausgeschlossen"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:31
-msgid "Info Integration"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:37
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:91
-msgid "Alphabetisation"
-msgstr "Alphabetisierung"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:38
-msgid "A1"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:39
-msgid "A2"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:40
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:80
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:88
-msgid "Citizen course"
-msgstr "Bürgerkurse"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:41
-msgid "Professional integration"
-msgstr "Berufliche Eingliederung"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:71
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:72
-msgid "Lesson"
-msgstr "Lektion"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:76
-msgid "Pupil"
-msgstr "Teilnehmer"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:78
-msgid "Assistant"
-msgstr "Assistent"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:83
-msgid "Language courses"
-msgstr "Sprachkurse"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:93
-msgid "German for beginners"
-msgstr "Deutsch für Anfänger"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:94
-msgid "German A1+"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:95
-msgid "German A2"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:96
-msgid "German A2 (women)"
-msgstr ""
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:98
-msgid "Health insurance"
-msgstr "Krankenkasse"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:100
-msgid "Pharmacy"
-msgstr "Apotheke"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:101
-msgid "GSS"
-msgstr "ASD"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:102
-msgid "ISS"
-msgstr "DSBE"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:108
-msgid "Phone call"
-msgstr "Telefongespräch"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:109
-msgid "Visit"
-msgstr "Besuch"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:110
-msgid "Individual consultation"
-msgstr "Einzelgespräch"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:111
-msgid "Internal meeting"
-msgstr "Internes Treffen"
-
-#: lino_avanti/projects/adg/settings/fixtures/demo.py:112
-msgid "Meeting with partners"
-msgstr "Treffen mit Partnern"
-
 #~ msgid "Citizen"
 #~ msgstr "Bürger"
 
@@ -502,3 +393,53 @@ msgstr "Treffen mit Partnern"
 #~ msgid "alias of Client"
 #~ msgstr "Ähnliche Klienten"
 
+#~ msgid "Languages"
+#~ msgstr "Sprachkurse"
+
+#~ msgid "Alphabetisation"
+#~ msgstr "Alphabetisierung"
+
+#~ msgid "Citizen course"
+#~ msgstr "Bürgerkurse"
+
+#~ msgid "Professional integration"
+#~ msgstr "Berufliche Eingliederung"
+
+#~ msgid "Lesson"
+#~ msgstr "Lektion"
+
+#~ msgid "Pupil"
+#~ msgstr "Teilnehmer"
+
+#~ msgid "Assistant"
+#~ msgstr "Assistent"
+
+#~ msgid "German for beginners"
+#~ msgstr "Deutsch für Anfänger"
+
+#~ msgid "Health insurance"
+#~ msgstr "Krankenkasse"
+
+#~ msgid "Pharmacy"
+#~ msgstr "Apotheke"
+
+#~ msgid "GSS"
+#~ msgstr "ASD"
+
+#~ msgid "ISS"
+#~ msgstr "DSBE"
+
+#~ msgid "Phone call"
+#~ msgstr "Telefongespräch"
+
+#~ msgid "Visit"
+#~ msgstr "Besuch"
+
+#~ msgid "Individual consultation"
+#~ msgstr "Einzelgespräch"
+
+#~ msgid "Internal meeting"
+#~ msgstr "Internes Treffen"
+
+#~ msgid "Meeting with partners"
+#~ msgstr "Treffen mit Partnern"

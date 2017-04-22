@@ -53,6 +53,7 @@ class Site(Site):
         yield 'lino_avanti.lib.avanti'
         yield 'lino.modlib.comments'
         yield 'lino.modlib.notify'
+        yield 'lino_xl.lib.uploads'
         # yield 'lino_xl.lib.households'
         yield 'lino_avanti.lib.households'
         # yield 'lino_welfare.modlib.households'
