@@ -106,8 +106,8 @@ class Site(Site):
             client_model='avanti.Client')
         self.plugins.trends.configure(
             subject_model='avanti.Client')
-        self.plugins.comments.configure(
-            commentable_model='avanti.Client')
+        # self.plugins.comments.configure(
+        #     commentable_model='avanti.Client')
 
 
     def setup_quicklinks(self, user, tb):
