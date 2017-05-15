@@ -8,6 +8,7 @@
 """
 
 from __future__ import unicode_literals
+
 from django.conf import settings
 from lino.utils import mti
 from lino.utils.ssin import generate_ssin
@@ -90,6 +91,7 @@ def objects():
                 else:
                     p.first_name = FEMALES.pop()
                     MALES.pop()
+                p.first_name = p.first_name.replace('a', 'á')
                 p.name = join_words(p.last_name, p.first_name)
 
             
