@@ -483,6 +483,8 @@ from lino_xl.lib.cv.mixins import PersonHistoryEntry, HistoryByPerson
     
 class Residence(PersonHistoryEntry, CountryCity):
 
+    allow_cascaded_delete = ['person']
+
     class Meta:
         app_label = 'avanti'
         verbose_name = _("Residence")
