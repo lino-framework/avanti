@@ -7,6 +7,8 @@
 See :doc:`/specs/avanti/avanti`.
 
 """
+from __future__ import unicode_literals
+
 from lino.api import dd, rt, _
 from django.db import models
 from django.conf import settings
