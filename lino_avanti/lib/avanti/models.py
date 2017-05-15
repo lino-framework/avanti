@@ -7,6 +7,10 @@
 See :doc:`/specs/avanti/avanti`.
 
 """
+
+from __future__ import unicode_literals
+from builtins import str
+
 from lino.api import dd, rt, _
 from django.db import models
 from django.conf import settings
@@ -482,6 +486,8 @@ from lino_xl.lib.cv.mixins import PersonHistoryEntry, HistoryByPerson
 
     
 class Residence(PersonHistoryEntry, CountryCity):
+
+    allow_cascaded_delete = ['person']
 
     class Meta:
         app_label = 'avanti'
