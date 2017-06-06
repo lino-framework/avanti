@@ -17,3 +17,8 @@ AllEnrolments.column_names = "id request_date start_date end_date \
 user course pupil pupil__birth_date pupil__age pupil__country \
 pupil__city pupil__gender"
 
+class EnrolmentsByCourse(EnrolmentsByCourse):
+    column_names = 'request_date pupil pupil__gender ' \
+                   'remark workflow_buttons *'
+
+    

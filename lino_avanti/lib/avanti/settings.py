@@ -54,6 +54,7 @@ class Site(Site):
         yield 'lino.modlib.comments'
         yield 'lino.modlib.notify'
         yield 'lino_xl.lib.uploads'
+        yield 'lino.modlib.dupable'
         # yield 'lino_xl.lib.households'
         yield 'lino_avanti.lib.households'
         # yield 'lino_welfare.modlib.households'
@@ -66,8 +67,8 @@ class Site(Site):
         yield 'lino_xl.lib.trends'
         yield 'lino_xl.lib.polls'
         
-        # yield 'lino_avanti.lib.courses' # override get_events_user()
-        yield 'lino_xl.lib.courses'
+        yield 'lino_avanti.lib.courses' # pupil__gender
+        # yield 'lino_xl.lib.courses'
         # yield 'lino_xl.lib.rooms'
         
         yield 'lino.modlib.plausibility'
@@ -116,7 +117,8 @@ class Site(Site):
         tb.add_instance_action(
             user, action=a, label=_("My settings"))
 
-        Clients = self.actors.avanti.Clients
+        # Clients = self.actors.avanti.Clients
+        Clients = self.actors.avanti.MyClients
         tb.add_action(Clients)
         tb.add_action(
             Clients.insert_action,

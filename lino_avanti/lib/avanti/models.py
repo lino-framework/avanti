@@ -13,15 +13,19 @@ from builtins import str
 
 from lino.api import dd, rt, _
 from django.db import models
+from django.db.models import Q
 from django.conf import settings
+from django.utils.translation import string_concat
 
 from lino.utils import join_elems
 from lino.utils.xmlgen.html import E
 # from lino.utils import ssin
 from lino.mixins import Referrable
+from lino.mixins.human import strip_name_prefix
 from lino_xl.lib.beid.mixins import BeIdCardHolder
 from lino.modlib.comments.mixins import Commentable
 from lino.modlib.users.mixins import UserAuthored, My
+from lino.modlib.dupable.mixins import Dupable
 from lino_xl.lib.courses.mixins import Enrollable
 
 # from lino.modlib.notify.mixins import ChangeObservable
@@ -57,7 +61,7 @@ contacts = dd.resolve_app('contacts')
 
 @dd.python_2_unicode_compatible
 class Client(contacts.Person, BeIdCardHolder, UserAuthored,
-             Coachable, BiographyOwner, Referrable,
+             Coachable, BiographyOwner, Referrable, Dupable,
              # Notable,
              Commentable, EventGenerator, Enrollable):
     class Meta:
@@ -150,6 +154,17 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
     language_notes = dd.RichTextField(
         _("Language notes"), blank=True, format='plain')
     
+    remarks = dd.RichTextField(
+        _("Remarks"), blank=True, format='plain')
+    
+    reason_of_stay = models.CharField(
+        _("Reason of stay"), max_length=200, blank=True)
+
+    nationality2 = dd.ForeignKey('countries.Country',
+                                blank=True, null=True,
+                                related_name='by_nationality2',
+                                verbose_name=string_concat(
+                                    _("Nationality"), " (2)"))
     def __str__(self):
         return "%s %s (%s)" % (
             self.last_name.upper(), self.first_name, self.pk)
@@ -219,6 +234,45 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
         # if pc:
         #     return pc.end_date
 
+
+    def get_dupable_words(self, s):
+        s = strip_name_prefix(s)
+        return super(Client, self).get_dupable_words(s)
+
+    def find_similar_instances(self, limit=None, **kwargs):
+        """Overrides
+        :meth:`lino.modlib.dupable.mixins.Dupable.find_similar_instances`,
+        adding some additional rules.
+
+        """
+        # kwargs.update(is_obsolete=False, national_id__isnull=True)
+        qs = super(Client, self).find_similar_instances(None, **kwargs)
+        if self.national_id:
+            qs = qs.filter(national_id__isnull=True)
+        # else:
+        #     qs = qs.filter(national_id__isnull=False)
+        if self.birth_date:
+            qs = qs.filter(Q(birth_date='') | Q(birth_date=self.birth_date))
+
+        last_name_words = set(self.get_dupable_words(self.last_name))
+
+        found = 0
+        for other in qs:
+            found += 1
+            if limit is not None and found > limit:
+                return
+            ok = False
+            for w in other.get_dupable_words(other.last_name):
+                if w in last_name_words:
+                    ok = True
+                    break
+            if ok:
+                yield other
+
+
+
+        
+
 dd.update_field(Client, 'user', verbose_name=_("Primary coach"))
 dd.update_field(Client, 'ref', verbose_name=_("Legacy file number"))
     
@@ -229,15 +283,19 @@ class ClientDetail(dd.DetailLayout):
     notes career trends #polls #courses misc "
 
     general = dd.Panel("""
-    overview:30 general2:40 image:15
+    general1:30 general2:40 image:15
     
     #tickets.TicketsByEndUser cal.EntriesByProject
     """, label=_("General"))
 
+    general1 = """
+    overview
+    """
     general2 = """
     id:10 national_id:15 ref
     birth_date age:10 gender:10
     starting_reason professional_state
+    reason_of_stay
     client_state user #primary_coach
     event_policy ending_reason 
     # workflow_buttons 
@@ -264,9 +322,9 @@ class ClientDetail(dd.DetailLayout):
 
     person = dd.Panel("""
     first_name middle_name last_name #declared_name
-    nationality:15 birth_country birth_place in_belgium_since needs_work_permit:18
+    nationality:15 nationality2:15 birth_country birth_place in_belgium_since needs_work_permit:18
     card_type #card_number card_issuer card_valid_from card_valid_until
-    coachings.ContactsByClient uploads.UploadsByClient
+    coachings.ContactsByClient uploads.UploadsByClient dupable.SimilarObjects
     """, label=_("Person"))
 
     courses_tab = dd.Panel("""
@@ -317,7 +375,7 @@ class ClientDetail(dd.DetailLayout):
     misc = dd.Panel("""
     # unavailable_until:15 unavailable_why:30
     financial_notes health_notes integration_notes
-    plausibility.ProblemsByOwner excerpts.ExcerptsByProject
+    remarks:30 plausibility.ProblemsByOwner:30 excerpts.ExcerptsByProject:30
     """, label=_("Miscellaneous"))
 
     career = dd.Panel("""
@@ -359,7 +417,7 @@ class Clients(contacts.Persons):
         observed_event=ClientEvents.field(blank=True),
         client_state=ClientStates.field(blank=True, default=''))
     params_layout = """
-    aged_from aged_to gender nationality client_state
+    aged_from aged_to gender nationality client_state user
     start_date end_date observed_event course enrolment_state
     """
 
@@ -413,7 +471,9 @@ class Clients(contacts.Persons):
             qs = qs.filter(client_state=pv.client_state)
 
         if pv.nationality:
-            qs = qs.filter(nationality__exact=pv.nationality)
+            qs = qs.filter(
+                models.Q(nationality=pv.nationality)|
+                models.Q(nationality2=pv.nationality))
 
         # print(20150305, qs.query)
 
