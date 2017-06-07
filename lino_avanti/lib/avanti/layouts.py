@@ -27,7 +27,12 @@ dd.update_field(
 # rt.actors.cv.LanguageKnowledgesByPerson.slave_grid_format = 'grid'
 
 
-rt.actors.cv.StudiesByPerson.column_names = 'type content duration_text school country state education_level remarks *'
+rt.actors.cv.StudiesByPerson.column_names = 'type content duration_text language school country state education_level remarks *'
+
+rt.actors.cv.StudiesByPerson.insert_layout = """
+type content
+duration_text language
+"""
 
 rt.actors.cv.Studies.detail_layout = """
 person #start_date #end_date duration_text language
