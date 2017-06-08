@@ -24,7 +24,7 @@ from lino.mixins import Referrable
 from lino.mixins.human import strip_name_prefix
 from lino_xl.lib.beid.mixins import BeIdCardHolder
 from lino.modlib.comments.mixins import Commentable
-from lino.modlib.users.mixins import UserAuthored, My
+from lino.modlib.auth.mixins import UserAuthored, My
 from lino.modlib.dupable.mixins import Dupable
 from lino_xl.lib.courses.mixins import Enrollable
 
