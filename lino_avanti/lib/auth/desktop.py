@@ -7,7 +7,7 @@
 
 """
 
-from lino.modlib.users.desktop import *
+from lino.modlib.auth.desktop import *
 from lino.modlib.office.roles import OfficeUser
 
 from lino.api import dd, _
@@ -24,7 +24,7 @@ class UserDetail(UserDetail):
     """, label=_("General"))
 
     box1 = """
-    username profile:20 partner
+    username user_type:20 partner
     first_name last_name initials
     email language mail_mode
     id created modified

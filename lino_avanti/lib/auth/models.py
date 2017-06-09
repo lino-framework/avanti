@@ -6,5 +6,5 @@
 
 """
 
-from lino.modlib.users.models import *
+from lino.modlib.auth.models import *
 

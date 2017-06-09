@@ -2,7 +2,7 @@
 # Copyright 2017 Luc Saffre
 # License: BSD (see file COPYING for details)
 
-"""Extends :mod:`lino.modlib.users` for :ref:`avanti`.
+"""Extends :mod:`lino.modlib.auth` for :ref:`avanti`.
 
 .. autosummary::
    :toctree:
@@ -14,7 +14,7 @@
 
 """
 
-from lino.modlib.users import Plugin
+from lino.modlib.auth import Plugin
 
 
 # class Plugin(Plugin):
