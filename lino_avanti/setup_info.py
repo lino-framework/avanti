@@ -67,8 +67,8 @@ SETUP_INFO.update(packages=[
     'lino_avanti.lib.households',
     'lino_avanti.lib.households.fixtures',
     'lino_avanti.lib.tickets',
-    'lino_avanti.lib.auth',
-    'lino_avanti.lib.auth.fixtures'
+    'lino_avanti.lib.users',
+    'lino_avanti.lib.users.fixtures'
 ])
 
 SETUP_INFO.update(message_extractors={

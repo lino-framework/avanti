@@ -11,7 +11,7 @@ from django.utils.translation import ugettext_lazy as _
 # from lino.core.roles import UserRole, SiteAdmin, SiteUser, SiteStaff
 # from lino.core.roles import UserRole, SiteAdmin, SiteStaff
 from lino.core.roles import UserRole, Explorer, SiteAdmin
-from lino.modlib.auth.choicelists import UserTypes
+from lino.modlib.users.choicelists import UserTypes
 from lino.modlib.comments.roles import CommentsUser, CommentsStaff
 from lino.modlib.office.roles import OfficeUser, OfficeStaff
 from lino_xl.lib.contacts.roles import ContactsUser, ContactsStaff
