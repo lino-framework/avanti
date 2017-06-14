@@ -10,6 +10,6 @@
     avanti
     courses
     households
-    auth
+    users
 
 """

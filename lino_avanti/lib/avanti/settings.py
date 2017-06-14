@@ -46,8 +46,8 @@ class Site(Site):
 
         """
         yield super(Site, self).get_installed_apps()
-        yield 'lino_avanti.lib.auth'
-        # yield 'lino.modlib.auth'
+        yield 'lino_avanti.lib.users'
+        # yield 'lino.modlib.users'
         yield 'lino_xl.lib.countries'
         yield 'lino_avanti.lib.contacts'
         yield 'lino_avanti.lib.avanti'
@@ -100,7 +100,7 @@ class Site(Site):
         # self.plugins.faculties.configure(
         #     end_user_model='avanti.Client')
         self.plugins.courses.configure(
-            # teacher_model='auth.User',
+            # teacher_model='users.User',
             pupil_model='avanti.Client',
             pupil_name_fields='pupil__last_name pupil__first_name')
         self.plugins.coachings.configure(
