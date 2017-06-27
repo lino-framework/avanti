@@ -517,8 +517,8 @@ class AllClients(Clients):
     column_names = "client_state \
     starting_reason ending_reason \
     city country zip_code nationality \
-    birth_date age:10 gender \
-    birth_country birth_place \
+    #birth_date age:10 gender \
+    birth_country #birth_place \
     in_belgium_since needs_work_permit \
     translator_type \
     mother_tongues cef_level_de cef_level_fr cef_level_en \

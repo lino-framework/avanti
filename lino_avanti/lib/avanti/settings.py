@@ -113,7 +113,7 @@ class Site(Site):
 
     def setup_quicklinks(self, user, tb):
         super(Site, self).setup_quicklinks(user, tb)
-        a = self.actors.auth.MySettings.default_action
+        a = self.actors.users.MySettings.default_action
         tb.add_instance_action(
             user, action=a, label=_("My settings"))
 
