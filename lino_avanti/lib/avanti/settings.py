@@ -29,7 +29,7 @@ class Site(Site):
     version = '2017.1.0'
     url = "http://avanti.lino-framework.org/"
     demo_fixtures = ['std',
-                     'few_languages',
+                     'few_languages', 'compass',
                      # 'all_countries', 'all_languages',
                      'demo', 'demo2']
     user_types_module = 'lino_avanti.lib.avanti.user_types'
@@ -113,12 +113,12 @@ class Site(Site):
 
     def setup_quicklinks(self, user, tb):
         super(Site, self).setup_quicklinks(user, tb)
-        a = self.actors.users.MySettings.default_action
+        a = self.models.users.MySettings.default_action
         tb.add_instance_action(
             user, action=a, label=_("My settings"))
 
-        # Clients = self.actors.avanti.Clients
-        Clients = self.actors.avanti.MyClients
+        # Clients = self.models.avanti.Clients
+        Clients = self.models.avanti.MyClients
         tb.add_action(Clients)
         tb.add_action(
             Clients.insert_action,
