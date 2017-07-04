@@ -55,4 +55,5 @@ add('200', _("Workless"))
 add('300', _("Seeking"))
 add('400', _("Employed"))
 add('500', _("Independent"))
+add('600', _("Retired"))  # pensioniert
 

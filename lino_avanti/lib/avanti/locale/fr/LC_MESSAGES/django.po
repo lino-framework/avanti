@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  lino.apps.dsbe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-07 00:44+0300\n"
+"POT-Creation-Date: 2017-07-04 07:29+0300\n"
 "PO-Revision-Date: 2016-11-20 19:48+0100\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: fr\n"
@@ -105,6 +105,10 @@ msgstr "Inoccupé depuis"
 
 #: lino_avanti/lib/avanti/choicelists.py:57
 msgid "Independent"
+msgstr ""
+
+#: lino_avanti/lib/avanti/choicelists.py:58
+msgid "Retired"
 msgstr ""
 
 #: lino_avanti/lib/avanti/help_texts.py:6

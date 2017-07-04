@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lino-avanti 2017.1.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-06-07 00:44+0300\n"
+"POT-Creation-Date: 2017-07-04 07:29+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -97,6 +97,10 @@ msgstr ""
 
 #: lino_avanti/lib/avanti/choicelists.py:57
 msgid "Independent"
+msgstr ""
+
+#: lino_avanti/lib/avanti/choicelists.py:58
+msgid "Retired"
 msgstr ""
 
 #: lino_avanti/lib/avanti/help_texts.py:6

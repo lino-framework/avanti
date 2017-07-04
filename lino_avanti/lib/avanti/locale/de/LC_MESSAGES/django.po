@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lino-DSBE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-06-07 00:44+0300\n"
-"PO-Revision-Date: 2017-06-07 00:44+0300\n"
+"POT-Creation-Date: 2017-07-04 07:29+0300\n"
+"PO-Revision-Date: 2017-07-04 07:30+0300\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: de\n"
 "Language-Team: de <luc.saffre@gmail.com>\n"
@@ -103,6 +103,10 @@ msgstr "Angestellt"
 #: lino_avanti/lib/avanti/choicelists.py:57
 msgid "Independent"
 msgstr "Selbstständig"
+
+#: lino_avanti/lib/avanti/choicelists.py:58
+msgid "Retired"
+msgstr "Pensioniert"
 
 #: lino_avanti/lib/avanti/help_texts.py:6
 msgid "See lino.core.plugin.Plugin."
