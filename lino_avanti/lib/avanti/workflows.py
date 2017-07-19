@@ -19,5 +19,5 @@ from lino_xl.lib.cal.workflows.voga import *
 
 # courses and enrolments:
 from lino_xl.lib.courses.workflows import *
-from lino_noi.lib.noi.workflows import *
+# from lino_noi.lib.noi.workflows import *
 
