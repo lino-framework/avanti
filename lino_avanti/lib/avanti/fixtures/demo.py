@@ -10,7 +10,8 @@
 from __future__ import unicode_literals
 
 from django.conf import settings
-from lino.utils import mti
+# from lino.utils import mti
+from lino.utils.mti import mtichild
 from lino.utils.ssin import generate_ssin
 from lino.utils import Cycler, join_words
 # from lino.utils.instantiator import create_row
@@ -38,13 +39,6 @@ MALES = Cycler(get_male_first_names())
 FEMALES = Cycler(get_female_first_names())
 
 
-def mtichild(p, model, **kw):
-    c = mti.insert_child(p, model)
-    for k, v in kw.items():
-        setattr(c, k, v)
-    c.save()
-    return model.objects.get(pk=p.pk)
-
 def objects():
 
     Person = rt.models.contacts.Person
@@ -58,7 +52,7 @@ def objects():
     for person in Person.objects.all():
         count += 1
         if count % 7 and person.gender and not person.birth_date:
-            # most persons, but not those from humanlinks and thos
+            # most persons, but not those from humanlinks and those
             # with empty gender field, become clients and receive a
             # new exotic name. Youngest client is 16; 170 days between
             # each client
