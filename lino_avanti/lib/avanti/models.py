@@ -37,7 +37,7 @@ from lino_xl.lib.cal.workflows import TaskStates
 from lino_xl.lib.cv.mixins import BiographyOwner
 # from lino.utils.mldbc.fields import BabelVirtualField
 
-from lino.mixins import ObservedPeriod
+from lino.mixins import ObservedDateRange
 
 from lino_xl.lib.coachings.choicelists import ClientEvents, ClientStates
 
@@ -410,7 +410,7 @@ class Clients(contacts.Persons):
 
     detail_layout = ClientDetail()
 
-    parameters = ObservedPeriod(
+    parameters = ObservedDateRange(
         nationality=dd.ForeignKey(
             'countries.Country', blank=True, null=True,
             verbose_name=_("Nationality")),
