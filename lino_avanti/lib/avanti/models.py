@@ -181,6 +181,14 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
     def name_column(self, ar):
         return str(self)
 
+    @dd.displayfield(_("Municipality"))
+    def municipality(self, ar):
+        pl = self.city
+        mt = dd.plugins.avanti.municipality_type
+        while pl and pl.parent_id and pl.type.value != mt:
+            pl = pl.parent
+        return str(pl)
+
     def get_overview_elems(self, ar):
         elems = super(Client, self).get_overview_elems(ar)
         # elems.append(E.br())
@@ -516,7 +524,7 @@ class AllClients(Clients):
     auto_fit_column_widths = False
     column_names = "client_state \
     starting_reason ending_reason \
-    city country zip_code nationality \
+    city municipality country zip_code nationality \
     #birth_date age:10 gender \
     birth_country #birth_place \
     in_belgium_since needs_work_permit \
