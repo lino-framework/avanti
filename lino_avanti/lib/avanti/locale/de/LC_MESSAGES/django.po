@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lino-DSBE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-07-04 07:29+0300\n"
-"PO-Revision-Date: 2017-07-04 07:30+0300\n"
+"POT-Creation-Date: 2017-08-24 15:29+0300\n"
+"PO-Revision-Date: 2017-08-24 15:31+0300\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: de\n"
 "Language-Team: de <luc.saffre@gmail.com>\n"
@@ -108,51 +108,99 @@ msgstr "Selbstständig"
 msgid "Retired"
 msgstr "Pensioniert"
 
-#: lino_avanti/lib/avanti/help_texts.py:6
+#: lino_avanti/lib/avanti/help_texts.py:7
 msgid "See lino.core.plugin.Plugin."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:7
+#: lino_avanti/lib/avanti/help_texts.py:8
 msgid "Types of registries for the Belgian residence."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:8
+#: lino_avanti/lib/avanti/help_texts.py:9
 msgid "The standard migrator for Lino Avanti."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:9
-msgid "A client is a person using our services."
-msgstr ""
-
 #: lino_avanti/lib/avanti/help_texts.py:10
-msgid "A panel with general information about this client."
+msgid "Layout of User Detail in Lino Avanti."
 msgstr ""
 
 #: lino_avanti/lib/avanti/help_texts.py:11
+msgid "A client is a person using our services."
+msgstr ""
+
+#: lino_avanti/lib/avanti/help_texts.py:12
+msgid "A panel with general information about this client."
+msgstr ""
+
+#: lino_avanti/lib/avanti/help_texts.py:13
 #, fuzzy
 msgid "Pointer to ClientStates."
 msgstr "DSBE-Klienten"
 
-#: lino_avanti/lib/avanti/help_texts.py:12
+#: lino_avanti/lib/avanti/help_texts.py:14
 msgid ""
 "The date when this client got unemployed and stopped to have a\n"
 "regular work."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:14
+#: lino_avanti/lib/avanti/help_texts.py:16
 msgid ""
 "The date when this client registered as unemployed and started\n"
 "to look for a new job."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:16
+#: lino_avanti/lib/avanti/help_texts.py:18
+msgid "The place (village or municipality) where this client lives."
+msgstr ""
+
+#: lino_avanti/lib/avanti/help_texts.py:19
+msgid ""
+"The municipality where this client lives. This is basically\n"
+"equal to city, except when city is a village\n"
+"and has a parent which is a municipality (which causes that\n"
+"place to be returned)."
+msgstr ""
+
+#: lino_avanti/lib/avanti/help_texts.py:23
 msgid ""
 "If not empty, show only Clients whose client_state equals\n"
 "the specified value."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:18
-msgid "This table is visible for Explorer who can export it."
+#: lino_avanti/lib/avanti/help_texts.py:25
+msgid "This table is visible for Explorer who can also export it."
+msgstr ""
+
+#: lino_avanti/lib/avanti/help_texts.py:26
+msgid "Same as lino_xl.lib.courses.Course."
+msgstr ""
+
+#: lino_avanti/lib/avanti/help_texts.py:27
+msgid ""
+"Same as lino_xl.lib.courses.EnrolmentsByCourse but adds\n"
+"the gender of the pupil as remote field, and the enrolment option."
+msgstr ""
+
+#: lino_avanti/lib/avanti/help_texts.py:29
+msgid ""
+"Inherits from lino_xl.lib.courses.Enrolment but adds four\n"
+"specific \"enrolment options\":"
+msgstr ""
+
+#: lino_avanti/lib/avanti/help_texts.py:31
+msgid "Whether this pupil has small children to care about."
+msgstr "Ob dieser Teilnehmer Kleinkinder zu betreuen hat."
+
+#: lino_avanti/lib/avanti/help_texts.py:32
+msgid "Whether this pupil needs public transportation for moving."
+msgstr ""
+
+#: lino_avanti/lib/avanti/help_texts.py:33
+msgid "Whether this pupil has school children to care about."
+msgstr ""
+
+#: lino_avanti/lib/avanti/help_texts.py:34
+msgid "Whether this pupil is available only for evening courses."
 msgstr ""
 
 #: lino_avanti/lib/avanti/layouts.py:25
@@ -256,7 +304,7 @@ msgstr "Grund"
 msgid "Reason of stay"
 msgstr "Aufenthaltsgrund"
 
-#: lino_avanti/lib/avanti/models.py:167 lino_avanti/lib/avanti/models.py:416
+#: lino_avanti/lib/avanti/models.py:167 lino_avanti/lib/avanti/models.py:424
 #: lino_avanti/lib/households/models.py:23
 msgid "Nationality"
 msgstr "Staatsangehörigkeit"
@@ -269,78 +317,82 @@ msgstr "{} ({}) aus {}"
 msgid "Name"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:276
+#: lino_avanti/lib/avanti/models.py:184
+msgid "Municipality"
+msgstr "Gemeinde"
+
+#: lino_avanti/lib/avanti/models.py:284
 msgid "Primary coach"
 msgstr "Primärbegleiter"
 
-#: lino_avanti/lib/avanti/models.py:277
+#: lino_avanti/lib/avanti/models.py:285
 msgid "Legacy file number"
 msgstr "Dossiernummer"
 
-#: lino_avanti/lib/avanti/models.py:289 lino_avanti/lib/contacts/models.py:34
+#: lino_avanti/lib/avanti/models.py:297 lino_avanti/lib/contacts/models.py:34
 #: lino_avanti/lib/contacts/models.py:77 lino_avanti/lib/contacts/models.py:119
 #: lino_avanti/lib/tickets/models.py:32 lino_avanti/lib/users/desktop.py:24
 msgid "General"
 msgstr "Allgemein"
 
-#: lino_avanti/lib/avanti/models.py:307 lino_avanti/lib/avanti/models.py:554
+#: lino_avanti/lib/avanti/models.py:315 lino_avanti/lib/avanti/models.py:562
 msgid "Residence"
 msgstr "Wohnsitz"
 
-#: lino_avanti/lib/avanti/models.py:328
+#: lino_avanti/lib/avanti/models.py:336
 msgid "Person"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:333
+#: lino_avanti/lib/avanti/models.py:341
 msgid "Courses"
 msgstr "Kurse"
 
-#: lino_avanti/lib/avanti/models.py:355
+#: lino_avanti/lib/avanti/models.py:363
 msgid "Family"
 msgstr "Familie"
 
-#: lino_avanti/lib/avanti/models.py:361
+#: lino_avanti/lib/avanti/models.py:369
 msgid "Notes"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:369
+#: lino_avanti/lib/avanti/models.py:377
 msgid "Trends"
 msgstr "Entwicklungsschritte"
 
-#: lino_avanti/lib/avanti/models.py:379
+#: lino_avanti/lib/avanti/models.py:387
 msgid "Miscellaneous"
 msgstr "Sonstiges"
 
-#: lino_avanti/lib/avanti/models.py:386
+#: lino_avanti/lib/avanti/models.py:394
 msgid "Career"
 msgstr "Lebenslauf"
 
-#: lino_avanti/lib/avanti/models.py:555
+#: lino_avanti/lib/avanti/models.py:563
 msgid "Residences"
 msgstr "Wohnsitze"
 
-#: lino_avanti/lib/avanti/models.py:557
+#: lino_avanti/lib/avanti/models.py:565
 msgid "Reason"
 msgstr "Grund"
 
-#: lino_avanti/lib/avanti/models.py:565
+#: lino_avanti/lib/avanti/models.py:573
 msgid "Former residences"
 msgstr "Frühere Wohnsitze"
 
-#: lino_avanti/lib/avanti/models.py:588
+#: lino_avanti/lib/avanti/models.py:596
 msgid "Newcomer"
 msgstr "Neuantrag"
 
-#: lino_avanti/lib/avanti/models.py:590
+#: lino_avanti/lib/avanti/models.py:598
 msgctxt "client state"
 msgid "Registered"
 msgstr "Eingeschrieben"
 
-#: lino_avanti/lib/avanti/models.py:591
+#: lino_avanti/lib/avanti/models.py:599
 msgid "Ended"
 msgstr "Beendet"
 
-#: lino_avanti/lib/avanti/models.py:592
+#: lino_avanti/lib/avanti/models.py:600
 msgid "Abandoned"
 msgstr "Abgebrochen"
 
@@ -390,9 +442,21 @@ msgstr "Adresse"
 msgid "More"
 msgstr "Mehr"
 
-#: lino_avanti/lib/households/models.py:24
+#: lino_avanti/lib/courses/models.py:78
+msgid "Children"
+msgstr "Kleinkind"
+
+#: lino_avanti/lib/courses/models.py:79
+msgid "Bus"
+msgstr ""
+
+#: lino_avanti/lib/courses/models.py:80 lino_avanti/lib/households/models.py:24
 msgid "School"
 msgstr "Schule"
+
+#: lino_avanti/lib/courses/models.py:81
+msgid "Evening"
+msgstr "Abend"
 
 #: lino_avanti/lib/tickets/models.py:19
 msgid "Solution"

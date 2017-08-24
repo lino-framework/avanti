@@ -23,4 +23,13 @@ place to be returned)."""),
     'lino_avanti.lib.avanti.Clients.client_state' : _("""If not empty, show only Clients whose client_state equals
 the specified value."""),
     'lino_avanti.lib.avanti.AllClients' : _("""This table is visible for Explorer who can also export it."""),
+    'lino_avanti.lib.courses.Course' : _("""Same as lino_xl.lib.courses.Course."""),
+    'lino_avanti.lib.courses.EnrolmentsByCourse' : _("""Same as lino_xl.lib.courses.EnrolmentsByCourse but adds
+the gender of the pupil as remote field, and the enrolment option."""),
+    'lino_avanti.lib.courses.Enrolment' : _("""Inherits from lino_xl.lib.courses.Enrolment but adds four
+specific "enrolment options":"""),
+    'lino_avanti.lib.courses.Enrolment.needs_childcare' : _("""Whether this pupil has small children to care about."""),
+    'lino_avanti.lib.courses.Enrolment.needs_bus' : _("""Whether this pupil needs public transportation for moving."""),
+    'lino_avanti.lib.courses.Enrolment.needs_school' : _("""Whether this pupil has school children to care about."""),
+    'lino_avanti.lib.courses.Enrolment.needs_evening' : _("""Whether this pupil is available only for evening courses."""),
 }

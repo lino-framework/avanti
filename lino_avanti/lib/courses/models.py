@@ -2,11 +2,6 @@
 # License: BSD (see file COPYING for details)
 
 
-"""
-The :xfile:`models.py` module for this plugin.
-
-"""
-
 
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import pgettext_lazy as pgettext
@@ -70,3 +65,18 @@ class Course(Course):
 #     provider = dd.ForeignKey(
 #         'courses.CourseProvider', blank=True, null=True)
     
+
+class Enrolment(Enrolment):
+
+    """
+
+    """
+    
+    class Meta(Enrolment.Meta):
+        abstract = dd.is_abstract_model(__name__, 'Enrolment')
+
+    needs_childcare = models.BooleanField(_("Children"), default=False)
+    needs_bus = models.BooleanField(_("Bus"), default=False)
+    needs_school = models.BooleanField(_("School"), default=False)
+    needs_evening = models.BooleanField(_("Evening"), default=False)
+        

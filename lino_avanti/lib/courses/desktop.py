@@ -2,10 +2,6 @@
 # License: BSD (see file COPYING for details)
 
 
-"""
-The :xfile:`models.py` module for this plugin.
-
-"""
 
 
 from lino_xl.lib.courses.desktop import *
@@ -19,6 +15,7 @@ pupil__city pupil__gender"
 
 class EnrolmentsByCourse(EnrolmentsByCourse):
     column_names = 'request_date pupil pupil__gender ' \
+                   'needs_childcare needs_school needs_bus needs_evening '\
                    'remark workflow_buttons *'
 
     
