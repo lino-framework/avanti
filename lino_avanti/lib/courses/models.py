@@ -8,6 +8,8 @@ from django.utils.translation import pgettext_lazy as pgettext
 
 from lino_xl.lib.courses.models import *
 from lino_xl.lib.courses.roles import CoursesUser
+from lino.modlib.plausibility.choicelists import Checker
+from lino.core.gfks import gfk2lookup
 
 # contacts = dd.resolve_app('contacts')
 
@@ -54,6 +56,27 @@ class Course(Course):
         # verbose_name = _("Course")
         # verbose_name_plural = _('Courses')
 
+    @dd.virtualfield(models.IntegerField(_("Bus")))
+    def bus_needed(self, ar):
+        return self.get_places_sum(
+            state=EnrolmentStates.requested, needs_bus=True)
+
+    @dd.virtualfield(models.IntegerField(_("Childcare")))
+    def childcare_needed(self, ar):
+        return self.get_places_sum(
+            state=EnrolmentStates.requested, needs_childcare=True)
+
+    @dd.virtualfield(models.IntegerField(_("Evening")))
+    def evening_needed(self, ar):
+        return self.get_places_sum(
+            state=EnrolmentStates.requested, needs_evening=True)
+
+    @dd.virtualfield(models.IntegerField(_("School")))
+    def school_needed(self, ar):
+        return self.get_places_sum(
+            state=EnrolmentStates.requested, needs_school=True)
+
+    
 # class Line(Line):
     
 #     class Meta(Line.Meta):
@@ -67,16 +90,50 @@ class Course(Course):
     
 
 class Enrolment(Enrolment):
-
-    """
-
-    """
-    
+   
     class Meta(Enrolment.Meta):
         abstract = dd.is_abstract_model(__name__, 'Enrolment')
 
-    needs_childcare = models.BooleanField(_("Children"), default=False)
+    needs_childcare = models.BooleanField(_("Childcare"), default=False)
     needs_bus = models.BooleanField(_("Bus"), default=False)
     needs_school = models.BooleanField(_("School"), default=False)
     needs_evening = models.BooleanField(_("Evening"), default=False)
         
+
+
+
+class EnrolmentChecker(Checker):
+    verbose_name = _("Check for unsufficient presences")
+    model = Enrolment
+    messages = dict(
+        msg_absent=_("More than 2 times absent."),
+        msg_missed=_("Missed more than 10% of meetings."),
+    )
+    
+    def get_plausibility_problems(self, obj, fix=False):
+        Guest = rt.models.cal.Guest
+        GuestStates = rt.models.cal.GuestStates
+        Event = rt.models.cal.Event
+        EntryStates = rt.models.cal.EntryStates
+        eflt = gfk2lookup(Event.owner, obj.course)
+        gflt = { 'event__'+k: v for k, v in eflt.items() }
+        qs = Guest.objects.filter(partner=obj.pupil, **gflt)
+        # qs = qs.filter(**gfk2lookup(Guest.course, obj.course))
+        absent = qs.filter(state=GuestStates.absent).count()
+        if absent > 2:
+            yield (False, self.messages['msg_absent'])
+            return
+        events = Event.objects.filter(**eflt)
+        events = events.filter(state=EntryStates.took_place)
+        ecount = events.count()
+        if ecount > 9:
+            excused = qs.filter(state=GuestStates.excused).count()
+            missing = absent + excused
+            max_missing = ecount / 10 - 1
+            if missing > max_missing:
+                yield (False, self.messages['msg_missed'])
+                return
+    
+
+EnrolmentChecker.activate()
+    

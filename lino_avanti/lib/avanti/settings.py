@@ -31,7 +31,7 @@ class Site(Site):
     demo_fixtures = ['std',
                      'few_languages', 'compass',
                      # 'all_countries', 'all_languages',
-                     'demo', 'demo2']
+                     'demo', 'demo2', 'checkdata']
     user_types_module = 'lino_avanti.lib.avanti.user_types'
     workflows_module = 'lino_avanti.lib.avanti.workflows'
     custom_layouts_module = 'lino_avanti.lib.avanti.layouts'
@@ -39,7 +39,7 @@ class Site(Site):
 
     project_model = 'avanti.Client'
     textfield_format = 'plain'
-    use_silk_icons = False
+    # use_silk_icons = False
 
     def get_installed_apps(self):
         """Implements :meth:`lino.core.site.Site.get_installed_apps`.
