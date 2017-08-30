@@ -187,7 +187,7 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
     def municipality(self, ar):
         pl = self.city
         mt = dd.plugins.avanti.municipality_type
-        while pl and pl.parent_id and pl.type.value != mt:
+        while pl and pl.parent_id and pl.type.value > mt:
             pl = pl.parent
         return str(pl)
 
@@ -230,7 +230,8 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
         return self.event_policy
     
     def update_cal_event_type(self):
-        return self.event_policy.event_type
+        if self.event_policy is not None:
+            return self.event_policy.event_type
         
     def update_cal_from(self, ar):
         return dd.today()
