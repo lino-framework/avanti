@@ -101,7 +101,6 @@ class Enrolment(Enrolment):
         
 
 
-
 class EnrolmentChecker(Checker):
     verbose_name = _("Check for unsufficient presences")
     model = Enrolment
