@@ -9,6 +9,10 @@ from lino.core.gfks import gfk2lookup
 from lino.utils import join_elems
 from lino.utils.xmlgen.html import E
 
+
+# Courses.required_roles = dd.login_required(Explorer)
+
+
 # class LinesByProvider(Lines):
 #     master_key = 'provider'
 
@@ -92,6 +96,7 @@ confirmation_details PresencesByEnrolment
 """
 
 class CoursesPlanning(Activities):
+    required_roles = dd.login_required(CoursesUser)
     label = _("Course planning")
     column_names = \
         "overview state "\
