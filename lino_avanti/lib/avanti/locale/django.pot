@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lino-avanti 2017.1.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2017-08-30 21:05+0300\n"
+"POT-Creation-Date: 2017-09-05 22:35+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -444,11 +444,11 @@ msgstr ""
 msgid "More"
 msgstr ""
 
-#: lino_avanti/lib/courses/desktop.py:56
+#: lino_avanti/lib/courses/desktop.py:60
 msgid "{} : {}"
 msgstr ""
 
-#: lino_avanti/lib/courses/desktop.py:95
+#: lino_avanti/lib/courses/desktop.py:100
 msgid "Course planning"
 msgstr ""
 
