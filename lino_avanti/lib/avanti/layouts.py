@@ -15,6 +15,12 @@ site_calendar default_event_type #pupil_guestrole
 max_auto_events hide_events_before
 """, size=(60, 'auto'))
 
+rt.models.countries.Places.detail_layout = """
+name country
+type parent zip_code id
+PlacesByPlace contacts.PartnersByCity
+"""
+
 rt.actors.courses.AllEnrolments.column_names = \
 'id #request_date #start_date #end_date #user course \
 pupil__birth_date pupil__age pupil__country pupil__city \
