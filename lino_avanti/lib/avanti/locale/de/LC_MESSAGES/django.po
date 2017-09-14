@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  Lino-DSBE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-08-30 21:05+0300\n"
+"POT-Creation-Date: 2017-09-05 22:35+0300\n"
 "PO-Revision-Date: 2017-08-25 15:56+0300\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: de\n"
@@ -450,11 +450,11 @@ msgstr "Adresse"
 msgid "More"
 msgstr "Mehr"
 
-#: lino_avanti/lib/courses/desktop.py:56
+#: lino_avanti/lib/courses/desktop.py:60
 msgid "{} : {}"
 msgstr ""
 
-#: lino_avanti/lib/courses/desktop.py:95
+#: lino_avanti/lib/courses/desktop.py:100
 msgid "Course planning"
 msgstr "Kursplanung"
 

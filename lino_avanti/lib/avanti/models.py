@@ -291,12 +291,12 @@ dd.update_field(Client, 'ref', verbose_name=_("Legacy file number"))
 class ClientDetail(dd.DetailLayout):
 
     main = "general person contact courses_tab family \
-    notes career trends #polls #courses misc "
+    notes career trends #polls #courses misc #calendar"
 
     general = dd.Panel("""
     general1:30 general2:40 image:15
     
-    #tickets.TicketsByEndUser cal.EntriesByProject
+    cal.EntriesByProject cal.GuestsByPartner
     """, label=_("General"))
 
     general1 = """
@@ -395,6 +395,10 @@ class ClientDetail(dd.DetailLayout):
     # cv.TrainingsByPerson
     cv.ExperiencesByPerson:40
     """, label=_("Career"))
+
+    # calendar = dd.Panel("""
+    # cal.GuestsByPartner
+    # """, label=_("Calendar"))
 
     # competences = dd.Panel("""
     # skills

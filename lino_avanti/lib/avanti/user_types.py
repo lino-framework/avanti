@@ -34,7 +34,8 @@ class Auditor(CoursesUser, OfficeUser, Explorer):
 class Teacher(SiteUser, CoursesTeacher, OfficeUser, ClientsNameUser):
     pass
 
-class Coordinator(CoursesUser, OfficeUser, PlausibilityUser):
+class Coordinator(CoursesUser, OfficeUser, PlausibilityUser,
+                  ClientsNameUser):
     pass
 
 class SocialWorker(CoachingsUser, CoursesUser, ContactsUser,
