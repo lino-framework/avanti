@@ -21,7 +21,7 @@ user course pupil pupil__birth_date pupil__age pupil__country \
 pupil__city pupil__gender"
 
 class EnrolmentsByCourse(EnrolmentsByCourse):
-    column_names = 'id request_date pupil pupil__gender ' \
+    column_names = 'id request_date pupil pupil__gender pupil__nationality:15 ' \
                    'needs_childcare needs_school needs_bus needs_evening '\
                    'remark workflow_buttons *'
 
