@@ -24,7 +24,7 @@ from lino_xl.lib.courses.roles import CoursesTeacher, CoursesUser
 from .roles import ClientsNameUser, ClientsUser, ClientsStaff
 from lino_xl.lib.cv.roles import CareerUser, CareerStaff
 from lino_xl.lib.beid.roles import BeIdUser
-from lino_xl.lib.tickets.roles import TicketsUser, TicketsStaff
+# from lino_xl.lib.tickets.roles import TicketsUser, TicketsStaff
 from lino_xl.lib.trends.roles import TrendsStaff, TrendsUser
 
 
@@ -40,13 +40,15 @@ class Coordinator(CoursesUser, OfficeUser, PlausibilityUser,
 
 class SocialWorker(CoachingsUser, CoursesUser, ContactsUser,
                    OfficeUser, ExcerptsUser, CareerUser, BeIdUser,
-                   TicketsUser, CommentsUser, TrendsUser, ClientsUser,
+                   #TicketsUser,
+                   CommentsUser, TrendsUser, ClientsUser,
                    Explorer, PollsUser, PlausibilityUser):
     pass
 
 class SiteStaff(SocialWorker, CoachingsStaff, CoursesUser,
                 ContactsStaff, OfficeStaff, ExcerptsStaff,
-                CareerStaff, BeIdUser, TicketsStaff, CommentsStaff,
+                CareerStaff, BeIdUser, #TicketsStaff,
+                CommentsStaff,
                 TrendsStaff, ClientsStaff, Explorer, PollsStaff):
     pass
 
