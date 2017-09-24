@@ -291,7 +291,7 @@ dd.update_field(Client, 'ref', verbose_name=_("Legacy file number"))
 class ClientDetail(dd.DetailLayout):
 
     main = "general person contact courses_tab family \
-    notes career trends #polls #courses misc #calendar"
+    notes career trends #polls #courses misc changes.ChangesByMaster"
 
     general = dd.Panel("""
     general1:30 general2:40 image:15
