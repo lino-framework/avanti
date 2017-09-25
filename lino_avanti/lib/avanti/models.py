@@ -41,6 +41,9 @@ from lino.mixins import ObservedDateRange
 
 from lino_xl.lib.coachings.choicelists import ClientEvents, ClientStates
 
+from lino_xl.lib.coachings.utils import daterange_text
+
+
 from .choicelists import TranslatorTypes, StartingReasons, EndingReasons, ProfessionalStates
 
 from lino.core.roles import Explorer
@@ -70,6 +73,8 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
         verbose_name_plural = _("Clients")
         abstract = dd.is_abstract_model(__name__, 'Client')
         #~ ordering = ['last_name','first_name']
+
+    quick_search_fields = "name phone gsm ref"
 
     is_obsolete = False  # coachings checker
 
@@ -430,10 +435,10 @@ class Clients(contacts.Persons):
             'countries.Country', blank=True, null=True,
             verbose_name=_("Nationality")),
         observed_event=ClientEvents.field(blank=True),
-        client_state=ClientStates.field(blank=True, default=''))
+        client_state=ClientStates.field(blank=True))
     params_layout = """
     aged_from aged_to gender nationality client_state user
-    start_date end_date observed_event course enrolment_state
+    start_date end_date observed_event course enrolment_state client_contact_type client_contact_company
     """
 
     @classmethod
@@ -501,15 +506,13 @@ class Clients(contacts.Persons):
         pv = ar.param_values
 
         if pv.observed_event:
-            yield unicode(pv.observed_event)
+            yield str(pv.observed_event)
 
         if pv.client_state:
-            yield unicode(pv.client_state)
+            yield str(pv.client_state)
 
-        if pv.start_date is None or pv.end_date is None:
-            period = None
-        else:
-            period = daterange_text(
+        if pv.start_date or pv.end_date:
+            yield daterange_text(
                 pv.start_date, pv.end_date)
 
     # @classmethod

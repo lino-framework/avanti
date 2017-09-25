@@ -100,10 +100,6 @@ class Site(Site):
             partner_model='avanti.Client')
         # self.plugins.faculties.configure(
         #     end_user_model='avanti.Client')
-        self.plugins.courses.configure(
-            # teacher_model='users.User',
-            pupil_model='avanti.Client',
-            pupil_name_fields='pupil__last_name pupil__first_name')
         self.plugins.coachings.configure(
             client_model='avanti.Client')
         self.plugins.trends.configure(

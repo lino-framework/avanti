@@ -10,6 +10,7 @@ from lino_xl.lib.courses.models import *
 from lino_xl.lib.courses.roles import CoursesUser
 from lino.modlib.plausibility.choicelists import Checker
 from lino.core.gfks import gfk2lookup
+from lino.utils.xmlgen.html import E, join_elems
 
 # contacts = dd.resolve_app('contacts')
 
@@ -99,6 +100,19 @@ class Enrolment(Enrolment):
     needs_school = models.BooleanField(_("School"), default=False)
     needs_evening = models.BooleanField(_("Evening"), default=False)
         
+    @dd.virtualfield(dd.HtmlBox(_("Participant")))
+    def pupil_info(self, ar):
+        txt = self.pupil.get_full_name(nominative=True)
+        if ar is None:
+            elems = [txt]
+        else:
+            elems = [ar.obj2html(self.pupil, txt)]
+        # elems += [', ']
+        # elems += join_elems(
+        #     list(self.pupil.address_location_lines()),
+        #     sep=', ')
+        return E.p(*elems)
+
 
 
 class EnrolmentChecker(Checker):
