@@ -147,6 +147,10 @@ class EnrolmentChecker(Checker):
                 yield (False, self.messages['msg_missed'])
                 return
     
+    def get_responsible_user(self, obj):
+        if obj.pupil and obj.pupil.user:
+            return obj.pupil.user
+        return super(EnrolmentChecker, self).get_responsible_user(obj)
 
 EnrolmentChecker.activate()
     
