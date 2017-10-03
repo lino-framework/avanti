@@ -53,6 +53,7 @@ class Site(Site):
         yield 'lino_avanti.lib.avanti'
         yield 'lino.modlib.comments'
         yield 'lino.modlib.notify'
+        yield 'lino.modlib.changes'
         yield 'lino_xl.lib.uploads'
         yield 'lino.modlib.dupable'
         # yield 'lino_xl.lib.households'
@@ -99,10 +100,6 @@ class Site(Site):
             partner_model='avanti.Client')
         # self.plugins.faculties.configure(
         #     end_user_model='avanti.Client')
-        self.plugins.courses.configure(
-            # teacher_model='users.User',
-            pupil_model='avanti.Client',
-            pupil_name_fields='pupil__last_name pupil__first_name')
         self.plugins.coachings.configure(
             client_model='avanti.Client')
         self.plugins.trends.configure(
@@ -134,6 +131,19 @@ class Site(Site):
         # tb.add_action(
         #     self.modules.tickets.MyTickets.insert_action,
         #     label=_("Submit a ticket"))
+
+    def do_site_startup(self):
+        super(Site, self).do_site_startup()
+
+        from lino.utils.watch import watch_changes as wc
+
+        wc(self.models.avanti.Client)
+        # wc(self.models.contacts.Person, master_key='partner_ptr')
+        # wc(self.models.contacts.Company, master_key='partner_ptr')
+        # wc(self.models.pcsw.Client, master_key='partner_ptr')
+
+        # wc(self.models.coachings.Coaching, master_key='client__partner_ptr')
+        wc(self.models.cal.Guest, master_key='partner')
 
 
 # the following line should not be active in a checked-in version

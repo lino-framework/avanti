@@ -6,10 +6,12 @@
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import pgettext_lazy as pgettext
 
+from lino.modlib.users.mixins import UserAuthored
 from lino_xl.lib.courses.models import *
 from lino_xl.lib.courses.roles import CoursesUser
 from lino.modlib.plausibility.choicelists import Checker
 from lino.core.gfks import gfk2lookup
+from lino.utils.xmlgen.html import E, join_elems
 
 # contacts = dd.resolve_app('contacts')
 
@@ -99,8 +101,47 @@ class Enrolment(Enrolment):
     needs_school = models.BooleanField(_("School"), default=False)
     needs_evening = models.BooleanField(_("Evening"), default=False)
         
+    @dd.virtualfield(dd.HtmlBox(_("Participant")))
+    def pupil_info(self, ar):
+        txt = self.pupil.get_full_name(nominative=True)
+        if ar is None:
+            elems = [txt]
+        else:
+            elems = [ar.obj2html(self.pupil, txt)]
+        # elems += [', ']
+        # elems += join_elems(
+        #     list(self.pupil.address_location_lines()),
+        #     sep=', ')
+        return E.p(*elems)
 
+class Reminder(UserAuthored):
+   
+    class Meta:
+        verbose_name = _("Reminder")
+        verbose_name_plural = _("Reminders")
+        abstract = dd.is_abstract_model(__name__, 'Reminder')
 
+    enrolment = dd.ForeignKey('courses.Enrolment')
+    date = dd.DateField(_("Date issued"))
+    text_body = dd.TextField(_("Text body"))
+    remark = dd.CharField(_("Remark"), max_length=240)
+
+class Reminders(dd.Table):
+    model = 'courses.Reminder'
+    
+class RemindersByPupil(Reminders):
+    column_names = 'date enrolment user remark *'
+    auto_fit_column_widths = True
+    master = pupil_model
+
+    @classmethod
+    def get_filter_kw(self, ar, **kw):
+        kw.update(enrolment__pupil=ar.master_instance)
+        return kw
+
+   
+    
+    
 class EnrolmentChecker(Checker):
     verbose_name = _("Check for unsufficient presences")
     model = Enrolment
@@ -133,6 +174,10 @@ class EnrolmentChecker(Checker):
                 yield (False, self.messages['msg_missed'])
                 return
     
+    def get_responsible_user(self, obj):
+        if obj.pupil and obj.pupil.user:
+            return obj.pupil.user
+        return super(EnrolmentChecker, self).get_responsible_user(obj)
 
 EnrolmentChecker.activate()
     

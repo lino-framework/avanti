@@ -16,6 +16,7 @@ from lino.utils.ssin import generate_ssin
 from lino.utils import Cycler, join_words
 # from lino.utils.instantiator import create_row
 from lino.api import rt, dd, _
+from lino.utils.mldbc import babel_named as named
 
 from lino.utils import demonames as demo
 
@@ -42,12 +43,34 @@ FEMALES = Cycler(get_female_first_names())
 def objects():
 
     Person = rt.models.contacts.Person
+    Company = rt.models.contacts.Company
     Client = rt.models.avanti.Client
-    TranslatorTypes = rt.actors.avanti.TranslatorTypes
-    ClientStates = rt.actors.avanti.ClientStates
+    ClientContact = rt.models.coachings.ClientContact
+    ClientContactType = rt.models.coachings.ClientContactType
+    TranslatorTypes = rt.models.avanti.TranslatorTypes
+    ClientStates = rt.models.avanti.ClientStates
+
+    yield named(ClientContactType, _("Health insurance"))
+    yield named(ClientContactType, _("School"))
+    yield named(ClientContactType, _("Pharmacy"))
+    yield named(ClientContactType, _("GSS"))
+    yield named(ClientContactType, _("ISS"))
+    
     TRTYPES = Cycler(TranslatorTypes.objects())
     POLICIES = Cycler(rt.models.cal.EventPolicy.objects.all())
-    
+    CCTYPES = Cycler(ClientContactType.objects.all())
+
+    for cct in ClientContactType.objects.all():
+        yield Company(
+            name="Favourite {}".format(cct), client_contact_type=cct)
+        yield Company(
+            name="Best {}".format(cct), client_contact_type=cct)
+        
+    CCT2COMPANIES = dict()
+    for cct in ClientContactType.objects.all():
+        CCT2COMPANIES[cct] = Cycler(Company.objects.filter(
+            client_contact_type=cct))
+
     count = 0
     for person in Person.objects.all():
         count += 1
@@ -100,3 +123,8 @@ def objects():
             # yield mtichild(
             #     person, Translator, translator_type=TT.pop())
 
+    for i, obj in enumerate(Client.objects.all()):
+        for j in range(i % 2):
+            cct = CCTYPES.pop()
+            company = CCT2COMPANIES[cct].pop()
+            yield ClientContact(type=cct, client=obj, company=company)

@@ -15,6 +15,10 @@ class Plugin(Plugin):
 
     extends_models = ['Course', 'Enrolment']
     
+    teacher_model = 'contacts.Person'
+    pupil_model = 'avanti.Client'
+    pupil_name_fields = "pupil__last_name pupil__first_name"
+    
     def setup_main_menu(self, site, user_type, main):
         super(Plugin, self).setup_main_menu(site, user_type, main)
         m = main.add_menu(self.app_label, self.verbose_name)
