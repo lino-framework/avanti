@@ -31,7 +31,7 @@ from lino_xl.lib.courses.mixins import Enrollable
 # from lino.modlib.notify.mixins import ChangeObservable
 # from lino_xl.lib.notes.choicelists import SpecialTypes
 from lino_xl.lib.coachings.mixins import Coachable
-from lino_xl.lib.notes.mixins import Notable
+# from lino_xl.lib.notes.mixins import Notable
 from lino_xl.lib.cal.mixins import EventGenerator
 from lino_xl.lib.cal.workflows import TaskStates
 from lino_xl.lib.cv.mixins import BiographyOwner
@@ -371,10 +371,13 @@ class ClientDetail(dd.DetailLayout):
     """, label=_("Family"))
 
     notes = dd.Panel("""
-    #notes.NotesByProject
-    comments.CommentsByRFC cal.TasksByProject
-    #coachings.CoachingsByClient 
+    comments.CommentsByRFC notes_right
     """, label = _("Notes"))
+    
+    notes_right = """
+    cal.TasksByProject
+    courses.RemindersByPupil
+    """
 
     # courses = dd.Panel("""
     # courses.EnrolmentsByPupil
