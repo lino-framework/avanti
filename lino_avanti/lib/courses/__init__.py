@@ -4,12 +4,9 @@
 
 """See :doc:`/specs/avanti/courses`.
 
-
 """
 
-
 from lino_xl.lib.courses import Plugin
-
 
 class Plugin(Plugin):
 
@@ -23,3 +20,9 @@ class Plugin(Plugin):
         super(Plugin, self).setup_main_menu(site, user_type, main)
         m = main.add_menu(self.app_label, self.verbose_name)
         m.add_action('courses.CoursesPlanning')
+
+    def setup_explorer_menu(self, site, user_type, main):
+        super(Plugin, self).setup_explorer_menu(site, user_type, main)
+        m = main.add_menu(self.app_label, self.verbose_name)
+        m.add_action('courses.Reminders')
+        

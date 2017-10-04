@@ -1,7 +1,7 @@
 # Copyright 2017 Luc Saffre
 # License: BSD (see file COPYING for details)
 
-
+from builtins import str
 
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import pgettext_lazy as pgettext
@@ -9,9 +9,12 @@ from django.utils.translation import pgettext_lazy as pgettext
 from lino.modlib.users.mixins import UserAuthored
 from lino_xl.lib.courses.models import *
 from lino_xl.lib.courses.roles import CoursesUser
+from lino_xl.lib.excerpts.mixins import Certifiable
 from lino.modlib.plausibility.choicelists import Checker
 from lino.core.gfks import gfk2lookup
 from lino.utils.xmlgen.html import E, join_elems
+
+from .choicelists import ReminderStates
 
 # contacts = dd.resolve_app('contacts')
 
@@ -114,33 +117,33 @@ class Enrolment(Enrolment):
         #     sep=', ')
         return E.p(*elems)
 
-class Reminder(UserAuthored):
+    def get_excerpt_title(self):
+        return _("Integration Course Agreement")
+    
+dd.python_2_unicode_compatible    
+class Reminder(UserAuthored, Certifiable):
    
     class Meta:
         verbose_name = _("Reminder")
         verbose_name_plural = _("Reminders")
         abstract = dd.is_abstract_model(__name__, 'Reminder')
 
-    enrolment = dd.ForeignKey('courses.Enrolment')
-    date = dd.DateField(_("Date issued"))
-    text_body = dd.TextField(_("Text body"))
-    remark = dd.CharField(_("Remark"), max_length=240)
+    workflow_state_field = 'state'
 
-class Reminders(dd.Table):
-    model = 'courses.Reminder'
-    
-class RemindersByPupil(Reminders):
-    column_names = 'date enrolment user remark *'
-    auto_fit_column_widths = True
-    master = pupil_model
+    enrolment = dd.ForeignKey('courses.Enrolment', editable=False)
+    date_issued = dd.DateField(_("Date issued"), default=dd.today)
+    text_body = dd.RichTextField(_("Text body"), blank=True, format='html')
+    state = ReminderStates.field(default=ReminderStates.draft.as_callable)
+    remark = dd.CharField(_("Remark"), max_length=240, blank=True)
 
-    @classmethod
-    def get_filter_kw(self, ar, **kw):
-        kw.update(enrolment__pupil=ar.master_instance)
-        return kw
+    # def on_create(self, ar):
+    #     super(Reminder, self).on_create(ar)
+    #     self.date_issued = dd.today()
+
+    def __str__(self):
+        return "{} ({})".format(dd.fds(self.date_issued), str(self.state))
 
    
-    
     
 class EnrolmentChecker(Checker):
     verbose_name = _("Check for unsufficient presences")
@@ -154,11 +157,20 @@ class EnrolmentChecker(Checker):
         Guest = rt.models.cal.Guest
         GuestStates = rt.models.cal.GuestStates
         Event = rt.models.cal.Event
+        Reminder = rt.models.courses.Reminder
         EntryStates = rt.models.cal.EntryStates
+        
+        rdate = Reminder.objects.filter(enrolment=obj).order_by(
+            '-date_issued').first()
+        if rdate is not None:
+            rdate = rdate.date_issued
         eflt = gfk2lookup(Event.owner, obj.course)
         gflt = { 'event__'+k: v for k, v in eflt.items() }
         qs = Guest.objects.filter(partner=obj.pupil, **gflt)
         # qs = qs.filter(**gfk2lookup(Guest.course, obj.course))
+        if rdate:
+            qs = qs.filter(event__start_date__gt=rdate)
+            
         absent = qs.filter(state=GuestStates.absent).count()
         if absent > 2:
             yield (False, self.messages['msg_absent'])

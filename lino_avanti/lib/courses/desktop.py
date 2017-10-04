@@ -8,6 +8,7 @@ from lino.api import _
 from lino.core.gfks import gfk2lookup
 from lino.utils import join_elems
 from lino.utils.xmlgen.html import E
+from lino.modlib.users.mixins import My
 
 
 # Courses.required_roles = dd.login_required(Explorer)
@@ -91,8 +92,8 @@ Enrolments.detail_layout = """
 request_date user start_date end_date
 course pupil
 needs_childcare needs_school needs_bus needs_evening
-remark workflow_buttons
-confirmation_details PresencesByEnrolment plausibility.ProblemsByOwner
+remark:40 workflow_buttons:40 printed:20
+confirmation_details PresencesByEnrolment plausibility.ProblemsByOwner RemindersByEnrolment
 """
 
 class CoursesPlanning(Activities):
@@ -102,3 +103,45 @@ class CoursesPlanning(Activities):
         "overview state "\
         "max_places requested confirmed trying free_places " \
         "school_needed childcare_needed bus_needed evening_needed *"
+
+
+class Reminders(dd.Table):
+    model = 'courses.Reminder'
+    order_by = ['-date_issued']
+
+
+class MyReminders(My, Reminders):
+    can_create = False
+    # pass
+
+class RemindersByEnrolment(Reminders):
+    column_names = 'date_issued user remark workflow_buttons *'
+    auto_fit_column_widths = True
+    master_key = 'enrolment'
+    slave_grid_format = 'summary'
+    can_create = True
+    insert_layout = dd.InsertLayout("""
+    remark
+    text_body
+    """, window_size=(50,10))
+    detail_layout = """
+    date_issued workflow_buttons
+    remark
+    enrolment user id printed
+    text_body
+    """
+    
+    
+class RemindersByPupil(Reminders):
+    column_names = 'date_issued enrolment user remark workflow_buttons *'
+    auto_fit_column_widths = True
+    # master = pupil_model
+    master_key = 'enrolment__pupil'
+
+    # @classmethod
+    # def get_filter_kw(self, ar, **kw):
+    #     kw.update(enrolment__pupil=ar.master_instance)
+    #     return kw
+
+   
+    

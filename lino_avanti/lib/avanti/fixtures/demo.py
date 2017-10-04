@@ -83,7 +83,7 @@ def objects():
             national_id = generate_ssin(birth_date, person.gender)
 
             client = mtichild(
-                person, Client, 
+                person, Client,
                 national_id=national_id,
                 birth_date=birth_date)
 
@@ -128,3 +128,5 @@ def objects():
             cct = CCTYPES.pop()
             company = CCT2COMPANIES[cct].pop()
             yield ClientContact(type=cct, client=obj, company=company)
+
+

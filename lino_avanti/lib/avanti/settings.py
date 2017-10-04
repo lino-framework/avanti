@@ -39,7 +39,9 @@ class Site(Site):
 
     project_model = 'avanti.Client'
     textfield_format = 'plain'
+    # textfield_format = 'html'
     # use_silk_icons = False
+    default_build_method = "appypdf"
 
     def get_installed_apps(self):
         """Implements :meth:`lino.core.site.Site.get_installed_apps`.
