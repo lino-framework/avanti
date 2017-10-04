@@ -34,5 +34,11 @@ specific "enrolment options":"""),
     'lino_avanti.lib.courses.EnrolmentsByCourse' : _("""Same as lino_xl.lib.courses.EnrolmentsByCourse but adds
 the gender of the pupil (a remote field) and the enrolment
 options."""),
+    'lino_avanti.lib.courses.Reminder' : _("""A reminder is when a coaching worker sends a written letter to
+a client reminding him or her that they have a problme with their
+presences."""),
+    'lino_avanti.lib.courses.Reminders' : _("""The table of all reminders."""),
+    'lino_avanti.lib.courses.RemindersByPupil' : _("""Shows all reminders that have been issued for this pupil."""),
+    'lino_avanti.lib.courses.ReminderStates' : _("""The list of possible states of a reminder."""),
     'lino_avanti.lib.courses.EnrolmentChecker' : _("""Checks for the following plausibility problems:"""),
 }
