@@ -158,7 +158,11 @@ class EnrolmentChecker(Checker):
         GuestStates = rt.models.cal.GuestStates
         Event = rt.models.cal.Event
         Reminder = rt.models.courses.Reminder
+        EnrolmentStates = rt.models.courses.EnrolmentStates
         EntryStates = rt.models.cal.EntryStates
+
+        if obj.state != EnrolmentStates.confirmed:
+            return
         
         rdate = Reminder.objects.filter(enrolment=obj).order_by(
             '-date_issued').first()
@@ -175,9 +179,10 @@ class EnrolmentChecker(Checker):
         if absent > 2:
             yield (False, self.messages['msg_absent'])
             return
-        events = Event.objects.filter(**eflt)
-        events = events.filter(state=EntryStates.took_place)
-        ecount = events.count()
+        # events = Event.objects.filter(**eflt)
+        # events = events.filter(state=EntryStates.took_place)
+        # ecount = events.count()
+        ecount = obj.course.max_events
         if ecount > 9:
             excused = qs.filter(state=GuestStates.excused).count()
             missing = absent + excused
