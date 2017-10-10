@@ -20,9 +20,11 @@ to look for a new job."""),
 equal to city, except when city is a village
 and has a parent which is a municipality (which causes that
 place to be returned)."""),
+    'lino_avanti.lib.avanti.Clients' : _("""Base class for most lists of clients."""),
     'lino_avanti.lib.avanti.Clients.client_state' : _("""If not empty, show only Clients whose client_state equals
 the specified value."""),
     'lino_avanti.lib.avanti.AllClients' : _("""This table is visible for Explorer who can also export it."""),
+    'lino_avanti.lib.avanti.MyClients' : _("""Shows all clients having me as primary coach. Shows all client states."""),
     'lino_avanti.lib.courses.Course' : _("""Same as lino_xl.lib.courses.Course."""),
     'lino_avanti.lib.courses.Enrolment' : _("""Inherits from lino_xl.lib.courses.Enrolment but adds four
 specific "enrolment options":"""),
