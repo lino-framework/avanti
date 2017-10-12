@@ -439,6 +439,7 @@ class Clients(contacts.Persons):
             verbose_name=_("Nationality")),
         observed_event=ClientEvents.field(blank=True),
         client_state=ClientStates.field(blank=True))
+        # client_state=ClientStates.field(blank=True, default=''))
     params_layout = """
     aged_from aged_to gender nationality client_state user
     start_date end_date observed_event course enrolment_state client_contact_type client_contact_company
@@ -556,7 +557,12 @@ class ClientsByNationality(Clients):
 
 
 class MyClients(My, Clients):
-    pass
+    @classmethod
+    def param_defaults(self, ar, **kw):
+        kw = super(MyClients, self).param_defaults(ar, **kw)
+        kw.update(client_state='')
+        return kw
+
 
 
 # class ClientsByTranslator(Clients):
@@ -609,6 +615,7 @@ add = ClientStates.add_item
 add('10', _("Newcomer"), 'newcomer')
 # add('10', _("Testing"), 'testing')
 add('20', pgettext("client state", "Registered"), 'coached')
+add('25', _("Inactive"), 'inactive')
 add('30', _("Ended"), 'former')
 add('40', _("Abandoned"), 'refused')
 

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  lino.apps.dsbe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-04 09:44+0300\n"
+"POT-Creation-Date: 2017-10-10 17:51+0300\n"
 "PO-Revision-Date: 2016-11-20 19:48+0100\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: fr\n"
@@ -165,72 +165,80 @@ msgid ""
 msgstr ""
 
 #: lino_avanti/lib/avanti/help_texts.py:23
+msgid "Base class for most lists of clients."
+msgstr ""
+
+#: lino_avanti/lib/avanti/help_texts.py:24
 msgid ""
 "If not empty, show only Clients whose client_state equals\n"
 "the specified value."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:25
+#: lino_avanti/lib/avanti/help_texts.py:26
 msgid "This table is visible for Explorer who can also export it."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:26
+#: lino_avanti/lib/avanti/help_texts.py:27
+msgid "Shows all clients having me as primary coach. Shows all client states."
+msgstr ""
+
+#: lino_avanti/lib/avanti/help_texts.py:28
 msgid "Same as lino_xl.lib.courses.Course."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:27
+#: lino_avanti/lib/avanti/help_texts.py:29
 msgid ""
 "Inherits from lino_xl.lib.courses.Enrolment but adds four\n"
 "specific \"enrolment options\":"
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:29
+#: lino_avanti/lib/avanti/help_texts.py:31
 msgid "Whether this pupil has small children to care about."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:30
+#: lino_avanti/lib/avanti/help_texts.py:32
 msgid "Whether this pupil needs public transportation for moving."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:31
+#: lino_avanti/lib/avanti/help_texts.py:33
 msgid "Whether this pupil has school children to care about."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:32
+#: lino_avanti/lib/avanti/help_texts.py:34
 msgid "Whether this pupil is available only for evening courses."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:33
+#: lino_avanti/lib/avanti/help_texts.py:35
 msgid "Shows the presences of this pupil for this course."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:34
+#: lino_avanti/lib/avanti/help_texts.py:36
 msgid ""
 "Same as lino_xl.lib.courses.EnrolmentsByCourse but adds\n"
 "the gender of the pupil (a remote field) and the enrolment\n"
 "options."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:37
+#: lino_avanti/lib/avanti/help_texts.py:39
 msgid ""
 "A reminder is when a coaching worker sends a written letter to\n"
 "a client reminding him or her that they have a problme with their\n"
 "presences."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:40
+#: lino_avanti/lib/avanti/help_texts.py:42
 msgid "The table of all reminders."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:41
+#: lino_avanti/lib/avanti/help_texts.py:43
 msgid "Shows all reminders that have been issued for this pupil."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:42
+#: lino_avanti/lib/avanti/help_texts.py:44
 msgid "The list of possible states of a reminder."
 msgstr ""
 
-#: lino_avanti/lib/avanti/help_texts.py:43
+#: lino_avanti/lib/avanti/help_texts.py:45
 msgid "Checks for the following plausibility problems:"
 msgstr ""
 
@@ -369,7 +377,7 @@ msgstr ""
 msgid "General"
 msgstr "Général"
 
-#: lino_avanti/lib/avanti/models.py:323 lino_avanti/lib/avanti/models.py:575
+#: lino_avanti/lib/avanti/models.py:323 lino_avanti/lib/avanti/models.py:581
 msgid "Residence"
 msgstr ""
 
@@ -401,33 +409,37 @@ msgstr "Divers"
 msgid "Career"
 msgstr "Parcours"
 
-#: lino_avanti/lib/avanti/models.py:576
+#: lino_avanti/lib/avanti/models.py:582
 msgid "Residences"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:578
+#: lino_avanti/lib/avanti/models.py:584
 #, fuzzy
 msgid "Reason"
 msgstr "raison"
 
-#: lino_avanti/lib/avanti/models.py:586
+#: lino_avanti/lib/avanti/models.py:592
 msgid "Former residences"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:609
+#: lino_avanti/lib/avanti/models.py:615
 msgid "Newcomer"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:611
+#: lino_avanti/lib/avanti/models.py:617
 msgctxt "client state"
 msgid "Registered"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:612
+#: lino_avanti/lib/avanti/models.py:618
+msgid "Inactive"
+msgstr ""
+
+#: lino_avanti/lib/avanti/models.py:619
 msgid "Ended"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:613
+#: lino_avanti/lib/avanti/models.py:620
 msgid "Abandoned"
 msgstr ""
 

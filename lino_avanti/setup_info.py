@@ -4,7 +4,7 @@
 
 SETUP_INFO = dict(
     name='lino-avanti',
-    version='2017.1.0',
+    version='17.10.0',
     install_requires=['lino-xl', 'metafone'],
     description=("Manage the integration course of immigrants in East Belgium"),
     author='Luc Saffre',
