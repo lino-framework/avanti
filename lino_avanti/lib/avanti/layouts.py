@@ -61,3 +61,7 @@ rt.actors.cv.ExperiencesByPerson.column_names = "company country duration_text f
 dd.update_field(
     rt.models.cv.Experience, 'company',
     verbose_name=_("Work area"))
+
+from lino_avanti.lib.avanti.roles import ClientsUser
+rt.models.extensible.CalendarPanel.required_roles = dd.login_required(
+    ClientsUser)

@@ -9,6 +9,7 @@ from lino.core.gfks import gfk2lookup
 from lino.utils import join_elems
 from lino.utils.xmlgen.html import E
 from lino.modlib.users.mixins import My
+from lino_avanti.lib.avanti.roles import ClientsUser
 
 
 # Courses.required_roles = dd.login_required(Explorer)
@@ -106,6 +107,7 @@ class CoursesPlanning(Activities):
 
 
 class Reminders(dd.Table):
+    required_roles = dd.login_required(ClientsUser)
     model = 'courses.Reminder'
     order_by = ['-date_issued']
 
