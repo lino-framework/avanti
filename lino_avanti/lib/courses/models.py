@@ -104,6 +104,11 @@ class Enrolment(Enrolment):
     needs_school = models.BooleanField(_("School"), default=False)
     needs_evening = models.BooleanField(_("Evening"), default=False)
         
+    # ending = dd.ForeignKey(
+    #     'coachings.CoachingEnding',
+    #     related_name="%(app_label)s_%(class)s_set",
+    #     blank=True, null=True)
+
     @dd.virtualfield(dd.HtmlBox(_("Participant")))
     def pupil_info(self, ar):
         txt = self.pupil.get_full_name(nominative=True)
@@ -174,6 +179,8 @@ class EnrolmentChecker(Checker):
         # qs = qs.filter(**gfk2lookup(Guest.course, obj.course))
         if rdate:
             qs = qs.filter(event__start_date__gt=rdate)
+        if obj.request_date:
+            qs = qs.filter(event__start_date__gte=obj.request_date)
             
         absent = qs.filter(state=GuestStates.absent).count()
         if absent > 2:

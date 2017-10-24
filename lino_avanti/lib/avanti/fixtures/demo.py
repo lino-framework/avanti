@@ -17,6 +17,7 @@ from lino.utils import Cycler, join_words
 # from lino.utils.instantiator import create_row
 from lino.api import rt, dd, _
 from lino.utils.mldbc import babel_named as named
+from lino.utils.mldbc import babeld
 
 from lino.utils import demonames as demo
 
@@ -49,6 +50,22 @@ def objects():
     ClientContactType = rt.models.coachings.ClientContactType
     TranslatorTypes = rt.models.avanti.TranslatorTypes
     ClientStates = rt.models.avanti.ClientStates
+    EndingReason = rt.models.avanti.EndingReason
+    Category = rt.models.avanti.Category
+
+    yield babeld(EndingReason, _("Successfully ended"), id=1)
+    yield babeld(EndingReason, _("Health problems"), id=2)
+    yield babeld(EndingReason, _("Familiar reasons"), id=3)
+    yield babeld(EndingReason, _("Missing motivation"), id=4)
+    yield babeld(EndingReason, _("Return to home country"), id=5)
+    yield babeld(EndingReason, _("Other"), id=9)
+    
+    yield babeld(Category, _("Language course"))
+    yield babeld(Category, _("Integration course"))
+    yield babeld(Category, _("Language & integration course"))
+    yield babeld(Category, _("External course"))
+    yield babeld(Category, _("Justified interruption"))
+    yield babeld(Category, _("Successfully terminated"))
 
     yield named(ClientContactType, _("Health insurance"))
     yield named(ClientContactType, _("School"))

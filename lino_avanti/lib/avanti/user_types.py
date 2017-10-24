@@ -13,7 +13,7 @@ from django.utils.translation import ugettext_lazy as _
 from lino.core.roles import UserRole, Explorer, SiteAdmin, SiteUser
 from lino.modlib.users.choicelists import UserTypes
 from lino.modlib.comments.roles import CommentsUser, CommentsStaff
-from lino.modlib.office.roles import OfficeUser, OfficeStaff
+from lino.modlib.office.roles import OfficeUser, OfficeStaff, OfficeOperator
 from lino.modlib.plausibility.roles import PlausibilityUser
 from lino_xl.lib.contacts.roles import ContactsUser, ContactsStaff
 # from lino_xl.lib.cal.roles import CalendarUser, CalendarStaff
@@ -34,8 +34,8 @@ class Auditor(CoursesUser, OfficeUser, Explorer):
 class Teacher(SiteUser, CoursesTeacher, OfficeUser, ClientsNameUser):
     pass
 
-class Coordinator(CoursesUser, OfficeUser, PlausibilityUser,
-                  ClientsNameUser):
+class Coordinator(CoursesUser, OfficeOperator,
+                  PlausibilityUser, ClientsNameUser):
     pass
 
 class SocialWorker(CoachingsUser, CoursesUser, ContactsUser,

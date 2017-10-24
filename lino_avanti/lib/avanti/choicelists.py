@@ -32,11 +32,11 @@ add = StartingReasons.add_item
 add('100', _("Voluntarily"))
 add('200', _("Mandatory"))
 
-class EndingReasons(dd.ChoiceList):
+class OldEndingReasons(dd.ChoiceList):
 
-    verbose_name = _("Ending reason")
+    verbose_name = _("Old Ending reason")
 
-add = EndingReasons.add_item
+add = OldEndingReasons.add_item
 add('100', _("Successfully ended"))
 add('200', _("Health problems"))
 add('300', _("Familiar reasons"))
