@@ -125,6 +125,8 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
     ending_reason = dd.ForeignKey(
         'avanti.EndingReason', blank=True, null=True)
     professional_state = ProfessionalStates.field(blank=True)
+    category = dd.ForeignKey(
+        'avanti.Category', blank=True, null=True)
     
     translator_type = TranslatorTypes.field(blank=True)
     translator_notes = dd.RichTextField(
@@ -342,7 +344,7 @@ class ClientDetail(dd.DetailLayout):
     id:10 national_id:15 ref
     birth_date age:10 gender:10
     starting_reason professional_state
-    reason_of_stay
+    reason_of_stay category
     client_state user #primary_coach
     event_policy ending_reason 
     # workflow_buttons 
