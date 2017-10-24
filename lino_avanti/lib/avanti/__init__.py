@@ -41,9 +41,10 @@ class Plugin(ad.Plugin):
         # m.add_action('coachings.CoachedClients')
         # m.add_action('coachings.MyCoachings')
 
-    # def setup_config_menu(self, site, user_type, m):
-    #     m = m.add_menu(self.app_label, self.verbose_name)
-    #     m.add_action('contacts.CompanyTypes')
+    def setup_config_menu(self, site, user_type, m):
+        m = m.add_menu(self.app_label, self.verbose_name)
+        m.add_action('avanti.Categories')
+        m.add_action('avanti.EndingReasons')
 
     def setup_explorer_menu(self, site, user_type, m):
         mg = site.plugins.contacts

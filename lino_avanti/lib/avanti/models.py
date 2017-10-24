@@ -44,10 +44,12 @@ from lino_xl.lib.coachings.choicelists import ClientEvents, ClientStates
 from lino_xl.lib.coachings.utils import daterange_text
 
 
-from .choicelists import TranslatorTypes, StartingReasons, EndingReasons, ProfessionalStates
+from .choicelists import TranslatorTypes, StartingReasons, ProfessionalStates
+
+from .choicelists import OldEndingReasons
 
 from lino.core.roles import Explorer
-from .roles import ClientsNameUser, ClientsUser
+from .roles import ClientsNameUser, ClientsUser, ClientsStaff
 
 contacts = dd.resolve_app('contacts')
 
@@ -60,6 +62,33 @@ contacts = dd.resolve_app('contacts')
 #                 obj._cef_levels[lk.language.iso2] = lk.obj._cef_levels
 #         return obj._cef_levels.get(lng.django_code)
 #     return f
+
+from lino.utils.mldbc.mixins import BabelDesignated
+
+class Category(BabelDesignated):
+    
+    class Meta:
+        app_label = 'avanti'
+        verbose_name = _("Category")
+        verbose_name_plural = _("Categories")
+        abstract = dd.is_abstract_model(__name__, 'Category')
+
+class Categories(dd.Table):
+    model = 'avanti.Category'
+    required_roles = dd.login_required(ClientsStaff)
+
+class EndingReason(BabelDesignated):
+    
+    class Meta:
+        app_label = 'avanti'
+        verbose_name = _("Ending reason")
+        verbose_name_plural = _("Ending reasons")
+        abstract = dd.is_abstract_model(__name__, 'Category')
+
+        
+class EndingReasons(dd.Table):
+    model = 'avanti.EndingReason'
+    required_roles = dd.login_required(ClientsStaff)
 
 
 @dd.python_2_unicode_compatible
@@ -92,7 +121,9 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
         _("Lives in Belgium since"), blank=True, null=True)
     
     starting_reason = StartingReasons.field(blank=True)
-    ending_reason = EndingReasons.field(blank=True)
+    old_ending_reason = OldEndingReasons.field(blank=True)
+    ending_reason = dd.ForeignKey(
+        'avanti.EndingReason', blank=True, null=True)
     professional_state = ProfessionalStates.field(blank=True)
     
     translator_type = TranslatorTypes.field(blank=True)

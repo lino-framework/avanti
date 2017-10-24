@@ -20,7 +20,7 @@ from lino_avanti.lib.avanti.roles import ClientsUser
 
 AllEnrolments.column_names = "id request_date start_date end_date \
 user course pupil pupil__birth_date pupil__age pupil__country \
-pupil__city pupil__gender ending"
+pupil__city pupil__gender"
 
 class EnrolmentsByCourse(EnrolmentsByCourse):
     column_names = 'id request_date pupil pupil__gender pupil__nationality:15 ' \
@@ -93,7 +93,7 @@ Enrolments.detail_layout = """
 request_date user start_date end_date
 course pupil
 needs_childcare needs_school needs_bus needs_evening
-remark:40 workflow_buttons:40 printed:20 ending
+remark:40 workflow_buttons:40 printed:20
 confirmation_details PresencesByEnrolment plausibility.ProblemsByOwner RemindersByEnrolment
 """
 

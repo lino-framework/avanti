@@ -104,10 +104,10 @@ class Enrolment(Enrolment):
     needs_school = models.BooleanField(_("School"), default=False)
     needs_evening = models.BooleanField(_("Evening"), default=False)
         
-    ending = dd.ForeignKey(
-        'coachings.CoachingEnding',
-        related_name="%(app_label)s_%(class)s_set",
-        blank=True, null=True)
+    # ending = dd.ForeignKey(
+    #     'coachings.CoachingEnding',
+    #     related_name="%(app_label)s_%(class)s_set",
+    #     blank=True, null=True)
 
     @dd.virtualfield(dd.HtmlBox(_("Participant")))
     def pupil_info(self, ar):
