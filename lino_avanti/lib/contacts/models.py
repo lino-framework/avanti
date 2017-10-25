@@ -85,7 +85,7 @@ class CompanyDetail(CompanyDetail, PartnerDetail):
     id language type client_contact_type
     addr1 url
     # notes.NotesByCompany
-    coachings.ClientContactsByCompany
+    clients.ClientContactsByCompany
     plausibility.ProblemsByOwner 
     """, label=_("More"))
 
