@@ -19,6 +19,7 @@ from django.utils.translation import string_concat
 
 from lino.utils import join_elems
 from lino.utils.xmlgen.html import E
+from lino.utils.dates import daterange_text
 # from lino.utils import ssin
 from lino.mixins import Referrable
 from lino.mixins.human import strip_name_prefix
@@ -30,7 +31,8 @@ from lino_xl.lib.courses.mixins import Enrollable
 
 # from lino.modlib.notify.mixins import ChangeObservable
 # from lino_xl.lib.notes.choicelists import SpecialTypes
-from lino_xl.lib.coachings.mixins import Coachable
+# from lino_xl.lib.coachings.mixins import Coachable
+from lino_xl.lib.clients.mixins import ClientBase
 # from lino_xl.lib.notes.mixins import Notable
 from lino_xl.lib.cal.mixins import EventGenerator
 from lino_xl.lib.cal.workflows import TaskStates
@@ -39,9 +41,8 @@ from lino_xl.lib.cv.mixins import BiographyOwner
 
 from lino.mixins import ObservedDateRange
 
-from lino_xl.lib.coachings.choicelists import ClientEvents, ClientStates
+from lino_xl.lib.clients.choicelists import ClientEvents, ClientStates
 
-from lino_xl.lib.coachings.utils import daterange_text
 
 
 from .choicelists import TranslatorTypes, StartingReasons, ProfessionalStates
@@ -93,7 +94,7 @@ class EndingReasons(dd.Table):
 
 @dd.python_2_unicode_compatible
 class Client(contacts.Person, BeIdCardHolder, UserAuthored,
-             Coachable, BiographyOwner, Referrable, Dupable,
+             ClientBase, BiographyOwner, Referrable, Dupable,
              # Notable,
              Commentable, EventGenerator, Enrollable):
     class Meta:
@@ -110,7 +111,6 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
     beid_readonly_fields = set()
     manager_roles_required = dd.login_required(ClientsUser)
     validate_national_id = True
-    # workflow_state_field = 'client_state'
     _cef_levels = None
     _mother_tongues = None
 
@@ -373,7 +373,7 @@ class ClientDetail(dd.DetailLayout):
     first_name middle_name last_name #declared_name
     nationality:15 nationality2:15 birth_country birth_place in_belgium_since needs_work_permit:18
     card_type #card_number card_issuer card_valid_from card_valid_until
-    coachings.ContactsByClient uploads.UploadsByClient dupable.SimilarObjects
+    clients.ContactsByClient uploads.UploadsByClient dupable.SimilarObjects
     """, label=_("Person"))
 
     courses_tab = dd.Panel("""
@@ -469,13 +469,11 @@ class Clients(contacts.Persons):
     parameters = ObservedDateRange(
         nationality=dd.ForeignKey(
             'countries.Country', blank=True, null=True,
-            verbose_name=_("Nationality")),
-        observed_event=ClientEvents.field(blank=True),
-        client_state=ClientStates.field(blank=True))
-        # client_state=ClientStates.field(blank=True, default=''))
+            verbose_name=_("Nationality")))
+        # observed_event=ClientEvents.field(blank=True)
     params_layout = """
     aged_from aged_to gender nationality client_state user
-    start_date end_date observed_event course enrolment_state client_contact_type client_contact_company
+    start_date end_date #observed_event course enrolment_state client_contact_type client_contact_company
     """
 
     @classmethod
@@ -488,11 +486,11 @@ class Clients(contacts.Persons):
         qs = super(Clients, self).get_request_queryset(ar)
 
         pv = ar.param_values
-        period = [pv.start_date, pv.end_date]
-        if period[0] is None:
-            period[0] = period[1] or dd.today()
-        if period[1] is None:
-            period[1] = period[0]
+        # period = [pv.start_date, pv.end_date]
+        # if period[0] is None:
+        #     period[0] = period[1] or dd.today()
+        # if period[1] is None:
+        #     period[1] = period[0]
 
         ce = pv.observed_event
         if ce:
@@ -524,9 +522,6 @@ class Clients(contacts.Persons):
         #     qs = qs.exclude(flt).distinct()
 
 
-        if pv.client_state:
-            qs = qs.filter(client_state=pv.client_state)
-
         if pv.nationality:
             qs = qs.filter(
                 models.Q(nationality=pv.nationality)|
@@ -542,11 +537,8 @@ class Clients(contacts.Persons):
             yield t
         pv = ar.param_values
 
-        if pv.observed_event:
-            yield str(pv.observed_event)
-
-        if pv.client_state:
-            yield str(pv.client_state)
+        # if pv.observed_event:
+        #     yield str(pv.observed_event)
 
         if pv.start_date or pv.end_date:
             yield daterange_text(
@@ -641,7 +633,7 @@ class ResidencesByPerson(HistoryByPerson, Residences):
     
 
 from lino.api import _, pgettext
-from lino_xl.lib.coachings.choicelists import ClientStates
+from lino_xl.lib.clients.choicelists import ClientStates
 ClientStates.default_value = 'coached'
 ClientStates.clear()
 add = ClientStates.add_item

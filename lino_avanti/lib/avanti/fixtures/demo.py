@@ -46,8 +46,8 @@ def objects():
     Person = rt.models.contacts.Person
     Company = rt.models.contacts.Company
     Client = rt.models.avanti.Client
-    ClientContact = rt.models.coachings.ClientContact
-    ClientContactType = rt.models.coachings.ClientContactType
+    ClientContact = rt.models.clients.ClientContact
+    ClientContactType = rt.models.clients.ClientContactType
     TranslatorTypes = rt.models.avanti.TranslatorTypes
     ClientStates = rt.models.avanti.ClientStates
     EndingReason = rt.models.avanti.EndingReason
