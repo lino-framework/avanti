@@ -42,5 +42,5 @@ presences."""),
     'lino_avanti.lib.courses.Reminders' : _("""The table of all reminders."""),
     'lino_avanti.lib.courses.RemindersByPupil' : _("""Shows all reminders that have been issued for this pupil."""),
     'lino_avanti.lib.courses.ReminderStates' : _("""The list of possible states of a reminder."""),
-    'lino_avanti.lib.courses.EnrolmentChecker' : _("""Checks for the following plausibility problems:"""),
+    'lino_avanti.lib.courses.EnrolmentChecker' : _("""Checks for the following data problems:"""),
 }
