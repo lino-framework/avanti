@@ -46,7 +46,7 @@ class PartnerDetail(PartnerDetail):
     """, label=_("More"))
 
     bottom_box = """
-    remarks:50 plausibility.ProblemsByOwner:30
+    remarks:50 checkdata.ProblemsByOwner:30
     """
 
     # A layout for use in Belgium
@@ -86,7 +86,7 @@ class CompanyDetail(CompanyDetail, PartnerDetail):
     addr1 url
     # notes.NotesByCompany
     clients.ClientContactsByCompany
-    plausibility.ProblemsByOwner 
+    checkdata.ProblemsByOwner 
     """, label=_("More"))
 
     address_box = """
@@ -139,7 +139,7 @@ class PersonDetail(PersonDetail, PartnerDetail):
     # personal = 'national_id card_number'
    
     bottom_box = """
-    remarks:50 plausibility.ProblemsByOwner:30
+    remarks:50 checkdata.ProblemsByOwner:30
     """
 
 Persons.set_detail_layout(PersonDetail())

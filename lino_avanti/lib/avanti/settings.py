@@ -75,7 +75,7 @@ class Site(Site):
         # yield 'lino_xl.lib.courses'
         # yield 'lino_xl.lib.rooms'
         
-        yield 'lino.modlib.plausibility'
+        yield 'lino.modlib.checkdata'
         yield 'lino.modlib.export_excel'
         # yield 'lino.modlib.tinymce'
         yield 'lino.modlib.weasyprint'

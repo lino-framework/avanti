@@ -10,7 +10,7 @@ from lino.modlib.users.mixins import UserAuthored
 from lino_xl.lib.courses.models import *
 from lino_xl.lib.courses.roles import CoursesUser
 from lino_xl.lib.excerpts.mixins import Certifiable
-from lino.modlib.plausibility.choicelists import Checker
+from lino.modlib.checkdata.choicelists import Checker
 from lino.core.gfks import gfk2lookup
 from lino.utils.xmlgen.html import E, join_elems
 
@@ -158,7 +158,7 @@ class EnrolmentChecker(Checker):
         msg_missed=_("Missed more than 10% of meetings."),
     )
     
-    def get_plausibility_problems(self, obj, fix=False):
+    def get_checkdata_problems(self, obj, fix=False):
         Guest = rt.models.cal.Guest
         GuestStates = rt.models.cal.GuestStates
         Event = rt.models.cal.Event

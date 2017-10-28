@@ -94,7 +94,7 @@ request_date user start_date end_date
 course pupil
 needs_childcare needs_school needs_bus needs_evening
 remark:40 workflow_buttons:40 printed:20
-confirmation_details PresencesByEnrolment plausibility.ProblemsByOwner RemindersByEnrolment
+confirmation_details PresencesByEnrolment checkdata.ProblemsByOwner RemindersByEnrolment
 """
 
 class CoursesPlanning(Activities):

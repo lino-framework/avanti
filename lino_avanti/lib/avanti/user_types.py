@@ -14,7 +14,7 @@ from lino.core.roles import UserRole, Explorer, SiteAdmin, SiteUser
 from lino.modlib.users.choicelists import UserTypes
 from lino.modlib.comments.roles import CommentsUser, CommentsStaff
 from lino.modlib.office.roles import OfficeUser, OfficeStaff, OfficeOperator
-from lino.modlib.plausibility.roles import PlausibilityUser
+from lino.modlib.checkdata.roles import CheckdataUser
 from lino_xl.lib.contacts.roles import ContactsUser, ContactsStaff
 # from lino_xl.lib.cal.roles import CalendarUser, CalendarStaff
 from lino_xl.lib.polls.roles import PollsUser, PollsStaff
@@ -35,14 +35,14 @@ class Teacher(SiteUser, CoursesTeacher, OfficeUser, ClientsNameUser):
     pass
 
 class Coordinator(CoursesUser, OfficeOperator,
-                  PlausibilityUser, ClientsNameUser):
+                  CheckdataUser, ClientsNameUser):
     pass
 
 class SocialWorker(CoachingsUser, CoursesUser, ContactsUser,
                    OfficeUser, ExcerptsUser, CareerUser, BeIdUser,
                    #TicketsUser,
                    CommentsUser, TrendsUser, ClientsUser,
-                   Explorer, PollsUser, PlausibilityUser):
+                   Explorer, PollsUser, CheckdataUser):
     pass
 
 class SiteStaff(SocialWorker, CoachingsStaff, CoursesUser,
