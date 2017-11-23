@@ -28,17 +28,17 @@ from lino_xl.lib.beid.roles import BeIdUser
 from lino_xl.lib.trends.roles import TrendsStaff, TrendsUser
 
 
-class Auditor(CoursesUser, OfficeUser, Explorer):
+class Auditor(SiteUser, CoursesUser, OfficeUser, Explorer):
     pass
 
 class Teacher(SiteUser, CoursesTeacher, OfficeUser, ClientsNameUser):
     pass
 
-class Coordinator(CoursesUser, OfficeOperator,
+class Coordinator(SiteUser, CoursesUser, OfficeOperator,
                   CheckdataUser, ClientsNameUser):
     pass
 
-class SocialWorker(CoachingsUser, CoursesUser, ContactsUser,
+class SocialWorker(SiteUser, CoachingsUser, CoursesUser, ContactsUser,
                    OfficeUser, ExcerptsUser, CareerUser, BeIdUser,
                    #TicketsUser,
                    CommentsUser, TrendsUser, ClientsUser,
