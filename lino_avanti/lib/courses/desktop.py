@@ -32,6 +32,7 @@ class PresencesByEnrolment(dd.Table):
     master = 'courses.Enrolment'
     column_names = "event event__state workflow_buttons remark *"
     slave_grid_format = "summary"
+    order_by = ['event__start_date', 'event__start_time']
 
     @classmethod
     def get_filter_kw(self, ar, **kw):

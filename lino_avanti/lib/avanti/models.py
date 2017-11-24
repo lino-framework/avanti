@@ -648,3 +648,10 @@ add('40', _("Abandoned"), 'refused')
 # ClientStates.coached = ClientStates.newcomer
 
 
+@dd.receiver(dd.pre_analyze)
+def add_merge_action(sender, **kw):
+    apps = sender.modules
+    for m in (apps.avanti.Client, apps.contacts.Person,
+              apps.contacts.Company):
+        m.define_action(merge_row=dd.MergeAction(m))
+
