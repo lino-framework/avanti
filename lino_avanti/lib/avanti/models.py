@@ -210,7 +210,8 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
             self.last_name.upper(), self.first_name, self.pk)
 
     def get_choices_text(self, request, actor, field):
-        if request.user.user_type.has_required_roles(
+        u = request.subst_user or request.user
+        if u.user_type.has_required_roles(
                 [ClientsNameUser]):
             return str(self)
         return _("{} ({}) from {}").format(
