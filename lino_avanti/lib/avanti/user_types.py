@@ -16,7 +16,7 @@ from lino.modlib.comments.roles import CommentsUser, CommentsStaff
 from lino.modlib.office.roles import OfficeUser, OfficeStaff, OfficeOperator
 from lino.modlib.checkdata.roles import CheckdataUser
 from lino_xl.lib.contacts.roles import ContactsUser, ContactsStaff
-# from lino_xl.lib.cal.roles import CalendarUser, CalendarStaff
+from lino_xl.lib.cal.roles import GuestOperator
 from lino_xl.lib.polls.roles import PollsUser, PollsStaff
 from lino_xl.lib.coachings.roles import CoachingsUser, CoachingsStaff
 from lino_xl.lib.excerpts.roles import ExcerptsUser, ExcerptsStaff
@@ -24,14 +24,15 @@ from lino_xl.lib.courses.roles import CoursesTeacher, CoursesUser
 from .roles import ClientsNameUser, ClientsUser, ClientsStaff
 from lino_xl.lib.cv.roles import CareerUser, CareerStaff
 from lino_xl.lib.beid.roles import BeIdUser
-# from lino_xl.lib.tickets.roles import TicketsUser, TicketsStaff
 from lino_xl.lib.trends.roles import TrendsStaff, TrendsUser
 
 
-class Auditor(SiteUser, CoursesUser, OfficeUser, Explorer):
+class Auditor(SiteUser, CoursesUser, OfficeUser, GuestOperator,
+              Explorer):
     pass
 
-class Teacher(SiteUser, CoursesTeacher, OfficeUser, ClientsNameUser):
+class Teacher(SiteUser, CoursesTeacher, OfficeUser, GuestOperator,
+              ClientsNameUser):
     pass
 
 class Coordinator(SiteUser, CoursesUser, OfficeOperator,
@@ -40,7 +41,7 @@ class Coordinator(SiteUser, CoursesUser, OfficeOperator,
 
 class SocialWorker(SiteUser, CoachingsUser, CoursesUser, ContactsUser,
                    OfficeUser, ExcerptsUser, CareerUser, BeIdUser,
-                   #TicketsUser,
+                   GuestOperator,
                    CommentsUser, TrendsUser, ClientsUser,
                    Explorer, PollsUser, CheckdataUser):
     pass
