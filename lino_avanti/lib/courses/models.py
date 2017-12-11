@@ -189,7 +189,7 @@ class EnrolmentChecker(Checker):
         # events = Event.objects.filter(**eflt)
         # events = events.filter(state=EntryStates.took_place)
         # ecount = events.count()
-        ecount = obj.course.max_events
+        ecount = obj.course.max_events or 0
         if ecount > 9:
             excused = qs.filter(state=GuestStates.excused).count()
             missing = absent + excused
