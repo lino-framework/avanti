@@ -15,6 +15,7 @@ from lino.modlib.users.choicelists import UserTypes
 from lino.modlib.comments.roles import CommentsUser, CommentsStaff
 from lino.modlib.office.roles import OfficeUser, OfficeStaff, OfficeOperator
 from lino.modlib.checkdata.roles import CheckdataUser
+from lino.modlib.about.roles import SiteSearcher
 from lino_xl.lib.contacts.roles import ContactsUser, ContactsStaff
 from lino_xl.lib.cal.roles import GuestOperator
 from lino_xl.lib.polls.roles import PollsUser, PollsStaff
@@ -49,7 +50,7 @@ class SocialWorker(SiteUser, CoachingsUser, CoursesUser, ContactsUser,
 class SiteStaff(SocialWorker, CoachingsStaff, CoursesUser,
                 ContactsStaff, OfficeStaff, ExcerptsStaff,
                 CareerStaff, BeIdUser, #TicketsStaff,
-                CommentsStaff,
+                CommentsStaff, SiteSearcher,
                 TrendsStaff, ClientsStaff, Explorer, PollsStaff):
     pass
 

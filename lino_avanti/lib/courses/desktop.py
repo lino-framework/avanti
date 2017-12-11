@@ -18,6 +18,10 @@ from lino_avanti.lib.avanti.roles import ClientsUser
 # class LinesByProvider(Lines):
 #     master_key = 'provider'
 
+AllActivities.column_names = "line:20 start_date:8 teacher user " \
+                             "weekdays_text:10 times_text:10"
+
+
 AllEnrolments.column_names = "id request_date start_date end_date \
 user course pupil pupil__birth_date pupil__age pupil__country \
 pupil__city pupil__gender"
