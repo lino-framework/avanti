@@ -1,6 +1,8 @@
 # Copyright 2017 Luc Saffre
 # License: BSD (see file COPYING for details)
 
+from __future__ import unicode_literals
+
 from builtins import str
 
 from django.utils.translation import ugettext_lazy as _

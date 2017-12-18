@@ -40,6 +40,10 @@ class Coordinator(SiteUser, CoursesUser, OfficeOperator,
                   CheckdataUser, ClientsNameUser):
     pass
 
+class Secretary(SiteUser, CoursesUser, OfficeUser, ContactsUser,
+                ExcerptsUser, CheckdataUser, ClientsUser):
+    pass
+
 class SocialWorker(SiteUser, CoachingsUser, CoursesUser, ContactsUser,
                    OfficeUser, ExcerptsUser, CareerUser, BeIdUser,
                    GuestOperator,
@@ -65,5 +69,6 @@ add('100', _("Teacher"), Teacher, name='teacher')
 add('200', _("Social worker"), SocialWorker, name='user')
 add('300', _("Auditor"), Auditor, name='auditor', readonly=True)
 add('400', _("Coordinator"), Coordinator, name='coordinator')
+add('410', _("Secretary"), Secretary, name='secretary')
 add('800', _("Staff"), SiteStaff, name='staff')
 add('900', _("Administrator"), Administrator, name='admin')

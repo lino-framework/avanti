@@ -51,6 +51,7 @@ from .choicelists import OldEndingReasons
 
 from lino.core.roles import Explorer
 from .roles import ClientsNameUser, ClientsUser, ClientsStaff
+from lino_xl.lib.cv.roles import CareerUser
 
 contacts = dd.resolve_app('contacts')
 
@@ -374,7 +375,7 @@ class ClientDetail(dd.DetailLayout):
     first_name middle_name last_name #declared_name
     nationality:15 nationality2:15 birth_country birth_place in_belgium_since needs_work_permit:18
     card_type #card_number card_issuer card_valid_from card_valid_until
-    clients.ContactsByClient uploads.UploadsByClient dupable.SimilarObjects
+    clients.ContactsByClient uploads.UploadsByClient excerpts.ExcerptsByProject:30
     """, label=_("Person"))
 
     courses_tab = dd.Panel("""
@@ -399,14 +400,14 @@ class ClientDetail(dd.DetailLayout):
     # """
 
     family = dd.Panel("""
-    family_notes:40 households.MembersByPerson:20
+    households.MembersByPerson:20
     #humanlinks.LinksByHuman:30
     households.SiblingsByPerson
-    """, label=_("Family"))
+    """, label=_("Family"), required_roles=dd.login_required(CareerUser))
 
     notes = dd.Panel("""
     comments.CommentsByRFC notes_right
-    """, label = _("Notes"))
+    """, label=_("Notes"), required_roles=dd.login_required(CareerUser))
     
     notes_right = """
     cal.TasksByProject
@@ -428,8 +429,9 @@ class ClientDetail(dd.DetailLayout):
     misc = dd.Panel("""
     # unavailable_until:15 unavailable_why:30
     financial_notes health_notes integration_notes
-    remarks:30 checkdata.ProblemsByOwner:30 excerpts.ExcerptsByProject:30
-    """, label=_("Miscellaneous"))
+    remarks:30 family_notes:40 checkdata.ProblemsByOwner:30 dupable.SimilarObjects:30
+    """, label=_("Miscellaneous"), required_roles=dd.login_required(
+        CareerUser))
 
     career = dd.Panel("""
     # unemployed_since seeking_since work_permit_suspended_until
