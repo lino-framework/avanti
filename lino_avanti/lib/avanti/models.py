@@ -331,7 +331,7 @@ dd.update_field(Client, 'ref', verbose_name=_("Legacy file number"))
 class ClientDetail(dd.DetailLayout):
 
     main = "general person contact courses_tab family \
-    notes career trends #polls #courses misc changes.ChangesByMaster"
+    notes career trends #polls #courses misc db_tab"
 
     general = dd.Panel("""
     general1:30 general2:40 image:15
@@ -354,7 +354,7 @@ class ClientDetail(dd.DetailLayout):
 
     contact = dd.Panel("""
     address general3
-    ResidencesByPerson residence_notes
+    ResidencesByPerson
     """, label=_("Residence"))
 
     address = """
@@ -429,9 +429,14 @@ class ClientDetail(dd.DetailLayout):
     misc = dd.Panel("""
     # unavailable_until:15 unavailable_why:30
     financial_notes health_notes integration_notes
-    remarks:30 family_notes:40 checkdata.ProblemsByOwner:30 dupable.SimilarObjects:30
+    remarks family_notes residence_notes
     """, label=_("Miscellaneous"), required_roles=dd.login_required(
         CareerUser))
+
+    db_tab = dd.Panel("""
+    changes.ChangesByMaster
+    checkdata.ProblemsByOwner:30 dupable.SimilarObjects:30
+    """, label = _("Database"))
 
     career = dd.Panel("""
     # unemployed_since seeking_since work_permit_suspended_until
