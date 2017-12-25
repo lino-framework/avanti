@@ -62,6 +62,14 @@ dd.update_field(
     rt.models.cv.Experience, 'company',
     verbose_name=_("Work area"))
 
-from lino_avanti.lib.avanti.roles import ClientsUser
-rt.models.extensible.CalendarPanel.required_roles = dd.login_required(
-    ClientsUser)
+if dd.is_installed('extensible'):
+    
+    from lino_avanti.lib.avanti.roles import ClientsUser
+    rt.models.extensible.CalendarPanel.required_roles = dd.login_required(
+        ClientsUser)
+
+from lino_xl.lib.cv.roles import CareerUser
+for t in (rt.models.households.SiblingsByPerson,
+          rt.models.changes.ChangesByMaster,
+          rt.models.households.MembersByHousehold):
+    t.required_roles = dd.login_required(CareerUser)

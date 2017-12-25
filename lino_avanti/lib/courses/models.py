@@ -1,6 +1,8 @@
 # Copyright 2017 Luc Saffre
 # License: BSD (see file COPYING for details)
 
+from __future__ import unicode_literals
+
 from builtins import str
 
 from django.utils.translation import ugettext_lazy as _
@@ -189,7 +191,7 @@ class EnrolmentChecker(Checker):
         # events = Event.objects.filter(**eflt)
         # events = events.filter(state=EntryStates.took_place)
         # ecount = events.count()
-        ecount = obj.course.max_events
+        ecount = obj.course.max_events or 0
         if ecount > 9:
             excused = qs.filter(state=GuestStates.excused).count()
             missing = absent + excused

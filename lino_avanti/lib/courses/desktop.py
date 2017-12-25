@@ -18,6 +18,10 @@ from lino_avanti.lib.avanti.roles import ClientsUser
 # class LinesByProvider(Lines):
 #     master_key = 'provider'
 
+AllActivities.column_names = "line:20 start_date:8 teacher user " \
+                             "weekdays_text:10 times_text:10"
+
+
 AllEnrolments.column_names = "id request_date start_date end_date \
 user course pupil pupil__birth_date pupil__age pupil__country \
 pupil__city pupil__gender"
@@ -32,6 +36,7 @@ class PresencesByEnrolment(dd.Table):
     master = 'courses.Enrolment'
     column_names = "event event__state workflow_buttons remark *"
     slave_grid_format = "summary"
+    order_by = ['event__start_date', 'event__start_time']
 
     @classmethod
     def get_filter_kw(self, ar, **kw):

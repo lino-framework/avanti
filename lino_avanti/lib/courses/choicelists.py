@@ -1,4 +1,4 @@
-# Copyright 2015-2016 Luc Saffre
+# Copyright 2017 Luc Saffre
 # License: BSD (see file COPYING for details)
 
 from lino.api import dd, rt, _

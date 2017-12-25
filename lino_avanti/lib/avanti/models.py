@@ -51,6 +51,7 @@ from .choicelists import OldEndingReasons
 
 from lino.core.roles import Explorer
 from .roles import ClientsNameUser, ClientsUser, ClientsStaff
+from lino_xl.lib.cv.roles import CareerUser
 
 contacts = dd.resolve_app('contacts')
 
@@ -210,7 +211,8 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
             self.last_name.upper(), self.first_name, self.pk)
 
     def get_choices_text(self, request, actor, field):
-        if request.user.user_type.has_required_roles(
+        u = request.subst_user or request.user
+        if u.user_type.has_required_roles(
                 [ClientsNameUser]):
             return str(self)
         return _("{} ({}) from {}").format(
@@ -329,7 +331,7 @@ dd.update_field(Client, 'ref', verbose_name=_("Legacy file number"))
 class ClientDetail(dd.DetailLayout):
 
     main = "general person contact courses_tab family \
-    notes career trends #polls #courses misc changes.ChangesByMaster"
+    notes career trends #polls #courses misc db_tab"
 
     general = dd.Panel("""
     general1:30 general2:40 image:15
@@ -352,7 +354,7 @@ class ClientDetail(dd.DetailLayout):
 
     contact = dd.Panel("""
     address general3
-    ResidencesByPerson residence_notes
+    ResidencesByPerson
     """, label=_("Residence"))
 
     address = """
@@ -373,7 +375,7 @@ class ClientDetail(dd.DetailLayout):
     first_name middle_name last_name #declared_name
     nationality:15 nationality2:15 birth_country birth_place in_belgium_since needs_work_permit:18
     card_type #card_number card_issuer card_valid_from card_valid_until
-    clients.ContactsByClient uploads.UploadsByClient dupable.SimilarObjects
+    clients.ContactsByClient uploads.UploadsByClient excerpts.ExcerptsByProject:30
     """, label=_("Person"))
 
     courses_tab = dd.Panel("""
@@ -398,14 +400,14 @@ class ClientDetail(dd.DetailLayout):
     # """
 
     family = dd.Panel("""
-    family_notes:40 households.MembersByPerson:20
+    households.MembersByPerson:20
     #humanlinks.LinksByHuman:30
     households.SiblingsByPerson
-    """, label=_("Family"))
+    """, label=_("Family"), required_roles=dd.login_required(CareerUser))
 
     notes = dd.Panel("""
     comments.CommentsByRFC notes_right
-    """, label = _("Notes"))
+    """, label=_("Notes"), required_roles=dd.login_required(CareerUser))
     
     notes_right = """
     cal.TasksByProject
@@ -427,8 +429,14 @@ class ClientDetail(dd.DetailLayout):
     misc = dd.Panel("""
     # unavailable_until:15 unavailable_why:30
     financial_notes health_notes integration_notes
-    remarks:30 checkdata.ProblemsByOwner:30 excerpts.ExcerptsByProject:30
-    """, label=_("Miscellaneous"))
+    remarks family_notes residence_notes
+    """, label=_("Miscellaneous"), required_roles=dd.login_required(
+        CareerUser))
+
+    db_tab = dd.Panel("""
+    changes.ChangesByMaster
+    checkdata.ProblemsByOwner:30 dupable.SimilarObjects:30
+    """, label = _("Database"))
 
     career = dd.Panel("""
     # unemployed_since seeking_since work_permit_suspended_until
@@ -647,4 +655,11 @@ add('40', _("Abandoned"), 'refused')
 # alias
 # ClientStates.coached = ClientStates.newcomer
 
+
+# @dd.receiver(dd.pre_analyze)
+# def add_merge_action(sender, **kw):
+#     apps = sender.modules
+#     for m in (apps.avanti.Client, apps.contacts.Person,
+#               apps.contacts.Company):
+#         m.define_action(merge_row=dd.MergeAction(m))
 
