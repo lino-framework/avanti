@@ -121,6 +121,9 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
     in_belgium_since = dd.IncompleteDateField(
         _("Lives in Belgium since"), blank=True, null=True)
     
+    in_region_since = dd.IncompleteDateField(
+        _("Lives in region since"), blank=True, null=True)
+    
     starting_reason = StartingReasons.field(blank=True)
     old_ending_reason = OldEndingReasons.field(blank=True)
     ending_reason = dd.ForeignKey(
@@ -147,6 +150,10 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
         _("Needs work permit"), default=False)
     work_permit_suspended_until = models.DateField(
         blank=True, null=True, verbose_name=_("suspended until"))
+    has_contact_pcsw = models.BooleanField(
+        _("Has contact to PCSW"), default=False)
+    has_contact_work_office = models.BooleanField(
+        _("Has contact to work office"), default=False)
 
     declared_name = models.BooleanField(_("Declared name"), default=False)
 
@@ -373,8 +380,9 @@ class ClientDetail(dd.DetailLayout):
 
     person = dd.Panel("""
     first_name middle_name last_name #declared_name
-    nationality:15 nationality2:15 birth_country birth_place in_belgium_since needs_work_permit:18
+    nationality:15 nationality2:15 birth_country birth_place in_belgium_since 
     card_type #card_number card_issuer card_valid_from card_valid_until
+    needs_work_permit has_contact_pcsw has_contact_work_office
     clients.ContactsByClient uploads.UploadsByClient excerpts.ExcerptsByProject:30
     """, label=_("Person"))
 

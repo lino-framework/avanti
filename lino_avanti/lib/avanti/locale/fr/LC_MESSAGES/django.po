@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  lino.apps.dsbe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-10-29 06:53+0200\n"
+"POT-Creation-Date: 2018-01-12 22:19+0200\n"
 "PO-Revision-Date: 2016-11-20 19:48+0100\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: fr\n"
@@ -123,7 +123,7 @@ msgid "Client states"
 msgstr "Bénéficiaires"
 
 #: lino_avanti/lib/avanti/choicelists.py:67
-#: lino_avanti/lib/avanti/models.py:640
+#: lino_avanti/lib/avanti/models.py:656
 msgid "Newcomer"
 msgstr ""
 
@@ -279,248 +279,269 @@ msgstr ""
 msgid "Work area"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:73
+#: lino_avanti/lib/avanti/models.py:74
 msgid "Category"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:74
+#: lino_avanti/lib/avanti/models.py:75
 msgid "Categories"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:85
+#: lino_avanti/lib/avanti/models.py:86
 #, fuzzy
 msgid "Ending reason"
 msgstr "raison"
 
-#: lino_avanti/lib/avanti/models.py:86
+#: lino_avanti/lib/avanti/models.py:87
 #, fuzzy
 msgid "Ending reasons"
 msgstr "raison"
 
-#: lino_avanti/lib/avanti/models.py:102
+#: lino_avanti/lib/avanti/models.py:103
 msgid "Client"
 msgstr "Bénéficiaire"
 
-#: lino_avanti/lib/avanti/models.py:103
+#: lino_avanti/lib/avanti/models.py:104
 msgid "Clients"
 msgstr "Bénéficiaires"
 
-#: lino_avanti/lib/avanti/models.py:121
+#: lino_avanti/lib/avanti/models.py:122
 msgid "Lives in Belgium since"
 msgstr "en Belgique depuis"
 
-#: lino_avanti/lib/avanti/models.py:133
+#: lino_avanti/lib/avanti/models.py:125
+#, fuzzy
+msgid "Lives in region since"
+msgstr "en Belgique depuis"
+
+#: lino_avanti/lib/avanti/models.py:137
 #, fuzzy
 msgid "Translator"
 msgstr "Traduction"
 
-#: lino_avanti/lib/avanti/models.py:139
+#: lino_avanti/lib/avanti/models.py:143
 msgid "Unemployed since"
 msgstr "Inoccupé depuis"
 
-#: lino_avanti/lib/avanti/models.py:140
+#: lino_avanti/lib/avanti/models.py:144
 msgid "Since when the client has not been employed in any regular job."
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:143
+#: lino_avanti/lib/avanti/models.py:147
 msgid "Seeking work since"
 msgstr "Cherche du travail depuis"
 
-#: lino_avanti/lib/avanti/models.py:144
+#: lino_avanti/lib/avanti/models.py:148
 msgid "Since when the client is seeking for a job."
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:146
+#: lino_avanti/lib/avanti/models.py:150
 msgid "Needs work permit"
 msgstr "besoin permis de travail"
 
-#: lino_avanti/lib/avanti/models.py:148
+#: lino_avanti/lib/avanti/models.py:152
 msgid "suspended until"
 msgstr "Suspendu jusque"
 
-#: lino_avanti/lib/avanti/models.py:150
+#: lino_avanti/lib/avanti/models.py:154
+msgid "Has contact to PCSW"
+msgstr ""
+
+#: lino_avanti/lib/avanti/models.py:156
+msgid "Has contact to work office"
+msgstr ""
+
+#: lino_avanti/lib/avanti/models.py:158
 msgid "Declared name"
 msgstr "Nom déclaré"
 
-#: lino_avanti/lib/avanti/models.py:156
+#: lino_avanti/lib/avanti/models.py:164
 msgid "Unavailable until"
 msgstr "Indisponible jusque"
 
-#: lino_avanti/lib/avanti/models.py:158
+#: lino_avanti/lib/avanti/models.py:166
 msgid "reason"
 msgstr "raison"
 
-#: lino_avanti/lib/avanti/models.py:162
+#: lino_avanti/lib/avanti/models.py:170
 msgid "Family situation"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:165
+#: lino_avanti/lib/avanti/models.py:173
 msgid "Residential situation"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:168
+#: lino_avanti/lib/avanti/models.py:176
 msgid "Health situation"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:171
+#: lino_avanti/lib/avanti/models.py:179
 msgid "Financial situation"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:174
+#: lino_avanti/lib/avanti/models.py:182
 msgid "Integration notes"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:177
+#: lino_avanti/lib/avanti/models.py:185
 #, fuzzy
 msgid "Availability"
 msgstr "Indisponible jusque"
 
-#: lino_avanti/lib/avanti/models.py:180
+#: lino_avanti/lib/avanti/models.py:188
 msgid "Needed course"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:195
+#: lino_avanti/lib/avanti/models.py:203
 msgid "Language notes"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:198
+#: lino_avanti/lib/avanti/models.py:206
 #, fuzzy
 msgid "Remarks"
 msgstr "raison"
 
-#: lino_avanti/lib/avanti/models.py:201
+#: lino_avanti/lib/avanti/models.py:209
 #, fuzzy
 msgid "Reason of stay"
 msgstr "raison"
 
-#: lino_avanti/lib/avanti/models.py:207 lino_avanti/lib/avanti/models.py:472
+#: lino_avanti/lib/avanti/models.py:215 lino_avanti/lib/avanti/models.py:488
 #: lino_avanti/lib/households/models.py:23
 msgid "Nationality"
 msgstr "Nationalité"
 
-#: lino_avanti/lib/avanti/models.py:216
+#: lino_avanti/lib/avanti/models.py:225
 msgid "{} ({}) from {}"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:220
+#: lino_avanti/lib/avanti/models.py:229
 msgid "Name"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:224
+#: lino_avanti/lib/avanti/models.py:233
 msgid "Municipality"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:325
+#: lino_avanti/lib/avanti/models.py:334
 msgid "Primary coach"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:326
+#: lino_avanti/lib/avanti/models.py:335
 msgid "Legacy file number"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:338 lino_avanti/lib/contacts/models.py:34
+#: lino_avanti/lib/avanti/models.py:347 lino_avanti/lib/contacts/models.py:34
 #: lino_avanti/lib/contacts/models.py:77 lino_avanti/lib/contacts/models.py:119
 #: lino_avanti/lib/tickets/models.py:32 lino_avanti/lib/users/desktop.py:24
 msgid "General"
 msgstr "Général"
 
-#: lino_avanti/lib/avanti/models.py:356 lino_avanti/lib/avanti/models.py:606
+#: lino_avanti/lib/avanti/models.py:365 lino_avanti/lib/avanti/models.py:622
 msgid "Residence"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:377
+#: lino_avanti/lib/avanti/models.py:387
 msgid "Person"
 msgstr "Personne"
 
-#: lino_avanti/lib/avanti/models.py:382
+#: lino_avanti/lib/avanti/models.py:392
 msgid "Courses"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:404
+#: lino_avanti/lib/avanti/models.py:414
 msgid "Family"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:408
+#: lino_avanti/lib/avanti/models.py:418
 msgid "Notes"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:421
+#: lino_avanti/lib/avanti/models.py:431
 msgid "Trends"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:431
+#: lino_avanti/lib/avanti/models.py:441
 msgid "Miscellaneous"
 msgstr "Divers"
 
-#: lino_avanti/lib/avanti/models.py:438
+#: lino_avanti/lib/avanti/models.py:447
+msgid "Database"
+msgstr ""
+
+#: lino_avanti/lib/avanti/models.py:454
 msgid "Career"
 msgstr "Parcours"
 
-#: lino_avanti/lib/avanti/models.py:607
+#: lino_avanti/lib/avanti/models.py:623
 msgid "Residences"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:609
+#: lino_avanti/lib/avanti/models.py:625
 #, fuzzy
 msgid "Reason"
 msgstr "raison"
 
-#: lino_avanti/lib/avanti/models.py:617
+#: lino_avanti/lib/avanti/models.py:633
 msgid "Former residences"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:642
+#: lino_avanti/lib/avanti/models.py:658
 msgctxt "client state"
 msgid "Registered"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:643
+#: lino_avanti/lib/avanti/models.py:659
 msgid "Inactive"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:644
+#: lino_avanti/lib/avanti/models.py:660
 msgid "Ended"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:645
+#: lino_avanti/lib/avanti/models.py:661
 msgid "Abandoned"
 msgstr ""
 
-#: lino_avanti/lib/avanti/settings.py:118
+#: lino_avanti/lib/avanti/settings.py:119
 msgid "My settings"
 msgstr ""
 
-#: lino_avanti/lib/avanti/settings.py:125
+#: lino_avanti/lib/avanti/settings.py:126
 msgid "New {}"
 msgstr ""
 
-#: lino_avanti/lib/avanti/user_types.py:60
+#: lino_avanti/lib/avanti/user_types.py:66
 msgid "Anonymous"
 msgstr "Anonyme"
 
-#: lino_avanti/lib/avanti/user_types.py:62
+#: lino_avanti/lib/avanti/user_types.py:68
 #, fuzzy
 msgid "Teacher"
 msgstr "Autre"
 
-#: lino_avanti/lib/avanti/user_types.py:63
+#: lino_avanti/lib/avanti/user_types.py:69
 msgid "Social worker"
 msgstr ""
 
-#: lino_avanti/lib/avanti/user_types.py:64
+#: lino_avanti/lib/avanti/user_types.py:70
 #, fuzzy
 msgid "Auditor"
 msgstr "Traduction"
 
-#: lino_avanti/lib/avanti/user_types.py:65
+#: lino_avanti/lib/avanti/user_types.py:71
 msgid "Coordinator"
 msgstr ""
 
-#: lino_avanti/lib/avanti/user_types.py:66
+#: lino_avanti/lib/avanti/user_types.py:72
+msgid "Secretary"
+msgstr ""
+
+#: lino_avanti/lib/avanti/user_types.py:73
 msgid "Staff"
 msgstr ""
 
-#: lino_avanti/lib/avanti/user_types.py:67
+#: lino_avanti/lib/avanti/user_types.py:74
 msgid "Administrator"
 msgstr "Administrateur"
 
@@ -553,7 +574,7 @@ msgid "Health insurance"
 msgstr ""
 
 #: lino_avanti/lib/avanti/fixtures/demo.py:71
-#: lino_avanti/lib/courses/models.py:79 lino_avanti/lib/courses/models.py:104
+#: lino_avanti/lib/courses/models.py:81 lino_avanti/lib/courses/models.py:106
 #: lino_avanti/lib/households/models.py:24
 msgid "School"
 msgstr ""
@@ -605,64 +626,84 @@ msgstr ""
 msgid "Final"
 msgstr ""
 
-#: lino_avanti/lib/courses/desktop.py:62
+#: lino_avanti/lib/courses/choicelists.py:18
+msgid "Degree"
+msgstr ""
+
+#: lino_avanti/lib/courses/choicelists.py:19
+msgid "Reminder degrees"
+msgstr ""
+
+#: lino_avanti/lib/courses/choicelists.py:22
+msgid "First reminder"
+msgstr ""
+
+#: lino_avanti/lib/courses/choicelists.py:23
+msgid "Second reminder"
+msgstr ""
+
+#: lino_avanti/lib/courses/choicelists.py:24
+msgid "Third reminder"
+msgstr ""
+
+#: lino_avanti/lib/courses/desktop.py:67
 msgid "{} : {}"
 msgstr ""
 
-#: lino_avanti/lib/courses/desktop.py:102
+#: lino_avanti/lib/courses/desktop.py:107
 msgid "Course planning"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:64 lino_avanti/lib/courses/models.py:103
+#: lino_avanti/lib/courses/models.py:66 lino_avanti/lib/courses/models.py:105
 msgid "Bus"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:69 lino_avanti/lib/courses/models.py:102
+#: lino_avanti/lib/courses/models.py:71 lino_avanti/lib/courses/models.py:104
 msgid "Childcare"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:74 lino_avanti/lib/courses/models.py:105
+#: lino_avanti/lib/courses/models.py:76 lino_avanti/lib/courses/models.py:107
 msgid "Evening"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:112
+#: lino_avanti/lib/courses/models.py:114
 msgid "Participant"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:126
+#: lino_avanti/lib/courses/models.py:128
 msgid "Integration Course Agreement"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:132
+#: lino_avanti/lib/courses/models.py:134
 msgid "Reminder"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:133
+#: lino_avanti/lib/courses/models.py:135
 msgid "Reminders"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:139
+#: lino_avanti/lib/courses/models.py:141
 msgid "Date issued"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:140
+#: lino_avanti/lib/courses/models.py:142
 msgid "Text body"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:142
+#: lino_avanti/lib/courses/models.py:146
 #, fuzzy
 msgid "Remark"
 msgstr "raison"
 
-#: lino_avanti/lib/courses/models.py:154
+#: lino_avanti/lib/courses/models.py:159
 msgid "Check for unsufficient presences"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:157
+#: lino_avanti/lib/courses/models.py:162
 msgid "More than 2 times absent."
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:158
+#: lino_avanti/lib/courses/models.py:163
 #, python-format
 msgid "Missed more than 10% of meetings."
 msgstr ""
