@@ -153,7 +153,8 @@ class Reminder(UserAuthored, Certifiable):
         return "{} ({} {})".format(
             dd.fds(self.date_issued), self.state, self.degree)
 
-   
+    def get_print_language(self):
+        return self.enrolment.pupil.language
     
 class EnrolmentChecker(Checker):
     verbose_name = _("Check for unsufficient presences")

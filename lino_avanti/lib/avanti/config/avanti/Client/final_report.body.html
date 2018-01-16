@@ -1,0 +1,81 @@
+{% extends "excerpts/base.body.html" %}
+
+{% block title %}
+<h1>Abschließende Sozialbilanz</h1>
+{% endblock %}
+
+{% block body %}
+
+<h2>Angaben zur Person und Kontakte</h2>
+Name: <b>{{obj.last_name}}</b>
+<br>Vorname: <b>{{obj.first_name}}</b>
+<br>Adresse: <b>{{', '.join(
+  obj.get_primary_address().address_location_lines())}}</b>
+<br>Geburtsdatum: <b>{{obj.birth_date}}</b>
+<br>Sozialarbeiterin bei Info-Integration: <b>{{obj.user}}</b>
+
+<br>Eingeschrieben beim Arbeitsamt:
+<b>{{bool2text(obj.has_contact_work_office)}}</b>
+<br>Arbeitsberater: <b>(SIEHE TABELLE?)</b>
+
+<br>Betreut vom ÖSHZ:
+<b>{{bool2text(obj.has_contact_pcsw)}}</b>
+<br>Sozialarbeiter ASD: <b>(SIEHE TABELLE?)</b>
+<br>Sozialarbeiter DSBE: <b>(SIEHE TABELLE?)</b>
+
+{{ar.show(rt.models.clients.ContactsByClient, obj)}}
+
+<h2>Sprachenkenntnisse und Schulbildung</h2>
+
+
+{{ar.show(rt.models.cv.LanguageKnowledgesByPerson, obj, nosummary=True)}}
+
+
+<br>Muttersprache: <b>{{obj.mother_tongues}}</b>
+<br>Erreichtes Niveau in Deutsch:
+<br>Erreichtes Niveau in Französisch:
+<br>Kenntnisse in anderen Sprachen:
+<br>Dauer der Schulbildung im Herkunftsland:
+<br>Abgeschlossenes Niveau:
+<br>Anerkennung des Diploms in Belgien: ja nein  Niveau:
+
+<h2>Kompetenzen und Ausbildungen</h2>
+Ausbildungen im Ausland:
+Ausbildungen in Belgien:
+Kenntnisse in Informatik:
+Andere Kompetenzen:
+Integrationskurs abgeschlossen: ja nein
+
+Berufliche Information zu den Themen:
+-
+-
+-
+
+
+
+<h2>Berufliche Situation</h2>
+Berufliche Situation: Angestellt – Selbstständig – Arbeitslos weniger als ein Jahr – Arbeitslos mehr als ein Jahr – Sonstiges
+___________________
+
+Berufserfahrung im Ausland:
+Berufserfahrung in Belgien:
+
+<h2>Professionelles Ziel</h2>
+Professionelles Ziel: 
+Geplante Schritte, um dieses Ziel zu erreichen:
+1.
+2.
+3.
+
+Arbeitserlaubnis benötigt: ja nein
+Lebenslauf erstellt: ja nein
+Wissen über das Bewerbungsverfahren in Belgien: ja nein
+
+<h2>Verfügbarkeit</h2>
+
+Führerschein ja nein Klasse:
+Kinder unter 3 Jahren: ja nein  Kinderbetreuung vorhanden: ja nein
+Kinder in der Schule: ja nein
+
+
+{% endblock %}
