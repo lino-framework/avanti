@@ -16,12 +16,23 @@ Name: <b>{{obj.last_name}}</b>
 
 <br>Eingeschrieben beim Arbeitsamt:
 <b>{{bool2text(obj.has_contact_work_office)}}</b>
-<br>Arbeitsberater: <b>(SIEHE TABELLE?)</b>
+{% set x = rt.models.clients.CommonContactTypes.work_consultant.get_contact(obj) %}
+{% if x %}
+<br>Arbeitsberater: <b>{{x.contact_person or "..."}} ({{x.company}}</b>)
+{% endif %}
 
 <br>Betreut vom ÖSHZ:
 <b>{{bool2text(obj.has_contact_pcsw)}}</b>
-<br>Sozialarbeiter ASD: <b>(SIEHE TABELLE?)</b>
-<br>Sozialarbeiter DSBE: <b>(SIEHE TABELLE?)</b>
+
+{% set x = rt.models.clients.CommonContactTypes.general_assistant.get_contact(obj) %}
+{% if x %}
+<br>Sozialarbeiter ASD: <b>{{x.contact_person or "..."}} ({{x.company}}</b>)
+{% endif %}
+
+{% set x = rt.models.clients.CommonContactTypes.integ_assistant.get_contact(obj) %}
+{% if x %}
+<br>Sozialarbeiter DSBE: <b>{{x.contact_person or "..."}} ({{x.company}}</b>)
+{% endif %}
 
 {{ar.show(rt.models.clients.ContactsByClient, obj)}}
 
@@ -32,50 +43,65 @@ Name: <b>{{obj.last_name}}</b>
 
 
 <br>Muttersprache: <b>{{obj.mother_tongues}}</b>
-<br>Erreichtes Niveau in Deutsch:
-<br>Erreichtes Niveau in Französisch:
+<br>Erreichtes Niveau in Deutsch: <b>{{obj.cef_level_de}}</b>
+<br>Erreichtes Niveau in Französisch: <b>{{obj.cef_level_fr}}</b>
+
 <br>Kenntnisse in anderen Sprachen:
+
 <br>Dauer der Schulbildung im Herkunftsland:
+
 <br>Abgeschlossenes Niveau:
+
 <br>Anerkennung des Diploms in Belgien: ja nein  Niveau:
 
 <h2>Kompetenzen und Ausbildungen</h2>
-Ausbildungen im Ausland:
-Ausbildungen in Belgien:
-Kenntnisse in Informatik:
-Andere Kompetenzen:
-Integrationskurs abgeschlossen: ja nein
+<br>Ausbildungen im Ausland:
+<br>Ausbildungen in Belgien:
 
-Berufliche Information zu den Themen:
--
--
--
+{{ar.show(rt.models.cv.StudiesByPerson, obj)}}
+
+<br>Kenntnisse in Informatik:
+<br>Andere Kompetenzen:
+<br>Integrationskurs abgeschlossen: ja nein
+
+<br>Berufliche Information zu den Themen:
 
 
 
 <h2>Berufliche Situation</h2>
-Berufliche Situation: Angestellt – Selbstständig – Arbeitslos weniger als ein Jahr – Arbeitslos mehr als ein Jahr – Sonstiges
+
+<br>Berufliche Situation: <b>{{obj.professional_state}}</b>
+
 ___________________
 
-Berufserfahrung im Ausland:
-Berufserfahrung in Belgien:
+
+
+
+<br>Berufserfahrung im Ausland:
+<br>Berufserfahrung in Belgien:
+
+{{ar.show(rt.models.cv.ExperiencesByPerson, obj)}}
+
 
 <h2>Professionelles Ziel</h2>
-Professionelles Ziel: 
-Geplante Schritte, um dieses Ziel zu erreichen:
-1.
-2.
-3.
 
-Arbeitserlaubnis benötigt: ja nein
-Lebenslauf erstellt: ja nein
-Wissen über das Bewerbungsverfahren in Belgien: ja nein
+Professionelles Ziel:
+
+<br>Geplante Schritte, um dieses Ziel zu erreichen:
+
+<br>1.
+<br>2.
+<br>3.
+
+<br>Arbeitserlaubnis benötigt: ja nein
+<br>Lebenslauf erstellt: ja nein
+<br>Wissen über das Bewerbungsverfahren in Belgien: ja nein
 
 <h2>Verfügbarkeit</h2>
 
 Führerschein ja nein Klasse:
-Kinder unter 3 Jahren: ja nein  Kinderbetreuung vorhanden: ja nein
-Kinder in der Schule: ja nein
+<br>Kinder unter 3 Jahren: ja nein  Kinderbetreuung vorhanden: ja nein
+<br>Kinder in der Schule: ja nein
 
 
 {% endblock %}

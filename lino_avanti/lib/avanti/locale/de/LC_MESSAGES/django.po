@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lino-DSBE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-12 22:19+0200\n"
-"PO-Revision-Date: 2018-01-12 22:22+0200\n"
+"POT-Creation-Date: 2018-01-17 16:35+0200\n"
+"PO-Revision-Date: 2018-01-17 16:37+0200\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: de\n"
 "Language-Team: de <luc.saffre@gmail.com>\n"
@@ -17,7 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.5.1\n"
+"Generated-By: Babel 2.5.3\n"
 "X-Generator: Poedit 1.8.7.1\n"
 
 #: lino_avanti/lib/avanti/__init__.py:28
@@ -495,11 +495,11 @@ msgstr "Beendet"
 msgid "Abandoned"
 msgstr "Abgebrochen"
 
-#: lino_avanti/lib/avanti/settings.py:119
+#: lino_avanti/lib/avanti/settings.py:120
 msgid "My settings"
 msgstr "Meine Einstellungen"
 
-#: lino_avanti/lib/avanti/settings.py:126
+#: lino_avanti/lib/avanti/settings.py:127
 msgid "New {}"
 msgstr "{} erstellen"
 
@@ -512,6 +512,7 @@ msgid "Teacher"
 msgstr "Kursleiter"
 
 #: lino_avanti/lib/avanti/user_types.py:69
+#, fuzzy
 msgid "Social worker"
 msgstr "Sozialarbeiter"
 
@@ -536,9 +537,8 @@ msgid "Administrator"
 msgstr "Verwalter"
 
 #: lino_avanti/lib/avanti/fixtures/demo.py:63
-#, fuzzy
 msgid "Language course"
-msgstr "Bericht Sprachtests"
+msgstr "Sprachkurs"
 
 #: lino_avanti/lib/avanti/fixtures/demo.py:64
 #, fuzzy
@@ -556,10 +556,9 @@ msgstr "Kursbedarf"
 
 #: lino_avanti/lib/avanti/fixtures/demo.py:67
 msgid "Justified interruption"
-msgstr ""
+msgstr "Begründete Unterbrechung"
 
 #: lino_avanti/lib/avanti/fixtures/demo.py:68
-#, fuzzy
 msgid "Successfully terminated"
 msgstr "Erfolgreich beendet"
 
@@ -579,11 +578,15 @@ msgstr "Apotheke"
 
 #: lino_avanti/lib/avanti/fixtures/demo.py:73
 msgid "GSS"
-msgstr ""
+msgstr "ASD"
 
 #: lino_avanti/lib/avanti/fixtures/demo.py:74
 msgid "ISS"
-msgstr ""
+msgstr "DSBE"
+
+#: lino_avanti/lib/avanti/fixtures/std.py:20
+msgid "Final report"
+msgstr "Abschließende Sozialbilanz"
 
 #: lino_avanti/lib/contacts/models.py:39 lino_avanti/lib/contacts/models.py:82
 #: lino_avanti/lib/contacts/models.py:124
@@ -687,18 +690,35 @@ msgstr "Textkörper"
 msgid "Remark"
 msgstr "Bemerkung"
 
-#: lino_avanti/lib/courses/models.py:159
+#: lino_avanti/lib/courses/models.py:160
 msgid "Check for unsufficient presences"
 msgstr "Anwesenheiten prüfen"
 
-#: lino_avanti/lib/courses/models.py:162
+#: lino_avanti/lib/courses/models.py:163
 msgid "More than 2 times absent."
 msgstr "Mehr als 2x abwesend."
 
-#: lino_avanti/lib/courses/models.py:163
+#: lino_avanti/lib/courses/models.py:164
 #, python-format
 msgid "Missed more than 10% of meetings."
 msgstr "Mehr als 10% der Stunden verpasst."
+
+#: lino_avanti/lib/courses/config/courses/Reminder/reminder.body.html:4
+#, fuzzy
+msgid "Our reference"
+msgstr "Frühere Wohnsitze"
+
+#: lino_avanti/lib/courses/config/courses/Reminder/reminder.body.html:13
+msgid "Abwesenheiten beim Deutschkurs"
+msgstr ""
+
+#: lino_avanti/lib/courses/config/courses/Reminder/reminder.body.html:15
+msgid "Unentschuldigte Abwesenheit beim Deutschkurs – zweite Abmahnung"
+msgstr ""
+
+#: lino_avanti/lib/courses/config/courses/Reminder/reminder.body.html:17
+msgid "Dritte Abmahnung – Ausschluss vom Sprachkurs"
+msgstr ""
 
 #: lino_avanti/lib/tickets/models.py:19
 msgid "Solution"

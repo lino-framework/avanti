@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  lino.apps.dsbe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-01-12 22:19+0200\n"
+"POT-Creation-Date: 2018-01-17 16:35+0200\n"
 "PO-Revision-Date: 2016-11-20 19:48+0100\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.5.1\n"
+"Generated-By: Babel 2.5.3\n"
 
 #: lino_avanti/lib/avanti/__init__.py:28
 #, fuzzy
@@ -503,11 +503,11 @@ msgstr ""
 msgid "Abandoned"
 msgstr ""
 
-#: lino_avanti/lib/avanti/settings.py:119
+#: lino_avanti/lib/avanti/settings.py:120
 msgid "My settings"
 msgstr ""
 
-#: lino_avanti/lib/avanti/settings.py:126
+#: lino_avanti/lib/avanti/settings.py:127
 msgid "New {}"
 msgstr ""
 
@@ -589,6 +589,10 @@ msgstr ""
 
 #: lino_avanti/lib/avanti/fixtures/demo.py:74
 msgid "ISS"
+msgstr ""
+
+#: lino_avanti/lib/avanti/fixtures/std.py:20
+msgid "Final report"
 msgstr ""
 
 #: lino_avanti/lib/contacts/models.py:39 lino_avanti/lib/contacts/models.py:82
@@ -695,17 +699,33 @@ msgstr ""
 msgid "Remark"
 msgstr "raison"
 
-#: lino_avanti/lib/courses/models.py:159
+#: lino_avanti/lib/courses/models.py:160
 msgid "Check for unsufficient presences"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:162
+#: lino_avanti/lib/courses/models.py:163
 msgid "More than 2 times absent."
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:163
+#: lino_avanti/lib/courses/models.py:164
 #, python-format
 msgid "Missed more than 10% of meetings."
+msgstr ""
+
+#: lino_avanti/lib/courses/config/courses/Reminder/reminder.body.html:4
+msgid "Our reference"
+msgstr ""
+
+#: lino_avanti/lib/courses/config/courses/Reminder/reminder.body.html:13
+msgid "Abwesenheiten beim Deutschkurs"
+msgstr ""
+
+#: lino_avanti/lib/courses/config/courses/Reminder/reminder.body.html:15
+msgid "Unentschuldigte Abwesenheit beim Deutschkurs – zweite Abmahnung"
+msgstr ""
+
+#: lino_avanti/lib/courses/config/courses/Reminder/reminder.body.html:17
+msgid "Dritte Abmahnung – Ausschluss vom Sprachkurs"
 msgstr ""
 
 #: lino_avanti/lib/tickets/models.py:19

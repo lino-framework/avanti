@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017 Luc Saffre
+# Copyright 2017-2017 Luc Saffre
 # License: BSD (see file COPYING for details)
 """Demo data for Lino Avanti.
 
@@ -18,6 +18,7 @@ from lino.utils import Cycler, join_words
 from lino.api import rt, dd, _
 from lino.utils.mldbc import babel_named as named
 from lino.utils.mldbc import babeld
+from lino_xl.lib.clients.choicelists import CommonContactTypes
 
 from lino.utils import demonames as demo
 
@@ -67,11 +68,15 @@ def objects():
     yield babeld(Category, _("Justified interruption"))
     yield babeld(Category, _("Successfully terminated"))
 
-    yield named(ClientContactType, _("Health insurance"))
-    yield named(ClientContactType, _("School"))
-    yield named(ClientContactType, _("Pharmacy"))
-    yield named(ClientContactType, _("GSS"))
-    yield named(ClientContactType, _("ISS"))
+    # yield named(ClientContactType, _("Health insurance"))
+    # yield named(ClientContactType, _("School"))
+    # yield named(ClientContactType, _("Pharmacy"))
+    # yield named(ClientContactType, _("GSS"))
+    # yield named(ClientContactType, _("ISS"))
+    for i in CommonContactTypes.get_list_items():
+        yield i.create_object()
+        
+    yield named(ClientContactType, _("Other"))
     
     TRTYPES = Cycler(TranslatorTypes.objects())
     POLICIES = Cycler(rt.models.cal.EventPolicy.objects.all())
