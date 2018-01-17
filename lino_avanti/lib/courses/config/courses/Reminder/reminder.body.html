@@ -36,13 +36,13 @@ an folgenden Daten
 unentschuldigt
 beim <b>{{obj.enrolment.course.line}}</b>
 {% if obj.enrolment.course.room %}
-in <br>{{obj.enrolment.course.room}}</b>
+in <b>{{obj.enrolment.course.room}}</b>
 {% endif  %}
 gefehlt haben:
 
 {% for pres in rt.models.courses.PresencesByEnrolment.request(obj.enrolment) %}
 {% if pres.state.value == '50' %}
-{{fds(pres.event.start_date)}}{% if not loop.last %}, {% endif  %}
+{{fds(pres.event.start_date)}}{% if loop.last %} und {% else %}, {% endif %}
 {% endif  %}
 {% endfor  %}
 
