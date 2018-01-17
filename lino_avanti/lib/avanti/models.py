@@ -380,7 +380,7 @@ class ClientDetail(dd.DetailLayout):
 
     person = dd.Panel("""
     first_name middle_name last_name #declared_name
-    nationality:15 nationality2:15 birth_country birth_place in_belgium_since 
+    nationality:15 nationality2:15 birth_country birth_place in_belgium_since in_region_since
     card_type #card_number card_issuer card_valid_from card_valid_until
     needs_work_permit has_contact_pcsw has_contact_work_office
     clients.ContactsByClient uploads.UploadsByClient excerpts.ExcerptsByProject:30
