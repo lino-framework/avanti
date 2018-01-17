@@ -40,11 +40,13 @@ in <b>{{obj.enrolment.course.room}}</b>
 {% endif  %}
 gefehlt haben:
 
+{% set sep = joiner(", ") %}
 {% for pres in rt.models.courses.PresencesByEnrolment.request(obj.enrolment) %}
 {% if pres.state.value == '50' %}
-{{fds(pres.event.start_date)}}{% if loop.last %} und {% else %}, {% endif %}
+{{ sep() }}
+{{ fds(pres.event.start_date) }}
 {% endif  %}
-{% endfor  %}
+{% endfor %}.
 
 
 {% if obj.degree.value == '10' %}
