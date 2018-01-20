@@ -18,7 +18,7 @@ from lino.utils import Cycler, join_words
 from lino.api import rt, dd, _
 from lino.utils.mldbc import babel_named as named
 from lino.utils.mldbc import babeld
-from lino_xl.lib.clients.choicelists import CommonContactTypes
+from lino_xl.lib.clients.choicelists import KnownContactTypes
 
 from lino.utils import demonames as demo
 
@@ -73,7 +73,7 @@ def objects():
     # yield named(ClientContactType, _("Pharmacy"))
     # yield named(ClientContactType, _("GSS"))
     # yield named(ClientContactType, _("ISS"))
-    for i in CommonContactTypes.get_list_items():
+    for i in KnownContactTypes.get_list_items():
         yield i.create_object()
         
     yield named(ClientContactType, _("Other"))

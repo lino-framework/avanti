@@ -18,9 +18,9 @@ from lino_avanti.lib.courses.workflows import *
 
 from lino.api import _
 
-from lino_xl.lib.clients.choicelists import CommonContactTypes
-CommonContactTypes.clear()
-add = CommonContactTypes.add_item
+from lino_xl.lib.clients.choicelists import KnownContactTypes
+KnownContactTypes.clear()
+add = KnownContactTypes.add_item
 
 add('10', _("Health insurance"), 'health_insurance')
 add('20', _("School"), 'school')
