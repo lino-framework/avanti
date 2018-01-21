@@ -42,6 +42,7 @@ class Site(Site):
     # textfield_format = 'html'
     # use_silk_icons = False
     default_build_method = "appypdf"
+    auto_configure_logger_names = 'schedule atelier django lino lino_xl lino_avanti'
 
     def get_installed_apps(self):
         """Implements :meth:`lino.core.site.Site.get_installed_apps`.
@@ -82,6 +83,7 @@ class Site(Site):
         yield 'lino_xl.lib.excerpts'
         yield 'lino.modlib.dashboard'
         yield 'lino_xl.lib.appypod'
+        yield 'lino.modlib.davlink'
         
         # yield 'lino_xl.lib.votes'
         # yield 'lino_avanti.lib.tickets'

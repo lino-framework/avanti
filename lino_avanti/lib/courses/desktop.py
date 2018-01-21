@@ -122,17 +122,19 @@ class MyReminders(My, Reminders):
     # pass
 
 class RemindersByEnrolment(Reminders):
-    column_names = 'date_issued user remark workflow_buttons *'
+    column_names = 'date_issued degree remark workflow_buttons *'
     auto_fit_column_widths = True
+    stay_in_grid = True
     master_key = 'enrolment'
     slave_grid_format = 'summary'
     can_create = True
     insert_layout = dd.InsertLayout("""
+    degree 
     remark
     text_body
-    """, window_size=(50,10))
+    """, window_size=(50,13))
     detail_layout = """
-    date_issued workflow_buttons
+    date_issued degree workflow_buttons
     remark
     enrolment user id printed
     text_body

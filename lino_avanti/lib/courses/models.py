@@ -16,7 +16,7 @@ from lino.modlib.checkdata.choicelists import Checker
 from lino.core.gfks import gfk2lookup
 from lino.utils.xmlgen.html import E, join_elems
 
-from .choicelists import ReminderStates
+from .choicelists import ReminderStates, ReminderDegrees
 
 # contacts = dd.resolve_app('contacts')
 
@@ -141,6 +141,8 @@ class Reminder(UserAuthored, Certifiable):
     date_issued = dd.DateField(_("Date issued"), default=dd.today)
     text_body = dd.RichTextField(_("Text body"), blank=True, format='html')
     state = ReminderStates.field(default=ReminderStates.draft.as_callable)
+    degree = ReminderDegrees.field(
+        default=ReminderDegrees.first.as_callable)
     remark = dd.CharField(_("Remark"), max_length=240, blank=True)
 
     # def on_create(self, ar):
@@ -148,9 +150,11 @@ class Reminder(UserAuthored, Certifiable):
     #     self.date_issued = dd.today()
 
     def __str__(self):
-        return "{} ({})".format(dd.fds(self.date_issued), str(self.state))
+        return "{} ({} {})".format(
+            dd.fds(self.date_issued), self.state, self.degree)
 
-   
+    def get_print_language(self):
+        return self.enrolment.pupil.language
     
 class EnrolmentChecker(Checker):
     verbose_name = _("Check for unsufficient presences")
