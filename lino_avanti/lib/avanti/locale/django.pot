@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lino-avanti 17.10.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-17 16:35+0200\n"
+"POT-Creation-Date: 2018-01-24 16:31+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,8 @@ msgstr ""
 
 #: lino_avanti/lib/avanti/choicelists.py:22
 #: lino_avanti/lib/avanti/choicelists.py:45
-#: lino_avanti/lib/avanti/fixtures/demo.py:61
+#: lino_avanti/lib/avanti/fixtures/demo.py:62
+#: lino_avanti/lib/avanti/fixtures/demo.py:79
 msgid "Other"
 msgstr ""
 
@@ -57,27 +58,27 @@ msgid "Old Ending reason"
 msgstr ""
 
 #: lino_avanti/lib/avanti/choicelists.py:40
-#: lino_avanti/lib/avanti/fixtures/demo.py:56
+#: lino_avanti/lib/avanti/fixtures/demo.py:57
 msgid "Successfully ended"
 msgstr ""
 
 #: lino_avanti/lib/avanti/choicelists.py:41
-#: lino_avanti/lib/avanti/fixtures/demo.py:57
+#: lino_avanti/lib/avanti/fixtures/demo.py:58
 msgid "Health problems"
 msgstr ""
 
 #: lino_avanti/lib/avanti/choicelists.py:42
-#: lino_avanti/lib/avanti/fixtures/demo.py:58
+#: lino_avanti/lib/avanti/fixtures/demo.py:59
 msgid "Familiar reasons"
 msgstr ""
 
 #: lino_avanti/lib/avanti/choicelists.py:43
-#: lino_avanti/lib/avanti/fixtures/demo.py:59
+#: lino_avanti/lib/avanti/fixtures/demo.py:60
 msgid "Missing motivation"
 msgstr ""
 
 #: lino_avanti/lib/avanti/choicelists.py:44
-#: lino_avanti/lib/avanti/fixtures/demo.py:60
+#: lino_avanti/lib/avanti/fixtures/demo.py:61
 msgid "Return to home country"
 msgstr ""
 
@@ -524,50 +525,54 @@ msgstr ""
 msgid "Administrator"
 msgstr ""
 
-#: lino_avanti/lib/avanti/fixtures/demo.py:63
-msgid "Language course"
-msgstr ""
-
-#: lino_avanti/lib/avanti/fixtures/demo.py:64
-msgid "Integration course"
-msgstr ""
-
-#: lino_avanti/lib/avanti/fixtures/demo.py:65
-msgid "Language & integration course"
-msgstr ""
-
-#: lino_avanti/lib/avanti/fixtures/demo.py:66
-msgid "External course"
-msgstr ""
-
-#: lino_avanti/lib/avanti/fixtures/demo.py:67
-msgid "Justified interruption"
-msgstr ""
-
-#: lino_avanti/lib/avanti/fixtures/demo.py:68
-msgid "Successfully terminated"
-msgstr ""
-
-#: lino_avanti/lib/avanti/fixtures/demo.py:70
+#: lino_avanti/lib/avanti/workflows.py:25
 msgid "Health insurance"
 msgstr ""
 
-#: lino_avanti/lib/avanti/fixtures/demo.py:71
-#: lino_avanti/lib/courses/models.py:81 lino_avanti/lib/courses/models.py:106
+#: lino_avanti/lib/avanti/workflows.py:26 lino_avanti/lib/courses/models.py:81
+#: lino_avanti/lib/courses/models.py:106
 #: lino_avanti/lib/households/models.py:24
 msgid "School"
 msgstr ""
 
-#: lino_avanti/lib/avanti/fixtures/demo.py:72
+#: lino_avanti/lib/avanti/workflows.py:27
 msgid "Pharmacy"
 msgstr ""
 
-#: lino_avanti/lib/avanti/fixtures/demo.py:73
-msgid "GSS"
+#: lino_avanti/lib/avanti/workflows.py:28
+msgid "General social assistant"
 msgstr ""
 
-#: lino_avanti/lib/avanti/fixtures/demo.py:74
-msgid "ISS"
+#: lino_avanti/lib/avanti/workflows.py:29
+msgid "Integration assistant"
+msgstr ""
+
+#: lino_avanti/lib/avanti/workflows.py:30
+msgid "Work consultant"
+msgstr ""
+
+#: lino_avanti/lib/avanti/fixtures/demo.py:64
+msgid "Language course"
+msgstr ""
+
+#: lino_avanti/lib/avanti/fixtures/demo.py:65
+msgid "Integration course"
+msgstr ""
+
+#: lino_avanti/lib/avanti/fixtures/demo.py:66
+msgid "Language & integration course"
+msgstr ""
+
+#: lino_avanti/lib/avanti/fixtures/demo.py:67
+msgid "External course"
+msgstr ""
+
+#: lino_avanti/lib/avanti/fixtures/demo.py:68
+msgid "Justified interruption"
+msgstr ""
+
+#: lino_avanti/lib/avanti/fixtures/demo.py:69
+msgid "Successfully terminated"
 msgstr ""
 
 #: lino_avanti/lib/avanti/fixtures/std.py:20
@@ -608,23 +613,27 @@ msgstr ""
 msgid "Final"
 msgstr ""
 
-#: lino_avanti/lib/courses/choicelists.py:18
-msgid "Degree"
+#: lino_avanti/lib/courses/choicelists.py:15
+msgid "Cancelled"
 msgstr ""
 
 #: lino_avanti/lib/courses/choicelists.py:19
+msgid "Degree"
+msgstr ""
+
+#: lino_avanti/lib/courses/choicelists.py:20
 msgid "Reminder degrees"
 msgstr ""
 
-#: lino_avanti/lib/courses/choicelists.py:22
+#: lino_avanti/lib/courses/choicelists.py:23
 msgid "First reminder"
 msgstr ""
 
-#: lino_avanti/lib/courses/choicelists.py:23
+#: lino_avanti/lib/courses/choicelists.py:24
 msgid "Second reminder"
 msgstr ""
 
-#: lino_avanti/lib/courses/choicelists.py:24
+#: lino_avanti/lib/courses/choicelists.py:25
 msgid "Third reminder"
 msgstr ""
 
@@ -665,7 +674,7 @@ msgid "Reminders"
 msgstr ""
 
 #: lino_avanti/lib/courses/models.py:141
-msgid "Date issued"
+msgid "Situation on"
 msgstr ""
 
 #: lino_avanti/lib/courses/models.py:142
@@ -676,15 +685,15 @@ msgstr ""
 msgid "Remark"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:160
+#: lino_avanti/lib/courses/models.py:175
 msgid "Check for unsufficient presences"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:163
+#: lino_avanti/lib/courses/models.py:178
 msgid "More than 2 times absent."
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:164
+#: lino_avanti/lib/courses/models.py:179
 #, python-format
 msgid "Missed more than 10% of meetings."
 msgstr ""

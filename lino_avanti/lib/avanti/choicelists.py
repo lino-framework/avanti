@@ -64,6 +64,7 @@ class ClientStates(dd.Workflow):
     
 
 add = ClientStates.add_item
+add('05', _("Reception"), 'reception')
 add('10', _("Newcomer"), 'newcomer')  # "first contact" in Avanti
 add('20', _("Refused"), 'refused')
 add('30', _("Coached"), 'coached')

@@ -1,4 +1,4 @@
-# Copyright 2017 Luc Saffre
+# Copyright 2017-2018 Luc Saffre
 # License: BSD (see file COPYING for details)
 
 from __future__ import unicode_literals
@@ -8,8 +8,8 @@ from builtins import str
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import pgettext_lazy as pgettext
 
-from lino.modlib.users.mixins import UserAuthored
 from lino_xl.lib.courses.models import *
+from lino.modlib.users.mixins import UserAuthored
 from lino_xl.lib.courses.roles import CoursesUser
 from lino_xl.lib.excerpts.mixins import Certifiable
 from lino.modlib.checkdata.choicelists import Checker
@@ -138,7 +138,7 @@ class Reminder(UserAuthored, Certifiable):
     workflow_state_field = 'state'
 
     enrolment = dd.ForeignKey('courses.Enrolment', editable=False)
-    date_issued = dd.DateField(_("Date issued"), default=dd.today)
+    date_issued = dd.DateField(_("Situation on"), blank=True)
     text_body = dd.RichTextField(_("Text body"), blank=True, format='html')
     state = ReminderStates.field(default=ReminderStates.draft.as_callable)
     degree = ReminderDegrees.field(
@@ -155,6 +155,22 @@ class Reminder(UserAuthored, Certifiable):
 
     def get_print_language(self):
         return self.enrolment.pupil.language
+
+    def full_clean(self):
+        #raise Exception("20180124")
+        if self.date_issued is None:
+            EntryStates = rt.models.cal.EntryStates
+            Event = rt.models.cal.Event
+            flt = gfk2lookup(Event.owner, self.enrolment.course)
+            qs = Event.objects.filter(**flt).order_by('-start_date')
+            qs = qs.filter(state__in=EntryStates.filter(fixed=True))
+            ce = qs.first()
+            if ce is None:
+                self.date_issued = dd.today()
+            else:
+                self.date_issued = ce.start_date
+        super(Reminder, self).full_clean()
+        
     
 class EnrolmentChecker(Checker):
     verbose_name = _("Check for unsufficient presences")
@@ -174,9 +190,10 @@ class EnrolmentChecker(Checker):
 
         if obj.state != EnrolmentStates.confirmed:
             return
-        
-        rdate = Reminder.objects.filter(enrolment=obj).order_by(
-            '-date_issued').first()
+
+        qs = Reminder.objects.filter(enrolment=obj)
+        qs = qs.exclude(state=ReminderStates.cancelled)
+        rdate = qs.order_by('-date_issued').first()
         if rdate is not None:
             rdate = rdate.date_issued
         eflt = gfk2lookup(Event.owner, obj.course)
