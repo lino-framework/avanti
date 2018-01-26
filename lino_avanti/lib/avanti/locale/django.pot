@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lino-avanti 17.10.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-01-24 16:31+0200\n"
+"POT-Creation-Date: 2018-01-26 13:34+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -108,27 +108,6 @@ msgstr ""
 
 #: lino_avanti/lib/avanti/choicelists.py:58
 msgid "Retired"
-msgstr ""
-
-#: lino_avanti/lib/avanti/choicelists.py:62
-msgid "Client states"
-msgstr ""
-
-#: lino_avanti/lib/avanti/choicelists.py:67
-#: lino_avanti/lib/avanti/models.py:656
-msgid "Newcomer"
-msgstr ""
-
-#: lino_avanti/lib/avanti/choicelists.py:68
-msgid "Refused"
-msgstr ""
-
-#: lino_avanti/lib/avanti/choicelists.py:69
-msgid "Coached"
-msgstr ""
-
-#: lino_avanti/lib/avanti/choicelists.py:70
-msgid "Former"
 msgstr ""
 
 #: lino_avanti/lib/avanti/help_texts.py:7
@@ -468,6 +447,14 @@ msgstr ""
 msgid "Former residences"
 msgstr ""
 
+#: lino_avanti/lib/avanti/models.py:656
+msgid "Incoming"
+msgstr ""
+
+#: lino_avanti/lib/avanti/models.py:657
+msgid "Newcomer"
+msgstr ""
+
 #: lino_avanti/lib/avanti/models.py:658
 msgctxt "client state"
 msgid "Registered"
@@ -685,15 +672,15 @@ msgstr ""
 msgid "Remark"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:175
+#: lino_avanti/lib/courses/models.py:176
 msgid "Check for unsufficient presences"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:178
+#: lino_avanti/lib/courses/models.py:179
 msgid "More than 2 times absent."
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:179
+#: lino_avanti/lib/courses/models.py:180
 #, python-format
 msgid "Missed more than 10% of meetings."
 msgstr ""

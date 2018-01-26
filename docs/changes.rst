@@ -4,6 +4,12 @@
 Changes in Lino Avanti
 ========================
 
+Coming version
+===============
+
+- 
+  
+
 Version 0.0.1
 =============
 

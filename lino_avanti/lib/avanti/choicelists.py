@@ -58,14 +58,14 @@ add('500', _("Independent"))
 add('600', _("Retired"))  # pensioniert
 
 
-class ClientStates(dd.Workflow):
-    verbose_name_plural = _("Client states")
-    default_value = 'newcomer'
+# class ClientStates(dd.Workflow):
+#     verbose_name_plural = _("Client states")
+#     default_value = 'newcomer'
     
 
-add = ClientStates.add_item
-add('05', _("Reception"), 'reception')
-add('10', _("Newcomer"), 'newcomer')  # "first contact" in Avanti
-add('20', _("Refused"), 'refused')
-add('30', _("Coached"), 'coached')
-add('50', _("Former"), 'former')
+# add = ClientStates.add_item
+# add('05', _("Reception"), 'reception')
+# add('10', _("Newcomer"), 'newcomer')  # "first contact" in Avanti
+# add('20', _("Refused"), 'refused')
+# add('30', _("Coached"), 'coached')
+# add('50', _("Former"), 'former')
