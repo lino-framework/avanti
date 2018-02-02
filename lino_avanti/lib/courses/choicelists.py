@@ -1,4 +1,4 @@
-# Copyright 2017 Luc Saffre
+# Copyright 2017-2018 Luc Saffre
 # License: BSD (see file COPYING for details)
 
 from lino.api import dd, rt, _
@@ -12,6 +12,7 @@ add("10", _("Draft"), 'draft')
 add("20", _("Sent"), 'sent')
 add("30", _("OK"), 'ok')
 add("40", _("Final"), 'final')
+add("90", _("Cancelled"), 'cancelled')
 
 
 class ReminderDegrees(dd.Workflow):

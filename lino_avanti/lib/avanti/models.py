@@ -653,8 +653,8 @@ from lino_xl.lib.clients.choicelists import ClientStates
 ClientStates.default_value = 'coached'
 ClientStates.clear()
 add = ClientStates.add_item
+add('05', _("Incoming"), 'incoming')
 add('10', _("Newcomer"), 'newcomer')
-# add('10', _("Testing"), 'testing')
 add('20', pgettext("client state", "Registered"), 'coached')
 add('25', _("Inactive"), 'inactive')
 add('30', _("Ended"), 'former')
