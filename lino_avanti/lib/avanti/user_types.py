@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017 Luc Saffre
+# Copyright 2017-2018 Luc Saffre
 # License: BSD (see file COPYING for details)
 
 
@@ -28,7 +28,7 @@ from lino_xl.lib.beid.roles import BeIdUser
 from lino_xl.lib.trends.roles import TrendsStaff, TrendsUser
 
 
-class Auditor(SiteUser, CoursesUser, OfficeUser, GuestOperator,
+class Auditor(SiteUser, CoursesUser, OfficeUser, # GuestOperator,
               Explorer):
     pass
 

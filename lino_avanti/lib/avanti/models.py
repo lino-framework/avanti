@@ -222,8 +222,10 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
         if u.user_type.has_required_roles(
                 [ClientsNameUser]):
             return str(self)
-        return _("{} ({}) from {}").format(
-            self.first_name, self.pk, self.city)
+        # 20180209 : not even the first name
+        # return _("{} ({}) from {}").format(
+        #     self.first_name, self.pk, self.city)
+        return _("({}) from {}").format( self.pk, self.city)
         # return "{} {}".format(self._meta.verbose_name, self.pk)
 
     @dd.displayfield(_("Name"))
