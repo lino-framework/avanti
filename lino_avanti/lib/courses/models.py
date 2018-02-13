@@ -140,9 +140,9 @@ class Reminder(UserAuthored, Certifiable):
     enrolment = dd.ForeignKey('courses.Enrolment', editable=False)
     date_issued = dd.DateField(_("Situation on"), blank=True)
     text_body = dd.RichTextField(_("Text body"), blank=True, format='html')
-    state = ReminderStates.field(default=ReminderStates.draft.as_callable)
+    state = ReminderStates.field(default=ReminderStates.as_callable('draft'))
     degree = ReminderDegrees.field(
-        default=ReminderDegrees.first.as_callable)
+        default=ReminderDegrees.as_callable('first'))
     remark = dd.CharField(_("Remark"), max_length=240, blank=True)
 
     # def on_create(self, ar):
