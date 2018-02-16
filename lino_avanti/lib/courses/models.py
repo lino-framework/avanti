@@ -14,7 +14,7 @@ from lino_xl.lib.courses.roles import CoursesUser
 from lino_xl.lib.excerpts.mixins import Certifiable
 from lino.modlib.checkdata.choicelists import Checker
 from lino.core.gfks import gfk2lookup
-from lino.utils.xmlgen.html import E, join_elems
+from etgen.html import E, join_elems
 
 from .choicelists import ReminderStates, ReminderDegrees
 

@@ -7,7 +7,7 @@ from lino.api import _
 
 from lino.core.gfks import gfk2lookup
 from lino.utils import join_elems
-from lino.utils.xmlgen.html import E
+from etgen.html import E
 from lino.modlib.users.mixins import My
 from lino_avanti.lib.avanti.roles import ClientsUser
 

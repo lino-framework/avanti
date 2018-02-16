@@ -18,7 +18,7 @@ from django.conf import settings
 from django.utils.translation import string_concat
 
 from lino.utils import join_elems
-from lino.utils.xmlgen.html import E
+from etgen.html import E
 from lino.utils.dates import daterange_text
 # from lino.utils import ssin
 from lino.mixins import Referrable
