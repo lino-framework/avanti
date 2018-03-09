@@ -29,7 +29,7 @@ from lino.modlib.users.mixins import UserAuthored, My
 from lino.modlib.dupable.mixins import Dupable
 from lino_xl.lib.courses.mixins import Enrollable
 
-# from lino.modlib.notify.mixins import ChangeObservable
+# from lino.modlib.notify.mixins import ChangeNotifier
 # from lino_xl.lib.notes.choicelists import SpecialTypes
 # from lino_xl.lib.coachings.mixins import Coachable
 from lino_xl.lib.clients.mixins import ClientBase
@@ -250,7 +250,7 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
             notes.append(E.b(ar.obj2html(obj, obj.summary)))
         if len(notes):
             notes = join_elems(notes, " / ")
-            elems.append(E.p(*notes, class_="lino-info-yellow"))
+            elems.append(E.p(*notes, **{'class':"lino-info-yellow"}))
         return elems
 
     def update_owned_instance(self, owned):
