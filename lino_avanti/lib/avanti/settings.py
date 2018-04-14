@@ -42,6 +42,10 @@ class Site(Site):
     # textfield_format = 'html'
     # use_silk_icons = False
     default_build_method = "appypdf"
+
+    webdav_protocol = 'webdav'
+    beid_protocol = 'beid'
+    
     auto_configure_logger_names = 'schedule atelier django lino lino_xl lino_avanti'
 
     def get_installed_apps(self):
