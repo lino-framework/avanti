@@ -3,7 +3,7 @@
 # License: BSD (see file COPYING for details)
 
 SETUP_INFO = dict(
-    name='lino-avanti',
+    name='lino_avanti',
     version='17.10.0',
     install_requires=['lino-xl', 'metafone'],
     description=("Manage the integration course of immigrants in East Belgium"),

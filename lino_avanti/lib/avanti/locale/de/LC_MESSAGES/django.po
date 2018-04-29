@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  Lino-DSBE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-03-16 18:40+0200\n"
+"POT-Creation-Date: 2018-04-29 07:25+0300\n"
 "PO-Revision-Date: 2018-01-26 13:35+0200\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: de\n"
@@ -481,11 +481,11 @@ msgstr "Beendet"
 msgid "Abandoned"
 msgstr "Abgebrochen"
 
-#: lino_avanti/lib/avanti/settings.py:120
+#: lino_avanti/lib/avanti/settings.py:124
 msgid "My settings"
 msgstr "Meine Einstellungen"
 
-#: lino_avanti/lib/avanti/settings.py:127
+#: lino_avanti/lib/avanti/settings.py:131
 msgid "New {}"
 msgstr "{} erstellen"
 
