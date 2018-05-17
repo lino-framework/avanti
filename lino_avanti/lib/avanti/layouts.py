@@ -30,7 +30,7 @@ dd.update_field(
     rt.models.contacts.Partner, 'language',
     verbose_name=_("Contact language"))
 
-# rt.actors.cv.LanguageKnowledgesByPerson.slave_grid_format = 'grid'
+# rt.actors.cv.LanguageKnowledgesByPerson.display_mode = 'grid'
 
 
 rt.actors.cv.StudiesByPerson.column_names = 'type content duration_text language school country state education_level remarks *'
