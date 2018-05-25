@@ -245,7 +245,7 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
         # elems.append(E.br())
         elems.append(ar.get_data_value(self, 'eid_info'))
         notes = []
-        for obj in rt.modules.cal.Task.objects.filter(
+        for obj in rt.models.cal.Task.objects.filter(
                 project=self, state=TaskStates.important):
             notes.append(E.b(ar.obj2html(obj, obj.summary)))
         if len(notes):

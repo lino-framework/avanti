@@ -8,7 +8,7 @@
 
 from lino.api import dd, rt, _
 
-rt.actors.system.SiteConfigs.detail_layout = dd.DetailLayout("""
+rt.models.system.SiteConfigs.detail_layout = dd.DetailLayout("""
 site_company next_partner_id:10
 default_build_method simulate_today
 site_calendar default_event_type #pupil_guestrole
@@ -21,7 +21,7 @@ type parent zip_code id
 PlacesByPlace contacts.PartnersByCity
 """
 
-rt.actors.courses.AllEnrolments.column_names = \
+rt.models.courses.AllEnrolments.column_names = \
 'id #request_date #start_date #end_date #user course \
 pupil__birth_date pupil__age pupil__country pupil__city \
 pupil__gender state'
@@ -30,24 +30,24 @@ dd.update_field(
     rt.models.contacts.Partner, 'language',
     verbose_name=_("Contact language"))
 
-# rt.actors.cv.LanguageKnowledgesByPerson.display_mode = 'grid'
+# rt.models.cv.LanguageKnowledgesByPerson.display_mode = 'grid'
 
 
-rt.actors.cv.StudiesByPerson.column_names = 'type content duration_text language school country state education_level remarks *'
+rt.models.cv.StudiesByPerson.column_names = 'type content duration_text language school country state education_level remarks *'
 
-rt.actors.cv.StudiesByPerson.insert_layout = """
+rt.models.cv.StudiesByPerson.insert_layout = """
 type content
 duration_text language
 """
 
-rt.actors.cv.Studies.detail_layout = """
+rt.models.cv.Studies.detail_layout = """
 person #start_date #end_date duration_text language
 type content education_level state #success
 school country city
 remarks
 """
 
-rt.actors.cv.Experiences.detail_layout = """
+rt.models.cv.Experiences.detail_layout = """
 person company country city
 #sector #function title
 status duration regime is_training 
@@ -55,7 +55,7 @@ status duration regime is_training
 remarks
 """
 
-rt.actors.cv.ExperiencesByPerson.column_names = "company country duration_text function status termination_reason remarks *"
+rt.models.cv.ExperiencesByPerson.column_names = "company country duration_text function status termination_reason remarks *"
 
 
 dd.update_field(
