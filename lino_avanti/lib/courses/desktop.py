@@ -35,7 +35,7 @@ class PresencesByEnrolment(dd.Table):
     model = 'cal.Guest'
     master = 'courses.Enrolment'
     column_names = "event event__state workflow_buttons remark *"
-    slave_grid_format = "summary"
+    display_mode = "summary"
     order_by = ['event__start_date', 'event__start_time']
 
     @classmethod
@@ -50,7 +50,7 @@ class PresencesByEnrolment(dd.Table):
         return super(PresencesByEnrolment, self).get_filter_kw(ar, **kw)
 
     @classmethod
-    def get_slave_summary(self, obj, ar):
+    def get_table_summary(self, obj, ar):
         if ar is None:
             return ''
         sar = self.request_from(ar, master_instance=obj)
@@ -126,7 +126,7 @@ class RemindersByEnrolment(Reminders):
     auto_fit_column_widths = True
     stay_in_grid = True
     master_key = 'enrolment'
-    slave_grid_format = 'summary'
+    display_mode = 'summary'
     # can_create = True
     insert_layout = dd.InsertLayout("""
     degree 

@@ -4,24 +4,17 @@
 Installing Lino Avanti
 ======================
 
-- Install Lino (the framework) as documented in
+- Install a Lino development environment as documented in
   :ref:`lino.dev.install`
 
-- Go to your :xfile:`repositories` directory and download also a copy
-  of the *Lino Avanti* repository::
+- Go to the ``adg`` demo project and start the development server::
 
-    cd ~/repositories
-    git clone https://github.com/lino-framework/avanti
-    
-- Use pip to install this as editable package::
+    $ go adg
+    $ python manage.py runserver
 
-    pip install -e avanti
+- Point your browser to http://127.0.0.1:8000/ and sign in as one of
+  the demo users (e.g. ``robin``).
 
-- Create a local Lino project as explained in
-  :ref:`lino.tutorial.hello`.
 
-- Change your project's :xfile:`settings.py` file so that it looks as
-  follows:
 
-  .. literalinclude:: settings.py
 

@@ -1,5 +1,5 @@
 ===========================
-The ``lino-avanti`` package
+The ``lino_avanti`` package
 ===========================
 
 

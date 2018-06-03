@@ -22,4 +22,5 @@ __version__ = SETUP_INFO.get('version')
 
 intersphinx_urls = dict(docs="http://avanti.lino-framework.org")
 srcref_url = 'https://github.com/lino-framework/avanti/blob/master/%s'
+doc_trees = ['docs']
 
