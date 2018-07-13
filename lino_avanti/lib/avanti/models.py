@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017 Luc Saffre
+# Copyright 2017-2018 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
 """The :xfile:`models.py` module for this plugin.
@@ -217,11 +217,12 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
         return "%s %s (%s)" % (
             self.last_name.upper(), self.first_name, self.pk)
 
-    def get_choices_text(self, request, actor, field):
-        u = request.subst_user or request.user
-        if u.user_type.has_required_roles(
-                [ClientsNameUser]):
-            return str(self)
+    def get_choices_text(self, ar, actor, field):
+        if ar:
+            u = ar.subst_user or ar.user
+            if u.user_type.has_required_roles(
+                    [ClientsNameUser]):
+                return str(self)
         # 20180209 : not even the first name
         # return _("{} ({}) from {}").format(
         #     self.first_name, self.pk, self.city)
