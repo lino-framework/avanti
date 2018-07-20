@@ -11,6 +11,8 @@ Behebt einen Fehler:
 
 - Der neue Klientenzustand "Empfangsbestätigung" fehlte noch.
 
+- :ticket:`2441` : "Intelligente" Übersicht der Termine pro Kurs.
+
 
 2018-01-24
 ==========
