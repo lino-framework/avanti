@@ -14,6 +14,8 @@ extlinks = {}
 from lino.sphinxcontrib import configure
 configure(globals())
 
+extlinks.update(ticket=('http://bugs.saffre-rumma.net/tickets/Ticket/%s', '#'))
+
 # extensions += ['lino.sphinxcontrib.logo']
 
 extensions += ['lino.sphinxcontrib.help_texts_extractor']
