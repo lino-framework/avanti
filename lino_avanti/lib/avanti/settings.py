@@ -92,7 +92,7 @@ class Site(Site):
         # yield 'lino_xl.lib.votes'
         # yield 'lino_avanti.lib.tickets'
         # yield 'lino_xl.lib.tickets'
-        # yield 'lino_xl.lib.faculties'
+        # yield 'lino_xl.lib.skills'
         
 
     def setup_plugins(self):
@@ -107,7 +107,7 @@ class Site(Site):
             # person_model='avanti.Client')
         self.plugins.cal.configure(
             partner_model='avanti.Client')
-        # self.plugins.faculties.configure(
+        # self.plugins.skills.configure(
         #     end_user_model='avanti.Client')
         self.plugins.clients.configure(
             client_model='avanti.Client')
