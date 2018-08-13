@@ -80,14 +80,14 @@ SETUP_INFO.update(message_extractors={
     ],
 })
 
-SETUP_INFO.update(package_data=dict())
+SETUP_INFO.update(include_package_data=True)
 
 
-def add_package_data(package, *patterns):
-    l = SETUP_INFO['package_data'].setdefault(package, [])
-    l.extend(patterns)
-    return l
-
-l = add_package_data('lino_avanti.lib.avanti')
-for lng in 'de fr'.split():
-    l.append('locale/%s/LC_MESSAGES/*.mo' % lng)
+# def add_package_data(package, *patterns):
+#     l = SETUP_INFO['package_data'].setdefault(package, [])
+#     l.extend(patterns)
+#     return l
+#
+# l = add_package_data('lino_avanti.lib.avanti')
+# for lng in 'de fr'.split():
+#     l.append('locale/%s/LC_MESSAGES/*.mo' % lng)
