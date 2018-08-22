@@ -237,7 +237,7 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
     def municipality(self, ar):
         pl = self.city
         mt = dd.plugins.avanti.municipality_type
-        while pl and pl.parent_id and pl.type.value > mt:
+        while pl and pl.parent_id and pl.type and pl.type.value > mt:
             pl = pl.parent
         return str(pl)
 
