@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  lino.apps.dsbe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-04-29 07:25+0300\n"
+"POT-Creation-Date: 2018-08-30 08:45+0300\n"
 "PO-Revision-Date: 2016-11-20 19:48+0100\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: fr\n"
@@ -17,7 +17,7 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=utf-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Generated-By: Babel 2.5.3\n"
+"Generated-By: Babel 2.6.0\n"
 
 #: lino_avanti/lib/avanti/__init__.py:28
 #, fuzzy
@@ -384,108 +384,108 @@ msgstr "raison"
 msgid "Reason of stay"
 msgstr "raison"
 
-#: lino_avanti/lib/avanti/models.py:215 lino_avanti/lib/avanti/models.py:490
+#: lino_avanti/lib/avanti/models.py:215 lino_avanti/lib/avanti/models.py:491
 #: lino_avanti/lib/households/models.py:23
 msgid "Nationality"
 msgstr "Nationalité"
 
-#: lino_avanti/lib/avanti/models.py:228
+#: lino_avanti/lib/avanti/models.py:229
 msgid "({}) from {}"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:231
+#: lino_avanti/lib/avanti/models.py:232
 msgid "Name"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:235
+#: lino_avanti/lib/avanti/models.py:236
 msgid "Municipality"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:336
+#: lino_avanti/lib/avanti/models.py:337
 msgid "Primary coach"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:337
+#: lino_avanti/lib/avanti/models.py:338
 msgid "Legacy file number"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:349 lino_avanti/lib/contacts/models.py:34
+#: lino_avanti/lib/avanti/models.py:350 lino_avanti/lib/contacts/models.py:34
 #: lino_avanti/lib/contacts/models.py:77 lino_avanti/lib/contacts/models.py:119
 #: lino_avanti/lib/tickets/models.py:32 lino_avanti/lib/users/desktop.py:24
 msgid "General"
 msgstr "Général"
 
-#: lino_avanti/lib/avanti/models.py:367 lino_avanti/lib/avanti/models.py:624
+#: lino_avanti/lib/avanti/models.py:368 lino_avanti/lib/avanti/models.py:625
 msgid "Residence"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:389
+#: lino_avanti/lib/avanti/models.py:390
 msgid "Person"
 msgstr "Personne"
 
-#: lino_avanti/lib/avanti/models.py:394
+#: lino_avanti/lib/avanti/models.py:395
 msgid "Courses"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:416
+#: lino_avanti/lib/avanti/models.py:417
 msgid "Family"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:420
+#: lino_avanti/lib/avanti/models.py:421
 msgid "Notes"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:433
+#: lino_avanti/lib/avanti/models.py:434
 msgid "Trends"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:443
+#: lino_avanti/lib/avanti/models.py:444
 msgid "Miscellaneous"
 msgstr "Divers"
 
-#: lino_avanti/lib/avanti/models.py:449
+#: lino_avanti/lib/avanti/models.py:450
 msgid "Database"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:456
+#: lino_avanti/lib/avanti/models.py:457
 msgid "Career"
 msgstr "Parcours"
 
-#: lino_avanti/lib/avanti/models.py:625
+#: lino_avanti/lib/avanti/models.py:626
 msgid "Residences"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:627
+#: lino_avanti/lib/avanti/models.py:628
 #, fuzzy
 msgid "Reason"
 msgstr "raison"
 
-#: lino_avanti/lib/avanti/models.py:635
+#: lino_avanti/lib/avanti/models.py:636
 msgid "Former residences"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:658
+#: lino_avanti/lib/avanti/models.py:659
 msgid "Incoming"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:659
+#: lino_avanti/lib/avanti/models.py:660
 msgid "Newcomer"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:660
+#: lino_avanti/lib/avanti/models.py:661
 msgctxt "client state"
 msgid "Registered"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:661
+#: lino_avanti/lib/avanti/models.py:662
 msgid "Inactive"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:662
+#: lino_avanti/lib/avanti/models.py:663
 msgid "Ended"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:663
+#: lino_avanti/lib/avanti/models.py:664
 msgid "Abandoned"
 msgstr ""
 
