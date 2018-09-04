@@ -15,7 +15,7 @@ from lino.api import dd, rt, _
 from django.db import models
 from django.db.models import Q
 from django.conf import settings
-from django.utils.translation import string_concat
+from django.utils.text import format_lazy
 
 from lino.utils import join_elems
 from etgen.html import E
@@ -211,7 +211,7 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
     nationality2 = dd.ForeignKey('countries.Country',
                                 blank=True, null=True,
                                 related_name='by_nationality2',
-                                verbose_name=string_concat(
+                                verbose_name=format_lazy(u"{}{}",
                                     _("Nationality"), " (2)"))
     def __str__(self):
         return "%s %s (%s)" % (
