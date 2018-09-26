@@ -44,7 +44,7 @@ class Site(Site):
     default_build_method = "appypdf"
 
     webdav_protocol = 'webdav'
-    beid_protocol = 'beid'
+    # beid_protocol = 'beid'
     
     auto_configure_logger_names = 'schedule atelier django lino lino_xl lino_avanti'
 
