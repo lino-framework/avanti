@@ -87,7 +87,7 @@ class Site(Site):
         yield 'lino_xl.lib.excerpts'
         yield 'lino.modlib.dashboard'
         yield 'lino_xl.lib.appypod'
-        yield 'lino.modlib.davlink'
+        # yield 'lino.modlib.davlink'
         
         # yield 'lino_xl.lib.votes'
         # yield 'lino_avanti.lib.tickets'
