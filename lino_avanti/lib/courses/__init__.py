@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017 Luc Saffre
+# Copyright 2017-2018 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
 """See :doc:`/specs/avanti/courses`.
@@ -20,6 +20,7 @@ class Plugin(Plugin):
         super(Plugin, self).setup_main_menu(site, user_type, main)
         m = main.add_menu(self.app_label, self.verbose_name)
         m.add_action('courses.CoursesPlanning')
+        m.add_action('courses.MyCoachedEnrolments')
 
     def setup_explorer_menu(self, site, user_type, main):
         super(Plugin, self).setup_explorer_menu(site, user_type, main)

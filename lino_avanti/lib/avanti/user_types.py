@@ -6,7 +6,7 @@
 """Defines the standard user roles for Lino Avanti."""
 
 
-from django.utils.translation import ugettext_lazy as _
+from lino.api import _
 
 # from lino.core.roles import UserRole, SiteAdmin, SiteUser
 # from lino.core.roles import UserRole, SiteAdmin, SiteStaff
@@ -72,3 +72,6 @@ add('400', _("Coordinator"), Coordinator, name='coordinator')
 add('410', _("Secretary"), Secretary, name='secretary')
 add('800', _("Staff"), SiteStaff, name='staff')
 add('900', _("Administrator"), Administrator, name='admin')
+
+
+

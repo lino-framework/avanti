@@ -10,6 +10,7 @@ from lino.utils import join_elems
 from etgen.html import E
 from lino.modlib.users.mixins import My
 from lino_avanti.lib.avanti.roles import ClientsUser
+from lino_xl.lib.coachings.roles import CoachingsUser
 
 
 # Courses.required_roles = dd.login_required(Explorer)
@@ -25,6 +26,33 @@ AllActivities.column_names = "line:20 start_date:8 teacher user " \
 AllEnrolments.column_names = "id request_date start_date end_date \
 user course pupil pupil__birth_date pupil__age pupil__country \
 pupil__city pupil__gender"
+
+
+class MyCoachedEnrolments(Enrolments):
+    label = _("My coached enrolments")
+    order_by = ['-missing_rate']
+    column_names = "missing_rate pupil course *"
+    required_roles = dd.login_required(CoachingsUser)
+
+    @classmethod
+    def param_defaults(self, ar, **kw):
+        kw = super(MyCoachedEnrolments, self).param_defaults(ar, **kw)
+        kw['coached_by'] = ar.get_user()
+        kw['course_state'] = rt.models.courses.CourseStates.active
+        kw['participants_only'] = True
+        return kw
+
+    @classmethod
+    def get_request_queryset(self, ar, **kwargs):
+        qs = super(Enrolments, self).get_request_queryset(ar, **kwargs)
+        if isinstance(qs, list):
+            return qs
+        pv = ar.param_values
+        if pv.coached_by is not None:
+            qs = qs.filter(partner__user=pv.coached_by)
+        return qs
+
+    
 
 class EnrolmentsByCourse(EnrolmentsByCourse):
     column_names = 'id request_date pupil pupil__gender pupil__nationality:15 ' \

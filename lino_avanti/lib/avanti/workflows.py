@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017 Luc Saffre
+# Copyright 2017-2018 Rumma & Ko Ltd
 #
 # License: BSD (see file COPYING for details)
 
@@ -12,7 +12,6 @@ This can be used as :attr:`workflows_module
 
 # calendar events and presences:
 from lino_xl.lib.cal.workflows.voga import *
-# from lino_xl.lib.cal.workflows import feedback
 
 from lino_avanti.lib.courses.workflows import *
 
@@ -28,3 +27,26 @@ add('30', _("Pharmacy"), 'pharmacy')
 add('40', _("General social assistant"), 'general_assistant')
 add('50', _("Integration assistant"), 'integ_assistant')
 add('60', _("Work consultant"), 'work_consultant')
+
+
+# same as in voga except that we remove transition to "excused"
+GuestStates.clear_transitions()
+GuestStates.present.add_transition(
+    # "\u2611",  # BALLOT BOX WITH CHECK
+    required_states='invited')
+    # help_text=_("Participant was present."))
+
+GuestStates.missing.add_transition(
+    # "☉",  # 2609 SUN
+    required_states='invited')
+    # help_text=_("Participant was absent."))
+
+# GuestStates.excused.add_transition(
+#     # "⚕",  # 2695
+#     required_states='invited')
+
+GuestStates.invited.add_transition(
+    # "☐",  # BALLOT BOX \u2610
+    required_states='missing present excused')
+    # help_text=_("Reset state to invited."))
+

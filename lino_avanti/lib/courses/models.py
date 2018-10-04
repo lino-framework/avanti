@@ -1,9 +1,10 @@
-# Copyright 2017-2018 Luc Saffre
+# Copyright 2017-2018 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
 from __future__ import unicode_literals
 
 from builtins import str
+from decimal import Decimal
 
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import pgettext_lazy as pgettext
@@ -12,7 +13,9 @@ from lino_xl.lib.courses.models import *
 from lino.modlib.users.mixins import UserAuthored
 from lino_xl.lib.courses.roles import CoursesUser
 from lino_xl.lib.excerpts.mixins import Certifiable
-from lino.modlib.checkdata.choicelists import Checker
+from lino_xl.lib.ledger.utils import ZERO
+# from lino.modlib.checkdata.choicelists import Checker
+# from lino.modlib.summaries.mixins import SimpleSummary
 from lino.core.gfks import gfk2lookup
 from etgen.html import E, join_elems
 
@@ -54,6 +57,16 @@ from .choicelists import ReminderStates, ReminderDegrees
 #     detail_layout = CourseProviderDetail()
 
 
+class UpdateMissingRates(dd.Action):
+    label = _("Update missing rates")
+    icon_name = 'lightning'
+    readonly = False
+
+    def run_from_ui(self, ar, **kw):
+        for obj in ar.selected_rows:
+            obj.run_update_missing_rates()
+        ar.success(refresh=True)
+
 
 class Course(Course):
     
@@ -83,6 +96,28 @@ class Course(Course):
         return self.get_places_sum(
             state=EnrolmentStates.requested, needs_school=True)
 
+    def update_reminders(self, ar):
+        super(Course, self).update_reminders(ar)
+        self.run_update_missing_rates()
+        
+    update_missing_rates = UpdateMissingRates()
+    
+    def run_update_missing_rates(self):
+        
+        done = rt.models.cal.Event.objects(
+            project=self,
+            state=rt.models.cal.EntryStates.took_place).count()
+        
+        for obj in self.enrolment_set.all():
+            missed = rt.models.cal.Guest.objects(
+                partner=obj.pupil, event__project=self,
+                state=rt.models.cal.GuestStates.missed).count()
+            if done:
+                obj.missing_rate = Decimal(missed) / done
+            else:
+                obj.missing_rate = ZERO
+            obj.full_clean()
+            obj.save()
     
 # class Line(Line):
     
@@ -105,11 +140,14 @@ class Enrolment(Enrolment):
     needs_bus = models.BooleanField(_("Bus"), default=False)
     needs_school = models.BooleanField(_("School"), default=False)
     needs_evening = models.BooleanField(_("Evening"), default=False)
+
+    missing_rate = dd.PriceField(_("Missing rate"), default=ZERO)
         
     # ending = dd.ForeignKey(
     #     'coachings.CoachingEnding',
     #     related_name="%(app_label)s_%(class)s_set",
     #     blank=True, null=True)
+
 
     @dd.virtualfield(dd.HtmlBox(_("Participant")))
     def pupil_info(self, ar):
@@ -127,6 +165,14 @@ class Enrolment(Enrolment):
     def get_excerpt_title(self):
         return _("Integration Course Agreement")
     
+    @classmethod
+    def setup_parameters(cls, fields):
+        fields.update(
+            coached_by=dd.ForeignKey(
+                settings.SITE.user_model, verbose_name=_("Coached by"),
+                blank=True))
+        super(Enrolment, cls).setup_parameters(fields)
+
 dd.python_2_unicode_compatible    
 class Reminder(UserAuthored, Certifiable):
    
@@ -172,59 +218,74 @@ class Reminder(UserAuthored, Certifiable):
         super(Reminder, self).full_clean()
         
     
-class EnrolmentChecker(Checker):
-    verbose_name = _("Check for unsufficient presences")
-    model = Enrolment
-    messages = dict(
-        msg_absent=_("More than 2 times absent."),
-        msg_missed=_("Missed more than 10% of meetings."),
-    )
+# class EnrolmentChecker(Checker):
+#     verbose_name = _("Check for unsufficient presences")
+#     model = Enrolment
+#     messages = dict(
+#         msg_absent=_("More than 2 times absent."),
+#         msg_missed=_("Missed more than 10% of meetings."),
+#     )
     
-    def get_checkdata_problems(self, obj, fix=False):
-        Guest = rt.models.cal.Guest
-        GuestStates = rt.models.cal.GuestStates
-        Event = rt.models.cal.Event
-        Reminder = rt.models.courses.Reminder
-        EnrolmentStates = rt.models.courses.EnrolmentStates
-        EntryStates = rt.models.cal.EntryStates
+#     def get_checkdata_problems(self, obj, fix=False):
+#         Guest = rt.models.cal.Guest
+#         GuestStates = rt.models.cal.GuestStates
+#         Event = rt.models.cal.Event
+#         Reminder = rt.models.courses.Reminder
+#         EnrolmentStates = rt.models.courses.EnrolmentStates
+#         EntryStates = rt.models.cal.EntryStates
 
-        if obj.state != EnrolmentStates.confirmed:
-            return
+#         if obj.state != EnrolmentStates.confirmed:
+#             return
 
-        qs = Reminder.objects.filter(enrolment=obj)
-        qs = qs.exclude(state=ReminderStates.cancelled)
-        rdate = qs.order_by('-date_issued').first()
-        if rdate is not None:
-            rdate = rdate.date_issued
-        eflt = gfk2lookup(Event.owner, obj.course)
-        gflt = { 'event__'+k: v for k, v in eflt.items() }
-        qs = Guest.objects.filter(partner=obj.pupil, **gflt)
-        # qs = qs.filter(**gfk2lookup(Guest.course, obj.course))
-        if rdate:
-            qs = qs.filter(event__start_date__gt=rdate)
-        if obj.request_date:
-            qs = qs.filter(event__start_date__gte=obj.request_date)
+#         qs = Reminder.objects.filter(enrolment=obj)
+#         qs = qs.exclude(state=ReminderStates.cancelled)
+#         rdate = qs.order_by('-date_issued').first()
+#         if rdate is not None:
+#             rdate = rdate.date_issued
+#         eflt = gfk2lookup(Event.owner, obj.course)
+#         gflt = { 'event__'+k: v for k, v in eflt.items() }
+#         qs = Guest.objects.filter(partner=obj.pupil, **gflt)
+#         # qs = qs.filter(**gfk2lookup(Guest.course, obj.course))
+#         if rdate:
+#             qs = qs.filter(event__start_date__gt=rdate)
+#         if obj.request_date:
+#             qs = qs.filter(event__start_date__gte=obj.request_date)
             
-        absent = qs.filter(state=GuestStates.absent).count()
-        if absent > 2:
-            yield (False, self.messages['msg_absent'])
-            return
-        # events = Event.objects.filter(**eflt)
-        # events = events.filter(state=EntryStates.took_place)
-        # ecount = events.count()
-        ecount = obj.course.max_events or 0
-        if ecount > 9:
-            excused = qs.filter(state=GuestStates.excused).count()
-            missing = absent + excused
-            max_missing = ecount / 10 - 1
-            if missing > max_missing:
-                yield (False, self.messages['msg_missed'])
-                return
+#         absent = qs.filter(state=GuestStates.absent).count()
+#         if absent > 2:
+#             yield (False, self.messages['msg_absent'])
+#             return
+#         # events = Event.objects.filter(**eflt)
+#         # events = events.filter(state=EntryStates.took_place)
+#         # ecount = events.count()
+#         ecount = obj.course.max_events or 0
+#         if ecount > 9:
+#             excused = qs.filter(state=GuestStates.excused).count()
+#             missing = absent + excused
+#             max_missing = ecount / 10 - 1
+#             if missing > max_missing:
+#                 yield (False, self.messages['msg_missed'])
+#                 return
     
-    def get_responsible_user(self, obj):
-        if obj.pupil and obj.pupil.user:
-            return obj.pupil.user
-        return super(EnrolmentChecker, self).get_responsible_user(obj)
+#     def get_responsible_user(self, obj):
+#         if obj.pupil and obj.pupil.user:
+#             return obj.pupil.user
+#         return super(EnrolmentChecker, self).get_responsible_user(obj)
 
-EnrolmentChecker.activate()
+# EnrolmentChecker.activate()
     
+@dd.schedule_daily()
+def update_missing_rates():
+
+    Message = rt.models.notify.Message
+    qs = Message.objects.filter(
+        created__lt=timezone.now() - timedelta(hours=remove_after))
+    if dd.plugins.notify.keep_unseen: 
+        qs = qs.filter(seen__isnull=False)
+    if qs.count() > 0:
+        dd.logger.info(
+            "Removing %d messages older than %d hours.",
+            qs.count(), remove_after)
+        qs.delete()
+
+
