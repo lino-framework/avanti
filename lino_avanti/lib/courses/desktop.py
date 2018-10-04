@@ -1,7 +1,8 @@
-# Copyright 2017 Luc Saffre
+# Copyright 2017-2018 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
 
+from decimal import Decimal
 from lino_xl.lib.courses.desktop import *
 from lino.api import _
 
@@ -33,13 +34,14 @@ class MyCoachedEnrolments(Enrolments):
     order_by = ['-missing_rate']
     column_names = "missing_rate pupil course *"
     required_roles = dd.login_required(CoachingsUser)
-
+    params_layout = "coached_by min_missing_rate course_state state author participants_only"
     @classmethod
     def param_defaults(self, ar, **kw):
         kw = super(MyCoachedEnrolments, self).param_defaults(ar, **kw)
         kw['coached_by'] = ar.get_user()
         kw['course_state'] = rt.models.courses.CourseStates.active
         kw['participants_only'] = True
+        kw['min_missing_rate'] = Decimal(1)
         return kw
 
     @classmethod
@@ -49,7 +51,9 @@ class MyCoachedEnrolments(Enrolments):
             return qs
         pv = ar.param_values
         if pv.coached_by is not None:
-            qs = qs.filter(partner__user=pv.coached_by)
+            qs = qs.filter(pupil__user=pv.coached_by)
+        if pv.min_missing_rate:
+            qs = qs.filter(missing_rate__gte=pv.min_missing_rate)
         return qs
 
     
@@ -57,7 +61,7 @@ class MyCoachedEnrolments(Enrolments):
 class EnrolmentsByCourse(EnrolmentsByCourse):
     column_names = 'id request_date pupil pupil__gender pupil__nationality:15 ' \
                    'needs_childcare needs_school needs_bus needs_evening '\
-                   'remark workflow_buttons *'
+                   'remark missing_rate workflow_buttons *'
 
 class PresencesByEnrolment(dd.Table):
     model = 'cal.Guest'

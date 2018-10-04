@@ -25,3 +25,5 @@ def objects():
     yield rt.models.courses.Reminder(
         enrolment=obj, user=obj.pupil.user,
         date_issued=settings.SITE.demo_date(-10))
+
+    rt.models.courses.update_missing_rates()

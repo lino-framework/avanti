@@ -1,3 +1,4 @@
+# -*- coding: UTF-8 -*-
 # Copyright 2017-2018 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
@@ -9,11 +10,13 @@ from decimal import Decimal
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import pgettext_lazy as pgettext
 
+from lino.core.gfks import gfk2lookup
+
 from lino_xl.lib.courses.models import *
 from lino.modlib.users.mixins import UserAuthored
 from lino_xl.lib.courses.roles import CoursesUser
 from lino_xl.lib.excerpts.mixins import Certifiable
-from lino_xl.lib.ledger.utils import ZERO
+from lino_xl.lib.ledger.utils import ZERO, myround
 # from lino.modlib.checkdata.choicelists import Checker
 # from lino.modlib.summaries.mixins import SimpleSummary
 from lino.core.gfks import gfk2lookup
@@ -57,15 +60,16 @@ from .choicelists import ReminderStates, ReminderDegrees
 #     detail_layout = CourseProviderDetail()
 
 
-class UpdateMissingRates(dd.Action):
-    label = _("Update missing rates")
-    icon_name = 'lightning'
-    readonly = False
+# class UpdateMissingRates(dd.Action):
+#     label = _("Update missing rates")
+#     button_text = ' ☉ '  # like gueststate 'missing'
+#     # icon_name = 'lightning'
+#     readonly = False
 
-    def run_from_ui(self, ar, **kw):
-        for obj in ar.selected_rows:
-            obj.run_update_missing_rates()
-        ar.success(refresh=True)
+#     def run_from_ui(self, ar, **kw):
+#         for obj in ar.selected_rows:
+#             obj.run_update_missing_rates()
+#         ar.success(refresh=True)
 
 
 class Course(Course):
@@ -96,28 +100,36 @@ class Course(Course):
         return self.get_places_sum(
             state=EnrolmentStates.requested, needs_school=True)
 
-    def update_reminders(self, ar):
-        super(Course, self).update_reminders(ar)
-        self.run_update_missing_rates()
+    # def update_reminders(self, ar):
+    #     super(Course, self).update_reminders(ar)
+    #     self.run_update_missing_rates()
         
-    update_missing_rates = UpdateMissingRates()
-    
-    def run_update_missing_rates(self):
-        
-        done = rt.models.cal.Event.objects(
-            project=self,
-            state=rt.models.cal.EntryStates.took_place).count()
+    # update_missing_rates = UpdateMissingRates()
+    # @UpdateMissingRates.decorate()
+    @dd.action(label = _("Update missing rates"),
+               button_text = ' ☉ ',  # like gueststate 'missing'
+               # icon_name = 'lightning'
+               readonly = False )
+    def update_missing_rates(self, ar):
+        Event = rt.models.cal.Event
+        done = Event.objects.filter(
+            state=rt.models.cal.EntryStates.took_place,
+            **gfk2lookup(Event.owner, self)).count()
         
         for obj in self.enrolment_set.all():
-            missed = rt.models.cal.Guest.objects(
-                partner=obj.pupil, event__project=self,
-                state=rt.models.cal.GuestStates.missed).count()
             if done:
-                obj.missing_rate = Decimal(missed) / done
+                flt = {'event__'+k: v
+                       for k, v in gfk2lookup(Event.owner, self).items()}
+                flt.update(partner=obj.pupil, 
+                           state=rt.models.cal.GuestStates.missing)
+                missing = rt.models.cal.Guest.objects.filter(**flt).count()
+                obj.missing_rate = myround(Decimal(missing*100) / done)
             else:
                 obj.missing_rate = ZERO
             obj.full_clean()
             obj.save()
+        ar.success(refresh=True)
+
     
 # class Line(Line):
     
@@ -171,6 +183,9 @@ class Enrolment(Enrolment):
             coached_by=dd.ForeignKey(
                 settings.SITE.user_model, verbose_name=_("Coached by"),
                 blank=True))
+        fields.update(
+            min_missing_rate=dd.PriceField(
+                _("Missing rate"), blank=True))
         super(Enrolment, cls).setup_parameters(fields)
 
 dd.python_2_unicode_compatible    
@@ -251,7 +266,7 @@ class Reminder(UserAuthored, Certifiable):
 #         if obj.request_date:
 #             qs = qs.filter(event__start_date__gte=obj.request_date)
             
-#         absent = qs.filter(state=GuestStates.absent).count()
+#         absent = qs.filter(state=GuestStates.missing).count()
 #         if absent > 2:
 #             yield (False, self.messages['msg_absent'])
 #             return
@@ -276,16 +291,5 @@ class Reminder(UserAuthored, Certifiable):
     
 @dd.schedule_daily()
 def update_missing_rates():
-
-    Message = rt.models.notify.Message
-    qs = Message.objects.filter(
-        created__lt=timezone.now() - timedelta(hours=remove_after))
-    if dd.plugins.notify.keep_unseen: 
-        qs = qs.filter(seen__isnull=False)
-    if qs.count() > 0:
-        dd.logger.info(
-            "Removing %d messages older than %d hours.",
-            qs.count(), remove_after)
-        qs.delete()
-
-
+    for obj in rt.models.courses.Course.objects.all():
+        obj.update_missing_rates()
