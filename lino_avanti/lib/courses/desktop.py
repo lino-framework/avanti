@@ -29,15 +29,15 @@ user course pupil pupil__birth_date pupil__age pupil__country \
 pupil__city pupil__gender"
 
 
-class MyCoachedEnrolments(Enrolments):
-    label = _("My coached enrolments")
-    order_by = ['-missing_rate']
-    column_names = "missing_rate pupil course *"
+class DitchingEnrolments(Enrolments):
+    label = _("Ditching controll")
+    order_by = ['-missing_rate', 'pupil']
+    column_names = "missing_rate pupil course pupil__user *"
     required_roles = dd.login_required(CoachingsUser)
     params_layout = "coached_by min_missing_rate course_state state author participants_only"
     @classmethod
     def param_defaults(self, ar, **kw):
-        kw = super(MyCoachedEnrolments, self).param_defaults(ar, **kw)
+        kw = super(DitchingEnrolments, self).param_defaults(ar, **kw)
         kw['coached_by'] = ar.get_user()
         kw['course_state'] = rt.models.courses.CourseStates.active
         kw['participants_only'] = True
@@ -46,7 +46,7 @@ class MyCoachedEnrolments(Enrolments):
 
     @classmethod
     def get_request_queryset(self, ar, **kwargs):
-        qs = super(Enrolments, self).get_request_queryset(ar, **kwargs)
+        qs = super(DitchingEnrolments, self).get_request_queryset(ar, **kwargs)
         if isinstance(qs, list):
             return qs
         pv = ar.param_values

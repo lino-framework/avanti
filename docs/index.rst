@@ -21,5 +21,5 @@ Content
 
    install/index
    guide/index
-   changes
+   changes/index
    

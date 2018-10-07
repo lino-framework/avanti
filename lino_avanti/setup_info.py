@@ -59,6 +59,8 @@ SETUP_INFO.update(packages=[
     'lino_avanti.lib',
     'lino_avanti.lib.avanti',
     'lino_avanti.lib.avanti.fixtures',
+    'lino_avanti.lib.cal',
+    'lino_avanti.lib.cal.fixtures',
     'lino_avanti.lib.contacts',
     'lino_avanti.lib.contacts.fixtures',
     'lino_avanti.lib.contacts.management',

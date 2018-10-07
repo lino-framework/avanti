@@ -56,6 +56,7 @@ add('300', _("Seeking"))
 add('400', _("Employed"))
 add('500', _("Independent"))
 add('600', _("Retired"))  # pensioniert
+add('700', _("Unemployable"))  # arbeitsunfähig
 
 
 # class ClientStates(dd.Workflow):

@@ -8,6 +8,7 @@
    :toctree:
 
     avanti
+    cal
     courses
     households
     users

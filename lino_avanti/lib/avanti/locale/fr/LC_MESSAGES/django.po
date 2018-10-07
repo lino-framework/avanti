@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  lino.apps.dsbe\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2018-08-30 08:45+0300\n"
+"POT-Creation-Date: 2018-10-07 13:17+0300\n"
 "PO-Revision-Date: 2016-11-20 19:48+0100\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: fr\n"
@@ -117,6 +117,11 @@ msgstr ""
 #: lino_avanti/lib/avanti/choicelists.py:58
 msgid "Retired"
 msgstr ""
+
+#: lino_avanti/lib/avanti/choicelists.py:59
+#, fuzzy
+msgid "Unemployable"
+msgstr "Inoccupé depuis"
 
 #: lino_avanti/lib/avanti/help_texts.py:7
 msgid "See lino.core.plugin.Plugin."
@@ -247,6 +252,16 @@ msgstr ""
 
 #: lino_avanti/lib/avanti/help_texts.py:45
 msgid "Checks for the following data problems:"
+msgstr ""
+
+#: lino_avanti/lib/avanti/help_texts.py:46
+msgid "Calculate the missing rates for all enrolments of this course."
+msgstr ""
+
+#: lino_avanti/lib/avanti/help_texts.py:47
+msgid ""
+"List of enrolments with high absence rate for review by their\n"
+"coach."
 msgstr ""
 
 #: lino_avanti/lib/avanti/layouts.py:31
@@ -489,11 +504,11 @@ msgstr ""
 msgid "Abandoned"
 msgstr ""
 
-#: lino_avanti/lib/avanti/settings.py:124
+#: lino_avanti/lib/avanti/settings.py:125
 msgid "My settings"
 msgstr ""
 
-#: lino_avanti/lib/avanti/settings.py:131
+#: lino_avanti/lib/avanti/settings.py:132
 msgid "New {}"
 msgstr ""
 
@@ -531,29 +546,29 @@ msgstr ""
 msgid "Administrator"
 msgstr "Administrateur"
 
-#: lino_avanti/lib/avanti/workflows.py:25
+#: lino_avanti/lib/avanti/workflows.py:24
 msgid "Health insurance"
 msgstr ""
 
-#: lino_avanti/lib/avanti/workflows.py:26 lino_avanti/lib/courses/models.py:81
-#: lino_avanti/lib/courses/models.py:106
+#: lino_avanti/lib/avanti/workflows.py:25 lino_avanti/lib/courses/models.py:98
+#: lino_avanti/lib/courses/models.py:153
 #: lino_avanti/lib/households/models.py:24
 msgid "School"
 msgstr ""
 
-#: lino_avanti/lib/avanti/workflows.py:27
+#: lino_avanti/lib/avanti/workflows.py:26
 msgid "Pharmacy"
 msgstr ""
 
-#: lino_avanti/lib/avanti/workflows.py:28
+#: lino_avanti/lib/avanti/workflows.py:27
 msgid "General social assistant"
 msgstr ""
 
-#: lino_avanti/lib/avanti/workflows.py:29
+#: lino_avanti/lib/avanti/workflows.py:28
 msgid "Integration assistant"
 msgstr ""
 
-#: lino_avanti/lib/avanti/workflows.py:30
+#: lino_avanti/lib/avanti/workflows.py:29
 msgid "Work consultant"
 msgstr ""
 
@@ -583,6 +598,32 @@ msgstr ""
 
 #: lino_avanti/lib/avanti/fixtures/std.py:20
 msgid "Final report"
+msgstr ""
+
+#: lino_avanti/lib/cal/models.py:17
+#, fuzzy
+msgid "Absence reason"
+msgstr "raison"
+
+#: lino_avanti/lib/cal/models.py:18
+#, fuzzy
+msgid "Absence reasons"
+msgstr "raison"
+
+#: lino_avanti/lib/cal/fixtures/std.py:10
+msgid "Sickness"
+msgstr ""
+
+#: lino_avanti/lib/cal/fixtures/std.py:11
+msgid "Other valid reason"
+msgstr ""
+
+#: lino_avanti/lib/cal/fixtures/std.py:12
+msgid "Unknown"
+msgstr ""
+
+#: lino_avanti/lib/cal/fixtures/std.py:13
+msgid "Unjustified"
 msgstr ""
 
 #: lino_avanti/lib/contacts/models.py:39 lino_avanti/lib/contacts/models.py:82
@@ -644,67 +685,70 @@ msgstr ""
 msgid "Third reminder"
 msgstr ""
 
-#: lino_avanti/lib/courses/desktop.py:67
+#: lino_avanti/lib/courses/desktop.py:33
+msgid "Ditching controll"
+msgstr ""
+
+#: lino_avanti/lib/courses/desktop.py:99
 msgid "{} : {}"
 msgstr ""
 
-#: lino_avanti/lib/courses/desktop.py:107
+#: lino_avanti/lib/courses/desktop.py:139
 msgid "Course planning"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:66 lino_avanti/lib/courses/models.py:105
+#: lino_avanti/lib/courses/models.py:83 lino_avanti/lib/courses/models.py:152
 msgid "Bus"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:71 lino_avanti/lib/courses/models.py:104
+#: lino_avanti/lib/courses/models.py:88 lino_avanti/lib/courses/models.py:151
 msgid "Childcare"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:76 lino_avanti/lib/courses/models.py:107
+#: lino_avanti/lib/courses/models.py:93 lino_avanti/lib/courses/models.py:154
 msgid "Evening"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:114
+#: lino_avanti/lib/courses/models.py:109
+msgid "Update missing rates"
+msgstr ""
+
+#: lino_avanti/lib/courses/models.py:156 lino_avanti/lib/courses/models.py:188
+msgid "Missing rate"
+msgstr ""
+
+#: lino_avanti/lib/courses/models.py:164
 msgid "Participant"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:128
+#: lino_avanti/lib/courses/models.py:178
 msgid "Integration Course Agreement"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:134
+#: lino_avanti/lib/courses/models.py:184
+msgid "Coached by"
+msgstr ""
+
+#: lino_avanti/lib/courses/models.py:195
 msgid "Reminder"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:135
+#: lino_avanti/lib/courses/models.py:196
 msgid "Reminders"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:141
+#: lino_avanti/lib/courses/models.py:202
 msgid "Situation on"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:142
+#: lino_avanti/lib/courses/models.py:203
 msgid "Text body"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:146
+#: lino_avanti/lib/courses/models.py:207
 #, fuzzy
 msgid "Remark"
 msgstr "raison"
-
-#: lino_avanti/lib/courses/models.py:176
-msgid "Check for unsufficient presences"
-msgstr ""
-
-#: lino_avanti/lib/courses/models.py:179
-msgid "More than 2 times absent."
-msgstr ""
-
-#: lino_avanti/lib/courses/models.py:180
-#, python-format
-msgid "Missed more than 10% of meetings."
-msgstr ""
 
 #: lino_avanti/lib/courses/config/courses/Reminder/reminder.body.html:4
 msgid "Our reference"
@@ -4852,5 +4896,17 @@ msgstr "Intervention"
 #~ msgstr ""
 
 #~ msgid "{} ({}) from {}"
+#~ msgstr ""
+
+#~ msgid "Check for unsufficient presences"
+#~ msgstr ""
+
+#~ msgid "More than 2 times absent."
+#~ msgstr ""
+
+#~ msgid "Missed more than 10% of meetings."
+#~ msgstr ""
+
+#~ msgid "My coached enrolments"
 #~ msgstr ""
 

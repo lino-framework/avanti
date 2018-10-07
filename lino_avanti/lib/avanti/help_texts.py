@@ -25,6 +25,9 @@ place to be returned)."""),
 the specified value."""),
     'lino_avanti.lib.avanti.AllClients' : _("""This table is visible for Explorer who can also export it."""),
     'lino_avanti.lib.avanti.MyClients' : _("""Shows all clients having me as primary coach. Shows all client states."""),
+    'lino_avanti.lib.cal.Guest.absence_reason' : _("""Why the pupil was absent.  Choices for this field are defined
+in AbsenceReasons."""),
+    'lino_avanti.lib.cal.AbsenceReasons' : _("""The table of possible absence reasons."""),
     'lino_avanti.lib.courses.Course' : _("""Same as lino_xl.lib.courses.Course."""),
     'lino_avanti.lib.courses.Enrolment' : _("""Inherits from lino_xl.lib.courses.Enrolment but adds four
 specific "enrolment options":"""),
@@ -32,6 +35,8 @@ specific "enrolment options":"""),
     'lino_avanti.lib.courses.Enrolment.needs_bus' : _("""Whether this pupil needs public transportation for moving."""),
     'lino_avanti.lib.courses.Enrolment.needs_school' : _("""Whether this pupil has school children to care about."""),
     'lino_avanti.lib.courses.Enrolment.needs_evening' : _("""Whether this pupil is available only for evening courses."""),
+    'lino_avanti.lib.courses.Enrolment.missing_rate' : _("""How many times the pupil was missing when a lesson took
+place. In percent."""),
     'lino_avanti.lib.courses.PresencesByEnrolment' : _("""Shows the presences of this pupil for this course."""),
     'lino_avanti.lib.courses.EnrolmentsByCourse' : _("""Same as lino_xl.lib.courses.EnrolmentsByCourse but adds
 the gender of the pupil (a remote field) and the enrolment
@@ -44,4 +49,6 @@ presences."""),
     'lino_avanti.lib.courses.ReminderStates' : _("""The list of possible states of a reminder."""),
     'lino_avanti.lib.courses.EnrolmentChecker' : _("""Checks for the following data problems:"""),
     'lino_avanti.lib.courses.Course.update_missing_rates' : _("""Calculate the missing rates for all enrolments of this course."""),
+    'lino_avanti.lib.courses.DitchingEnrolments' : _("""List of enrolments with high absence rate for review by their
+coach."""),
 }

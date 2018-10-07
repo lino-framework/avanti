@@ -26,12 +26,16 @@ help_texts_builder_targets = {
 # from django.conf import settings
 # settings.SITE.title = "Lino Avanti"
 
-intersphinx_mapping = {}
-from importlib import import_module
-for n in 'atelier lino lino_xl'.split():
-    m = import_module(n)
-    n = n.replace('_', "")
-    intersphinx_mapping[n] = (m.intersphinx_urls['docs'], None)
+from atelier.sphinxconf import interproject
+interproject.configure(globals(), 'atelier lino_book')
+
+
+# intersphinx_mapping = {}
+# from importlib import import_module
+# for n in 'atelier lino lino_xl'.split():
+#     m = import_module(n)
+#     n = n.replace('_', "")
+#     intersphinx_mapping[n] = (m.intersphinx_urls['docs'], None)
 
 # General configuration
 # ---------------------
