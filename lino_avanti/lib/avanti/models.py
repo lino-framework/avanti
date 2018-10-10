@@ -27,6 +27,7 @@ from lino_xl.lib.beid.mixins import BeIdCardHolder
 from lino.modlib.comments.mixins import Commentable
 from lino.modlib.users.mixins import UserAuthored, My
 from lino.modlib.dupable.mixins import Dupable
+from lino.modlib.system.mixins import Lockable
 from lino_xl.lib.courses.mixins import Enrollable
 
 # from lino.modlib.notify.mixins import ChangeNotifier
@@ -96,7 +97,7 @@ class EndingReasons(dd.Table):
 @dd.python_2_unicode_compatible
 class Client(contacts.Person, BeIdCardHolder, UserAuthored,
              ClientBase, BiographyOwner, Referrable, Dupable,
-             # Notable,
+             Lockable,
              Commentable, EventGenerator, Enrollable):
     class Meta:
         app_label = 'avanti'
@@ -353,7 +354,7 @@ class ClientDetail(dd.DetailLayout):
     overview
     """
     general2 = """
-    id:10 national_id:15 ref
+    id:10 national_id:15 ref #lock_or_unlock:10
     birth_date age:10 gender:10
     starting_reason professional_state
     reason_of_stay category

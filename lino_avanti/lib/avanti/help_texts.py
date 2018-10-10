@@ -5,10 +5,13 @@ from django.utils.translation import ugettext_lazy as _
 
 help_texts = {
     'lino_avanti.lib.avanti.Plugin' : _("""See lino.core.plugin.Plugin."""),
-    'lino_avanti.lib.avanti.TranslatorTypes' : _("""Types of registries for the Belgian residence."""),
+    'lino_avanti.lib.avanti.TranslatorTypes' : _("""List of choices for the Client.translator_type field of a
+client."""),
     'lino_avanti.lib.avanti.migrate.Migrator' : _("""The standard migrator for Lino Avanti."""),
     'lino_avanti.lib.users.UserDetail' : _("""Layout of User Detail in Lino Avanti."""),
     'lino_avanti.lib.avanti.Client' : _("""A client is a person using our services."""),
+    'lino_avanti.lib.avanti.Client.translator_type' : _("""Which type of translator is needed with this client."""),
+    'lino_avanti.lib.avanti.Client.professional_state' : _("""The professional situation of this client."""),
     'lino_avanti.lib.avanti.Client.overview' : _("""A panel with general information about this client."""),
     'lino_avanti.lib.avanti.Client.client_state' : _("""Pointer to ClientStates."""),
     'lino_avanti.lib.avanti.Client.unemployed_since' : _("""The date when this client got unemployed and stopped to have a
@@ -25,6 +28,8 @@ place to be returned)."""),
 the specified value."""),
     'lino_avanti.lib.avanti.AllClients' : _("""This table is visible for Explorer who can also export it."""),
     'lino_avanti.lib.avanti.MyClients' : _("""Shows all clients having me as primary coach. Shows all client states."""),
+    'lino_avanti.lib.avanti.ProfessionalStates' : _("""List of choices for the Client.professional_state field of
+a client."""),
     'lino_avanti.lib.cal.Guest.absence_reason' : _("""Why the pupil was absent.  Choices for this field are defined
 in AbsenceReasons."""),
     'lino_avanti.lib.cal.AbsenceReasons' : _("""The table of possible absence reasons."""),

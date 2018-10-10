@@ -1,3 +1,5 @@
+.. _avanti.changes:
+
 ======================
 Changes in Lino Avanti
 ======================

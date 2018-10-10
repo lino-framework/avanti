@@ -1,4 +1,4 @@
-.. _avanti.changes: 
+.. _avanti.changes.coming: 
 
 ==============
 Coming version
