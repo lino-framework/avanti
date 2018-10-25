@@ -107,9 +107,9 @@ class Course(Course):
     # update_missing_rates = UpdateMissingRates()
     # @UpdateMissingRates.decorate()
     @dd.action(label = _("Update missing rates"),
-               button_text = ' ☉ ',  # like gueststate 'missing'
-               # icon_name = 'lightning'
-               readonly = False )
+               button_text=' ☉ ')  # like gueststate 'missing'
+               # icon_name = 'lightning')
+               # readonly = False )
     def update_missing_rates(self, ar):
         Event = rt.models.cal.Event
         done = Event.objects.filter(
