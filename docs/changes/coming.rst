@@ -6,11 +6,6 @@ Coming version
 
 Release vorgesehen am 26.10.2018
 
-TALK:
-
-- Auditor sieht Vornamen der Klienten (:ticket:`2501`).
-  Müsste behoben sein, aber nachzuprüfen.
-
 DONE:
 
 - Ab September 2018 soll der Zustand „Entschuldigt“ nicht mehr
@@ -59,7 +54,9 @@ DONE:
   jemand ein anderes Feld ändert. Da konnte es passieren, dass die
   Änderungen des einen verloren gehen.
   
+- Auditor sieht Vornamen der Klienten (:ticket:`2501`).
   
+
 Ungefragte Änderungen:
 
 - :ticket:`2441` : "Intelligente" Übersicht der Termine pro Kurs.
