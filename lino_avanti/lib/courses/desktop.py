@@ -66,7 +66,7 @@ class EnrolmentsByCourse(EnrolmentsByCourse):
 class PresencesByEnrolment(dd.Table):
     model = 'cal.Guest'
     master = 'courses.Enrolment'
-    column_names = "event event__state workflow_buttons remark *"
+    column_names = "event event__state workflow_buttons absence_reason remark *"
     display_mode = "summary"
     order_by = ['event__start_date', 'event__start_time']
 

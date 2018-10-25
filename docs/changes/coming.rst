@@ -4,6 +4,8 @@
 Coming version
 ==============
 
+Release vorgesehen am 26.10.2018
+
 TALK:
 
 - Auditor sieht Vornamen der Klienten (:ticket:`2501`).
@@ -48,23 +50,23 @@ DONE:
   Siehe :attr:`lino_avanti.lib.cal.Guest.absence_reason`
   und :class:`lino_avanti.lib.cal.AbsenceReasons`.
   
+- Die Klientenstammdaten stehen jetzt standardmäßig auf
+  schreibgeschützt und werden nur freigegeben wenn man vorher auf
+  einen Button "Bearbeiten" klickt.
+  
+  Denn es kam vor, dass zwei Benutzer auf dem gleichen Klienten
+  arbeiten, z.B. einer den Bericht Sprachtest eingibt und anderswo
+  jemand ein anderes Feld ändert. Da konnte es passieren, dass die
+  Änderungen des einen verloren gehen.
+  
+  
 Ungefragte Änderungen:
 
 - :ticket:`2441` : "Intelligente" Übersicht der Termine pro Kurs.
-
   Siehe Detail auf einem Kurs, Reiter "Kalender".
 
 - Reihenfolge der Menübefehle : "Kalender" jetzt vor "Büro"
-  
   Siehe :ref:`avanti.specs.roles`.
 
-TODO:  
 
-- Es kommt vor, dass zwei Benutzer auf dem gleichen Klienten arbeiten,
-  z.B. einer den Bericht Sprachtest eingibt und anderswo jemand ein
-  anderes Feld ändert. Da kann es passieren, dass die Änderungen des
-  einen verloren gehen. Wenn die Zeit reicht, könnten wir die
-  Klientenstammdaten standardmäßig auf schreibgeschützt stellen und
-  nur freigeben wenn man vorher auf einen Button "Bearbeiten" klickt.
-
-  
+ 
