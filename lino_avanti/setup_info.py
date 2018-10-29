@@ -1,10 +1,10 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017 Luc Saffre
+# Copyright 2017-2018 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
 SETUP_INFO = dict(
     name='lino-avanti',
-    version='18.8.0',
+    version='18.10.0',
     install_requires=['lino-xl', 'metafone'],
     description=("Manage the integration course of immigrants in East Belgium"),
     author='Luc Saffre',
