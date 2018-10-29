@@ -9,4 +9,5 @@ Changes in Lino Avanti
    :maxdepth: 1
 
    coming
+   18.10
    old
