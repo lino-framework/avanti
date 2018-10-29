@@ -16,6 +16,7 @@ from lino_xl.lib.courses.models import *
 from lino.modlib.users.mixins import UserAuthored
 from lino_xl.lib.courses.roles import CoursesUser
 from lino_xl.lib.excerpts.mixins import Certifiable
+from lino_xl.lib.cal.choicelists import EntryStates, GuestStates
 from lino_xl.lib.ledger.utils import ZERO, myround
 # from lino.modlib.checkdata.choicelists import Checker
 # from lino.modlib.summaries.mixins import SimpleSummary
@@ -111,19 +112,24 @@ class Course(Course):
                # icon_name = 'lightning')
                # readonly = False )
     def update_missing_rates(self, ar):
-        Event = rt.models.cal.Event
-        done = Event.objects.filter(
-            state=rt.models.cal.EntryStates.took_place,
-            **gfk2lookup(Event.owner, self)).count()
+        # Event = rt.models.cal.Event
+        Guest = rt.models.cal.Guest
+        # expected_states = (EntryStates.took_place, EntryStates.draft)
+        # done = Event.objects.filter(
+        #     state__in=expected_states,
+        #     **gfk2lookup(Event.owner, self)).count()
         
         for obj in self.enrolment_set.all():
-            if done:
-                flt = {'event__'+k: v
-                       for k, v in gfk2lookup(Event.owner, self).items()}
-                flt.update(partner=obj.pupil, 
-                           state=rt.models.cal.GuestStates.missing)
-                missing = rt.models.cal.Guest.objects.filter(**flt).count()
-                obj.missing_rate = myround(Decimal(missing*100) / done)
+            # flt = {'event__'+k: v
+            #        for k, v in gfk2lookup(Event.owner, self).items()}
+            flt = {}
+            flt.update(partner=obj.pupil)
+            total = Guest.objects.filter(**flt).count()
+            if total:
+                missing = Guest.objects.filter(
+                    state__in=(GuestStates.missing,
+                               GuestStates.excused), **flt).count()
+                obj.missing_rate = myround(Decimal(missing*100) / total)
             else:
                 obj.missing_rate = ZERO
             obj.full_clean()
@@ -220,7 +226,6 @@ class Reminder(UserAuthored, Certifiable):
     def full_clean(self):
         #raise Exception("20180124")
         if self.date_issued is None:
-            EntryStates = rt.models.cal.EntryStates
             Event = rt.models.cal.Event
             flt = gfk2lookup(Event.owner, self.enrolment.course)
             qs = Event.objects.filter(**flt).order_by('-start_date')

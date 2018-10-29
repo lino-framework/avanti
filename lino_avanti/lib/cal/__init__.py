@@ -23,7 +23,6 @@ class Plugin(Plugin):
 
     extends_models = ['Guest']
 
-
     def setup_config_menu(self, site, user_type, m):
         super(Plugin, self).setup_config_menu(site, user_type, m)
         m = m.add_menu(self.app_label, self.verbose_name)
