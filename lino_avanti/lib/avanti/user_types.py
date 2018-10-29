@@ -1,7 +1,6 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017-2018 Luc Saffre
+# Copyright 2017-2018 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
-
 
 """Defines the standard user roles for Lino Avanti."""
 
@@ -41,7 +40,7 @@ class Coordinator(SiteUser, CoursesUser, OfficeOperator,
     pass
 
 class Secretary(SiteUser, CoursesUser, OfficeUser, ContactsUser,
-                ExcerptsUser, CheckdataUser, ClientsUser):
+                BeIdUser, ExcerptsUser, CheckdataUser, ClientsUser):
     pass
 
 class SocialWorker(SiteUser, CoachingsUser, CoursesUser, ContactsUser,
