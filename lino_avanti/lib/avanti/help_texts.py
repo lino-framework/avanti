@@ -34,6 +34,9 @@ a client."""),
 in AbsenceReasons."""),
     'lino_avanti.lib.cal.AbsenceReasons' : _("""The table of possible absence reasons."""),
     'lino_avanti.lib.courses.Course' : _("""Same as lino_xl.lib.courses.Course."""),
+    'lino_avanti.lib.courses.EnrolmentsByCourse' : _("""Same as lino_xl.lib.courses.EnrolmentsByCourse but adds
+the gender of the pupil (a remote field) and the enrolment
+options."""),
     'lino_avanti.lib.courses.Enrolment' : _("""Inherits from lino_xl.lib.courses.Enrolment but adds four
 specific "enrolment options":"""),
     'lino_avanti.lib.courses.Enrolment.needs_childcare' : _("""Whether this pupil has small children to care about."""),
@@ -43,9 +46,6 @@ specific "enrolment options":"""),
     'lino_avanti.lib.courses.Enrolment.missing_rate' : _("""How many times the pupil was missing when a lesson took
 place. In percent."""),
     'lino_avanti.lib.courses.PresencesByEnrolment' : _("""Shows the presences of this pupil for this course."""),
-    'lino_avanti.lib.courses.EnrolmentsByCourse' : _("""Same as lino_xl.lib.courses.EnrolmentsByCourse but adds
-the gender of the pupil (a remote field) and the enrolment
-options."""),
     'lino_avanti.lib.courses.Reminder' : _("""A reminder is when a coaching worker sends a written letter to
 a client reminding him or her that they have a problme with their
 presences."""),
