@@ -30,7 +30,7 @@ pupil__city pupil__gender"
 
 
 class DitchingEnrolments(Enrolments):
-    label = _("Ditching controll")
+    label = _("Absence control")
     order_by = ['-missing_rate', 'pupil']
     column_names = "missing_rate pupil course pupil__user *"
     required_roles = dd.login_required(CoachingsUser)
@@ -41,7 +41,7 @@ class DitchingEnrolments(Enrolments):
         kw['coached_by'] = ar.get_user()
         kw['course_state'] = rt.models.courses.CourseStates.active
         kw['participants_only'] = True
-        kw['min_missing_rate'] = Decimal(1)
+        kw['min_missing_rate'] = Decimal(10)
         return kw
 
     @classmethod
@@ -128,10 +128,10 @@ class PresencesByEnrolment(dd.Table):
     
 Enrolments.detail_layout = """
 request_date user start_date end_date
-course pupil
+course pupil 
 needs_childcare needs_school needs_bus needs_evening
-remark:40 workflow_buttons:40 printed:20
-confirmation_details PresencesByEnrolment checkdata.ProblemsByOwner RemindersByEnrolment
+remark:40 workflow_buttons:40 printed:20 missing_rate:10
+confirmation_details PresencesByEnrolment  RemindersByEnrolment
 """
 
 class CoursesPlanning(Activities):

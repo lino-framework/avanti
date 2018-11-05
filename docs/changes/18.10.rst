@@ -6,6 +6,25 @@ Avanti 2018.10
 
 Release war am 26.10.2018. Nachtrag am 29.10.
 
+Nachtrag 20181105:
+
+- Pro Klient : nicht anzeigen, ob Kurs stattgefunden hat, sondern ob
+  Klient anwesend war.
+- default min_missing_rate 10 statt 1
+  
+- Fehler bei der Berechnung. Zum Beispiel
+  Klient 534 : 23x Eingeladen, 11x anwessend und 6x gefehlt, hat aber
+  missing_rate von 56%. Oder 
+  Klient 345 hat keinmal gefehlt.
+  
+- "Schwänzkontrolle" ersetzen durch "Abwesenheitskontrolle"
+- Anwesenheitsrate anzeigen im Detail Enrolment  
+- Button Compute pro enrolment?
+  
+- Ungefragte Änderungen : Im Workflow zeigt er vor dem Ist-Zustand
+  jetzt auch das Symbol des Zustands an.  Das Panel "Datenprobleme"
+  auf einer Einschreibung war sinnlos geworden. Weg damit.
+
 Änderungen:
 
 - Ab September 2018 soll der Zustand „Entschuldigt“ nicht mehr

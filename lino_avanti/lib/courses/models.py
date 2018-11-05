@@ -10,8 +10,6 @@ from decimal import Decimal
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import pgettext_lazy as pgettext
 
-from lino.core.gfks import gfk2lookup
-
 from lino_xl.lib.courses.models import *
 from lino.modlib.users.mixins import UserAuthored
 from lino_xl.lib.courses.roles import CoursesUser
@@ -105,38 +103,20 @@ class Course(Course):
     #     super(Course, self).update_reminders(ar)
     #     self.run_update_missing_rates()
         
-    # update_missing_rates = UpdateMissingRates()
-    # @UpdateMissingRates.decorate()
     @dd.action(label = _("Update missing rates"),
                button_text=' ☉ ')  # like gueststate 'missing'
-               # icon_name = 'lightning')
-               # readonly = False )
     def update_missing_rates(self, ar):
         # Event = rt.models.cal.Event
-        Guest = rt.models.cal.Guest
         # expected_states = (EntryStates.took_place, EntryStates.draft)
         # done = Event.objects.filter(
         #     state__in=expected_states,
         #     **gfk2lookup(Event.owner, self)).count()
         
         for obj in self.enrolment_set.all():
+            obj.update_missing_rate(ar)
             # flt = {'event__'+k: v
             #        for k, v in gfk2lookup(Event.owner, self).items()}
-            flt = {}
-            flt.update(partner=obj.pupil)
-            total = Guest.objects.filter(**flt).count()
-            if total:
-                missing = Guest.objects.filter(
-                    state__in=(GuestStates.missing,
-                               GuestStates.excused), **flt).count()
-                obj.missing_rate = myround(Decimal(missing*100) / total)
-            else:
-                obj.missing_rate = ZERO
-            obj.full_clean()
-            obj.save()
-        ar.success(refresh=True)
 
-    
 # class Line(Line):
     
 #     class Meta(Line.Meta):
@@ -159,7 +139,8 @@ class Enrolment(Enrolment):
     needs_school = models.BooleanField(_("School"), default=False)
     needs_evening = models.BooleanField(_("Evening"), default=False)
 
-    missing_rate = dd.PriceField(_("Missing rate"), default=ZERO)
+    missing_rate = dd.PriceField(
+        _("Missing rate"), default=ZERO, editable=False)
         
     # ending = dd.ForeignKey(
     #     'coachings.CoachingEnding',
@@ -193,6 +174,32 @@ class Enrolment(Enrolment):
             min_missing_rate=dd.PriceField(
                 _("Missing rate"), blank=True))
         super(Enrolment, cls).setup_parameters(fields)
+
+    @dd.action(label = _("Update missing rate"),
+               button_text=' ☉ ')  # like gueststate 'missing'
+    def update_missing_rate(self, ar):
+        Guest = rt.models.cal.Guest
+        Event = rt.models.cal.Event
+        # flt = Event.objects.filter(
+        #     gfk2lookup(Event.owner, self.course))
+
+        flt = {'event__'+k: v
+               for k, v in gfk2lookup(Event.owner, self.course).items()}
+        
+        flt.update(partner=self.pupil)
+        total = Guest.objects.filter(**flt).count()
+        if total:
+            missing = Guest.objects.filter(
+                state__in=(GuestStates.missing,
+                           GuestStates.excused), **flt).count()
+            self.missing_rate = myround(Decimal(missing*100) / total)
+        else:
+            self.missing_rate = ZERO
+        self.full_clean()
+        self.save()
+        ar.success(refresh=True)
+    
+Enrolment.set_widget_options('missing_rate', hide_sum=True)        
 
 dd.python_2_unicode_compatible    
 class Reminder(UserAuthored, Certifiable):
@@ -296,5 +303,5 @@ class Reminder(UserAuthored, Certifiable):
     
 @dd.schedule_daily()
 def update_missing_rates():
-    for obj in rt.models.courses.Course.objects.all():
-        obj.update_missing_rates()
+    for obj in rt.models.courses.Enrolment.objects.all():
+        obj.update_missing_rate()
