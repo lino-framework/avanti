@@ -1,31 +1,36 @@
 .. _avanti.changes.2018.10: 
 
-==============
-Avanti 2018.10
-==============
+============
+Avanti 18.10
+============
 
-Release war am 26.10.2018. Nachtrag am 29.10.
+Release war am 26.10.2018. Zwei Nachträge am 29.10. und am 5.11.
 
-Nachtrag 20181105:
+Änderungen 20181105:
 
-- Pro Klient : nicht anzeigen, ob Kurs stattgefunden hat, sondern ob
-  Klient anwesend war.
-- default min_missing_rate 10 statt 1
+- Die "Intelligente" Übersicht der Termine pro Klient soll nicht
+  anzeigen, ob der Kurs stattgefunden hat, sondern ob Klient anwesend
+  war.
   
-- Fehler bei der Berechnung. Zum Beispiel
-  Klient 534 : 23x Eingeladen, 11x anwessend und 6x gefehlt, hat aber
-  missing_rate von 56%. Oder 
-  Klient 345 hat keinmal gefehlt.
+- Standardwert für min_missing_rate auf 10 statt 1
   
-- "Schwänzkontrolle" ersetzen durch "Abwesenheitskontrolle"
-- Anwesenheitsrate anzeigen im Detail Enrolment  
+- Bei der Berechnung war noch ein Bug: Lino zählte immer alle
+  Anwesenheiten in Kurse eines Klienten. Zum Beispiel Klient 534 : 23x
+  Eingeladen, 11x anwessend und 6x gefehlt, hatte aber missing_rate
+  von 56%. Oder Klient 345 hat keinmal gefehlt und hatte trotzdem
+  eine.
+  
+- "Schwänzkontrolle" ersetzt durch "Abwesenheitskontrolle"
+  
+- Anwesenheitsrate anzeigen im Detail der Einschreibung.
 - Button Compute pro enrolment?
   
 - Ungefragte Änderungen : Im Workflow zeigt er vor dem Ist-Zustand
   jetzt auch das Symbol des Zustands an.  Das Panel "Datenprobleme"
-  auf einer Einschreibung war sinnlos geworden. Weg damit.
+  auf einer Einschreibung habe ich rausgeholt, denn es war sinnlos
+  geworden.
 
-Änderungen:
+Änderungen 20181026:
 
 - Ab September 2018 soll der Zustand „Entschuldigt“ nicht mehr
   ausgewählt werden können. In den alten Daten soll er aber bestehen
