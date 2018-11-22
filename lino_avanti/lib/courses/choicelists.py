@@ -1,4 +1,4 @@
-# Copyright 2017-2018 Luc Saffre
+# Copyright 2017-2018 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
 from lino.api import dd, rt, _

@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017 Luc Saffre
+# Copyright 2017 Rumma & Ko Ltd
 
 """The default :attr:`custom_layouts_module
 <lino.core.site.Site.custom_layouts_module>` for Lino Avanti.
