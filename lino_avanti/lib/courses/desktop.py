@@ -138,7 +138,7 @@ class CoursesPlanning(Activities):
     required_roles = dd.login_required(CoursesUser)
     label = _("Course planning")
     column_names = \
-        "clickable_description state "\
+        "detail_link state "\
         "max_places requested confirmed trying free_places " \
         "school_needed childcare_needed bus_needed evening_needed *"
 
