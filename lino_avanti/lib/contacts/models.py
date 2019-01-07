@@ -144,7 +144,7 @@ class PersonDetail(PersonDetail, PartnerDetail):
 
 Persons.set_detail_layout(PersonDetail())
 Companies.set_detail_layout(CompanyDetail())
-Partners.set_detail_layout(PartnerDetail())
+# Partners.set_detail_layout(PartnerDetail())
 
 
 # Lino Avanti uses the `overview` field only in detail forms, and we
