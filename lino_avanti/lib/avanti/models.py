@@ -658,6 +658,7 @@ ClientStates.default_value = 'coached'
 ClientStates.clear()
 add = ClientStates.add_item
 add('05', _("Incoming"), 'incoming')
+add('07', _("Informed"), 'informed')
 add('10', _("Newcomer"), 'newcomer')
 add('20', pgettext("client state", "Registered"), 'coached')
 add('25', _("Inactive"), 'inactive')
