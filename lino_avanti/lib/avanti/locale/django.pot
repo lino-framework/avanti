@@ -1,15 +1,15 @@
 # Translations template for lino-avanti.
-# Copyright (C) 2018 ORGANIZATION
+# Copyright (C) 2019 ORGANIZATION
 # This file is distributed under the same license as the lino-avanti
 # project.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2018.
+# FIRST AUTHOR <EMAIL@ADDRESS>, 2019.
 #
 #, fuzzy
 msgid ""
 msgstr ""
 "Project-Id-Version: lino-avanti 18.10.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2018-11-05 16:39+0200\n"
+"POT-Creation-Date: 2019-01-14 08:39+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -498,23 +498,27 @@ msgid "Incoming"
 msgstr ""
 
 #: lino_avanti/lib/avanti/models.py:661
-msgid "Newcomer"
+msgid "Informed"
 msgstr ""
 
 #: lino_avanti/lib/avanti/models.py:662
+msgid "Newcomer"
+msgstr ""
+
+#: lino_avanti/lib/avanti/models.py:663
 msgctxt "client state"
 msgid "Registered"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:663
+#: lino_avanti/lib/avanti/models.py:664
 msgid "Inactive"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:664
+#: lino_avanti/lib/avanti/models.py:665
 msgid "Ended"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:665
+#: lino_avanti/lib/avanti/models.py:666
 msgid "Abandoned"
 msgstr ""
 
@@ -562,8 +566,8 @@ msgstr ""
 msgid "Health insurance"
 msgstr ""
 
-#: lino_avanti/lib/avanti/workflows.py:25 lino_avanti/lib/courses/models.py:99
-#: lino_avanti/lib/courses/models.py:141
+#: lino_avanti/lib/avanti/workflows.py:25 lino_avanti/lib/courses/models.py:97
+#: lino_avanti/lib/courses/models.py:139
 #: lino_avanti/lib/households/models.py:24
 msgid "School"
 msgstr ""
@@ -706,59 +710,59 @@ msgstr ""
 msgid "Course planning"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:84 lino_avanti/lib/courses/models.py:140
+#: lino_avanti/lib/courses/models.py:82 lino_avanti/lib/courses/models.py:138
 msgid "Bus"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:89 lino_avanti/lib/courses/models.py:139
+#: lino_avanti/lib/courses/models.py:87 lino_avanti/lib/courses/models.py:137
 msgid "Childcare"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:94 lino_avanti/lib/courses/models.py:142
+#: lino_avanti/lib/courses/models.py:92 lino_avanti/lib/courses/models.py:140
 msgid "Evening"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:108
+#: lino_avanti/lib/courses/models.py:106
 msgid "Update missing rates"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:145 lino_avanti/lib/courses/models.py:177
+#: lino_avanti/lib/courses/models.py:143 lino_avanti/lib/courses/models.py:175
 msgid "Missing rate"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:153
+#: lino_avanti/lib/courses/models.py:151
 msgid "Participant"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:167
+#: lino_avanti/lib/courses/models.py:165
 msgid "Integration Course Agreement"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:173
+#: lino_avanti/lib/courses/models.py:171
 msgid "Coached by"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:180
+#: lino_avanti/lib/courses/models.py:178
 msgid "Update missing rate"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:204
+#: lino_avanti/lib/courses/models.py:208
 msgid "Reminder"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:205
+#: lino_avanti/lib/courses/models.py:209
 msgid "Reminders"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:211
+#: lino_avanti/lib/courses/models.py:215
 msgid "Situation on"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:212
+#: lino_avanti/lib/courses/models.py:216
 msgid "Text body"
 msgstr ""
 
-#: lino_avanti/lib/courses/models.py:216
+#: lino_avanti/lib/courses/models.py:220
 msgid "Remark"
 msgstr ""
 
