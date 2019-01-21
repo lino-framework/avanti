@@ -13,7 +13,7 @@ client."""),
     'lino_avanti.lib.avanti.Client.translator_type' : _("""Which type of translator is needed with this client."""),
     'lino_avanti.lib.avanti.Client.professional_state' : _("""The professional situation of this client."""),
     'lino_avanti.lib.avanti.Client.overview' : _("""A panel with general information about this client."""),
-    'lino_avanti.lib.avanti.Client.client_state' : _("""Pointer to ClientStates."""),
+    'lino_avanti.lib.avanti.Client.client_state' : _("""The state of this client record."""),
     'lino_avanti.lib.avanti.Client.unemployed_since' : _("""The date when this client got unemployed and stopped to have a
 regular work."""),
     'lino_avanti.lib.avanti.Client.seeking_since' : _("""The date when this client registered as unemployed and started
