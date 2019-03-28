@@ -164,7 +164,7 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
     unavailable_until = models.DateField(
         blank=True, null=True, verbose_name=_("Unavailable until"))
     unavailable_why = models.CharField(
-        _("reason"), max_length=100,
+        _("Reason"), max_length=100,
         blank=True)
 
     family_notes = models.TextField(

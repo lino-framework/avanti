@@ -9,7 +9,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: lino-avanti 18.10.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-01-14 08:39+0200\n"
+"POT-Creation-Date: 2019-03-28 03:06+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -149,7 +149,7 @@ msgid "A panel with general information about this client."
 msgstr ""
 
 #: lino_avanti/lib/avanti/help_texts.py:16
-msgid "Pointer to ClientStates."
+msgid "The state of this client record."
 msgstr ""
 
 #: lino_avanti/lib/avanti/help_texts.py:17
@@ -370,8 +370,8 @@ msgstr ""
 msgid "Unavailable until"
 msgstr ""
 
-#: lino_avanti/lib/avanti/models.py:167
-msgid "reason"
+#: lino_avanti/lib/avanti/models.py:167 lino_avanti/lib/avanti/models.py:629
+msgid "Reason"
 msgstr ""
 
 #: lino_avanti/lib/avanti/models.py:171
@@ -483,10 +483,6 @@ msgstr ""
 
 #: lino_avanti/lib/avanti/models.py:627
 msgid "Residences"
-msgstr ""
-
-#: lino_avanti/lib/avanti/models.py:629
-msgid "Reason"
 msgstr ""
 
 #: lino_avanti/lib/avanti/models.py:637

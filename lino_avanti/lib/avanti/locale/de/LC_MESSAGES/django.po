@@ -8,8 +8,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Lino-DSBE\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2019-01-14 08:39+0200\n"
-"PO-Revision-Date: 2019-01-14 08:39+0200\n"
+"POT-Creation-Date: 2019-03-28 03:06+0200\n"
+"PO-Revision-Date: 2019-03-28 03:07+0200\n"
 "Last-Translator: Luc Saffre <luc.saffre@gmail.com>\n"
 "Language: de\n"
 "Language-Team: de <luc.saffre@gmail.com>\n"
@@ -157,8 +157,8 @@ msgstr ""
 
 #: lino_avanti/lib/avanti/help_texts.py:16
 #, fuzzy
-msgid "Pointer to ClientStates."
-msgstr "DSBE-Klienten"
+msgid "The state of this client record."
+msgstr "Berufliche Situation"
 
 #: lino_avanti/lib/avanti/help_texts.py:17
 msgid ""
@@ -380,9 +380,9 @@ msgstr "Deklarierter Name"
 msgid "Unavailable until"
 msgstr "Nicht verfügbar bis"
 
-#: lino_avanti/lib/avanti/models.py:167
-msgid "reason"
-msgstr "Grund"
+#: lino_avanti/lib/avanti/models.py:167 lino_avanti/lib/avanti/models.py:629
+msgid "Reason"
+msgstr ""
 
 #: lino_avanti/lib/avanti/models.py:171
 msgid "Family situation"
@@ -496,10 +496,6 @@ msgstr "Lebenslauf"
 #: lino_avanti/lib/avanti/models.py:627
 msgid "Residences"
 msgstr "Wohnsitze"
-
-#: lino_avanti/lib/avanti/models.py:629
-msgid "Reason"
-msgstr "Grund"
 
 #: lino_avanti/lib/avanti/models.py:637
 msgid "Former residences"
@@ -832,3 +828,9 @@ msgstr "Begleitung"
 
 #~ msgid "Ditching controll"
 #~ msgstr "Schwänzkontrolle"
+
+#~ msgid "Pointer to ClientStates."
+#~ msgstr "DSBE-Klienten"
+
+#~ msgid "reason"
+#~ msgstr "Grund"
