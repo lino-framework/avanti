@@ -6,6 +6,15 @@ Coming version
 
 Not yet scheduled.
 
+- NB : Lehrer haben die Kalenderansicht auch. Zu prüfen, ob sie das dürfen
+
+- Sektretäre und Sozialarbeiter können jetzt die Termine ihrer Kollegen
+  bearbeiten.  Nebenwirkung: diese Benutzer haben jetzt auch Zugriff auf diverse
+  Tabellen in Konfigurierung --> Kalender.
+
+- "Tagesplaner" ersetzt durch "Kalenderansicht". Die "Kalenderansicht" soll
+  irgendwann den "Kalender" ersetzen.
+
 - The merge button is no longer available on many models
   (:ticket:`2191`).
 

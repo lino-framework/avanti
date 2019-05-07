@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017-2018 Rumma & Ko Ltd
+# Copyright 2017-2019 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
 """Defines the standard user roles for Lino Avanti."""
@@ -31,30 +31,35 @@ class Auditor(SiteUser, CoursesUser, OfficeUser, # GuestOperator,
               Explorer):
     pass
 
+
 class Teacher(SiteUser, CoursesTeacher, OfficeUser, GuestOperator,
               ClientsNameUser):
     pass
+
 
 class Coordinator(SiteUser, CoursesUser, OfficeOperator,
                   CheckdataUser, ClientsNameUser):
     pass
 
-class Secretary(SiteUser, CoursesUser, OfficeUser, ContactsUser,
+
+class Secretary(SiteUser, CoursesUser, OfficeUser, OfficeOperator, ContactsUser,
                 BeIdUser, ExcerptsUser, CheckdataUser, ClientsUser):
     pass
 
+
 class SocialWorker(SiteUser, CoachingsUser, CoursesUser, ContactsUser,
-                   OfficeUser, ExcerptsUser, CareerUser, BeIdUser,
+                   OfficeUser, OfficeOperator, ExcerptsUser, CareerUser, BeIdUser,
                    GuestOperator,
                    CommentsUser, TrendsUser, ClientsUser,
                    Explorer, PollsUser, CheckdataUser):
     pass
 
-class SiteStaff(SocialWorker, CoachingsStaff, CoursesUser,
-                ContactsStaff, OfficeStaff, ExcerptsStaff,
-                CareerStaff, BeIdUser, #TicketsStaff,
+
+class SiteStaff(SiteUser, CoachingsStaff, CoursesUser, ContactsStaff,
+                OfficeStaff, ExcerptsStaff, CareerStaff, BeIdUser,
+                GuestOperator,
                 CommentsStaff, SiteSearcher,
-                TrendsStaff, ClientsStaff, Explorer, PollsStaff):
+                TrendsStaff, ClientsStaff, Explorer, PollsStaff, CheckdataUser):
     pass
 
 class Administrator(SiteAdmin, SiteStaff):
