@@ -5,16 +5,16 @@
 =================
 
 
-Änderungen:
+Angefragte Änderungen in deiser Version:
 
 - Sozialarbeiter soll Kalendereinträge des Sekretärs bearbeiten können
   (:ticket:`2990`)
 
+- NB Upgrade auf Python 3 ist auf einen späteren Termin verschoben, weil es
+  noch ein Problem gab, das ich mit Valentin klären muss (apt update funktioniert
+  nicht auf gandhi.net)
 
-Weitere Änderungen (nicht angefragt)
-
-
-- NB : Lehrer haben die Kalenderansicht auch. Zu prüfen, ob sie das dürfen
+Weitere Änderungen (nicht angefragt):
 
 - Sektretäre und Sozialarbeiter können jetzt die Termine ihrer Kollegen
   bearbeiten.  Nebenwirkung: diese Benutzer haben jetzt auch Zugriff auf diverse
@@ -22,6 +22,8 @@ Weitere Änderungen (nicht angefragt)
 
 - "Tagesplaner" ersetzt durch "Kalenderansicht". Die "Kalenderansicht" soll
   irgendwann den "Kalender" ersetzen.
+  NB : Lehrer haben die neue Kalenderansicht auch. Zu prüfen, ob sie das dürfen.
+
 
 - The merge button is no longer available on many models
   (:ticket:`2191`).
