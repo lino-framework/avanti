@@ -1,11 +1,10 @@
-.. _avanti.changes.19.5:
+.. _avanti.changes.19.5.0:
 
-=================
-19.5 (2019-05-19)
-=================
+===================
+19.5.0 (2019-05-19)
+===================
 
-
-Angefragte Änderungen in deiser Version:
+Angefragte Änderungen in dieser Version:
 
 - Sozialarbeiter soll Kalendereinträge des Sekretärs bearbeiten können
   (:ticket:`2990`)

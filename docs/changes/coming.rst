@@ -4,5 +4,6 @@
 Coming version
 ==============
 
-See :doc:`19.5`.
+Previous version see :doc:`19.5.0`.
+
 
