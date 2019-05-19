@@ -57,7 +57,7 @@ class Site(Site):
         # yield 'lino.modlib.users'
         yield 'lino_xl.lib.countries'
         yield 'lino_avanti.lib.contacts'
-        yield 'lino_xl.lib.extensible'
+        # yield 'lino_xl.lib.extensible'
         yield 'lino_avanti.lib.cal'
         yield 'lino_avanti.lib.avanti'
         yield 'lino.modlib.comments'
