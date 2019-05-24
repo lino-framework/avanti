@@ -209,7 +209,9 @@ class Enrolment(Enrolment):
         return rv
 
 
-Enrolment.set_widget_options('missing_rate', hide_sum=True)        
+Enrolment.set_widget_options('missing_rate', hide_sum=True)
+
+# dd.update_field(Enrolment, "pupil", verbose_name=_("Participant"))
 
 dd.python_2_unicode_compatible    
 class Reminder(UserAuthored, Certifiable):

@@ -41,3 +41,14 @@ Weitere Änderungen (nicht angefragt):
   
 - cal.Priority has been removed. Event.priority is a default value for all entries.
 
+
+
+Nachrelease am 2019-05-24
+==========================
+
+- Statusbericht (Liste der aktiven Kurse) wurde nicht angezeigt im Dashboard
+- Lehrer dürfen die Namen anderer Klienten nicht sehen
+- Fehlermeldung "ChangedAPI" wenn man auf ☉ eines Kurses klickte
+  (:attr:`update_missing_rates
+  <lino_avanti.lib.courses.Course.update_missing_rates>`)
+

@@ -39,6 +39,7 @@ class Guest(Guest):
             rv.add("partner")
         return rv
 
+dd.update_field(Guest, "partner", verbose_name=_("Participant"))
 
 class GuestDetail(dd.DetailLayout):
     window_size = (60, 'auto')
