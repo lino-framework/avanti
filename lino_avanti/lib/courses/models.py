@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017-2018 Rumma & Ko Ltd
+# Copyright 2017-2019 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
 from __future__ import unicode_literals
@@ -10,6 +10,9 @@ from decimal import Decimal
 from django.utils.translation import ugettext_lazy as _
 from django.utils.translation import pgettext_lazy as pgettext
 
+from etgen.html import E, join_elems
+
+from lino.core.gfks import gfk2lookup
 from lino_xl.lib.courses.models import *
 from lino.modlib.users.mixins import UserAuthored
 from lino_xl.lib.courses.roles import CoursesUser
@@ -18,8 +21,7 @@ from lino_xl.lib.cal.choicelists import EntryStates, GuestStates
 from lino_xl.lib.ledger.utils import ZERO, myround
 # from lino.modlib.checkdata.choicelists import Checker
 # from lino.modlib.summaries.mixins import SimpleSummary
-from lino.core.gfks import gfk2lookup
-from etgen.html import E, join_elems
+from lino_avanti.lib.avanti.roles import ClientsUser
 
 from .choicelists import ReminderStates, ReminderDegrees
 
@@ -198,7 +200,14 @@ class Enrolment(Enrolment):
         self.full_clean()
         self.save()
         ar.success(refresh=True)
-    
+
+    def disabled_fields(self, ar):
+        rv = super(Enrolment, self).disabled_fields(ar)
+        if not ar.get_user().user_type.has_required_roles([ClientsUser]):
+            rv.add("pupil")
+        return rv
+
+
 Enrolment.set_widget_options('missing_rate', hide_sum=True)        
 
 dd.python_2_unicode_compatible    
