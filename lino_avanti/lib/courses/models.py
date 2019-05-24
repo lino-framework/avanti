@@ -115,7 +115,8 @@ class Course(Course):
         #     **gfk2lookup(Event.owner, self)).count()
         
         for obj in self.enrolment_set.all():
-            obj.update_missing_rate(ar)
+            obj.update_missing_rate.run_from_session(ar)
+            # obj.update_missing_rate(ar)
             # flt = {'event__'+k: v
             #        for k, v in gfk2lookup(Event.owner, self).items()}
 
