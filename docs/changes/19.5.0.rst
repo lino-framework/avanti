@@ -52,3 +52,5 @@ Nachrelease am 2019-05-24
   (:attr:`update_missing_rates
   <lino_avanti.lib.courses.Course.update_missing_rates>`)
 
+- Feldbezeichnung "Klient" einer Einschreibung bzw. Anwesenheit ersetzt durch
+  "Teilnehmer". 
