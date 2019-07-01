@@ -10,8 +10,7 @@ SETUP_INFO = dict(
     author='Luc Saffre',
     author_email='luc.saffre@gmail.com',
     url="http://avanti.lino-framework.org/",
-    # license='GNU Affero General Public License v3',
-    license='BSD License',
+    license='BSD-2-Clause',
     test_suite='tests')
 
 
