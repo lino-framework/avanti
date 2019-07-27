@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017-2018 Rumma & Ko Ltd
+# Copyright 2017-2019 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 """Demo data for Lino Avanti.
 
@@ -20,10 +20,12 @@ def objects():
     for client in Client.objects.all():
         client.user = COACHES.pop()
         yield client
-    
-    obj = rt.models.courses.Enrolment.objects.get(pk=2)
-    yield rt.models.courses.Reminder(
-        enrolment=obj, user=obj.pupil.user,
-        date_issued=settings.SITE.demo_date(-10))
+
+    # removed 20190727 because it causes failure under mysql
+    # # obj = rt.models.courses.Enrolment.objects.order_by('id')[1]
+    # obj = rt.models.courses.Enrolment.objects.get(pk=2)
+    # yield rt.models.courses.Reminder(
+    #     enrolment=obj, user=obj.pupil.user,
+    #     date_issued=settings.SITE.demo_date(-10))
 
     rt.models.courses.update_missing_rates()
