@@ -26,7 +26,7 @@ from lino.api.ad import _
 class Site(Site):
 
     verbose_name = "Lino Avanti!"
-    version = '2017.1.0'
+    # version = '2017.1.0'
     url = "http://avanti.lino-framework.org/"
     demo_fixtures = ['std',
                      'few_languages', 'compass',
@@ -45,7 +45,7 @@ class Site(Site):
 
     webdav_protocol = 'webdav'
     # beid_protocol = 'beid'
-    
+
     auto_configure_logger_names = 'schedule atelier django lino lino_xl lino_avanti'
 
     def get_installed_apps(self):
@@ -76,11 +76,11 @@ class Site(Site):
         yield 'lino_xl.lib.cv'
         yield 'lino_xl.lib.trends'
         yield 'lino_xl.lib.polls'
-        
+
         yield 'lino_avanti.lib.courses' # pupil__gender
         # yield 'lino_xl.lib.courses'
         # yield 'lino_xl.lib.rooms'
-        
+
         yield 'lino.modlib.checkdata'
         yield 'lino.modlib.export_excel'
         # yield 'lino.modlib.tinymce'
@@ -89,34 +89,41 @@ class Site(Site):
         yield 'lino.modlib.dashboard'
         yield 'lino_xl.lib.appypod'
         # yield 'lino.modlib.davlink'
-        
+
         # yield 'lino_xl.lib.votes'
         # yield 'lino_avanti.lib.tickets'
         # yield 'lino_xl.lib.tickets'
         # yield 'lino_xl.lib.skills'
-        
 
-    def setup_plugins(self):
-        super(Site, self).setup_plugins()
-        self.plugins.cv.configure(
-            person_model = 'avanti.Client')
-        # self.plugins.humanlinks.configure(
-        #     person_model = 'contacts.Person')
-            # person_model = 'avanti.Client')
-        # self.plugins.households.configure(
-        #     person_model = 'contacts.Person')
-            # person_model='avanti.Client')
-        self.plugins.cal.configure(
-            partner_model='avanti.Client')
-        # self.plugins.skills.configure(
-        #     end_user_model='avanti.Client')
-        self.plugins.clients.configure(
-            client_model='avanti.Client')
-        self.plugins.trends.configure(
-            subject_model='avanti.Client')
-        # self.plugins.comments.configure(
-        #     user_must_publish=False)
+    # def setup_plugins(self):
+    #     super(Site, self).setup_plugins()
+    #     self.plugins.cv.configure(
+    #         person_model = 'avanti.Client')
+    #     # self.plugins.humanlinks.configure(
+    #     #     person_model = 'contacts.Person')
+    #         # person_model = 'avanti.Client')
+    #     # self.plugins.households.configure(
+    #     #     person_model = 'contacts.Person')
+    #         # person_model='avanti.Client')
+    #     self.plugins.cal.configure(
+    #         partner_model='avanti.Client')
+    #     # self.plugins.skills.configure(
+    #     #     end_user_model='avanti.Client')
+    #     self.plugins.clients.configure(
+    #         client_model='avanti.Client')
+    #     self.plugins.trends.configure(
+    #         subject_model='avanti.Client')
+    #     # self.plugins.comments.configure(
+    #     #     user_must_publish=False)
 
+    def get_plugin_configs(self):
+        for i in super(Site, self).get_plugin_configs():
+            yield i
+        yield ('cv', 'with_language_history', True)
+        yield ('cv', 'person_model', 'avanti.Client')
+        yield ('cal', 'partner_model', 'avanti.Client')
+        yield ('clients', 'client_model', 'avanti.Client')
+        yield ('trends', 'subject_model', 'avanti.Client')
 
     def setup_quicklinks(self, user, tb):
         super(Site, self).setup_quicklinks(user, tb)
@@ -132,7 +139,7 @@ class Site(Site):
             label=_("New {}").format(
                 Clients.model._meta.verbose_name))
         tb.add_action(Clients, 'find_by_beid')
-        
+
         # tb.add_action(self.modules.tickets.MyTickets)
         # tb.add_action(self.modules.tickets.TicketsToTriage)
         # tb.add_action(self.modules.tickets.TicketsToTalk)
@@ -161,4 +168,3 @@ class Site(Site):
 
 USE_TZ = True
 TIME_ZONE = 'UTC'
-

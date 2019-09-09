@@ -2,7 +2,7 @@
 # Copyright 2017-2019 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
-"""Defines the standard user roles for Lino Avanti."""
+"""Defines the user types for Lino Avanti."""
 
 
 from lino.api import _
@@ -76,6 +76,3 @@ add('400', _("Coordinator"), Coordinator, name='coordinator')
 add('410', _("Secretary"), Secretary, name='secretary')
 add('800', _("Staff"), SiteStaff, name='staff')
 add('900', _("Administrator"), Administrator, name='admin')
-
-
-
