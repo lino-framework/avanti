@@ -22,6 +22,13 @@ from lino_xl.lib.clients.choicelists import KnownContactTypes
 
 from lino.utils import demonames as demo
 
+
+def next_choice(cls, choice):
+    for i, v_c in enumerate(cls.choices):
+        v, c = v_c
+        if v == choice and i+1 < len(cls.choices):
+            return cls.choices[i+1][0]
+
 def get_last_names():
     yield demo.LAST_NAMES_MUSLIM
     yield demo.LAST_NAMES_RUSSIA
@@ -53,6 +60,7 @@ def objects():
     ClientStates = rt.models.avanti.ClientStates
     EndingReason = rt.models.avanti.EndingReason
     Category = rt.models.avanti.Category
+    LanguageKnowledge = rt.models.cv.LanguageKnowledge
 
     yield babeld(EndingReason, _("Successfully ended"), id=1)
     yield babeld(EndingReason, _("Health problems"), id=2)
@@ -60,7 +68,7 @@ def objects():
     yield babeld(EndingReason, _("Missing motivation"), id=4)
     yield babeld(EndingReason, _("Return to home country"), id=5)
     yield babeld(EndingReason, _("Other"), id=9)
-    
+
     yield babeld(Category, _("Language course"))
     yield babeld(Category, _("Integration course"))
     yield babeld(Category, _("Language & integration course"))
@@ -75,9 +83,9 @@ def objects():
     # yield named(ClientContactType, _("ISS"))
     for i in KnownContactTypes.get_list_items():
         yield i.create_object()
-        
+
     yield named(ClientContactType, _("Other"))
-    
+
     TRTYPES = Cycler(TranslatorTypes.objects())
     POLICIES = Cycler(rt.models.cal.EventPolicy.objects.all())
     CCTYPES = Cycler(ClientContactType.objects.all())
@@ -87,7 +95,7 @@ def objects():
             name="Favourite {}".format(cct), client_contact_type=cct)
         yield Company(
             name="Best {}".format(cct), client_contact_type=cct)
-        
+
     CCT2COMPANIES = dict()
     for cct in ClientContactType.objects.all():
         CCT2COMPANIES[cct] = Cycler(Company.objects.filter(
@@ -133,17 +141,37 @@ def objects():
                 p.first_name = p.first_name.replace('a', 'á')
                 p.name = join_words(p.last_name, p.first_name)
 
-            
+
             if count % 4:
                 client.translator_type = TRTYPES.pop()
 
             # client.full_clean()
             # client.save()
             yield client
+
         else:
             pass
             # yield mtichild(
             #     person, Translator, translator_type=TT.pop())
+
+    CefLevel = rt.models.cv.CefLevel
+    LANGUAGES = Cycler(rt.models.languages.Language.objects.all())
+    HOW_WELL = Cycler(rt.models.cv.HowWell.get_list_items())
+    CEF_LEVELS = Cycler(CefLevel.get_list_items())
+    LK_COUNTS = Cycler(1, 2, 3, 2, 1, 4)
+
+    def language_knowledge(person, offset, language, native, **kwargs):
+        kwargs.update(entry_date=dd.today(offset))
+        kwargs.update(language=language, native=native)
+        if not native:
+            kwargs.update(
+                spoken=HOW_WELL.pop(),
+                written=HOW_WELL.pop(),
+                spoken_passively=HOW_WELL.pop(),
+                written_passively=HOW_WELL.pop(),
+                cef_level=CEF_LEVELS.pop())
+            kwargs.update(has_certificate=person.id % 2)
+        return LanguageKnowledge(person=person, **kwargs)
 
     for i, obj in enumerate(Client.objects.all()):
         for j in range(i % 2):
@@ -151,4 +179,14 @@ def objects():
             company = CCT2COMPANIES[cct].pop()
             yield ClientContact(type=cct, client=obj, company=company)
 
-
+        if obj.client_state == ClientStates.coached:
+            for i in range(LK_COUNTS.pop()):
+                yield language_knowledge(obj, -400, LANGUAGES.pop(), i==0)
+            lk = LanguageKnowledge.objects.filter(person=obj, native=False).first()
+            if lk:
+                better = next_choice(CefLevel, lk.cef_level)
+                if better:
+                    # raise Exception("okay")
+                    new_lk = language_knowledge(obj, -10, lk.language, False)
+                    new_lk.cef_level = better
+                    yield new_lk
