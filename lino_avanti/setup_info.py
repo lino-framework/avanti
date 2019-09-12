@@ -38,15 +38,15 @@ the `German-speaking Community of Belgium
 
 SETUP_INFO.update(classifiers="""
 Programming Language :: Python
-Programming Language :: Python :: 2
-Development Status :: 2 - Pre-Alpha
+Programming Language :: Python :: 3
+Development Status :: 5 - Production/Stable
 Environment :: Web Environment
 Framework :: Django
 Intended Audience :: Developers
 Intended Audience :: System Administrators
 Intended Audience :: Information Technology
 Intended Audience :: Customer Service
-License :: OSI Approved :: {license}
+License :: OSI Approved :: BSD License
 Natural Language :: English
 Natural Language :: German
 Natural Language :: French
