@@ -20,3 +20,7 @@
 
 - Man kann pro Klient auf den Drucker-Button klicken (und es kommt dann was
   raus, und zwar ein erster Vorschlag für die Sozialbilanz)
+
+Version 19.9.0 wird (wenn alles gut geht) schon auf dem neuen Server laufen.
+Deshalb haben wir diesmal den Luxus, dass wir die Änderungen in einer Vorschau
+ansehen können, bevor sie tatsächlich aktiviert werden.
