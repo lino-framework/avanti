@@ -1,0 +1,22 @@
+.. _avanti.changes.2019:
+
+====
+2019
+====
+
+.. Note: Changes are grouped by date. Every new day gives a new
+   heading. If a release deserves separate release notes, we create a separate
+   document and this file will have a link to it.
+
+.. contents::
+  :local:
+
+2019-09-11
+==========
+
+Änderungen für :ticket:`2274` (Sozialbilanz) :
+
+- Pro Sprachkenntnis gibt es jetzt ein Erfassungsdatum
+
+- Man kann pro Klient auf den Drucker-Button klicken (und es kommt dann was
+  raus, und zwar ein erster Vorschlag für die Sozialbilanz)
