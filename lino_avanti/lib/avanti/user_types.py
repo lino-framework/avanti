@@ -2,7 +2,13 @@
 # Copyright 2017-2019 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
-"""Defines the user types for Lino Avanti."""
+"""
+This is the :attr:`user_types_module
+<lino.core.site.Site.user_types_module>` for :ref:`avanti`.
+
+Redefines the list of available :class:`lino.modlib.users.UserTypes`.
+
+"""
 
 
 from lino.api import _
@@ -76,3 +82,7 @@ add('400', _("Coordinator"), Coordinator, name='coordinator')
 add('410', _("Secretary"), Secretary, name='secretary')
 add('800', _("Staff"), SiteStaff, name='staff')
 add('900', _("Administrator"), Administrator, name='admin')
+
+
+# from lino_xl.lib.cal.choicelists import EntryTypes
+# EntryTypes.took_place.update(fill_guests=True)
