@@ -17,7 +17,7 @@ def objects():
         certifying=True, primary=True,
         content_type=ContentType.objects.get_for_model(
             rt.models.avanti.Client),
-        **dd.str2kw('name', _("Final report")))
+        **dd.str2kw('name', _("Final certificate")))
 
     # yield ExcerptType(
     #     build_method='appypdf',

@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
+# test it with: $ python setup.py test -s tests.PackagesTests
 # Copyright 2017-2019 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
-
 SETUP_INFO = dict(
     name='lino-avanti',
     version='19.9.0',
@@ -63,6 +63,8 @@ SETUP_INFO.update(packages=[
     'lino_avanti.lib.contacts',
     'lino_avanti.lib.contacts.fixtures',
     'lino_avanti.lib.contacts.management',
+    'lino_avanti.lib.cv',
+    'lino_avanti.lib.cv.fixtures',
     'lino_avanti.lib.contacts.management.commands',
     'lino_avanti.lib.courses',
     'lino_avanti.lib.households',

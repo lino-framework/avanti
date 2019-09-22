@@ -33,34 +33,6 @@ dd.update_field(
 # rt.models.cv.LanguageKnowledgesByPerson.display_mode = 'grid'
 
 
-rt.models.cv.StudiesByPerson.column_names = 'type content duration_text language school country state education_level remarks *'
-
-rt.models.cv.StudiesByPerson.insert_layout = """
-type content
-duration_text language
-"""
-
-rt.models.cv.Studies.detail_layout = """
-person #start_date #end_date duration_text language
-type content education_level state #success
-school country city
-remarks
-"""
-
-rt.models.cv.Experiences.detail_layout = """
-person company country city
-#sector #function title
-status duration regime is_training 
-#start_date #end_date duration_text termination_reason
-remarks
-"""
-
-rt.models.cv.ExperiencesByPerson.column_names = "company country duration_text function status termination_reason remarks *"
-
-
-dd.update_field(
-    rt.models.cv.Experience, 'company',
-    verbose_name=_("Work area"))
 
 from lino_avanti.lib.avanti.roles import ClientsUser
 rt.models.cal.CalendarView.required_roles = dd.login_required(
