@@ -68,7 +68,7 @@ Name: <b>{{obj.last_name}}</b>
 Berufliche Situation: <b>{{obj.professional_state or _("Not specified")}}</b>
 <br>Arbeitserlaubnis benötigt: <b>{{bool2text(obj.needs_work_permit)}}</b>
 <div>
-{{ar.show(rt.models.cv.ExperiencesByPerson, obj)}}
+{{ar.show(rt.models.cv.ExperiencesByPerson, obj, column_names="company country duration_text remarks")}}
 </div>
 
 
@@ -76,7 +76,7 @@ Berufliche Situation: <b>{{obj.professional_state or _("Not specified")}}</b>
 {% if response.poll.ref and response.poll.ref.startswith("") %}
 <h2>{{response.poll}}</h2>
 <div>
-{{ar.show(rt.models.polls.AnswersByResponse, response)}}
+{{ar.show(rt.models.polls.AnswersByResponsePrint, response)}}
 </div>
 {% endif %}
 {% endfor %}
