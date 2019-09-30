@@ -12,7 +12,7 @@ Name: <b>{{obj.last_name}}</b>
 <br>Vorname: <b>{{obj.first_name}}</b>
 <br>Adresse: <b>{{', '.join(
   obj.get_primary_address().address_location_lines())}}</b>
-<br>Geburtsdatum: <b>{{obj.birth_date}}</b>
+<br>Geburtsdatum: <b>{{fdm(obj.birth_date)}}</b>
 
 <h2>Ansprechpartner</h2>
 
@@ -61,14 +61,15 @@ Name: <b>{{obj.last_name}}</b>
 
 <h2>Kompetenzen und Ausbildungen</h2>
 <div>
-{{ar.show(rt.models.cv.StudiesByPerson, obj)}}
+{{ar.show(rt.models.cv.StudiesByPerson, obj, display_mode="summary")}}
 </div>
 
 <h2>Berufliche Situation</h2>
 Berufliche Situation: <b>{{obj.professional_state or _("Not specified")}}</b>
 <br>Arbeitserlaubnis benötigt: <b>{{bool2text(obj.needs_work_permit)}}</b>
 <div>
-{{ar.show(rt.models.cv.ExperiencesByPerson, obj, column_names="company country duration_text remarks")}}
+{{ar.show(rt.models.cv.ExperiencesByPerson, obj,
+  column_names="company country duration_text remarks", display_mode="summary")}}
 </div>
 
 
