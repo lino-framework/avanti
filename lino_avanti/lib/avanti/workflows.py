@@ -24,8 +24,10 @@ add = KnownContactTypes.add_item
 add('10', _("Health insurance"), 'health_insurance')
 add('20', _("School"), 'school')
 add('30', _("Pharmacy"), 'pharmacy')
-add('40', _("General social assistant"), 'general_assistant')
-add('50', _("Integration assistant"), 'integ_assistant')
+add('40', _("Public Center for Social Welfare"), 'social_center')
+# add('40', _("General social assistant"), 'general_assistant')
+# code 50 might still exist in their database but should be replaced by 40:
+# add('50', _("Integration assistant"), 'unused_integ_assistant')
 add('60', _("Work consultant"), 'work_consultant')
 
 
@@ -49,4 +51,3 @@ GuestStates.invited.add_transition(
     # "☐",  # BALLOT BOX \u2610
     required_states='missing present excused')
     # help_text=_("Reset state to invited."))
-

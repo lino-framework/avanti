@@ -7,9 +7,9 @@
 #, fuzzy
 msgid ""
 msgstr ""
-"Project-Id-Version: lino-avanti 19.9.0\n"
+"Project-Id-Version: lino-avanti 19.10.0\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2019-09-21 21:48+0300\n"
+"POT-Creation-Date: 2019-10-15 13:49+0300\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -207,6 +207,7 @@ msgid ""
 msgstr ""
 
 #: lino_avanti/lib/avanti/help_texts.py:35
+#: lino_avanti/lib/avanti/help_texts.py:59
 msgid "The table of possible absence reasons."
 msgstr ""
 
@@ -569,21 +570,19 @@ msgid "Pharmacy"
 msgstr ""
 
 #: lino_avanti/lib/avanti/workflows.py:27
-msgid "General social assistant"
+msgid "Public Center for Social Welfare"
 msgstr ""
 
-#: lino_avanti/lib/avanti/workflows.py:28
+#: lino_avanti/lib/avanti/fixtures/std.py:22
+#: lino_avanti/lib/avanti/workflows.py:30
 msgid "Integration assistant"
 msgstr ""
 
-#: lino_avanti/lib/avanti/workflows.py:29
+#: lino_avanti/lib/avanti/workflows.py:31
 msgid "Work consultant"
 msgstr ""
 
-#: lino_avanti/lib/avanti/config/avanti/Client/final_report.body.html:28
-#: lino_avanti/lib/avanti/config/avanti/Client/final_report.body.html:35
-#: lino_avanti/lib/avanti/config/avanti/Client/final_report.body.html:42
-#: lino_avanti/lib/avanti/config/avanti/Client/final_report.body.html:68
+#: lino_avanti/lib/avanti/config/avanti/Client/final_report.weasy.html:61
 msgid "Not specified"
 msgstr ""
 
@@ -612,7 +611,11 @@ msgid "Successfully terminated"
 msgstr ""
 
 #: lino_avanti/lib/avanti/fixtures/std.py:20
-msgid "Final certificate"
+msgid "Final report"
+msgstr ""
+
+#: lino_avanti/lib/avanti/fixtures/std.py:23
+msgid "Social assistant"
 msgstr ""
 
 #: lino_avanti/lib/cal/models.py:18

@@ -1,52 +1,47 @@
+{% set unused = activate_language('de') %}
 {# `this` is the Excerpt, `obj` is the `owner`, i.e. the client #}
-{# % extends "excerpts/base.body.html" % #}
+{% extends "excerpts/base.weasy.html" %}
+{%- block pagesize %}portrait{%- endblock %}
 
-{% block title %}
-<h1>Abschließende Sozialbilanz</h1>
-{% endblock %}
+{% block main %}
+{{ super() }}
 
-{% block body %}
-
-<h2>Angaben zur Person und Kontakte</h2>
+<h3>Angaben zur Person und Kontakte</h3>
 Name: <b>{{obj.last_name}}</b>
 <br>Vorname: <b>{{obj.first_name}}</b>
 <br>Adresse: <b>{{', '.join(
   obj.get_primary_address().address_location_lines())}}</b>
 <br>Geburtsdatum: <b>{{fdm(obj.birth_date)}}</b>
 
-<h2>Ansprechpartner</h2>
-
-<br>Sozialarbeiterin bei Info-Integration: <b>{{obj.user}}</b>
-
+<h3>Ansprechpartner</h3>
+Sozialarbeiterin bei Info-Integration: <b>{{obj.user}}</b>
 <br>Eingeschrieben beim Arbeitsamt: <b>{{bool2text(obj.has_contact_work_office)}}</b>
+<br>{{rt.models.clients.KnownContactTypes.work_consultant}}:
+{% for x in rt.models.clients.KnownContactTypes.work_consultant.get_contacts(obj) %}
+{% if loop.first %}{{x.company}}{% else %}, {% endif %}
+<b>{{x.contact_person or "..."}}</b>
+{% set role = x.get_contact() %}
+{% if role %}
+({{role.type}})
+{% endif %}
+{% else %} /
+{% endfor %}
+
 <br>Betreut vom ÖSHZ: <b>{{bool2text(obj.has_contact_pcsw)}}</b>
-
-{% set x = rt.models.clients.KnownContactTypes.work_consultant.get_contact(obj) %}
-<br>Arbeitsberater:
-{% if x %}
-<b>{{x.contact_person or "..."}} ({{x.company}}</b>)
-{% else %} {{_("Not specified")}}
+<br>{{rt.models.clients.KnownContactTypes.social_center}}:
+{% for x in rt.models.clients.KnownContactTypes.social_center.get_contacts(obj) %}
+{% if loop.first %}{{x.company}}{% else %}, {% endif %}
+<b>{{x.contact_person or "..."}}</b>
+{% set role = x.get_contact() %}
+{% if role %}
+({{role.type}})
 {% endif %}
+{% else %} /
+{% endfor %}
 
-<br>Sozialarbeiter ASD:
-{% set x = rt.models.clients.KnownContactTypes.general_assistant.get_contact(obj) %}
-{% if x %}
-<b>{{x.contact_person or "..."}} ({{x.company}}</b>)
-{% else %} {{_("Not specified")}}
-{% endif %}
+<h3>Sprachenkenntnisse und Schulbildung</h3>
 
-<br>Sozialarbeiter DSBE:
-{% set x = rt.models.clients.KnownContactTypes.integ_assistant.get_contact(obj) %}
-{% if x %}
-<b>{{x.contact_person or "..."}} ({{x.company}}</b>)
-{% else %} {{_("Not specified")}}
-{% endif %}
-
-<h2>Sprachenkenntnisse und Schulbildung</h2>
-
-{# {{ar.show(rt.models.cv.LanguageKnowledgesByPerson, obj, nosummary=True)}} #}
-
-<br>Muttersprache: <b>{{obj.mother_tongues}}</b>
+Muttersprache: <b>{{obj.mother_tongues}}</b>
 <br>Erreichtes Niveau in Deutsch: <b>{{obj.cef_level_de}}</b>
 <br>Erreichtes Niveau in Französisch: <b>{{obj.cef_level_fr}}</b>
 
@@ -59,29 +54,21 @@ Name: <b>{{obj.last_name}}</b>
 {% endfor %}
 
 
-<h2>Kompetenzen und Ausbildungen</h2>
-<div>
+<h3>Kompetenzen und Ausbildungen</h3>
 {{ar.show(rt.models.cv.StudiesByPerson, obj, display_mode="summary")}}
-</div>
 
-<h2>Berufliche Situation</h2>
+<h3>Berufliche Situation</h3>
 Berufliche Situation: <b>{{obj.professional_state or _("Not specified")}}</b>
 <br>Arbeitserlaubnis benötigt: <b>{{bool2text(obj.needs_work_permit)}}</b>
-<div>
 {{ar.show(rt.models.cv.ExperiencesByPerson, obj,
   column_names="company country duration_text remarks", display_mode="summary")}}
-</div>
 
 
 {% for response in rt.models.polls.ResponsesByPartner.request(obj) %}
 {% if response.poll.ref and response.poll.ref.startswith("") %}
-<h2>{{response.poll}}</h2>
-<div>
+<h3>{{response.poll.title}}</h3>
 {{ar.show(rt.models.polls.AnswersByResponsePrint, response)}}
-</div>
 {% endif %}
 {% endfor %}
-
-
 
 {% endblock %}

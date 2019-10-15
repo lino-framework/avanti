@@ -9,15 +9,18 @@ def objects():
 
     ContentType = rt.models.contenttypes.ContentType
     ExcerptType = rt.models.excerpts.ExcerptType
+    RoleType = rt.models.contacts.RoleType
 
     yield ExcerptType(
-        build_method='appypdf',
-        #template='Default.odt',
-        body_template='final_report.body.html',
+        build_method='weasy2pdf',
+        template='final_report.weasy.html',
         certifying=True, primary=True,
         content_type=ContentType.objects.get_for_model(
             rt.models.avanti.Client),
-        **dd.str2kw('name', _("Final certificate")))
+        **dd.str2kw('name', _("Final report")))
+
+    yield RoleType(**dd.str2kw('name', _("Integration assistant")))
+    yield RoleType(**dd.str2kw('name', _("Social assistant")))
 
     # yield ExcerptType(
     #     build_method='appypdf',
