@@ -10,7 +10,6 @@ See :doc:`/specs/avanti/avanti`.
 .. autosummary::
    :toctree:
 
-    models
     migrate
     user_types
     layouts
@@ -53,6 +52,3 @@ class Plugin(ad.Plugin):
         # mg = self.get_menu_group()
         m = m.add_menu(mg.app_label, mg.verbose_name)
         m.add_action('avanti.AllClients')
-
-
-
