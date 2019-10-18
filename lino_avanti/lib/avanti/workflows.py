@@ -27,6 +27,8 @@ add('30', _("Pharmacy"), 'pharmacy')
 add('40', _("Public Center for Social Welfare"), 'social_center')
 # add('40', _("General social assistant"), 'general_assistant')
 # code 50 might still exist in their database but should be replaced by 40:
+# in your restore.py function create_clients_clientcontacttype() say ::
+# if known_contact_type == '50': known_contact_type = '40'
 # add('50', _("Integration assistant"), 'unused_integ_assistant')
 add('60', _("Work consultant"), 'work_consultant')
 
