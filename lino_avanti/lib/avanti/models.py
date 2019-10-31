@@ -29,6 +29,7 @@ from lino.modlib.users.mixins import UserAuthored, My
 from lino.modlib.dupable.mixins import Dupable
 from lino.modlib.system.mixins import Lockable
 from lino_xl.lib.courses.mixins import Enrollable
+from lino_xl.lib.trends.mixins import TrendObservable
 
 # from lino.modlib.notify.mixins import ChangeNotifier
 # from lino_xl.lib.notes.choicelists import SpecialTypes
@@ -69,7 +70,7 @@ contacts = dd.resolve_app('contacts')
 from lino.utils.mldbc.mixins import BabelDesignated
 
 class Category(BabelDesignated):
-    
+
     class Meta:
         app_label = 'avanti'
         verbose_name = _("Category")
@@ -81,24 +82,25 @@ class Categories(dd.Table):
     required_roles = dd.login_required(ClientsStaff)
 
 class EndingReason(BabelDesignated):
-    
+
     class Meta:
         app_label = 'avanti'
         verbose_name = _("Ending reason")
         verbose_name_plural = _("Ending reasons")
         abstract = dd.is_abstract_model(__name__, 'Category')
 
-        
+
 class EndingReasons(dd.Table):
     model = 'avanti.EndingReason'
     required_roles = dd.login_required(ClientsStaff)
+
 
 
 @dd.python_2_unicode_compatible
 class Client(contacts.Person, BeIdCardHolder, UserAuthored,
              ClientBase, BiographyOwner, Referrable, Dupable,
              Lockable,
-             Commentable, EventGenerator, Enrollable):
+             Commentable, EventGenerator, Enrollable, TrendObservable):
     class Meta:
         app_label = 'avanti'
         verbose_name = _("Client")
@@ -118,13 +120,13 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
 
     # in_belgium_since = models.DateField(
     #     _("Lives in Belgium since"), blank=True, null=True)
-    
+
     in_belgium_since = dd.IncompleteDateField(
         _("Lives in Belgium since"), blank=True, null=True)
-    
+
     in_region_since = dd.IncompleteDateField(
         _("Lives in region since"), blank=True, null=True)
-    
+
     starting_reason = StartingReasons.field(blank=True)
     old_ending_reason = OldEndingReasons.field(blank=True)
     ending_reason = dd.ForeignKey(
@@ -132,7 +134,7 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
     professional_state = ProfessionalStates.field(blank=True)
     category = dd.ForeignKey(
         'avanti.Category', blank=True, null=True)
-    
+
     translator_type = TranslatorTypes.field(blank=True)
     translator_notes = dd.RichTextField(
         _("Translator"), blank=True, format='plain')
@@ -169,26 +171,26 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
 
     family_notes = models.TextField(
         _("Family situation"), blank=True, null=True)
-    
+
     residence_notes = models.TextField(
         _("Residential situation"), blank=True, null=True)
-    
+
     health_notes = models.TextField(
         _("Health situation"), blank=True, null=True)
-    
+
     financial_notes = models.TextField(
         _("Financial situation"), blank=True, null=True)
-    
+
     integration_notes = models.TextField(
         _("Integration notes"), blank=True, null=True)
-    
+
     availability = models.TextField(
         _("Availability"), blank=True, null=True)
 
     needed_course = dd.ForeignKey(
         'courses.Line', verbose_name=_("Needed course"),
         blank=True, null=True)
-    
+
     # obstacles = models.TextField(
     #     _("Other obstacles"), blank=True, null=True)
     # skills = models.TextField(
@@ -199,13 +201,13 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
 
     event_policy = dd.ForeignKey(
         'cal.EventPolicy', blank=True, null=True)
-    
+
     language_notes = dd.RichTextField(
         _("Language notes"), blank=True, format='plain')
-    
+
     remarks = dd.RichTextField(
         _("Remarks"), blank=True, format='plain')
-    
+
     reason_of_stay = models.CharField(
         _("Reason of stay"), max_length=200, blank=True)
 
@@ -214,6 +216,8 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
                                 related_name='by_nationality2',
                                 verbose_name=format_lazy(u"{}{}",
                                     _("Nationality"), " (2)"))
+
+
     def __str__(self):
         return "%s %s (%s)" % (
             self.last_name.upper(), self.first_name, self.pk)
@@ -276,20 +280,20 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
 
     def get_events_user(self):
         return self.get_primary_coach()
-        
+
     def update_cal_rset(self):
         return self.event_policy
-    
+
     def update_cal_event_type(self):
         if self.event_policy is not None:
             return self.event_policy.event_type
-        
+
     def update_cal_from(self, ar):
         return dd.today()
         # pc = self.get_primary_coaching()
         # if pc:
         #     return pc.start_date
-    
+
     def update_cal_until(self):
         return dd.today(365)
         # pc = self.get_primary_coaching()
@@ -333,11 +337,11 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
 
 
 
-        
+
 
 dd.update_field(Client, 'user', verbose_name=_("Primary coach"))
 dd.update_field(Client, 'ref', verbose_name=_("Legacy file number"))
-    
+
 
 class ClientDetail(dd.DetailLayout):
 
@@ -346,7 +350,7 @@ class ClientDetail(dd.DetailLayout):
 
     general = dd.Panel("""
     general1:30 general2:40 image:15
-    
+
     cal.EntriesByProject cal.GuestsByPartner
     """, label=_("General"))
 
@@ -359,8 +363,8 @@ class ClientDetail(dd.DetailLayout):
     starting_reason professional_state
     reason_of_stay category
     client_state user #primary_coach
-    event_policy ending_reason 
-    # workflow_buttons 
+    event_policy ending_reason
+    # workflow_buttons
     """
 
     contact = dd.Panel("""
@@ -396,7 +400,7 @@ class ClientDetail(dd.DetailLayout):
     """, label=_("Courses"))
 
     translator_left = """
-    language 
+    language
     translator_type
     # mother_tongues
     """
@@ -408,7 +412,7 @@ class ClientDetail(dd.DetailLayout):
     # language_knowledge
     # # cef_level_de
     # # cef_level_fr
-    # # cef_level_en 
+    # # cef_level_en
     # """
 
     family = dd.Panel("""
@@ -420,7 +424,7 @@ class ClientDetail(dd.DetailLayout):
     notes = dd.Panel("""
     comments.CommentsByRFC notes_right
     """, label=_("Notes"), required_roles=dd.login_required(CareerUser))
-    
+
     notes_right = """
     cal.TasksByProject
     courses.RemindersByPupil
@@ -475,16 +479,10 @@ class Clients(contacts.Persons):
     params_panel_hidden = True
     required_roles = dd.login_required(ClientsUser)
 
-    # insert_layout = dd.InsertLayout("""
-    # first_name last_name
-    # national_id
-    # gender language
-    # """, window_size=(60, 'auto'))
-
     column_names = "name_column:20 client_state national_id:10 \
     gsm:10 address_column age:10 email phone:10 id language:10 *"
 
-    detail_layout = ClientDetail()
+    detail_layout = 'avanti.ClientDetail'
 
     parameters = ObservedDateRange(
         nationality=dd.ForeignKey(
@@ -616,7 +614,7 @@ class MyClients(My, Clients):
 from lino_xl.lib.countries.mixins import CountryCity
 from lino_xl.lib.cv.mixins import PersonHistoryEntry, HistoryByPerson
 
-    
+
 class Residence(PersonHistoryEntry, CountryCity):
 
     allow_cascaded_delete = ['person']
@@ -632,7 +630,7 @@ class Residence(PersonHistoryEntry, CountryCity):
 
 class Residences(dd.Table):
     model = 'avanti.Residence'
-    
+
 class ResidencesByPerson(HistoryByPerson, Residences):
     label = _("Former residences")
     column_names = 'country city duration_text reason *'
@@ -650,7 +648,7 @@ class ResidencesByPerson(HistoryByPerson, Residences):
 
 #     def fc(**kwargs):
 #         return (**kwargs)
-    
+
 
 from lino.api import _, pgettext
 from lino_xl.lib.clients.choicelists import ClientStates
@@ -675,4 +673,3 @@ add('40', _("Abandoned"), 'refused')
 #     for m in (apps.avanti.Client, apps.contacts.Person,
 #               apps.contacts.Company):
 #         m.define_action(merge_row=dd.MergeAction(m))
-
