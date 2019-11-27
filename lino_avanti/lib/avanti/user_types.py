@@ -17,7 +17,7 @@ from lino.api import _
 # from lino.core.roles import UserRole, SiteAdmin, SiteStaff
 from lino.core.roles import UserRole, Explorer, SiteAdmin, SiteUser
 from lino.modlib.users.choicelists import UserTypes
-from lino.modlib.comments.roles import CommentsUser, CommentsStaff
+from lino.modlib.comments.roles import CommentsUser, CommentsStaff, PrivateCommentsReader
 from lino.modlib.office.roles import OfficeUser, OfficeStaff, OfficeOperator
 from lino.modlib.checkdata.roles import CheckdataUser
 from lino.modlib.about.roles import SiteSearcher
@@ -68,7 +68,7 @@ class SiteStaff(SiteUser, CoachingsStaff, CoursesUser, ContactsStaff,
                 TrendsStaff, ClientsStaff, Explorer, PollsStaff, CheckdataUser):
     pass
 
-class Administrator(SiteAdmin, SiteStaff):
+class Administrator(SiteAdmin, SiteStaff, PrivateCommentsReader):
     pass
 
 UserTypes.clear()
