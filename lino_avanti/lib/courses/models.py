@@ -31,7 +31,7 @@ from .choicelists import ReminderStates, ReminderDegrees
 # class CourseProvider(contacts.Company):
 
 #     """
-#     A CourseProvider is a Company that offers Courses. 
+#     A CourseProvider is a Company that offers Courses.
 #     """
 #     class Meta:
 #         app_label = 'courses'
@@ -74,7 +74,7 @@ from .choicelists import ReminderStates, ReminderDegrees
 
 
 class Course(Course):
-    
+
     class Meta(Course.Meta):
         # app_label = 'courses'
         abstract = dd.is_abstract_model(__name__, 'Course')
@@ -104,7 +104,7 @@ class Course(Course):
     # def update_reminders(self, ar):
     #     super(Course, self).update_reminders(ar)
     #     self.run_update_missing_rates()
-        
+
     @dd.action(label = _("Update missing rates"),
                button_text=' ☉ ')  # like gueststate 'missing'
     def update_missing_rates(self, ar):
@@ -113,7 +113,7 @@ class Course(Course):
         # done = Event.objects.filter(
         #     state__in=expected_states,
         #     **gfk2lookup(Event.owner, self)).count()
-        
+
         for obj in self.enrolment_set.all():
             obj.update_missing_rate.run_from_session(ar)
             # obj.update_missing_rate(ar)
@@ -121,7 +121,7 @@ class Course(Course):
             #        for k, v in gfk2lookup(Event.owner, self).items()}
 
 # class Line(Line):
-    
+
 #     class Meta(Line.Meta):
 #         # app_label = 'courses'
 #         abstract = dd.is_abstract_model(__name__, 'Course')
@@ -130,10 +130,10 @@ class Course(Course):
 
 #     provider = dd.ForeignKey(
 #         'courses.CourseProvider', blank=True, null=True)
-    
+
 
 class Enrolment(Enrolment):
-   
+
     class Meta(Enrolment.Meta):
         abstract = dd.is_abstract_model(__name__, 'Enrolment')
 
@@ -144,7 +144,7 @@ class Enrolment(Enrolment):
 
     missing_rate = dd.PriceField(
         _("Missing rate"), default=ZERO, editable=False)
-        
+
     # ending = dd.ForeignKey(
     #     'coachings.CoachingEnding',
     #     related_name="%(app_label)s_%(class)s_set",
@@ -166,7 +166,7 @@ class Enrolment(Enrolment):
 
     def get_excerpt_title(self):
         return _("Integration Course Agreement")
-    
+
     @classmethod
     def setup_parameters(cls, fields):
         fields.update(
@@ -188,7 +188,7 @@ class Enrolment(Enrolment):
 
         flt = {'event__'+k: v
                for k, v in gfk2lookup(Event.owner, self.course).items()}
-        
+
         flt.update(partner=self.pupil)
         total = Guest.objects.filter(**flt).count()
         if total:
@@ -213,9 +213,8 @@ Enrolment.set_widget_options('missing_rate', hide_sum=True)
 
 # dd.update_field(Enrolment, "pupil", verbose_name=_("Participant"))
 
-dd.python_2_unicode_compatible    
 class Reminder(UserAuthored, Certifiable):
-   
+
     class Meta:
         verbose_name = _("Reminder")
         verbose_name_plural = _("Reminders")
@@ -255,8 +254,8 @@ class Reminder(UserAuthored, Certifiable):
             else:
                 self.date_issued = ce.start_date
         super(Reminder, self).full_clean()
-        
-    
+
+
 # class EnrolmentChecker(Checker):
 #     verbose_name = _("Check for unsufficient presences")
 #     model = Enrolment
@@ -264,7 +263,7 @@ class Reminder(UserAuthored, Certifiable):
 #         msg_absent=_("More than 2 times absent."),
 #         msg_missed=_("Missed more than 10% of meetings."),
 #     )
-    
+
 #     def get_checkdata_problems(self, obj, fix=False):
 #         Guest = rt.models.cal.Guest
 #         GuestStates = rt.models.cal.GuestStates
@@ -289,7 +288,7 @@ class Reminder(UserAuthored, Certifiable):
 #             qs = qs.filter(event__start_date__gt=rdate)
 #         if obj.request_date:
 #             qs = qs.filter(event__start_date__gte=obj.request_date)
-            
+
 #         absent = qs.filter(state=GuestStates.missing).count()
 #         if absent > 2:
 #             yield (False, self.messages['msg_absent'])
@@ -305,14 +304,14 @@ class Reminder(UserAuthored, Certifiable):
 #             if missing > max_missing:
 #                 yield (False, self.messages['msg_missed'])
 #                 return
-    
+
 #     def get_responsible_user(self, obj):
 #         if obj.pupil and obj.pupil.user:
 #             return obj.pupil.user
 #         return super(EnrolmentChecker, self).get_responsible_user(obj)
 
 # EnrolmentChecker.activate()
-    
+
 @dd.schedule_daily()
 def update_missing_rates():
     for obj in rt.models.courses.Enrolment.objects.all():

@@ -96,7 +96,7 @@ class EndingReasons(dd.Table):
 
 
 
-@dd.python_2_unicode_compatible
+
 class Client(contacts.Person, BeIdCardHolder, UserAuthored,
              ClientBase, BiographyOwner, Referrable, Dupable,
              Lockable,
