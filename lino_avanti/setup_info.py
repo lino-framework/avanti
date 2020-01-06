@@ -1,10 +1,10 @@
 # -*- coding: UTF-8 -*-
 # test it with: $ python setup.py test -s tests.PackagesTests
-# Copyright 2017-2019 Rumma & Ko Ltd
+# Copyright 2017-2020 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 SETUP_INFO = dict(
     name='lino-avanti',
-    version='19.11.0',
+    version='20.1',
     install_requires=['lino-xl', 'metafone'],
     description=("Manage the integration course of immigrants in East Belgium"),
     author='Luc Saffre',

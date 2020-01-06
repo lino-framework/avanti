@@ -20,3 +20,5 @@ docs/api/lino_avanti.*
 .coverage
 .coverage.*
 .eggs
+.idea
+dist
