@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017 Rumma & Ko Ltd
+# Copyright 2017-2020 Rumma & Ko Ltd
 
 """The default :attr:`custom_layouts_module
 <lino.core.site.Site.custom_layouts_module>` for Lino Avanti.
@@ -33,10 +33,10 @@ dd.update_field(
 # rt.models.cv.LanguageKnowledgesByPerson.display_mode = 'grid'
 
 
-
 from lino_avanti.lib.avanti.roles import ClientsUser
-rt.models.cal.CalendarView.required_roles = dd.login_required(
-    ClientsUser)
+if dd.is_installed('calview'):
+    rt.models.calview.CalendarView.required_roles = dd.login_required(
+        ClientsUser)
 
 if dd.is_installed('extensible'):
     rt.models.extensible.CalendarPanel.required_roles = dd.login_required(

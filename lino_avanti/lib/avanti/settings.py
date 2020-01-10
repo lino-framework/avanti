@@ -59,6 +59,7 @@ class Site(Site):
         yield 'lino_avanti.lib.contacts'
         # yield 'lino_xl.lib.extensible'
         yield 'lino_avanti.lib.cal'
+        yield 'lino_xl.lib.calview'
         yield 'lino_avanti.lib.avanti'
         yield 'lino.modlib.comments'
         yield 'lino.modlib.notify'
