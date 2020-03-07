@@ -45,8 +45,8 @@ class DitchingEnrolments(Enrolments):
         return kw
 
     @classmethod
-    def get_request_queryset(self, ar, **kwargs):
-        qs = super(DitchingEnrolments, self).get_request_queryset(ar, **kwargs)
+    def get_request_queryset(self, ar):
+        qs = super(DitchingEnrolments, self).get_request_queryset(ar)
         if isinstance(qs, list):
             return qs
         pv = ar.param_values
@@ -56,7 +56,7 @@ class DitchingEnrolments(Enrolments):
             qs = qs.filter(missing_rate__gte=pv.min_missing_rate)
         return qs
 
-    
+
 
 class EnrolmentsByCourse(EnrolmentsByCourse):
     column_names = 'id request_date pupil pupil__gender pupil__nationality:15 ' \
@@ -93,7 +93,7 @@ class PresencesByEnrolment(dd.Table):
                 coll[obj.state] += 1
             else:
                 coll[obj.state] = 1
-                
+
         ul = []
         for st in rt.models.cal.GuestStates.get_list_items():
             ul.append(_("{} : {}").format(st, coll.get(st, 0)))
@@ -104,14 +104,14 @@ class PresencesByEnrolment(dd.Table):
 
 # class CourseDetail(CourseDetail):
 #     main = "general cal_tab enrolments"
-    
+
 #     general = dd.Panel("""
 #     line teacher start_date end_date start_time end_time
 #     room #slot workflow_buttons id:8 user
 #     name
 #     description
 #     """, label=_("General"))
-    
+
 #     cal_tab = dd.Panel("""
 #     max_events max_date every_unit every
 #     monday tuesday wednesday thursday friday saturday sunday
@@ -125,10 +125,10 @@ class PresencesByEnrolment(dd.Table):
 #     EnrolmentsByCourse
 #     """, label=_("Enrolments"))
 
-    
+
 Enrolments.detail_layout = """
 request_date user start_date end_date
-course pupil 
+course pupil
 needs_childcare needs_school needs_bus needs_evening
 remark:40 workflow_buttons:40 printed:20 missing_rate:10
 confirmation_details PresencesByEnrolment  RemindersByEnrolment
@@ -161,7 +161,7 @@ class RemindersByEnrolment(Reminders):
     display_mode = 'summary'
     # can_create = True
     insert_layout = dd.InsertLayout("""
-    degree 
+    degree
     remark
     text_body
     """, window_size=(50,13))
@@ -171,8 +171,8 @@ class RemindersByEnrolment(Reminders):
     enrolment user id printed
     text_body
     """, window_size=(80,20))
-    
-    
+
+
 class RemindersByPupil(Reminders):
     column_names = 'date_issued enrolment user remark workflow_buttons *'
     auto_fit_column_widths = True
@@ -183,6 +183,3 @@ class RemindersByPupil(Reminders):
     # def get_filter_kw(self, ar, **kw):
     #     kw.update(enrolment__pupil=ar.master_instance)
     #     return kw
-
-   
-    

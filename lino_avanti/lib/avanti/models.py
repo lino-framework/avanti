@@ -8,9 +8,6 @@ See :doc:`/specs/avanti/avanti`.
 
 """
 
-from __future__ import unicode_literals
-from builtins import str
-
 from lino.api import dd, rt, _
 from django.db import models
 from django.db.models import Q
@@ -40,20 +37,14 @@ from lino_xl.lib.cal.mixins import EventGenerator
 from lino_xl.lib.cal.workflows import TaskStates
 from lino_xl.lib.cv.mixins import BiographyOwner
 # from lino.utils.mldbc.fields import BabelVirtualField
-
 from lino.mixins import ObservedDateRange
-
 from lino_xl.lib.clients.choicelists import ClientEvents, ClientStates
-
-
+from lino.core.roles import Explorer
+from lino_xl.lib.cv.roles import CareerUser
 
 from .choicelists import TranslatorTypes, StartingReasons, ProfessionalStates
-
 from .choicelists import OldEndingReasons
-
-from lino.core.roles import Explorer
 from .roles import ClientsNameUser, ClientsUser, ClientsStaff
-from lino_xl.lib.cv.roles import CareerUser
 
 contacts = dd.resolve_app('contacts')
 
