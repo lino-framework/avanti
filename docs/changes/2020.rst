@@ -1,0 +1,18 @@
+.. _avanti.changes.2020:
+
+====
+2020
+====
+
+.. Note: Changes are grouped by date. Every new day gives a new
+   heading. If a release deserves separate release notes, we create a separate
+   document and this file will have a link to it.
+
+.. contents::
+  :local:
+
+2020-04-07
+==========
+
+Released Avanti 20.4 to PyPi
+
