@@ -9,6 +9,7 @@ Change notes:
 .. toctree::
    :maxdepth: 1
 
+   2020
    2019
 
 Customized release notes:
