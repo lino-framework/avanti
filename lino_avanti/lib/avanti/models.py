@@ -225,10 +225,6 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
         return _("({}) from {}").format( self.pk, self.city)
         # return "{} {}".format(self._meta.verbose_name, self.pk)
 
-    @dd.displayfield(_("Name"))
-    def name_column(self, ar):
-        return str(self)
-
     @dd.displayfield(_("Municipality"))
     def municipality(self, ar):
         pl = self.city
