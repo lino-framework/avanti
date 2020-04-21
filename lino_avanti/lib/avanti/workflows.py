@@ -10,17 +10,16 @@ This can be used as :attr:`workflows_module
 
 """
 
+from lino.api import _
+
 # calendar events and presences:
 from lino_xl.lib.cal.workflows.voga import *
-
+# courses
 from lino_avanti.lib.courses.workflows import *
-
-from lino.api import _
 
 from lino_xl.lib.clients.choicelists import KnownContactTypes
 KnownContactTypes.clear()
 add = KnownContactTypes.add_item
-
 add('10', _("Health insurance"), 'health_insurance')
 add('20', _("School"), 'school')
 add('30', _("Pharmacy"), 'pharmacy')
