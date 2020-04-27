@@ -28,8 +28,6 @@ class Plugin(ad.Plugin):
 
     needs_plugins = ['lino_xl.lib.countries']
 
-    municipality_type = '50'
-
     def setup_main_menu(self, site, user_type, m):
         mg = site.plugins.contacts
         m = m.add_menu(mg.app_label, mg.verbose_name)

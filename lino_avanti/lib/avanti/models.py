@@ -225,14 +225,6 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
         return _("({}) from {}").format( self.pk, self.city)
         # return "{} {}".format(self._meta.verbose_name, self.pk)
 
-    @dd.displayfield(_("Municipality"))
-    def municipality(self, ar):
-        pl = self.city
-        mt = dd.plugins.avanti.municipality_type
-        while pl and pl.parent_id and pl.type and pl.type.value > mt:
-            pl = pl.parent
-        return str(pl)
-
     def get_overview_elems(self, ar):
         elems = super(Client, self).get_overview_elems(ar)
         # elems.append(E.br())

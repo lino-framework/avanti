@@ -22,4 +22,4 @@ Content
    install/index
    guide/index
    changes/index
-   
+   eutests

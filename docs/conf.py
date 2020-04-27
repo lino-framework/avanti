@@ -27,7 +27,8 @@ help_texts_builder_targets = {
 # settings.SITE.title = "Lino Avanti"
 
 from atelier.sphinxconf import interproject
-interproject.configure(globals(), 'atelier lino_book')
+interproject.configure(globals(), 'atelier lino_book',
+    cg=('http://community.lino-framework.org/', None))
 
 
 # intersphinx_mapping = {}
@@ -73,7 +74,7 @@ language = 'en'
 # List of directories, relative to source directory, that shouldn't be searched
 # for source files.
 exclude_patterns = [
-    '.build/*', 
+    '.build/*',
     'include/*',
 ]
 
@@ -156,4 +157,3 @@ html_use_opensearch = ''
 
 # Output file base name for HTML help builder.
 htmlhelp_basename = 'avanti'
-
