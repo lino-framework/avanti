@@ -11,8 +11,19 @@
 .. contents::
   :local:
 
+2020-05-01
+==========
+
+Oops, there was a bug in 20.4.1 : :xfile:`final_report.weasy.html` still called
+super of the main block.
+
+2020-04-29
+==========
+
+Released Avanti 20.4.1 to PyPi
+
+
 2020-04-07
 ==========
 
 Released Avanti 20.4 to PyPi
-
