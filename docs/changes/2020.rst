@@ -11,6 +11,12 @@
 .. contents::
   :local:
 
+2020-05-03
+==========
+
+Released Avanti 20.5.0 to PyPi
+
+
 2020-05-01
 ==========
 
