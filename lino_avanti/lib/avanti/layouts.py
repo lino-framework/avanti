@@ -37,6 +37,7 @@ from lino_avanti.lib.avanti.roles import ClientsUser
 if dd.is_installed('calview'):
     rt.models.calview.CalendarView.required_roles = dd.login_required(
         ClientsUser)
+    rt.models.calview.DailySlaveBase.required_roles = dd.login_required(ClientsUser)
 
 if dd.is_installed('extensible'):
     rt.models.extensible.CalendarPanel.required_roles = dd.login_required(
