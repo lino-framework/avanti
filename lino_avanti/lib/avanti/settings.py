@@ -64,6 +64,7 @@ class Site(Site):
         yield 'lino.modlib.comments'
         yield 'lino.modlib.notify'
         yield 'lino.modlib.changes'
+        yield 'lino_xl.lib.clients'
         yield 'lino_xl.lib.uploads'
         yield 'lino.modlib.dupable'
         # yield 'lino_xl.lib.households'
@@ -73,7 +74,6 @@ class Site(Site):
         yield 'lino_xl.lib.lists'
         # yield 'lino_xl.lib.notes'
         yield 'lino_xl.lib.beid'
-        yield 'lino_xl.lib.clients'
         yield 'lino_avanti.lib.cv'
         yield 'lino_xl.lib.trends'
         yield 'lino_xl.lib.polls'
@@ -124,6 +124,7 @@ class Site(Site):
         yield ('cv', 'person_model', 'avanti.Client')
         yield ('cal', 'partner_model', 'avanti.Client')
         yield ('clients', 'client_model', 'avanti.Client')
+        yield ('clients', 'demo_coach', 'nathalie')
         yield ('trends', 'subject_model', 'avanti.Client')
 
     def setup_quicklinks(self, user, tb):
