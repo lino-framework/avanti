@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017 Rumma & Ko Ltd
+# Copyright 2017-2020 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
 """
@@ -15,9 +15,6 @@
 
 
 """
-
-from __future__ import print_function
-from __future__ import unicode_literals
 
 from lino.projects.std.settings import *
 from lino.api.ad import _
@@ -126,6 +123,8 @@ class Site(Site):
         yield ('clients', 'client_model', 'avanti.Client')
         yield ('clients', 'demo_coach', 'nathalie')
         yield ('trends', 'subject_model', 'avanti.Client')
+        yield ('uploads', 'expiring_start', -30)
+        yield ('uploads', 'expiring_end', 365)
 
     def setup_quicklinks(self, user, tb):
         super(Site, self).setup_quicklinks(user, tb)
