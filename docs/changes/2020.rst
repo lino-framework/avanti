@@ -11,6 +11,22 @@
 .. contents::
   :local:
 
+2020-07-04
+==========
+
+Optimization for :ticket:`3695`: :attr:`Upload.needed` is now also included in
+the insert window.
+
+Released XL 20.7.1 to PyPi.
+
+2020-07-02
+==========
+
+Done: :ticket:`3695`.
+
+Released Avanti 20.7.0 to PyPi
+
+
 2020-05-03
 ==========
 
