@@ -1,5 +1,5 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017-2019 Rumma & Ko Ltd
+# Copyright 2017-2020 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
 """
@@ -16,6 +16,7 @@ from lino.api import _
 # from lino.core.roles import UserRole, SiteAdmin, SiteUser
 # from lino.core.roles import UserRole, SiteAdmin, SiteStaff
 from lino.core.roles import UserRole, Explorer, SiteAdmin, SiteUser
+from lino.core.roles import login_required
 from lino.modlib.users.choicelists import UserTypes
 from lino.modlib.comments.roles import CommentsUser, CommentsStaff, PrivateCommentsReader
 from lino.modlib.office.roles import OfficeUser, OfficeStaff, OfficeOperator
@@ -86,3 +87,8 @@ add('900', _("Administrator"), Administrator, name='admin')
 
 # from lino_xl.lib.cal.choicelists import EntryTypes
 # EntryTypes.took_place.update(fill_guests=True)
+
+
+# e.g. nelly can edit files uploaded by nathalie, see specs/avanti/uploads
+from lino_xl.lib.uploads.models import Upload
+Upload.manager_roles_required = login_required(ClientsUser)

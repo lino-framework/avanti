@@ -125,6 +125,7 @@ class Site(Site):
         yield ('trends', 'subject_model', 'avanti.Client')
         yield ('uploads', 'expiring_start', -30)
         yield ('uploads', 'expiring_end', 365)
+        yield ('weasyprint', 'header_height', 30)
 
     def setup_quicklinks(self, user, tb):
         super(Site, self).setup_quicklinks(user, tb)
