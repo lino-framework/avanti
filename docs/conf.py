@@ -28,7 +28,7 @@ help_texts_builder_targets = {
 
 from atelier.sphinxconf import interproject
 interproject.configure(globals(), 'atelier lino_book',
-    cg=('http://community.lino-framework.org/', None))
+    cg=('https://community.lino-framework.org/', None))
 
 
 # intersphinx_mapping = {}
