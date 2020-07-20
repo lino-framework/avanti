@@ -4,7 +4,7 @@
 # License: BSD (see file COPYING for details)
 SETUP_INFO = dict(
     name='lino-avanti',
-    version='20.7.1',
+    version='20.7.2',
     install_requires=['lino-xl', 'metafone'],
     description=("Manage the integration course of immigrants in East Belgium"),
     author='Luc Saffre',
