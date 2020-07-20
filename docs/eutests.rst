@@ -1,11 +1,9 @@
-==============
-End-user tests
-==============
+===========================
+Manual testing instructions
+===========================
 
-This document describes a manual testing tour through an :ref:`avanti` site.
-
-To be run by the :term:`application developer` before a release, or
-by the :term:`site maintainer` after an upgrade.
+This document gives :term:`manual testing` instructions for a :ref:`avanti`
+site.
 
 - read a beid card. upload a file.
 
