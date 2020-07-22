@@ -115,13 +115,11 @@ class Site(Site):
     #     #     user_must_publish=False)
 
     def get_plugin_configs(self):
-        for i in super(Site, self).get_plugin_configs():
-            yield i
+        yield super(Site, self).get_plugin_configs()
         yield ('cv', 'with_language_history', True)
         yield ('cv', 'person_model', 'avanti.Client')
         yield ('cal', 'partner_model', 'avanti.Client')
         yield ('clients', 'client_model', 'avanti.Client')
-        yield ('clients', 'demo_coach', 'nathalie')
         yield ('trends', 'subject_model', 'avanti.Client')
         yield ('uploads', 'expiring_start', -30)
         yield ('uploads', 'expiring_end', 365)
