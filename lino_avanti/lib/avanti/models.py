@@ -242,10 +242,28 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
         owned.project = self
         super(Client, self).update_owned_instance(owned)
 
-    # def full_clean(self, *args, **kw):
-    #     if self.national_id:
-    #         ssin.ssin_validator(self.national_id)
-    #     super(Client, self).full_clean(*args, **kw)
+    def full_clean(self, *args, **kw):
+        prefix = "IP"
+        num_width = 4
+        if self.ref and self.ref.upper().startswith(prefix):
+            num_root = self.ref[len(prefix):].strip()
+            if len(num_root) == num_width:
+                ref_num = num_root
+            else:
+                qs = self.__class__.objects.filter(
+                    ref__startswith="{} {}".format(prefix, num_root)).order_by("ref")
+                qs = qs.exclude(id=self.id)
+                obj = qs.last()
+                if obj is None:
+                    last_ref = num_root.ljust(num_width, "0")
+                else:
+                    last_ref = obj.ref[len(prefix):].strip()
+                ref_num = str(int(last_ref)+1)
+            self.ref = "{} {}".format(prefix, ref_num)
+
+        # if self.national_id:
+        #     ssin.ssin_validator(self.national_id)
+        super(Client, self).full_clean(*args, **kw)
 
     def properties_list(self, *prop_ids):
         """Yields a list of the :class:`PersonProperty
@@ -459,7 +477,7 @@ class Clients(contacts.Persons):
     required_roles = dd.login_required(ClientsUser)
 
     column_names = "name_column:20 client_state national_id:10 \
-    gsm:10 address_column age:10 email phone:10 id language:10 *"
+    gsm:10 address_column age:10 email phone:10 id ref:8 #language:10 *"
 
     detail_layout = 'avanti.ClientDetail'
 
