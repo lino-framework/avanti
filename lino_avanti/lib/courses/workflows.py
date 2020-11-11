@@ -1,4 +1,4 @@
-from lino_xl.lib.courses.workflows import *
+from lino_xl.lib.courses.workflows.std import *
 
 from .choicelists import ReminderStates
 
