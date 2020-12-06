@@ -27,8 +27,10 @@ help_texts_builder_targets = {
 # settings.SITE.title = "Lino Avanti"
 
 from atelier.sphinxconf import interproject
-interproject.configure(globals(), 'atelier lino_book',
-    cg=('https://community.lino-framework.org/', None))
+interproject.configure(globals(), 'atelier')
+intersphinx_mapping['cg'] = ('https://community.lino-framework.org/', None)
+intersphinx_mapping['book'] = ('https://www.lino-framework.org/', None)
+
 
 
 # intersphinx_mapping = {}
