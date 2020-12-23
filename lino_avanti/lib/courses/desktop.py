@@ -134,7 +134,7 @@ remark:40 workflow_buttons:40 printed:20 missing_rate:10
 confirmation_details PresencesByEnrolment  RemindersByEnrolment
 """
 
-class CoursesPlanning(Activities):
+class ActivityPlanning(Activities):
     required_roles = dd.login_required(CoursesUser)
     label = _("Course planning")
     column_names = \
