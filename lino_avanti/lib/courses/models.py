@@ -1,10 +1,7 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017-2019 Rumma & Ko Ltd
+# Copyright 2017-2020 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
-from __future__ import unicode_literals
-
-from builtins import str
 from decimal import Decimal
 
 from django.utils.translation import ugettext_lazy as _
