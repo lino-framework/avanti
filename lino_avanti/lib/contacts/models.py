@@ -1,15 +1,7 @@
-# Copyright 2017 Rumma & Ko Ltd
+# Copyright 2017-2021 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
-
-"""
-The :xfile:`models.py` module for this plugin.
-
-"""
-
-
 from django.utils.translation import ugettext_lazy as _
-
 from lino_xl.lib.contacts.models import *
 
 #from lino_xl.lib.beid.mixins import BeIdCardHolder
@@ -21,7 +13,7 @@ from lino_xl.lib.contacts.models import *
 #         app_label = 'contacts'
 #         abstract = dd.is_abstract_model(__name__, 'Person')
 
-#     validate_national_id = True        
+#     validate_national_id = True
 
 
 class PartnerDetail(PartnerDetail):
@@ -86,7 +78,7 @@ class CompanyDetail(CompanyDetail, PartnerDetail):
     addr1 url
     # notes.NotesByCompany
     clients.ClientContactsByCompany
-    checkdata.ProblemsByOwner 
+    checkdata.ProblemsByOwner
     """, label=_("More"))
 
     address_box = """
@@ -94,7 +86,7 @@ class CompanyDetail(CompanyDetail, PartnerDetail):
     street:25 #street_no street_box
     addr2
     country zip_code:10 city
-    """    
+    """
 
     contact_box = dd.Panel("""
     #mti_navigator
@@ -137,17 +129,16 @@ class PersonDetail(PersonDetail, PartnerDetail):
     """
 
     # personal = 'national_id card_number'
-   
+
     bottom_box = """
     remarks:50 checkdata.ProblemsByOwner:30
     """
 
-Persons.set_detail_layout(PersonDetail())
-Companies.set_detail_layout(CompanyDetail())
+# Persons.set_detail_layout(PersonDetail())
+# Companies.set_detail_layout(CompanyDetail())
 # Partners.set_detail_layout(PartnerDetail())
 
 
 # Lino Avanti uses the `overview` field only in detail forms, and we
 # don't want it to have a label "Description":
-dd.update_field(Partner, 'overview', verbose_name=None)    
-
+dd.update_field(Partner, 'overview', verbose_name=None)
