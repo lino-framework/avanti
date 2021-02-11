@@ -9,6 +9,7 @@ Change notes:
 .. toctree::
    :maxdepth: 1
 
+   2021
    2020
    2019
 

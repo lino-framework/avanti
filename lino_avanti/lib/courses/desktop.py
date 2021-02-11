@@ -59,7 +59,7 @@ class DitchingEnrolments(Enrolments):
 
 
 class EnrolmentsByCourse(EnrolmentsByCourse):
-    column_names = 'id request_date pupil pupil__gender pupil__nationality:15 ' \
+    column_names = 'id #request_date pupil pupil__gender pupil__nationality:15 ' \
                    'needs_childcare needs_school needs_bus needs_evening '\
                    'remark missing_rate workflow_buttons *'
 

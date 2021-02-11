@@ -208,10 +208,13 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
                                 verbose_name=format_lazy(u"{}{}",
                                     _("Nationality"), " (2)"))
 
-
     def __str__(self):
-        return "%s %s (%s)" % (
-            self.last_name.upper(), self.first_name, self.pk)
+        info = str(self.pk)
+        u = self.user
+        if u is not None:
+            # info = (str(u.initials or u) + " " + info).strip()
+            info += "/" + str(u.initials or u.username)
+        return "%s %s (%s)" % (self.last_name.upper(), self.first_name, info)
 
     def get_choices_text(self, ar, actor, field):
         if ar:
@@ -296,7 +299,6 @@ class Client(contacts.Person, BeIdCardHolder, UserAuthored,
         # pc = self.get_primary_coaching()
         # if pc:
         #     return pc.end_date
-
 
     def get_dupable_words(self, s):
         s = strip_name_prefix(s)
