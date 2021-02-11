@@ -1,8 +1,6 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2019 Rumma & Ko Ltd
+# Copyright 2021 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
-
-from __future__ import unicode_literals
 
 from lino_xl.lib.cv.models import *
 
