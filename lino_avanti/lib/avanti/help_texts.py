@@ -55,5 +55,5 @@ Otherwise same as lino_xl.lib.courses.Course."""),
     'lino_avanti.lib.courses.Course.update_missing_rates' : _("""Calculate the missing rates for all enrolments of this course."""),
     'lino_avanti.lib.courses.DitchingEnrolments' : _("""List of enrolments with high absence rate for review by their
 coach."""),
-    'lino_avanti.lib.cv.AbsenceReasons' : _("""The table of possible absence reasons."""),
+    'lino_avanti.lib.cv.Study.recognized' : _("""Whether this study is recognized in Belgium."""),
 }
