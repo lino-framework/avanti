@@ -124,6 +124,7 @@ class Site(Site):
         yield ('uploads', 'expiring_start', -30)
         yield ('uploads', 'expiring_end', 365)
         yield ('weasyprint', 'header_height', 30)
+        yield ('comments', 'emotion_range', 'social')
 
     def setup_quicklinks(self, user, tb):
         super(Site, self).setup_quicklinks(user, tb)
