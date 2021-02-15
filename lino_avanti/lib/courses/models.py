@@ -4,7 +4,7 @@
 
 from decimal import Decimal
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 from django.utils.translation import pgettext_lazy as pgettext
 
 from etgen.html import E, join_elems

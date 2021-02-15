@@ -10,7 +10,7 @@ from __future__ import unicode_literals
 
 from lino_xl.lib.households.models import *
 
-from django.utils.translation import ugettext_lazy as _
+from django.utils.translation import gettext_lazy as _
 
 
 class Member(Member):
