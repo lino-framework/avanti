@@ -11,7 +11,6 @@ See :doc:`/specs/avanti/avanti`.
    :toctree:
 
     migrate
-    user_types
     layouts
     choicelists
 
