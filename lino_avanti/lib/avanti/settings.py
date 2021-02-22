@@ -28,7 +28,7 @@ class Site(Site):
     demo_fixtures = ['std',
                      'few_languages', 'compass',
                      # 'all_countries', 'all_languages',
-                     'demo', 'demo2', 'checkdata']
+                     'demo', 'demo2', 'demo3', 'checkdata']
     user_types_module = 'lino_avanti.lib.avanti.user_types'
     workflows_module = 'lino_avanti.lib.avanti.workflows'
     custom_layouts_module = 'lino_avanti.lib.avanti.layouts'
