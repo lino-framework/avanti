@@ -1,12 +1,12 @@
 # -*- coding: UTF-8 -*-
-# Copyright 2017-2020 Rumma & Ko Ltd
+# Copyright 2017-2021 Rumma & Ko Ltd
 # License: BSD (see file COPYING for details)
 
 """
 This is the :attr:`user_types_module
 <lino.core.site.Site.user_types_module>` for :ref:`avanti`.
 
-Redefines the list of available :class:`lino.modlib.users.UserTypes`.
+Redefines the list of available :term:`user types <user type>`.
 
 """
 
