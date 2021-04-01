@@ -8,12 +8,12 @@
 
 from lino.api import dd, rt, _
 
-rt.models.system.SiteConfigs.detail_layout = dd.DetailLayout("""
+rt.models.system.SiteConfigs.set_detail_layout("""
 site_company next_partner_id:10
 default_build_method simulate_today
 site_calendar default_event_type #pupil_guestrole
 max_auto_events hide_events_before
-""", size=(60, 'auto'))
+""", window_size=(60, 'auto'))
 
 rt.models.countries.Places.detail_layout = """
 name country
