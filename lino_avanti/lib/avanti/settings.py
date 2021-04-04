@@ -128,11 +128,6 @@ class Site(Site):
 
     def setup_quicklinks(self, user, tb):
         super(Site, self).setup_quicklinks(user, tb)
-        a = self.models.users.MySettings.default_action
-        tb.add_instance_action(
-            user, action=a, label=_("My settings"))
-
-        # Clients = self.models.avanti.Clients
         Clients = self.models.avanti.MyClients
         tb.add_action(Clients)
         tb.add_action(
