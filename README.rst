@@ -5,7 +5,7 @@ The ``lino-avanti`` package
 
 
 
-Lino Avanti is a free `Lino <http://www.lino-framework.org/>`__
+Lino Avanti is a free `Lino <https://www.lino-framework.org/>`__
 application used by social workers in East Belgium for helping
 immigrants with their *integration course*.
 
