@@ -14,7 +14,7 @@ extlinks = {}
 from lino.sphinxcontrib import configure
 configure(globals())
 
-extlinks.update(ticket=('http://bugs.saffre-rumma.net/tickets/Ticket/%s', '#'))
+# extlinks.update(ticket=('https://jane.mylino.net/#/api/tickets/AllTickets/%s', '#'))
 
 # extensions += ['lino.sphinxcontrib.logo']
 
@@ -28,8 +28,8 @@ help_texts_builder_targets = {
 
 from atelier.sphinxconf import interproject
 interproject.configure(globals(), 'atelier')
-intersphinx_mapping['cg'] = ('https://community.lino-framework.org/', None)
-intersphinx_mapping['book'] = ('https://www.lino-framework.org/', None)
+# intersphinx_mapping['cg'] = ('https://community.lino-framework.org/', None)
+# intersphinx_mapping['book'] = ('https://www.lino-framework.org/', None)
 
 
 
@@ -45,7 +45,7 @@ intersphinx_mapping['book'] = ('https://www.lino-framework.org/', None)
 
 # General information about the project.
 project = "Lino Avanti"
-copyright = '2017-2018 Rumma & Ko Ltd'
+copyright = '2017-2021 Rumma & Ko Ltd'
 
 # The version info for the project you're documenting, acts as replacement for
 # |version| and |release|, also used in various other places throughout the
