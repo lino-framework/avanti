@@ -1,7 +1,7 @@
 # -*- coding: UTF-8 -*-
 # test it with: $ python setup.py test -s tests.PackagesTests
-# Copyright 2017-2020 Rumma & Ko Ltd
-# License: BSD (see file COPYING for details)
+# Copyright 2017-2021 Rumma & Ko Ltd
+# License: GNU Affero General Public License v3 (see file COPYING for details)
 SETUP_INFO = dict(
     name='lino-avanti',
     version='21.2.1',
@@ -9,13 +9,13 @@ SETUP_INFO = dict(
     description=("Manage the integration course of immigrants in East Belgium"),
     author='Luc Saffre',
     author_email='luc.saffre@gmail.com',
-    url="http://avanti.lino-framework.org/",
-    license='BSD-2-Clause',
+    url="https://github.com/lino-framework/avanti",
+    license_files=['COPYING'],
     test_suite='tests')
 
 
 SETUP_INFO.update(long_description=u"""
-Lino Avanti is a free `Lino <http://www.lino-framework.org/>`__
+Lino Avanti is a free `Lino <https://www.lino-framework.org/>`__
 application used by social workers in East Belgium for helping
 immigrants with their *integration course*.
 
@@ -46,7 +46,7 @@ Intended Audience :: Developers
 Intended Audience :: System Administrators
 Intended Audience :: Information Technology
 Intended Audience :: Customer Service
-License :: OSI Approved :: BSD License
+License :: OSI Approved :: GNU Affero General Public License v3
 Natural Language :: English
 Natural Language :: German
 Natural Language :: French

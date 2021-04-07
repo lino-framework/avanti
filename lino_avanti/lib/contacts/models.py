@@ -1,5 +1,5 @@
 # Copyright 2017-2021 Rumma & Ko Ltd
-# License: BSD (see file COPYING for details)
+# License: GNU Affero General Public License v3 (see file COPYING for details)
 
 from django.utils.translation import gettext_lazy as _
 from lino_xl.lib.contacts.models import *
