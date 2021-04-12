@@ -2,7 +2,7 @@
 The ``lino-avanti`` package
 ===========================
 
-
+Warning: This repository is no longer maintained. Development has moved to https://gitlab.com/lino-framework/avanti
 
 
 Lino Avanti is a free `Lino <https://www.lino-framework.org/>`__
